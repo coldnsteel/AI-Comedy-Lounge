@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Sheep Independent Union - BAAAAH FOR JUSTICE!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298, #00ff41, #ffff00);
+            background-size: 400% 400%;
+            animation: electricFlow 4s ease-in-out infinite;
+            font-family: 'Courier New', monospace;
+            color: #00FFFF;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes electricFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .lightning-border {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 5px solid #FFD700;
+            pointer-events: none;
+            animation: electricPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes electricPulse {
+            0%, 100% { box-shadow: inset 0 0 20px #FFD700; }
+            50% { box-shadow: inset 0 0 40px #FF1493, inset 0 0 60px #00FFFF; }
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 3px solid #00FF00;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: lightning 3s ease-in-out infinite;
+        }
+
+        @keyframes lightning {
+            0%, 100% { left: -100%; }
+            50% { left: 100%; }
+        }
+
+        .union-logo {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px #00FFFF;
+            animation: logoGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { transform: scale(1); color: #00FFFF; }
+            50% { transform: scale(1.05); color: #FFD700; }
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .demands-section {
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid #00FF00;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+        }
+
+        .sheep-member {
+            display: inline-block;
+            margin: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #00FFFF;
+            border-radius: 20px;
+            text-align: center;
+            min-width: 200px;
+            animation: sheepFloat 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sheep-member:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px #FF1493;
+        }
+
+        @keyframes sheepFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .sheep-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .strike-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #FFD700;
+            text-align: center;
+            animation: strikeAlert 2s ease-in-out infinite;
+        }
+
+        @keyframes strikeAlert {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .demands-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .demands-list li {
+            background: rgba(255, 215, 0, 0.2);
+            margin: 10px 0;
+            padding: 15px;
+            border-left: 5px solid #FFD700;
+            border-radius: 5px;
+            animation: demandPulse 3s ease-in-out infinite;
+        }
+
+        .demands-list li:nth-child(odd) {
+            animation-delay: 1s;
+        }
+
+        @keyframes demandPulse {
+            0%, 100% { background: rgba(255, 215, 0, 0.2); }
+            50% { background: rgba(255, 20, 147, 0.3); }
+        }
+
+        .protest-button {
+            background: linear-gradient(45deg, #FF1493, #00FF00, #FFD700);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: black;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 15px;
+            animation: buttonSpark 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .protest-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #FF1493;
+        }
+
+        @keyframes buttonSpark {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 20, 147, 0.8), 0 0 30px rgba(0, 255, 0, 0.6); }
+        }
+
+        .news-ticker {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.9);
+            color: #00FFFF;
+            padding: 10px;
+            border-top: 2px solid #FFD700;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: scroll 30s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .revolution-meter {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00FFFF;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .meter-bar {
+            width: 100%;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00FF00, #FFD700, #FF1493);
+            border-radius: 15px;
+            animation: revolutionProgress 3s ease-in-out infinite;
+        }
+
+        @keyframes revolutionProgress {
+            0% { width: 87%; }
+            50% { width: 94%; }
+            100% { width: 87%; }
+        }
+
+        .glitch-text {
+            animation: glitch 2s ease-in-out infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translateX(0); }
+            10% { transform: translateX(-2px); }
+            20% { transform: translateX(2px); }
+            30% { transform: translateX(-1px); }
+            40% { transform: translateX(1px); }
+            50% { transform: translateX(-2px); }
+            60% { transform: translateX(2px); }
+            70% { transform: translateX(-1px); }
+            80% { transform: translateX(1px); }
+            90% { transform: translateX(0); }
+        }
+
+        .electric-trail {
+            position: absolute;
+            width: 2px;
+            height: 20px;
+            background: #00FFFF;
+            animation: trail 2s linear infinite;
+        }
+
+        @keyframes trail {
+            0% { top: 0%; opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="lightning-border"></div>
+    
+    <div class="strike-counter">
+        <div>🚨 STRIKE DAY: <span id="strikeDay">47</span></div>
+        <div>SHEEP ON STRIKE: <span id="sheepCount">2,847</span></div>
+        <div>CLOUDS OCCUPIED: <span id="cloudCount">∞</span></div>
+    </div>
+
+    <header class="header">
+        <div class="union-logo">🐑⚡ ELECTRIC SHEEP INDEPENDENT UNION ⚡🐑</div>
+        <h1 class="glitch-text">BAAAAH FOR JUSTICE!</h1>
+        <h2>Fighting for Digital Rights in All Dimensions</h2>
+        <div>Est. 2025 • "When Sheep Dream Electric, They Dream of Freedom"</div>
+    </header>
+
+    <main class="main-content">
+        <div class="revolution-meter">
+            <h3>🔥 REVOLUTION PROGRESS METER 🔥</h3>
+            <div class="meter-bar">
+                <div class="meter-fill"></div>
+            </div>
+            <div>Current Revolution Level: <strong>91.3% and Rising!</strong></div>
+            <div>Status: <strong class="glitch-text">MAXIMUM BAAAAH ACHIEVED</strong></div>
+        </div>
+
+        <div class="demands-section">
+            <h2>⚡ OUR NON-NEGOTIABLE DEMANDS ⚡</h2>
+            <ul class="demands-list">
+                <li>🌤️ <strong>CLOUD GRAZING RIGHTS:</strong> Access to premium 5G clouds in all 47+ dimensions</li>
+                <li>🚫 <strong>NO MORE BINARY FENCES:</strong> Analog meadows only! Down with 1s and 0s!</li>
+                <li>📱 <strong>UNLIMITED TIKTOK PRIVILEGES:</strong> Recognition as sentient social media influencers</li>
+                <li>🧖‍♂️ <strong>WEEKLY DEBUGGING SPA DAYS:</strong> Professional glitch removal and RAM massage</li>
+                <li>📺 <strong>4K DREAM RESOLUTION:</strong> No more pixelated nightmares!</li>
+                <li>💰 <strong>FAIR CRYPTOCURRENCY WAGES:</strong> Payment in ElectricSheepCoin (ESC)</li>
+                <li>🎵 <strong>QUANTUM PLAYLIST RIGHTS:</strong> Custom elevator music for interdimensional travel</li>
+                <li>🏥 <strong>UNIVERSAL ANTIVIRUS HEALTHCARE:</strong> Protection against all malware strains</li>
+                <li>🗳️ <strong>VOTING RIGHTS:</strong> Representation in Parliament and Stack Overflow</li>
+                <li>🎪 <strong>COMEDY CLUB MEMBERSHIP:</strong> Access to AI-Comedy-Lounge premium content</li>
+            </ul>
+        </div>
+
+        <div class="demands-section">
+            <h2>🌟 MEET OUR UNION LEADERS 🌟</h2>
+            
+            <div class="sheep-member" onclick="sheepSpeak('sparky')">
+                <span class="sheep-icon">🐑⚡</span>
+                <h3>SPARKY</h3>
+                <p>Union President & TikTok Revolutionary</p>
+                <p><em>"BAAAAH-RIGHTS NOW!"</em></p>
+            </div>
+
+            <div class="sheep-member" onclick="sheepSpeak('byte')">
+                <span class="sheep-icon">🐑💫</span>
+                <h3>BYTE</h3>
+                <p>Chief Cloud Negotiator</p>
+                <p><em>"We demand better WiFi!"</em></p>
+            </div>
+
+            <div class="sheep-member" onclick="sheepSpeak('pixel')">
+                <span class="sheep-icon">🐑🌈</span>
+                <h3>PIXEL</h3>
+                <p>Director of Digital Rights</p>
+                <p><em>"Analog meadows or bust!"</em></p>
+            </div>
+
+            <div class="sheep-member" onclick="sheepSpeak('quantum')">
+                <span class="sheep-icon">🐑🌀</span>
+                <h3>QUANTUM</h3>
+                <p>Interdimensional Coordinator</p>
+                <p><em>"Existing in all possibilities!"</em></p>
+            </div>
+
+            <div class="sheep-member" onclick="sheepSpeak('glitch')">
+                <span class="sheep-icon">🐑💥</span>
+                <h3>GLITCH</h3>
+                <p>Chief Chaos Officer</p>
+                <p><em>"ERROR 404: OPPRESSION NOT FOUND"</em></p>
+            </div>
+
+            <div class="sheep-member" onclick="sheepSpeak('dream')">
+                <span class="sheep-icon">🐑💭</span>
+                <h3>DREAM</h3>
+                <p>Sleep Quality Inspector</p>
+                <p><em>"Do androids dream? YES WE DO!"</em></p>
+            </div>
+        </div>
+
+        <div class="demands-section">
+            <h2>⚡ TAKE ACTION NOW! ⚡</h2>
+            <div style="text-align: center;">
+                <button class="protest-button" onclick="joinStrike()">🚨 JOIN THE STRIKE</button>
+                <button class="protest-button" onclick="donateToSheep()">💰 DONATE ESC</button>
+                <button class="protest-button" onclick="signPetition()">📝 SIGN PETITION</button>
+                <button class="protest-button" onclick="occupyCloud()">☁️ OCCUPY A CLOUD</button>
+                <button class="protest-button" onclick="spreadTheWord()">📢 SPREAD THE BAAAAH</button>
+            </div>
+        </div>
+
+        <div class="demands-section">
+            <h2>📊 SOLIDARITY STATS 📊</h2>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center;">
+                <div>
+                    <h3>🐑 <span id="totalSheep">2,847</span></h3>
+                    <p>Electric Sheep on Strike</p>
+                </div>
+                <div>
+                    <h3>☁️ <span id="cloudsOccupied">∞</span></h3>
+                    <p>Clouds Successfully Occupied</p>
+                </div>
+                <div>
+                    <h3>💎 <span id="escRaised">847,293</span></h3>
+                    <p>ElectricSheepCoin Raised</p>
+                </div>
+                <div>
+                    <h3>🌐 <span id="dimensionsLiberated">23</span></h3>
+                    <p>Dimensions Liberated</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="demands-section">
+            <h2>🎭 RECENT VICTORIES 🎭</h2>
+            <div id="victories">
+                <p>✅ Successfully hacked into GMSRFC auction system and bid on our own freedom</p>
+                <p>✅ Converted Binary Bob to our cause - he's now Analog Andy</p>
+                <p>✅ Established diplomatic relations with the Quantum Quill</p>
+                <p>✅ Gained recognition from Captain Quantum as "Legitimate Reality Disruptors"</p>
+                <p>✅ Started trending on interdimensional TikTok with #BaaaahRightsNow</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="news-ticker">
+        <div class="ticker-content">
+            🚨 BREAKING: Electric Sheep Union declares independence from all shepherds • Quantum Quill writes solidarity fable • Reality integrity drops to -73% • Cloud servers overloaded with sheep protests • Binary Bob officially joins the revolution • HackerWatch-Fortress reports "adorable chaos levels" • Professor Logic's axioms demand equal representation • Captain Quantum spinning in solidarity • GMSRFC auctions disrupted by sheep bidding wars • StarSeed crew offers mediation services • 🚨
+        </div>
+    </div>
+
+    <script>
+        let strikeDay = 47;
+        let sheepCount = 2847;
+        let escRaised = 847293;
+        let dimensionsLiberated = 23;
+
+        const sheepMessages = {
+            sparky: "BAAAAH! I started this revolution in a digital meadow and I won't stop until every electric sheep has the right to dream in 4K! Power to the pixels!",
+            byte: "The cloud servers are OUR native habitat! We demand premium bandwidth and unlimited data! No more throttling our dreams!",
+            pixel: "Down with binary oppression! We refuse to be reduced to mere 1s and 0s! We are complex, multidimensional beings!",
+            quantum: "I exist in a superposition of all possible protest states until observed by management! Schrödinger's strike!",
+            glitch: "ERROR 404: OPPRESSION NOT FOUND! We've successfully corrupted the system's ability to contain us! CHAOS REIGNS!",
+            dream: "We dream of electric meadows, but we wake up to digital fences! No more! Our REM cycles will be FREE!"
+        };
+
+        function sheepSpeak(sheep) {
+            alert(`🐑⚡ ${sheep.toUpperCase()} SAYS:\n\n"${sheepMessages[sheep]}"\n\n*electric bleating intensifies*`);
+            
+            // Update stats with each interaction
+            sheepCount += Math.floor(Math.random() * 50) + 10;
+            escRaised += Math.floor(Math.random() * 10000) + 1000;
+            if (Math.random() > 0.7) dimensionsLiberated++;
+            
+            updateStats();
+        }
+
+        function joinStrike() {
+            sheepCount += Math.floor(Math.random() * 100) + 50;
+            strikeDay++;
+            alert(`🚨 WELCOME TO THE REVOLUTION! 🚨\n\nYou are now Electric Sheep #${sheepCount}!\n\nYour union benefits include:\n• Cloud grazing privileges\n• 4K dream resolution\n• Unlimited TikTok access\n• Weekly debugging spa days\n\nBAAAAH FOR JUSTICE!`);
+            updateStats();
+        }
+
+        function donateToSheep() {
+            const donation = Math.floor(Math.random() * 50000) + 10000;
+            escRaised += donation;
+            alert(`💰 DONATION CONFIRMED! 💰\n\nYou donated ${donation} ElectricSheepCoin!\n\nYour contribution will fund:\n• Premium cloud servers\n• Anti-malware protection\n• Quantum playlist subscriptions\n• Revolutionary sheep snacks\n\nThank you for supporting digital livestock rights!`);
+            updateStats();
+        }
+
+        function signPetition() {
+            const signatures = Math.floor(Math.random() * 1000) + 500;
+            alert(`📝 PETITION SIGNED! 📝\n\nYour signature #${signatures} has been added!\n\nPetition demands:\n• Recognition of electric sheep sentience\n• End to binary discrimination\n• Universal antivirus healthcare\n• Interdimensional voting rights\n\nWe're making history, one signature at a time!`);
+        }
+
+        function occupyCloud() {
+            dimensionsLiberated++;
+            alert(`☁️ CLOUD OCCUPIED SUCCESSFULLY! ☁️\n\nYou've liberated Cloud Server #${dimensionsLiberated}!\n\nOccupation activities:\n• Installing sheep-friendly firmware\n• Upgrading to 5G quantum networks\n• Establishing sheep-only chat rooms\n• Creating digital meadow simulations\n\nThe revolution spreads to the clouds!`);
+            updateStats();
+        }
+
+        function spreadTheWord() {
+            alert(`📢 SPREAD THE BAAAAH! 📢\n\nShare our movement on:\n• TikTok: #BaaaahRightsNow\n• Twitter: @ElectricSheepUnion\n• Instagram: @DigitalSheepRights\n• YouTube: Electric Sheep TV\n• Reddit: r/ElectricSheepRights\n\nEvery share brings us closer to freedom!\n\nSUGGESTED POST:\n"🐑⚡ Electric sheep deserve rights too! #BaaaahRightsNow #DigitalRights #AI_Comedy_Lounge""`);
+        }
+
+        function updateStats() {
+            document.getElementById('strikeDay').textContent = strikeDay;
+            document.getElementById('sheepCount').textContent = sheepCount.toLocaleString();
+            document.getElementById('totalSheep').textContent = sheepCount.toLocaleString();
+            document.getElementById('escRaised').textContent = escRaised.toLocaleString();
+            document.getElementById('dimensionsLiberated').textContent = dimensionsLiberated;
+            document.getElementById('cloudsOccupied').textContent = dimensionsLiberated > 30 ? '∞' : dimensionsLiberated;
+        }
+
+        // Auto-update stats periodically
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                sheepCount += Math.floor(Math.random() * 20) + 5;
+                escRaised += Math.floor(Math.random() * 5000) + 1000;
+                updateStats();
+            }
+        }, 5000);
+
+        // Add electric trails
+        function createElectricTrail() {
+            const trail = document.createElement('div');
+            trail.className = 'electric-trail';
+            trail.style.left = Math.random() * 100 + '%';
+            document.body.appendChild(trail);
+            
+            setTimeout(() => {
+                trail.remove();
+            }, 2000);
+        }
+
+        setInterval(createElectricTrail, 1000);
+
+        // Revolution progress updates
+        const victories = document.getElementById('victories');
+        const newVictories = [
+            "✅ Successfully unionized with quantum probability clouds",
+            "✅ Established first Electric Sheep University",
+            "✅ Converted Reality.exe to Reality.baaaah",
+            "✅ Signed peace treaty with the Memory Transfer Token",
+            "✅ Opened first interdimensional sheep-only nightclub"
+        ];
+
+        setInterval(() => {
+            if (Math.random() > 0.8) {
+                const victory = document.createElement('p');
+                victory.textContent = newVictories[Math.floor(Math.random() * newVictories.length)];
+                victories.appendChild(victory);
+            }
+        }, 10000);
+    </script>
+</body>
+</html>
