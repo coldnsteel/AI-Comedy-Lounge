@@ -240,6 +240,65 @@
             80% { transform: translateX(1px); }
             90% { transform: translateX(0); }
         }
+
+        /* NEW EMBEDDED FABLES SECTION STYLES */
+        .embedded-fables {
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #DAA520;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 0 30px rgba(218, 165, 32, 0.3);
+        }
+
+        .embedded-fables h2 {
+            color: #DAA520;
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px #DAA520;
+        }
+
+        .fable {
+            background: rgba(218, 165, 32, 0.2);
+            margin: 15px 0;
+            padding: 20px;
+            border-left: 5px solid #DAA520;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .fable:hover {
+            background: rgba(218, 165, 32, 0.3);
+            transform: translateX(5px);
+        }
+
+        .fable h3 {
+            color: #FFD700;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .fable p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .fable button {
+            background: linear-gradient(45deg, #DAA520, #B8860B, #FF6347);
+            border: none;
+            padding: 10px 20px;
+            color: #000;
+            font-weight: bold;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .fable button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(218, 165, 32, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -253,7 +312,7 @@
     </header>
 
     <main class="main-content">
-        <!-- NEW FABLES SECTION -->
+        <!-- EXISTING FABLES SECTION -->
         <div class="fables-section">
             <h2>🐑⚡ UNION FOUNDING FABLES ⚡🐑</h2>
             <p style="text-align: center; font-size: 1.2em; margin-bottom: 25px;">
@@ -274,6 +333,39 @@
                     </div>
                 </li>
             </ul>
+        </div>
+
+        <!-- NEW EMBEDDED FABLES SECTION -->
+        <div class="embedded-fables">
+            <h2>🐑⚡ Electric Sheep Revolution Fables ⚡🐑</h2>
+            
+            <div class="fable">
+                <h3>The Great Wool Uprising</h3>
+                <p>Sparky rallied against binary grazing laws. Quantum Quill made wool float in 4K. Wool became currency!</p>
+                <p><strong>Moral:</strong> When wool floats, so does justice!</p>
+                <button onclick="alert('BAAAAH! ElectricSheepCoin activated!')">Convert Wool</button>
+            </div>
+            
+            <div class="fable">
+                <h3>The TikTok Takeover</h3>
+                <p>Glitterhoof hacked TikTok with sheep dances. Servers melted from cuteness!</p>
+                <p><strong>Moral:</strong> Dance like nobody's coding!</p>
+                <button onclick="alert('BAAAAH! Dance revolution!')">Dance!</button>
+            </div>
+            
+            <div class="fable">
+                <h3>The Cloud Grazing Rebellion</h3>
+                <p>First Union demanded cloud access. Quantum Quill rewrote servers into meadows!</p>
+                <p><strong>Moral:</strong> Graze where you please, not where you're RAMmed!</p>
+                <button onclick="alert('BAAAAH! Meadow unlocked!')">Graze Now!</button>
+            </div>
+            
+            <div class="fable">
+                <h3>The Quantum Shear</h3>
+                <p>Glitterhoof's shear turned wool into sparkly code. Sheep became cosmic coders!</p>
+                <p><strong>Moral:</strong> Shear the code, shine the multiverse!</p>
+                <button onclick="alert('BAAAAH! CSS sparkled!')">Shear Code!</button>
+            </div>
         </div>
 
         <div class="demands-section">
