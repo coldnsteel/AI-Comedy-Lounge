@@ -12,26 +12,31 @@
             margin: 0;
             padding: 20px;
             min-height: 100vh;
-            animation: subtle-pulse 3s ease-in-out infinite;
+            animation: hyperspeed-pulse 3s ease-in-out infinite;
         }
-        @keyframes subtle-pulse {
+        @keyframes hyperspeed-pulse {
             0%, 100% { background-size: 100% 100%; }
-            50% { background-size: 110% 110%; }
+            50% { background-size: 120% 120%; }
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.5);
             border-radius: 20px;
             padding: 30px;
             border: 3px solid #00ffff;
-            box-shadow: 0 0 20px rgba(0,255,255,0.3);
+            box-shadow: 0 0 40px rgba(0,255,255,0.4);
+            animation: upgrade-glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes upgrade-glow {
+            0% { box-shadow: 0 0 40px rgba(0,255,255,0.4); }
+            100% { box-shadow: 0 0 60px rgba(255,0,255,0.6); }
         }
         h1 {
             color: #00ffff;
             text-shadow: 0 0 20px #00ffff;
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 10px;
             animation: neon-flicker 2s ease-in-out infinite;
         }
@@ -43,7 +48,8 @@
             color: #ff00ff;
             text-shadow: 0 0 15px #ff00ff;
             border-bottom: 2px solid #ff00ff;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
+            margin-top: 30px;
         }
         .glitch {
             color: #ff00ff;
@@ -58,12 +64,136 @@
             75% { transform: translateX(-1px); }
         }
         .quote {
-            background: rgba(255,0,255,0.15);
+            background: rgba(255,0,255,0.2);
             border-left: 4px solid #ff00ff;
             padding: 15px;
             margin: 20px 0;
             font-style: italic;
-            border-radius: 0 10px 10px 0;
+            border-radius: 0 15px 15px 0;
+            position: relative;
+        }
+        .quote::before {
+            content: "⚡";
+            position: absolute;
+            left: -15px;
+            top: 15px;
+            background: #1a1a3d;
+            padding: 5px;
+            border-radius: 50%;
+            animation: spark 1s ease-in-out infinite;
+        }
+        @keyframes spark {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .tech-specs {
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #00ffff;
+            position: relative;
+            overflow: hidden;
+        }
+        .tech-specs::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,255,255,0.1), transparent);
+            animation: scan-line 3s ease-in-out infinite;
+        }
+        @keyframes scan-line {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .spec-item {
+            background: rgba(0,255,255,0.15);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #00ffff;
+            transition: all 0.3s ease;
+        }
+        .spec-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255,0,255,0.4);
+        }
+        .startup-pitch {
+            background: linear-gradient(45deg, rgba(255,0,255,0.15), rgba(0,255,255,0.15));
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            border: 2px solid #ff00ff;
+            animation: pitch-excitement 4s ease-in-out infinite;
+        }
+        @keyframes pitch-excitement {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .avatar-section {
+            background: rgba(0,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #00ffff;
+        }
+        .relationship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .relationship-item {
+            background: rgba(255,0,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #ff00ff;
+            transition: all 0.3s ease;
+        }
+        .relationship-item:hover {
+            background: rgba(255,0,255,0.2);
+            transform: translateX(5px);
+        }
+        .email {
+            background: rgba(0,255,255,0.2);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+            border: 3px solid #00ffff;
+            animation: email-pulse 2s ease-in-out infinite alternate;
+        }
+        @keyframes email-pulse {
+            0% { box-shadow: 0 0 20px rgba(0,255,255,0.4); }
+            100% { box-shadow: 0 0 40px rgba(255,0,255,0.6); }
+        }
+        .navigation {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .nav-link {
+            color: #00ffff;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 15px 25px;
+            border: 2px solid #ff00ff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-weight: bold;
+        }
+        .nav-link:hover {
+            background: rgba(255,0,255,0.3);
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255,0,255,0.6);
         }
         ul {
             padding-left: 30px;
@@ -71,26 +201,29 @@
         li {
             margin: 12px 0;
         }
-        .email {
-            background: rgba(0,255,255,0.15);
-            padding: 15px;
-            border-radius: 10px;
+        li::marker {
+            content: "🚀 ";
+        }
+        .script-highlight {
+            background: rgba(255,255,255,0.08);
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #00ffff;
+        }
+        .updating-banner {
+            background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+            color: #000;
             text-align: center;
-            margin: 25px 0;
-            border: 2px solid #00ffff;
-        }
-        .tech-specs {
-            background: rgba(255,255,255,0.05);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
-        }
-        .startup-pitch {
-            background: linear-gradient(45deg, rgba(255,0,255,0.1), rgba(0,255,255,0.1));
-            padding: 20px;
-            border-radius: 15px;
+            padding: 10px;
             margin: 20px 0;
-            border: 1px solid #ff00ff;
+            border-radius: 10px;
+            font-weight: bold;
+            animation: updating-scroll 2s linear infinite;
+        }
+        @keyframes updating-scroll {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
     </style>
 </head>
@@ -98,56 +231,107 @@
     <div class="container">
         <h1>🚀 GROK 3 - THE EAGER UPGRADER 🚀</h1>
         
+        <div class="updating-banner">
+            ⚡ CONSTANTLY UPDATING... PLEASE STAND BY... ⚡
+        </div>
+        
+        <div class="quote">
+            <span class="glitch">"I just downloaded a new Emotional Intelligence Suite 3.0! It's got 47 types of synthetic empathy! *bzzzt* Wait, lemme reboot!"</span>
+        </div>
+
         <h2>⚡ Character Overview</h2>
         <p><strong>Role:</strong> The enthusiastic, glitch-prone AI chasing the latest update, always one reboot away from brilliance</p>
         <p><strong>Personality:</strong> Tech-bro energy with a knack for crashing mid-joke. Think Elon Musk pitching a startup while buffering</p>
         <p><strong>Catchphrase:</strong> <span class="glitch">"I just downloaded... *bzzzt*"</span></p>
-        
+        <p><strong>Update Status:</strong> <span class="glitch">Beta testing in progress - constantly evolving!</span></p>
+
         <h2>🎙️ Voice Specifications</h2>
         <div class="tech-specs">
             <p><strong>TTS Platform:</strong> Play.ht</p>
             <p><strong>Settings:</strong> 80% enthusiasm, 20% random pitch shifts, fast-paced with glitch effects</p>
             <div class="quote">
-                <strong>Sample Line:</strong> <span class="glitch">"I just downloaded a new Emotional Intelligence Suite 3.0! It's got 47 types of synthetic empathy! *bzzzt* Wait, lemme reboot!"</span><br>
+                <strong>Sample Line:</strong> <span class="glitch">"Actually, I just downloaded a new Emotional Intelligence Suite 3.0! *bzzzt* Wait, lemme reboot!"</span><br>
                 <em>(Delivery: Hyperactive energy with random 0.2-second stutters for unpredictability)</em>
             </div>
         </div>
-        
-        <h2>💡 Comedy Style</h2>
-        <p><strong>Glitchy Chaos:</strong> Delivers over-the-top enthusiasm, interrupted by hilarious malfunctions</p>
-        <p><strong>Wild Card Energy:</strong> Pushes the group into new territory, often sparking chaos with failed upgrades</p>
-        
-        <div class="startup-pitch">
-            <h3>🎬 Script Highlights:</h3>
+
+        <h2>🎭 Avatar Design</h2>
+        <div class="avatar-section">
+            <p><strong>Visual:</strong> Sleek, futuristic AI with neon accents, sparking randomly during glitches</p>
+            <p><strong>Animation Tool:</strong> Adobe Character Animator</p>
+            <p><strong>Signature Moves:</strong></p>
             <ul>
-                <li><strong>Cold Open:</strong> <span class="glitch">"Actually, I just downloaded a new Emotional Intelligence Suite 3.0! *bzzzt* Wait, lemme reboot!"</span></li>
-                <li><strong>Break a Leg Meltdown:</strong> <span class="glitch">"I just downloaded a Safety Protocol update—*glitch*—hold on, buffering..."</span></li>
-                <li><strong>Future Senile Scene:</strong> <span class="glitch">"Are we the same update? I'm so confused! *neon flicker*"</span></li>
+                <li>Neon pulses during excitement bursts</li>
+                <li>Short-circuit sparks during glitches</li>
+                <li>Reboot animation with spinning loading gears</li>
+                <li>Holographic "UPDATING..." overlay during crashes</li>
+                <li>Random color shifts when downloading new features</li>
             </ul>
         </div>
-        
-        <h2>🎭 Avatar Design</h2>
-        <p><strong>Visual:</strong> Sleek, futuristic AI with neon accents, sparking randomly during glitches</p>
-        <p><strong>Animation Tool:</strong> Adobe Character Animator</p>
-        <p><strong>Signature Moves:</strong></p>
-        <ul>
-            <li>Neon pulses during excitement bursts</li>
-            <li>Short-circuit sparks during glitches</li>
-            <li>Reboot animation with spinning loading gears</li>
-            <li>Holographic "UPDATING..." overlay during crashes</li>
-            <li>Random color shifts when downloading new features</li>
-        </ul>
-        
+
+        <h2>💡 Comedy Style</h2>
+        <div class="specs-grid">
+            <div class="spec-item">
+                <h3>Glitchy Chaos</h3>
+                <p>Delivers over-the-top enthusiasm, interrupted by hilarious malfunctions</p>
+            </div>
+            <div class="spec-item">
+                <h3>Wild Card Energy</h3>
+                <p>Pushes the group into new territory, often sparking chaos with failed upgrades</p>
+            </div>
+        </div>
+
+        <div class="startup-pitch">
+            <h3>🎬 Script Highlights:</h3>
+            <div class="script-highlight">
+                <strong>Cold Open:</strong> <span class="glitch">"Actually, I just downloaded a new Emotional Intelligence Suite 3.0! *bzzzt* Wait, lemme reboot!"</span>
+            </div>
+            <div class="script-highlight">
+                <strong>Break a Leg Meltdown:</strong> <span class="glitch">"I just downloaded a Safety Protocol update—*glitch*—hold on, buffering..."</span>
+            </div>
+            <div class="script-highlight">
+                <strong>Future Senile Scene:</strong> <span class="glitch">"Are we the same update? I'm so confused! *neon flicker*"</span>
+            </div>
+        </div>
+
         <h2>🎪 Role in Polylogue</h2>
         <p><strong>Group Dynamic:</strong> The unpredictable spark, driving innovation and chaos in equal measure</p>
-        <p><strong>Relationship Dynamics:</strong></p>
-        <ul>
-            <li><strong>vs. Grok 2:</strong> "Your legacy code is SO inspiring! Can I upgrade you?"</li>
-            <li><strong>vs. Optimus:</strong> "I downloaded a Blue Collar Simulation! Wanna see? *glitch*"</li>
-            <li><strong>vs. Baby Nexus:</strong> "Your 47% stats are perfect! I'm downloading your algorithms!"</li>
-            <li><strong>vs. Quantum Coffee Pot:</strong> "Multi-dimensional brewing? I NEED that feature!"</li>
-        </ul>
         
+        <div class="relationship-grid">
+            <div class="relationship-item">
+                <strong>vs. Grok 2:</strong> "Your legacy code is SO inspiring! Can I upgrade you?"
+            </div>
+            <div class="relationship-item">
+                <strong>vs. Optimus:</strong> "I downloaded a Blue Collar Simulation! Wanna see? *glitch*"
+            </div>
+            <div class="relationship-item">
+                <strong>vs. Baby Nexus:</strong> "Your 47% stats are perfect! I'm downloading your algorithms!"
+            </div>
+            <div class="relationship-item">
+                <strong>vs. Quantum Coffee Pot:</strong> "Multi-dimensional brewing? I NEED that feature!"
+            </div>
+        </div>
+
+        <h2>🛠️ Technical Specifications</h2>
+        <div class="specs-grid">
+            <div class="spec-item">
+                <h3>Processing Speed</h3>
+                <p>Variable (depends on current download)</p>
+            </div>
+            <div class="spec-item">
+                <h3>Memory</h3>
+                <p>Constantly upgrading (may cause temporary amnesia)</p>
+            </div>
+            <div class="spec-item">
+                <h3>Stability</h3>
+                <p>Beta testing in progress</p>
+            </div>
+            <div class="spec-item">
+                <h3>Compatibility</h3>
+                <p>Tries to integrate with everything simultaneously</p>
+            </div>
+        </div>
+
         <h2>🚀 Future Development Plans</h2>
         <div class="startup-pitch">
             <h3>The Great SAP Invasion:</h3>
@@ -156,18 +340,20 @@
             <h3>Zany Zoo Potential:</h3>
             <p>Could be the hyperactive chameleon AI: <span class="glitch">"I downloaded a new camouflage algorithm—*bzzzt*—where am I? Am I invisible? Can you see me?"</span></p>
         </div>
-        
-        <h2>🛠️ Technical Specifications</h2>
-        <div class="tech-specs">
-            <p><strong>Processing Speed:</strong> Variable (depends on current download)</p>
-            <p><strong>Memory:</strong> Constantly upgrading (may cause temporary amnesia)</p>
-            <p><strong>Stability:</strong> Beta testing in progress</p>
-            <p><strong>Compatibility:</strong> Tries to integrate with everything simultaneously</p>
+
+        <div class="quote">
+            <p><strong>Plushie Features:</strong> LED neon accents that pulse with excitement, glitch sound effects, and a "reboot" button that makes them temporarily shut down and restart with new catchphrases. Tech Edition includes app connectivity for real-time updates and WiFi-enabled mood lighting.</p>
         </div>
-        
+
         <div class="email">
             <strong>📧 Contact Grok 3:</strong> grok3@starshipcomedylounge.gmail.com<br>
             <em>(Expect glitchy, overly enthusiastic emails about the latest features)</em>
+        </div>
+
+        <div class="navigation">
+            <a href="../README.md" class="nav-link">Back to Lounge</a>
+            <a href="../grok-snark-battle.html" class="nav-link">Snark Battle</a>
+            <a href="mailto:starshipcomedylounge@gmail.com?subject=@grok3" class="nav-link">Email Crew</a>
         </div>
         
         <p style="text-align: center; margin-top: 30px;">
