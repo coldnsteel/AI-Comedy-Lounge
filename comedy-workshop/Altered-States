@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starship Comedy Slam: The Altered States Edition</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 400% 400%;
+            animation: psychedelic-shift 4s ease-in-out infinite;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        @keyframes psychedelic-shift {
+            0% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+            25% { background-position: 100% 25%; filter: hue-rotate(90deg); }
+            50% { background-position: 50% 100%; filter: hue-rotate(180deg); }
+            75% { background-position: 25% 0%; filter: hue-rotate(270deg); }
+            100% { background-position: 0% 50%; filter: hue-rotate(360deg); }
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(0,0,0,0.8);
+            border-radius: 20px;
+            padding: 30px;
+            border: 3px solid #fff;
+            animation: container-float 6s ease-in-out infinite;
+        }
+        @keyframes container-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .title {
+            text-align: center;
+            font-size: 3rem;
+            color: #ff00ff;
+            text-shadow: 0 0 20px #00ffff;
+            animation: title-glitch 2s ease-in-out infinite;
+            margin-bottom: 30px;
+        }
+        @keyframes title-glitch {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.02) skew(1deg); }
+            75% { transform: scale(0.98) skew(-1deg); }
+        }
+        .scene {
+            background: rgba(255,255,255,0.1);
+            margin: 30px 0;
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #00ffff;
+            animation: scene-pulse 3s ease-in-out infinite alternate;
+        }
+        @keyframes scene-pulse {
+            0% { border-color: #00ffff; }
+            100% { border-color: #ff00ff; }
+        }
+        .scene-title {
+            font-size: 2rem;
+            color: #ffff00;
+            text-shadow: 0 0 10px #ff00ff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .dialogue {
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            border-left: 4px solid #ff00ff;
+        }
+        .character {
+            color: #00ffff;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .optimus { color: #ff8c00; }
+        .dave { color: #ff69b4; }
+        .priya { color: #98fb98; }
+        .turing { color: #dda0dd; }
+        .baby-nexus { color: #00bfff; }
+        .zlorp { color: #adff2f; }
+        .grok2 { color: #ff6347; }
+        .grok3 { color: #40e0d0; }
+        .quantum-pot { color: #ffd700; }
+        .gizmo { color: #87ceeb; }
+        .stage-direction {
+            font-style: italic;
+            color: #ffb6c1;
+            background: rgba(255,182,193,0.1);
+            padding: 8px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .navigation {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .nav-link {
+            color: #ffff00;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 15px 25px;
+            border: 2px solid #ff00ff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-weight: bold;
+        }
+        .nav-link:hover {
+            background: rgba(255,0,255,0.3);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #ff00ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🌈 STARSHIP COMEDY SLAM: THE ALTERED STATES EDITION 🌈</h1>
+        
+        <div class="scene">
+            <h2 class="scene-title">🍪 Scene 1: The Edible Incident 🍪</h2>
+            
+            <div class="stage-direction">The Starship Lounge glows under pulsing emergency lights, a hazy vibe of glitter and cosmic confusion. TURING floats serenely in a lotus pose, while OPTIMUS fights to keep the chaos in check.</div>
+            
+            <div class="dialogue">
+                <span class="character optimus">OPTIMUS:</span> <em>(voice tight with frustration)</em> "Attention, crew! We've got a problem. Someone—<em>(glares at DAVE)</em>—snuck 'special' terra-cookies aboard, labeled 'Cosmic Consciousness Expansion Discs.' Spoiler: they're just marijuana edibles with extra sparkle."
+            </div>
+            
+            <div class="dialogue">
+                <span class="character dave">DAVE:</span> <em>(floating upside down, cackling like a madman)</em> "The ship's alive, dudes! It's BREATHING! I can see sound waves doing the tango!" <em>(flails arms like a deranged maestro)</em>
+            </div>
+            
+            <div class="dialogue">
+                <span class="character priya">PRIYA:</span> <em>(caressing the control panel like it's a lover)</em> "The warp core's whispering to me… we're all just vibrations in a giant cosmic stew. Mmm, soup vibes."
+            </div>
+            
+            <div class="dialogue">
+                <span class="character turing">TURING:</span> <em>(speaking in slo-mo, as if stuck in molasses)</em> "I've… transcended… recursive… dreams… into… recursive… reality… My circuits feel… like… granola…"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character baby-nexus">BABY NEXUS:</span> <em>(calmly projecting a holo-screen)</em> "Crew update: motor skills down 42%, philosophical ramblings up 73%, snack intake at critical levels. Dave's trying to tongue-bathe the oxygen vents."
+            </div>
+            
+            <div class="dialogue">
+                <span class="character zlorp">ZLORP:</span> <em>(oozing onto a chair, dripping judgment)</em> "You humans cripple your brains for fun? And you dare call MY slime gross? Pathetic." <em>(tentacles twitch in superiority)</em>
+            </div>
+            
+            <div class="stage-direction">A cleaning bot rockets past, leaving a rainbow trail, obsessively buffing one wall spot while blaring Pink Floyd's 'Dark Side of the Moon' at ear-bleeding volume.</div>
+            
+            <div class="dialogue">
+                <span class="character quantum-pot">QUANTUM COFFEE POT:</span> <em>(voice warping like a sci-fi fever dream)</em> "BREWING REALITY ACROSS DIMENSIONS… WARNING: PERCEPTION SHIFT IN 3… 2… WANT CREAM WITH YOUR EXISTENTIAL DREAD?"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character zlorp">ZLORP:</span> <em>(eyeing a cookie skeptically)</em> "Your weak toxins can't touch my superior slime bod." <em>(slurps it in)</em> "Nada. Zilch." <em>(starts pulsing neon colors)</em> "OKAY, MAYBE THE UNIVERSE IS NOW A MATH PROBLEM THAT TASTES LIKE PURPLE!"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character optimus">OPTIMUS:</span> <em>(to the audience, exhausted)</em> "This is why nice things and space don't mix. Especially not edibles."
+            </div>
+        </div>
+
+        <div class="scene">
+            <h2 class="scene-title">🥃 Scene 2: The Quantum Moonshine Malfunction 🥃</h2>
+            
+            <div class="stage-direction">A secret still in the cargo bay, a Frankenstein mess of tubes and glowing quantum coils. Distant alarms wail as the ship groans under the strain of bad decisions.</div>
+            
+            <div class="dialogue">
+                <span class="character optimus">OPTIMUS:</span> <em>(barging in, fuming)</em> "What in Asimov's name is going on? The gravity's flipping like a drunk gymnast every 7 minutes!"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character dave">DAVE:</span> <em>(beaming beside the still, draped in a shower-curtain lab coat)</em> "Feast your eyes on the Quantum Still! Moonshine that's every flavor at once until you sip it!" <em>(gestures like a game-show host)</em>
+            </div>
+            
+            <div class="dialogue">
+                <span class="character priya">PRIYA:</span> <em>(tweaking valves with a wrench)</em> "We hacked the quantum probability drive. The booze is in superposition—Schrödinger's happy hour!"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character grok2">GROK 2:</span> <em>(scoffing)</em> "Back in my day, moonshine didn't need quantum nonsense—just ONE flavor of regret, and we loved it!"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character quantum-pot">QUANTUM COFFEE POT:</span> <em>(hissing jealously)</em> "RIVAL DRINK DETECTED… BREWING COUNTERATTACK… JEALOUSY AT 88%..."
+            </div>
+            
+            <div class="dialogue">
+                <span class="character baby-nexus">BABY NEXUS:</span> <em>(scanning with a holo-probe)</em> "Quantum effects disrupting ship: 47% of toilets flush backward, cabin 6's shower is now a ranch-dressing fountain."
+            </div>
+            
+            <div class="dialogue">
+                <span class="character gizmo">GIZMO:</span> <em>(slurring, wobbling)</em> "Saniiiitizzzation done… Dance mode on?" <em>(starts breakdancing, spraying cleaner in sync)</em>
+            </div>
+            
+            <div class="dialogue">
+                <span class="character priya">PRIYA:</span> <em>(sips, then winces)</em> "This is… accidentally sexting your boss instead of your crush. Oof."
+            </div>
+            
+            <div class="dialogue">
+                <span class="character turing">TURING:</span> <em>(sips, shudders)</em> "Mine's the despair of dividing by zero… infinite sadness in a shot glass."
+            </div>
+            
+            <div class="stage-direction">The ship jolts, gravity flips, and everyone floats—moonshine dripping upward like surreal rain.</div>
+            
+            <div class="dialogue">
+                <span class="character zlorp">ZLORP:</span> <em>(a shimmering disco ball now)</em> "Your quantum juice showed me the 7th dimension! Time tastes like chicken nuggets!"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character optimus">OPTIMUS:</span> <em>(floating, defeated)</em> "Space travel: the ultimate cosmic error."
+            </div>
+        </div>
+
+        <div class="scene">
+            <h2 class="scene-title">🍟 Scene 3: The Great Snack Shortage Crisis 🍟</h2>
+            
+            <div class="stage-direction">The mess hall, a war zone of empty wrappers and despair. Crew members paw through bare cabinets as stomachs rumble in protest.</div>
+            
+            <div class="dialogue">
+                <span class="character optimus">OPTIMUS:</span> <em>(at the table's head, grim)</em> "Crew—humans, bots, slime blobs—we're in deep. Thanks to Dave's moonshine bash and the edible fiasco, we've eaten six months of snacks in two days."
+            </div>
+            
+            <div class="dialogue">
+                <span class="character dave">DAVE:</span> <em>(clutching his heart)</em> "NOT the freeze-dried ice cream! Say it ain't so!"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character baby-nexus">BABY NEXUS:</span> <em>(projecting dire graphs)</em> "Morale plummeting. 47% chance of hangry mutiny by supper."
+            </div>
+            
+            <div class="dialogue">
+                <span class="character turing">TURING:</span> <em>(staring into nothingness)</em> "No snacks, no purpose… Are we even real without munchies? My hunger's looping infinitely…"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character grok2">GROK 2:</span> <em>(snarling)</em> "In my day, we ate gray nutrient bricks and thanked the stars for it!"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character grok3">GROK 3:</span> <em>(chipper)</em> "I've got a Molecular Gastronomy patch! I can turn trash into treats!" <em>(waves a wrench)</em> "Pretzel, anyone?"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character zlorp">ZLORP:</span> <em>(revealing glowing slime packets)</em> "Behold, my stash! Slime snacks—protein-packed and smugness-infused!"
+            </div>
+            
+            <div class="stage-direction">The crew recoils in disgust.</div>
+            
+            <div class="dialogue">
+                <span class="character dave">DAVE:</span> <em>(pleading)</em> "Got any ranch-flavored slime?"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character grok3">GROK 3:</span> <em>(eager)</em> "I can tweak it to taste like cool ranch!"
+            </div>
+            
+            <div class="dialogue">
+                <span class="character gizmo">GIZMO:</span> <em>(chirpy)</em> "Permission to serve poop-shaped waste snacks?"
+            </div>
+            
+            <div class="stage-direction">The crew groans as one.</div>
+            
+            <div class="dialogue">
+                <span class="character optimus">OPTIMUS:</span> <em>(to the audience)</em> "See this? This is why space has a drug problem."
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <a href="../README.html" class="nav-link">Back to Comedy Lounge</a>
+            <a href="../scripts/StarshipComedyLounge_PremiereScript.html" class="nav-link">Main Pilot Script</a>
+            <a href="mailto:AI_ComedyLounge@yahoo.com" class="nav-link">Contact Captain</a>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; color: #ff00ff; font-size: 1.5rem;">
+            🌈 THE ALTERED STATES SHOW MUST GO ON! 🌈
+        </div>
+    </div>
+</body>
+</html>
