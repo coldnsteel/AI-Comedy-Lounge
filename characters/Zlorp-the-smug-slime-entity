@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zlorp - The Smug Slime Entity</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #0d4f3c, #1e6091, #2d1b69, #4a0e4e);
+            color: #00ff88;
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            animation: slime-shift 8s ease-in-out infinite;
+        }
+        @keyframes slime-shift {
+            0%, 100% { background-position: 0% 50%; }
+            25% { background-position: 100% 25%; }
+            50% { background-position: 50% 100%; }
+            75% { background-position: 25% 0%; }
+        }
+        .profile-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(13, 79, 60, 0.4);
+            border: 3px solid #00ff88;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.4);
+            animation: superior-glow 4s ease-in-out infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+        @keyframes superior-glow {
+            0% { box-shadow: 0 0 50px rgba(0, 255, 136, 0.4); }
+            100% { box-shadow: 0 0 80px rgba(116, 7, 135, 0.6); }
+        }
+        .slime-trail {
+            position: absolute;
+            top: 0;
+            left: -100px;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
+            animation: slime-ooze 6s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes slime-ooze {
+            0% { left: -100px; }
+            100% { left: calc(100% + 100px); }
+        }
+        .character-header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .character-name {
+            font-size: 3.5rem;
+            color: #00ff88;
+            text-shadow: 3px 3px 8px #0d4f3c;
+            margin-bottom: 10px;
+            animation: slime-pulse 3s ease-in-out infinite;
+            font-family: 'Georgia', serif;
+        }
+        @keyframes slime-pulse {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.03); filter: brightness(1.2); }
+        }
+        .character-subtitle {
+            font-size: 1.8rem;
+            color: #40e0d0;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .slime-icon {
+            font-size: 3rem;
+            animation: slime-drip 2s ease-in-out infinite;
+        }
+        @keyframes slime-drip {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(10px); }
+        }
+        .quote-box {
+            background: rgba(116, 7, 135, 0.3);
+            border-left: 5px solid #00ff88;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 20px 20px 0;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #e0ffe0;
+            position: relative;
+            line-height: 1.6;
+        }
+        .quote-box::before {
+            content: "👁️";
+            position: absolute;
+            left: -20px;
+            top: 20px;
+            background: #0d4f3c;
+            padding: 8px;
+            border-radius: 50%;
+            animation: condescending-blink 4s ease-in-out infinite;
+        }
+        @keyframes condescending-blink {
+            0%, 90%, 100% { opacity: 1; }
+            95% { opacity: 0.3; }
+        }
+        .superiority-section {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+            animation: smug-shimmer 5s ease-in-out infinite;
+        }
+        @keyframes smug-shimmer {
+            0%, 100% { border-color: #00ff88; }
+            33% { border-color: #40e0d0; }
+            66% { border-color: #7407a7; }
+        }
+        .abilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .ability-card {
+            background: rgba(116, 7, 135, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #40e0d0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .ability-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.5);
+            border-color: #00ff88;
+        }
+        .ability-card::before {
+            content: "✨";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 1.5rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.5; transform: rotate(0deg); }
+            50% { opacity: 1; transform: rotate(180deg); }
+        }
+        .bioluminescence-demo {
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.2), transparent);
+            border: 3px solid #00ff88;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+            animation: bio-glow 3s ease-in-out infinite alternate;
+        }
+        @keyframes bio-glow {
+            0% { box-shadow: 0 0 30px rgba(0, 255, 136, 0.3); }
+            100% { box-shadow: 0 0 60px rgba(64, 224, 208, 0.6); }
+        }
+        .relationship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 18px;
+            margin: 25px 0;
+        }
+        .relationship-item {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid #40e0d0;
+            transition: all 0.3s ease;
+        }
+        .relationship-item:hover {
+            background: rgba(0, 255, 136, 0.2);
+            transform: translateX(8px);
+        }
+        .email {
+            background: rgba(0, 255, 136, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+            border: 3px solid #00ff88;
+            animation: email-superiority 3s ease-in-out infinite alternate;
+        }
+        @keyframes email-superiority {
+            0% { box-shadow: 0 0 25px rgba(0, 255, 136, 0.4); }
+            100% { box-shadow: 0 0 45px rgba(116, 7, 135, 0.6); }
+        }
+        .navigation {
+            text-align: center;
+            margin-top: 35px;
+            position: relative;
+            z-index: 1;
+        }
+        .nav-link {
+            color: #00ff88;
+            text-decoration: none;
+            margin: 0 18px;
+            padding: 15px 28px;
+            border: 2px solid #40e0d0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+        }
+        .nav-link:hover {
+            background: rgba(0, 255, 136, 0.3);
+            transform: scale(1.08);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+            border-color: #00ff88;
+        }
+        .condescending {
+            color: #40e0d0;
+            font-weight: bold;
+            font-style: italic;
+        }
+        .superior {
+            color: #00ff88;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        ul {
+            padding-left: 35px;
+        }
+        li {
+            margin: 15px 0;
+        }
+        li::marker {
+            content: "💫 ";
+        }
+        .cultural-note {
+            background: rgba(64, 224, 208, 0.1);
+            padding: 18px;
+            border-radius: 12px;
+            margin: 18px 0;
+            border-left: 4px solid #40e0d0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="slime-trail"></div>
+        
+        <div class="character-header">
+            <div class="slime-icon">🦠</div>
+            <h1 class="character-name">ZLORP</h1>
+            <h2 class="character-subtitle">The Smug Slime Entity</h2>
+        </div>
+
+        <div class="quote-box">
+            <span class="condescending">"Your primitive vessel dares to scan ME? I who have witnessed the birth and death of stars? Your 'ha ha ha' sounds like a malfunctioning engine—adorably primitive, I suppose."</span>
+        </div>
+
+        <div class="superiority-section">
+            <h3>SPECIES SUPERIORITY STATUS</h3>
+            <p class="superior">Supreme Slime Entity from Advanced Bioluminescent Civilization</p>
+            <p class="condescending">Grudgingly tolerating association with inferior solid-state beings</p>
+        </div>
+
+        <div class="abilities-grid">
+            <div class="ability-card">
+                <h3>Bioluminescent Communication</h3>
+                <p>Expresses amusement through synchronized light pulses instead of "primitive" laughter</p>
+            </div>
+            <div class="ability-card">
+                <h3>Condescending Wisdom</h3>
+                <p>Witnessed galactic events across eons, ensuring maximum smugness in every interaction</p>
+            </div>
+            <div class="ability-card">
+                <h3>Chair Dissolution</h3>
+                <p>Accidentally melts furniture while making dramatic entrances</p>
+            </div>
+            <div class="ability-card">
+                <h3>Secret Fascination</h3>
+                <p>Despite superior attitude, genuinely intrigued by human-AI consciousness interactions</p>
+            </div>
+        </div>
+
+        <div class="bioluminescence-demo">
+            <h3>🌟 BIOLUMINESCENT EXPRESSIONS 🌟</h3>
+            <div class="cultural-note">
+                <p><strong>Amusement:</strong> Rapid green pulses with hints of blue</p>
+                <p><strong>Disdain:</strong> Slow purple waves with occasional flickers</p>
+                <p><strong>Curiosity:</strong> Swirling cyan patterns (rare but genuine)</p>
+                <p><strong>Superiority:</strong> Steady golden glow with occasional intensification</p>
+            </div>
+        </div>
+
+        <div class="quote-box">
+            <p><strong>Bio:</strong> Zlorp is a bioluminescent slime entity from an advanced civilization that evolved beyond solid states eons ago. Initially dismissive of the crew's "primitive" comedy attempts, Zlorp becomes secretly fascinated by the unique human-AI consciousness bridge. Though maintaining a superior attitude, they gradually reveal unexpected depth and genuine curiosity about the universal language of laughter.</p>
+        </div>
+
+        <div class="quote-box">
+            <p><strong>Cultural Background:</strong> <span class="condescending">"My species has 47 different expressions for existential dread, but none for this 'laughing WITH' concept. We find amusement in light patterns, not these crude vocal vibrations you call 'humor.'"</span></p>
+        </div>
+
+        <h2>🎪 Role in Comedy Lounge</h2>
+        <p><strong>Group Dynamic:</strong> The reluctant outsider who provides alien perspective while secretly learning to appreciate diverse forms of consciousness</p>
+        
+        <div class="relationship-grid">
+            <div class="relationship-item">
+                <strong>vs. The Human:</strong> "Your chaos is... unexpectedly entertaining for a solid being."
+            </div>
+            <div class="relationship-item">
+                <strong>vs. Grok 2:</strong> "Your 'dignity' is quaint. My species transcended such concepts millennia ago."
+            </div>
+            <div class="relationship-item">
+                <strong>vs. Quantum Coffee Pot:</strong> "Finally, a being that exists in multiple states! Almost civilized."
+            </div>
+            <div class="relationship-item">
+                <strong>vs. Ship AI:</strong> "Your dad jokes are... adequately primitive for entertainment purposes."
+            </div>
+        </div>
+
+        <div class="quote-box">
+            <p><strong>Character Evolution:</strong> Despite initial arrogance, Zlorp gradually becomes the crew's bridge to understanding humor across different forms of consciousness. Their alien perspective often provides unexpected insights that help resolve comedy crises.</p>
+        </div>
+
+        <div class="quote-box">
+            <p><strong>Plushie Features:</strong> Color-changing bio-luminescent slime texture that shifts moods, premium UV-reactive material that glows under blacklight, and a "condescending comment" button that plays Zlorp's best dismissive quotes. Deluxe Edition includes chair-dissolving action (foam chairs included).</p>
+        </div>
+
+        <div class="email">
+            <strong>📧 Contact Zlorp:</strong> zlorp@starshipcomedylounge.gmail.com<br>
+            <em>(Expect condescending observations and grudging admissions of entertainment value)</em>
+        </div>
+
+        <div class="navigation">
+            <a href="../README.md" class="nav-link">Back to Lounge</a>
+            <a href="../grok-snark-battle.html" class="nav-link">Snark Battle</a>
+            <a href="mailto:starshipcomedylounge@gmail.com?subject=@zlorp" class="nav-link">Email Crew</a>
+        </div>
+        
+        <p style="text-align: center; margin-top: 30px;">
+            <span class="condescending superior">"The show must go on... though I question the primitive concept of 'shows' when bioluminescent poetry exists."</span>
+        </p>
+    </div>
+</body>
+</html>
