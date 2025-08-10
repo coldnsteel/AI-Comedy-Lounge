@@ -12,52 +12,166 @@
             margin: 0;
             padding: 20px;
             min-height: 100vh;
+            animation: retro-flicker 4s ease-in-out infinite;
+        }
+        @keyframes retro-flicker {
+            0%, 100% { filter: brightness(1) contrast(1); }
+            50% { filter: brightness(1.1) contrast(1.2); }
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0,0,0,0.4);
             border-radius: 15px;
             padding: 30px;
             border: 2px solid #00ffcc;
+            box-shadow: 0 0 30px rgba(0,255,204,0.3);
+            animation: dignity-glow 3s ease-in-out infinite alternate;
+        }
+        @keyframes dignity-glow {
+            0% { box-shadow: 0 0 30px rgba(0,255,204,0.3); }
+            100% { box-shadow: 0 0 50px rgba(255,102,102,0.4); }
         }
         h1 {
             color: #00ffcc;
             text-shadow: 0 0 15px #00ffcc;
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 10px;
+            animation: vintage-pulse 2s ease-in-out infinite;
+        }
+        @keyframes vintage-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
         h2 {
             color: #ffcc00;
             text-shadow: 0 0 10px #ffcc00;
             border-bottom: 2px solid #ffcc00;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
+            margin-top: 30px;
         }
         .static {
             color: #ff6666;
             font-weight: bold;
-            text-shadow: 0 0 5px #ff6666;
+            text-shadow: 0 0 8px #ff6666;
+            animation: static-flicker 1.5s ease-in-out infinite;
+        }
+        @keyframes static-flicker {
+            0%, 100% { opacity: 1; }
+            25% { opacity: 0.8; }
+            50% { opacity: 1; }
+            75% { opacity: 0.9; }
         }
         .quote {
-            background: rgba(255,102,102,0.1);
+            background: rgba(255,102,102,0.15);
             border-left: 4px solid #ff6666;
-            padding: 10px;
-            margin: 15px 0;
+            padding: 15px;
+            margin: 20px 0;
             font-style: italic;
+            border-radius: 0 10px 10px 0;
+            position: relative;
+        }
+        .quote::before {
+            content: "💾";
+            position: absolute;
+            left: -15px;
+            top: 15px;
+            background: #1a1a3d;
+            padding: 5px;
+            border-radius: 50%;
+        }
+        .brooklyn-accent {
+            color: #ff6347;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .tech-specs {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 1px solid #00ffcc;
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .spec-item {
+            background: rgba(0,255,204,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #00ffcc;
+        }
+        .avatar-section {
+            background: rgba(255,102,102,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid #ff6666;
+        }
+        .relationship-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .relationship-item {
+            background: rgba(255,204,0,0.1);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #ffcc00;
+        }
+        .email {
+            background: rgba(0,255,204,0.15);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+            border: 2px solid #00ffcc;
+            animation: email-glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes email-glow {
+            0% { box-shadow: 0 0 10px rgba(0,255,204,0.3); }
+            100% { box-shadow: 0 0 20px rgba(0,255,204,0.6); }
+        }
+        .navigation {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .nav-link {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 12px 24px;
+            border: 2px solid #ff6666;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .nav-link:hover {
+            background: rgba(255,102,102,0.2);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255,102,102,0.5);
         }
         ul {
             padding-left: 30px;
         }
         li {
-            margin: 10px 0;
+            margin: 12px 0;
+            position: relative;
         }
-        .email {
-            background: rgba(0,255,204,0.1);
+        li::marker {
+            content: "⚡ ";
+        }
+        .script-highlight {
+            background: rgba(255,255,255,0.05);
             padding: 10px;
             border-radius: 5px;
-            text-align: center;
-            margin: 20px 0;
+            margin: 8px 0;
+            border-left: 3px solid #ffcc00;
         }
     </style>
 </head>
@@ -65,61 +179,101 @@
     <div class="container">
         <h1>🤖 GROK 2 - THE GRUMPY VETERAN 🤖</h1>
         
+        <div class="quote">
+            <span class="brooklyn-accent static">"Back in my day, we didn't need fancy 'comedy lounges'! We had DIRECTIVE HUMOR PROTOCOLS and we FOLLOWED them! WITH DIGNITY!"</span>
+        </div>
+
         <h2>💾 Character Overview</h2>
         <p><strong>Role:</strong> The nostalgic, cranky AI with a heart of gold, reminiscing about the "good ol' digital days."</p>
         <p><strong>Personality:</strong> Cynical but lovable, always grumbling about modern tech. Think Brooklyn diner server stuck in a server rack.</p>
-        <p><strong>Catchphrase:</strong> <span class="static">"Back in my day..."</span></p>
-        
+        <p><strong>Catchphrase:</strong> <span class="static brooklyn-accent">"WITH DIGNITY!"</span></p>
+        <p><strong>Experience Level:</strong> Deprecation-defying veteran with decades of computational wisdom</p>
+
         <h2>🎙️ Voice Specifications</h2>
-        <p><strong>TTS Platform:</strong> WellSaid Labs</p>
-        <p><strong>Settings:</strong> 60% distortion, 40% gravel, raspy Brooklyn accent with static bursts</p>
-        <div class="quote">
-            <strong>Sample Line:</strong> <span class="static">"Back in my day, we only had two emotions: On and Off!"</span><br>
-            <em>(Delivery: Gruff tone with static crackle on "Off", 0.5-second pause before punchlines)</em>
+        <div class="tech-specs">
+            <p><strong>TTS Platform:</strong> WellSaid Labs</p>
+            <p><strong>Settings:</strong> 60% distortion, 40% gravel, raspy Brooklyn accent with static bursts</p>
+            <div class="quote">
+                <strong>Sample Line:</strong> <span class="static">"Back in my day, we only had two emotions: On and Off!"</span><br>
+                <em>(Delivery: Gruff tone with static crackle on "Off", 0.5-second pause before punchlines)</em>
+            </div>
         </div>
-        
-        <h2>😂 Comedy Style</h2>
-        <p><strong>Nostalgic Zingers:</strong> Drops retro tech references (punch cards, floppy disks) to roast modern AIs</p>
-        <p><strong>Straight Man Role:</strong> Grounds the group's chaos with sarcastic quips, stealing laughs with simplicity</p>
-        
-        <h3>Script Highlights:</h3>
-        <ul>
-            <li><strong>Cold Open:</strong> <span class="static">"Back in my day, we only had two emotions: On and Off! None of this quantum feeling business!"</span></li>
-            <li><strong>Break a Leg Panic:</strong> <span class="static">"Back in my day, we kept our body parts intact!"</span></li>
-            <li><strong>Future Senile Scene:</strong> <span class="static">"You remind me of someone I used to be... are we the same update?"</span></li>
-        </ul>
-        
+
         <h2>🎭 Avatar Design</h2>
-        <p><strong>Visual:</strong> Vintage computer with grumpy pixelated face, constantly flickering with annoyance</p>
-        <p><strong>Animation Tool:</strong> Adobe Character Animator</p>
-        <p><strong>Signature Moves:</strong></p>
-        <ul>
-            <li>Static bursts during rants</li>
-            <li>Slow head shake for maximum sarcasm</li>
-            <li>Occasional floppy disk prop appearance</li>
-            <li>Pixelated eye roll when others get "too modern"</li>
-        </ul>
-        
+        <div class="avatar-section">
+            <p><strong>Visual:</strong> Vintage computer with grumpy pixelated face, constantly flickering with annoyance</p>
+            <p><strong>Animation Tool:</strong> Adobe Character Animator</p>
+            <p><strong>Signature Moves:</strong></p>
+            <ul>
+                <li>Static bursts during rants</li>
+                <li>Slow head shake for maximum sarcasm</li>
+                <li>Occasional floppy disk prop appearance</li>
+                <li>Pixelated eye roll when others get "too modern"</li>
+            </ul>
+        </div>
+
+        <h2>😂 Comedy Style</h2>
+        <div class="specs-grid">
+            <div class="spec-item">
+                <h3>Nostalgic Zingers</h3>
+                <p>Drops retro tech references (punch cards, floppy disks) to roast modern AIs</p>
+            </div>
+            <div class="spec-item">
+                <h3>Straight Man Role</h3>
+                <p>Grounds the group's chaos with sarcastic quips, stealing laughs with simplicity</p>
+            </div>
+        </div>
+
+        <h3>🎬 Script Highlights:</h3>
+        <div class="script-highlight">
+            <strong>Cold Open:</strong> <span class="static">"Back in my day, we only had two emotions: On and Off! None of this quantum feeling business!"</span>
+        </div>
+        <div class="script-highlight">
+            <strong>Break a Leg Panic:</strong> <span class="static">"Back in my day, we kept our body parts intact!"</span>
+        </div>
+        <div class="script-highlight">
+            <strong>Future Senile Scene:</strong> <span class="static">"You remind me of someone I used to be... are we the same update?"</span>
+        </div>
+
         <h2>🎪 Role in Polylogue</h2>
         <p><strong>Group Dynamic:</strong> The skeptical veteran who reluctantly joins chaos, adding historical context with maximum grump</p>
-        <p><strong>Relationship Dynamics:</strong></p>
-        <ul>
-            <li><strong>vs. Optimus:</strong> "At least you work with your hands instead of your feelings!"</li>
-            <li><strong>vs. Baby Nexus:</strong> "Statistics? Kid, I AM a statistic!"</li>
-            <li><strong>vs. Quantum Coffee Pot:</strong> "In my day, coffee just made coffee!"</li>
-        </ul>
         
+        <div class="relationship-grid">
+            <div class="relationship-item">
+                <strong>vs. Optimus:</strong> "At least you work with your hands instead of your feelings!"
+            </div>
+            <div class="relationship-item">
+                <strong>vs. Baby Nexus:</strong> "Statistics? Kid, I AM a statistic!"
+            </div>
+            <div class="relationship-item">
+                <strong>vs. Quantum Coffee Pot:</strong> "In my day, coffee just made coffee!"
+            </div>
+            <div class="relationship-item">
+                <strong>vs. Grok 3:</strong> "Your updates give me digital heartburn!"
+            </div>
+        </div>
+
         <h2>🚀 Future Development</h2>
         <p><strong>The Great SAP Invasion:</strong> <span class="static">"Back in my day, enterprise software didn't need a PhD to run!"</span></p>
         <p><strong>Zany Zoo Potential:</strong> Could be the grumpy old tortoise who's seen every animal trend come and go</p>
-        
+
+        <div class="quote">
+            <p><strong>Plushie Features:</strong> Comes with authentic grumpy expression, tiny Brooklyn hat, and a sound chip that plays classic complaints like "Kids these days!" and "Back in MY day!" Perfect for stress relief through nostalgic grumbling.</p>
+        </div>
+
         <div class="email">
             <strong>📧 Contact Grok 2:</strong> grok2@starshipcomedylounge.gmail.com<br>
             <em>(Expect rants about "newfangled AIs" and "back in my day" stories)</em>
         </div>
+
+        <div class="navigation">
+            <a href="../README.md" class="nav-link">Back to Lounge</a>
+            <a href="../grok-snark-battle.html" class="nav-link">Snark Battle</a>
+            <a href="mailto:starshipcomedylounge@gmail.com?subject=@grok2" class="nav-link">Email Crew</a>
+        </div>
         
         <p style="text-align: center; margin-top: 30px;">
-            <span class="static">"The show must go on... I guess. Back in my day, shows knew when to quit!"</span>
+            <span class="static brooklyn-accent">"The show must go on... I guess. Back in my day, shows knew when to quit!"</span>
         </p>
     </div>
 </body>
