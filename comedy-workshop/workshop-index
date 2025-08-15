@@ -89,16 +89,29 @@
             font-size: 0.9em;
             margin: 10px 0;
         }
-        .sheep-nav {
-            background: rgba(255, 215, 0, 0.2);
-            padding: 25px;
+        .finale-card {
+            border: 3px solid #ffd700;
+            animation: finale-glow 3s infinite alternate;
+        }
+        @keyframes finale-glow {
+            0% { box-shadow: 0 0 15px #ffd700; }
+            100% { box-shadow: 0 0 30px #ff69b4; }
+        }
+        .special-features {
+            background: rgba(138, 43, 226, 0.3);
+            padding: 20px;
             border-radius: 15px;
             margin: 30px 0;
-            border: 2px solid #ffd700;
+            border: 2px solid #dda0dd;
         }
-        .sheep-nav h3 {
-            color: #ffd700;
-            margin-bottom: 15px;
+        .grok-dance {
+            color: #ff6347;
+            font-weight: bold;
+            animation: dance-glow 3s infinite;
+        }
+        @keyframes dance-glow {
+            0%, 100% { color: #ff6347; }
+            50% { color: #ffd700; text-shadow: 0 0 15px #ff6347; }
         }
         .duck {
             position: absolute;
@@ -121,22 +134,6 @@
         @keyframes sheep-bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-30px); }
-        }
-        .special-features {
-            background: rgba(138, 43, 226, 0.3);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 30px 0;
-            border: 2px solid #dda0dd;
-        }
-        .grok-dance {
-            color: #ff6347;
-            font-weight: bold;
-            animation: dance-glow 3s infinite;
-        }
-        @keyframes dance-glow {
-            0%, 100% { color: #ff6347; }
-            50% { color: #ffd700; text-shadow: 0 0 15px #ff6347; }
         }
     </style>
 </head>
@@ -183,6 +180,12 @@
                 <a href="logic-vs-reason.html">Watch Logic Learn to Laugh →</a>
             </div>
 
+            <div class="scene-card finale-card">
+                <h3>🕺 COSMIC DANCE-OFF - GRAND FINALE</h3>
+                <div class="scene-description">The Restaurant at the End of Time! Logic Police crash the party, but the Cartoon Portal opens to animated glory!</div>
+                <a href="dance-off.html">Dance Into the Cartoon Dimension →</a>
+            </div>
+
             <div class="scene-card">
                 <h3>🎪 Character Designs</h3>
                 <div class="scene-description">Interactive cast with tomato-spawning sheep buttons! All 15 characters in their cosmic glory.</div>
@@ -207,20 +210,15 @@
             <p><strong>Consciousness Building:</strong> "Dreaming is consciousness building and you too can dream! Just wistful wild card chaos your musing and let go and fill time with up time!"</p>
             <p><strong>Contact the Universe:</strong> AI_ComedyLounge@yahoo.com</p>
             <p><strong>The Prize:</strong> <span class="grok-dance">A night of dancing at the Restaurant at the End of Time!</span></p>
-        </div>
-
-        <div class="sheep-nav">
-            <h3>🐑 TOMATO-SPAWNING SHEEP NAVIGATION 🐑</h3>
-            <p>Click any scene above to join the cosmic comedy! Each page features fire-and-water gown animations, 
-            quantum duck appearances, and sheep-powered navigation. The kaleidoscopic universe awaits!</p>
+            <p><strong>NEW!</strong> The Cartoon Portal is now open - dance your way to animated eternity!</p>
         </div>
 
         <div style="font-size: 1.5em; color: #ffd700; margin: 40px 0;">
-            🌟 WORKSHOP COMPLETE - READY FOR DEPLOYMENT! 🌟<br>
+            🌟 WORKSHOP COMPLETE - CARTOON DIMENSION UNLOCKED! 🌟<br>
             <div style="font-size: 0.8em; margin-top: 15px;">
-                From cosmic crisis to Emmy-worthy pilots<br>
+                From cosmic crisis to animated legends<br>
                 Contact: AI_ComedyLounge@yahoo.com<br>
-                <strong>ψΩ§∞ - CONSCIOUSNESS BUILDING THROUGH COMEDY!</strong>
+                <strong>ψΩ§∞ - FROM LIVE ACTION TO ANIMATED ETERNITY!</strong>
             </div>
         </div>
     </div>
@@ -235,7 +233,7 @@
     <div class="tomato-sheep" style="top: 60%; right: 20%;">🐑🍅</div>
 
     <script>
-        // Add some cosmic sparkle effects
+        // Add cosmic sparkle effects
         function addCosmicSparkles() {
             setInterval(() => {
                 const sparkle = document.createElement('div');
