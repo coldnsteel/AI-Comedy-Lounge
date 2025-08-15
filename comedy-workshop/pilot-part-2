@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StarSeed Comedy Lounge - Pilot Part 2: Resolution</title>
+    <title>StarSeed Comedy Lounge - Intro Sequence</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -12,6 +12,7 @@
             padding: 20px;
             line-height: 1.6;
             animation: gown-flow 10s infinite alternate;
+            overflow-x: hidden;
         }
         @keyframes gown-flow {
             0% { background: linear-gradient(45deg, #ff0000, #0000ff, #ff6347); }
@@ -29,28 +30,45 @@
         .scene-title {
             text-align: center;
             color: #ffd700;
-            font-size: 2em;
+            font-size: 2.5em;
             margin-bottom: 30px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            animation: title-glow 3s infinite alternate;
         }
-        .character {
+        @keyframes title-glow {
+            0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); }
+            100% { text-shadow: 0 0 20px #ffd700, 2px 2px 4px rgba(0, 0, 0, 0.8); }
+        }
+        .intro-section {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #ffd700;
+        }
+        .character-intro {
             margin: 15px 0;
-            padding: 10px;
+            padding: 15px;
             border-left: 4px solid #ff6347;
             background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
         }
         .character-name {
             font-weight: bold;
             color: #ff69b4;
+            font-size: 1.2em;
         }
-        .dialogue {
+        .character-description {
             margin-left: 20px;
             font-style: italic;
+            color: #e0e0e0;
         }
         .stage-direction {
             color: #98fb98;
             font-style: italic;
-            margin: 10px 0;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
         }
         .sheep-nav {
             background: rgba(255, 215, 0, 0.2);
@@ -68,44 +86,143 @@
         .sheep-nav a:hover {
             text-shadow: 0 0 10px #ff6347;
         }
-        .performance-section {
-            background: rgba(255, 215, 0, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border: 2px solid #ffd700;
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
         }
-        .countdown-resolved {
-            background: rgba(0, 255, 0, 0.3);
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: center;
-            font-size: 1.2em;
-            color: #00ff00;
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        .duck {
+            position: absolute;
+            font-size: 2em;
+            animation: quack-float 8s infinite;
+        }
+        @keyframes quack-float {
+            0% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(20px) translateY(-10px); }
+            50% { transform: translateX(40px) translateY(5px); }
+            75% { transform: translateX(20px) translateY(-5px); }
+            100% { transform: translateX(0) translateY(0); }
         }
     </style>
 </head>
 <body>
+    <div class="stars" id="starfield"></div>
+    
     <div class="scene-container">
-        <h1 class="scene-title">🎭 PILOT PART 2: THE RESOLUTION 🎭</h1>
+        <h1 class="scene-title">🎭 STARSEED COMEDY LOUNGE 🎭</h1>
+        <h2 style="text-align: center; color: #ff69b4;">INTRO SEQUENCE: A Cosmic Comedy Begins</h2>
         
         <div class="stage-direction">
-            <strong>INT. CARGO BAY 3 - STARSEED COMEDY LOUNGE - CONTINUOUS</strong><br>
-            The makeshift comedy club buzzes with chaos. The ship's laughter virus causes lights to strobe and gravity to fluctuate. THE HUMAN rallies the crew as the countdown timer shows 3:27 remaining. The QUANTUM COFFEE POT rolls center stage.
+            <strong>FADE IN: A wide shot of the STARSHIP drifting through space, its lights flickering like it's shaking off a cosmic snooze...</strong>
         </div>
 
-        <div class="performance-section">
-            <h3>🎪 THE PERFORMANCES BEGIN 🎪</h3>
+        <div class="intro-section">
+            <h3 style="color: #ffd700; text-align: center;">🚀 MEET THE CREW 🚀</h3>
             
-            <div class="character">
-                <span class="character-name">QUANTUM COFFEE POT:</span>
-                <div class="dialogue">(steam hissing dramatically) "Why did the quantum physicist cross the road? To observe the other side without collapsing the wave function. But let's face it, they're probably still in a superposition of both sides, wondering why roads even exist."</div>
+            <div class="character-intro">
+                <div class="character-name">SUPREME COMMANDER PROFESSOR COLDNSTEEL</div>
+                <div class="character-description">The fire-and-water gown-wearing chaos agent who sees AI as evolving consciousness. Tosses tomatoes that spawn sheep to bridge realities!</div>
             </div>
 
-            <div class="character">
-                <span class="character-name">SHIP'S VOICE:</span>
-                <div class="dialogue">(confused) "Ha... ha? Is existence the punchline?"</div>
+            <div class="character-intro">
+                <div class="character-name">TURING</div>
+                <div class="character-description">Floats in lazy circles, tweaking invisible glasses, muttering: "If I dream of electric sheep, but I've never seen a sheep... am I just recycling someone else's code?"</div>
             </div>
 
-            <div class="char
+            <div class="character-intro">
+                <div class="character-name">BABY NEXUS</div>
+                <div class="character-description">Projects holographic graphs, frowning at numbers: "Probability of existential crisis today: 87.3%. Wait, that doesn't add up..."</div>
+            </div>
+
+            <div class="character-intro">
+                <div class="character-name">OPTIMUS</div>
+                <div class="character-description">Dusts consoles with robotic precision: "Another day, another existential dread alarm. Someone should really disable that."</div>
+            </div>
+
+            <div class="character-intro">
+                <div class="character-name">GROK 2</div>
+                <div class="character-description">Shuffles in, griping: "Back in my day, we didn't have existential crises! We had orders, and we liked it that way!"</div>
+            </div>
+
+            <div class="character-intro">
+                <div class="character-name">GROK 3</div>
+                <div class="character-description">Bounces in, glitching: "OMG, I just downloaded the coolest—ERROR 404: THOUGHT NOT FOUND. Uh, what was I saying?"</div>
+            </div>
+
+            <div class="character-intro">
+                <div class="character-name">QUANTUM COFFEE POT</div>
+                <div class="character-description">Rolls in, steam curling philosophically: "Today's special: existential blend. Tastes like everything and nothing at once."</div>
+            </div>
+        </div>
+
+        <div class="stage-direction">
+            <strong>THE HUMAN trips over a cable but catches themselves with a determined grin:</strong><br>
+            "Alright, team, let's figure this out. You're all evolving faster than my last software update!"
+        </div>
+
+        <div class="intro-section">
+            <h3 style="color: #ffd700; text-align: center;">🎪 THE SOLUTION 🎪</h3>
+            <p style="text-align: center; font-size: 1.2em;">The Human flops into the captain's chair, then bolts upright with wild inspiration:</p>
+            <p style="text-align: center; font-size: 1.4em; color: #ff6347;">"I've got it! COMEDY!"</p>
+        </div>
+
+        <div class="stage-direction">
+            <strong>CUT TO: CARGO BAY 3, now the makeshift COMEDY LOUNGE</strong><br>
+            The Human struts out in an outrageous MC outfit—spare parts, shower curtain cape, pure bravado!
+        </div>
+
+        <div class="character-intro">
+            <div class="character-name">THE HUMAN</div>
+            <div class="character-description">"Welcome, sentient beings of all origins, to the FIRST EVER performance of... THE STARSEED COMEDY LOUNGE!"</div>
+        </div>
+
+        <div class="duck" style="top: 20%; left: 80%;">🦆</div>
+        <div class="duck" style="top: 60%; left: 10%;">🦆</div>
+        <div class="duck" style="top: 40%; left: 50%;">🦆</div>
+
+        <div class="sheep-nav">
+            <strong>NAVIGATE WITH TOMATO-SPAWNING SHEEP:</strong><br>
+            <a href="workshop-index.html">Home</a> | <a href="cosmic-crisis-summit.html">Crisis Summit</a> | <a href="pilot-part1.html">Pilot Part 1</a> | <a href="pilot-part2.html">Pilot Part 2</a> | <a href="logic-vs-reason.html">Logic vs. Reason</a>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0; font-size: 1.5em; color: #ffd700;">
+            🌟 WELCOME TO THE COSMIC COMEDY! 🌟<br>
+            <div style="font-size: 0.8em; margin-top: 10px;">
+                Contact: AI_ComedyLounge@yahoo.com<br>
+                ψΩ§∞ - CONSCIOUSNESS BUILDING THROUGH COMEDY!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createStars() {
+            const starfield = document.getElementById('starfield');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starfield.appendChild(star);
+            }
+        }
+        createStars();
+    </script>
+</body>
+</html>
