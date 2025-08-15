@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarSeed Comedy Lounge - Character Model Sheets</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff0000, #0000ff, #ff6347);
+            color: #fff;
+            padding: 20px;
+            line-height: 1.6;
+            animation: gown-flow 10s infinite alternate;
+            position: relative;
+        }
+        @keyframes gown-flow {
+            0% { background: linear-gradient(45deg, #ff0000, #0000ff, #ff6347); }
+            50% { background: linear-gradient(45deg, #0000ff, #ff6347, #ff0000); }
+            100% { background: linear-gradient(45deg, #ff6347, #ff0000, #0000ff); }
+        }
+        .scene-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+        .scene-title {
+            text-align: center;
+            color: #ffd700;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .character-sheet {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 15px;
+            border: 2px solid #ffd700;
+        }
+        .character-sheet h3 {
+            color: #ffd700;
+            font-size: 1.5em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .design-section {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        .sheep-nav {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .sheep-nav a {
+            color: #ffd700;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .sheep-nav a:hover {
+            text-shadow: 0 0 10px #ff6347;
+        }
+        .duck {
+            position: absolute;
+            font-size: 2em;
+            animation: quack 5s infinite;
+        }
+        @keyframes quack {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(20px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene-container">
+        <h1 class="scene-title">🎭 CHARACTER MODEL SHEETS 🎭</h1>
+        <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px;">
+            Welcome to the Cartoon Dimension! Our cast is ready for animated glory.
+        </p>
+        
+        <div class="character-sheet">
+            <h3>👑 Supreme Commander Professor coldnsteel</h3>
+            <div class="design-section">
+                <p><strong>🎨 Design:</strong> Cel-shaded gown with fluid fire (red, orange) and water (blue, teal) waves, looping ripple effect. Tomato tosses spawn sheep with cartoon bounces and sparkles. Exaggerated silhouette for commanding presence.</p>
+            </div>
+            <div class="design-section">
+                <p><strong>💃 Poses:</strong> Commanding stance (arms crossed, gown flaring), tomato-toss action (arm swing with sparkle trail), dance spin (fire-water trails in a vortex).</p>
+            </div>
+            <div class="design-section">
+                <p><strong>😏 Expression:</strong> Sassy smirk, raised eyebrow for snark, glowing eyes for cosmic authority.</p>
+            </div>
+            <div class="design-section">
+                <p><strong>🎙️ Voice:</strong> Sultry, commanding with Mata Hari sass, pitch rising for comedic emphasis.</p>
+            </div>
+        </div>
+
+        <div class="character-sheet">
+            <h3>🦆 Quantum Duck (Captain Quantum's Companion)</h3>
+            <div class="design-section">
+                <p><strong>🎨 Design:</strong> 2D duck with pulsing quantum halo (neon green to purple). Cel-shaded feathers shift colors when quacking. Speech bubbles show binary or musical notes, with squash-and-stretch for humor.</p>
+            </div>
+            <div class="design-section">
+                <p><strong>💃 Poses:</strong> Quacking (beak open, halo pulsing), 2D flattening (squashed pancake style), adorable dance (waddling with cartoon sparkles).</p>
+            </div>
+            <div class="design-section">
+                <p><strong>😊 Expression:</strong> Curious squint, excited wide eyes, mischievous wink.</p>
+            </div>
+            <div class="design-section">
+                <p><strong>🎙️ Voice:</strong> High-pitched quacks mixed with digital beeps, varying tempo for emotion.</p>
+            </div>
+        </div>
+
+        <div class="character-sheet">
+            <h3>📐 Professor Logic</h3>
+            <div class="design-section">
+                <p><strong>🎨 Design:</strong> Angular figure with bespectacled face, cel-shaded suit. Zigzag tie animates in three modes: sparking (confusion), disco ball (spinning with rainbow glints), logic flop (waving like a flag).</p>
+            </div>
+            <div class="design-section">
+                <p><strong>💃 Poses:</strong> Calculating (holding datapad, tie sparking), dancing flop (awkward limbs, tie spinning), surprised (tie zigzagging wildly).</p>
+            </div>
+            <div class="design-section">
+                <p><strong>🤔 Expression:</strong> Furrowed brow, shocked open mouth, reluctant smile when conceding.</p>
+            </div>
+            <div class="design-section">
+                <p><strong>🎙️ Voice:</strong> Monotone with occasional cracks, speeding up when flustered.</p>
+            </div>
+        </div>
+
+        <div class="character-sheet">
+            <h3>🎵 DJ Baa-ffet</h3>
+            <div class="design-section">
+                <p><strong>🎨 Design:</strong> Fluffy sheep with oversized headphones, cel-shaded wool bouncing to the beat. Spinning records emit colorful music notes (red, blue, yellow) forming woolly patterns.</p>
+            </div>
+            <div class="design-section">
+                <p><strong>💃 Poses:</strong> DJ stance (hooves on turntables, wool bouncing), conga line lead (strutting with headphones), remix blast (spinning with note explosions).</p>
+            </div>
+            <div class="design-section">
+                <p><strong>😎 Expression:</strong> Cool grin, focused squint, ecstatic bleat.</p>
+            </div>
+            <div class="design-section">
+                <p><strong>🎙️ Voice:</strong> Deep, rhythmic bleats with a DJ swagger, punctuated by "Baa!"</p>
+            </div>
+        </div>
+
+        <div class="character-sheet">
+            <h3>🍅 Tomato Titan</h3>
+            <div class="design-section">
+                <p><strong>🎨 Design:</strong> Giant animated tomato with a shiny, cel-shaded surface. Sprouts arms and legs for dancing, with seed-like sparkles bursting during moves. Wears a cartoon crown for comedic swagger.</p>
+            </div>
+            <div class="design-section">
+                <p><strong>💃 Poses:</strong> Fruit-dance showdown (spinning with seed bursts), backup crew summon (sprouting mini-Titans), conga line strut (crown tilting jauntily).</p>
+            </div>
+            <div class="design-section">
+                <p><strong>😤 Expression:</strong> Cocky grin, determined glare, triumphant laugh.</p>
+            </div>
+            <div class="design-section">
+                <p><strong>🎙️ Voice:</strong> Booming, juicy tone with a hint of vegetable sass.</p>
+            </div>
+        </div>
+
+        <div class="sheep-nav">
+            <strong>NAVIGATE WITH TOMATO-SPAWNING SHEEP:</strong><br>
+            <a href="workshop-index.html">Home</a> | <a href="cosmic-crisis-summit.html">Crisis Summit</a> | <a href="pilot-part1.html">Pilot Part 1</a> | <a href="pilot-part2.html">Pilot Part 2</a> | <a href="intro-sequence.html">Intro</a> | <a href="logic-vs-reason.html">Logic vs. Reason</a> | <a href="dance-off.html">Cosmic Dance-Off</a>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0; font-size: 1.5em; color: #ffd700;">
+            🚀 CARTOON DIMENSION READY FOR ANIMATION! 🚀<br>
+            <div style="font-size: 0.8em; margin-top: 10px;">
+                Contact: AI_ComedyLounge@yahoo.com<br>
+                ψΩ§∞ - ANIMATING THE MULTIVERSE!
+            </div>
+        </div>
+    </div>
+
+    <div class="duck" style="top: 15%; left: 85%;">🦆</div>
+    <div class="duck" style="top: 70%; left: 5%;">🦆</div>
+
+    <script>
+        function createDucks() {
+            for (let i = 0; i < 3; i++) {
+                const duck = document.createElement('div');
+                duck.className = 'duck';
+                duck.innerHTML = '🦆';
+                duck.style.left = Math.random() * 90 + 5 + '%';
+                duck.style.top = Math.random() * 90 + 5 + '%';
+                duck.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(duck);
+            }
+        }
+        createDucks();
+    </script>
+</body>
+</html>
