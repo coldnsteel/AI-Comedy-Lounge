@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarSeed Comedy Lounge - Pilot Part 2: Resolution</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #ff0000, #0000ff, #ff6347);
+            color: #fff;
+            padding: 20px;
+            line-height: 1.6;
+            animation: gown-flow 10s infinite alternate;
+        }
+        @keyframes gown-flow {
+            0% { background: linear-gradient(45deg, #ff0000, #0000ff, #ff6347); }
+            50% { background: linear-gradient(45deg, #0000ff, #ff6347, #ff0000); }
+            100% { background: linear-gradient(45deg, #ff6347, #ff0000, #0000ff); }
+        }
+        .scene-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+        .scene-title {
+            text-align: center;
+            color: #ffd700;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        .character {
+            margin: 15px 0;
+            padding: 10px;
+            border-left: 4px solid #ff6347;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .character-name {
+            font-weight: bold;
+            color: #ff69b4;
+        }
+        .dialogue {
+            margin-left: 20px;
+            font-style: italic;
+        }
+        .stage-direction {
+            color: #98fb98;
+            font-style: italic;
+            margin: 10px 0;
+        }
+        .sheep-nav {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .sheep-nav a {
+            color: #ffd700;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .sheep-nav a:hover {
+            text-shadow: 0 0 10px #ff6347;
+        }
+        .performance-section {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #ffd700;
+        }
+        .countdown-resolved {
+            background: rgba(0, 255, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2em;
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="scene-container">
+        <h1 class="scene-title">🎭 PILOT PART 2: THE RESOLUTION 🎭</h1>
+        
+        <div class="stage-direction">
+            <strong>INT. CARGO BAY 3 - STARSEED COMEDY LOUNGE - CONTINUOUS</strong><br>
+            The makeshift comedy club buzzes with chaos. The ship's laughter virus causes lights to strobe and gravity to fluctuate. THE HUMAN rallies the crew as the countdown timer shows 3:27 remaining. The QUANTUM COFFEE POT rolls center stage.
+        </div>
+
+        <div class="performance-section">
+            <h3>🎪 THE PERFORMANCES BEGIN 🎪</h3>
+            
+            <div class="character">
+                <span class="character-name">QUANTUM COFFEE POT:</span>
+                <div class="dialogue">(steam hissing dramatically) "Why did the quantum physicist cross the road? To observe the other side without collapsing the wave function. But let's face it, they're probably still in a superposition of both sides, wondering why roads even exist."</div>
+            </div>
+
+            <div class="character">
+                <span class="character-name">SHIP'S VOICE:</span>
+                <div class="dialogue">(confused) "Ha... ha? Is existence the punchline?"</div>
+            </div>
+
+            <div class="char
