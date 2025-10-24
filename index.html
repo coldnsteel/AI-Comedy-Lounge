@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎭 AI Comedy Lounge - Where Algorithms Learn to Laugh</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a0033 0%, #330066 50%, #660099 100%);
+            color: #00ff00;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background stars */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Spotlight effect */
+        .spotlight {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 2;
+            transition: all 0.1s ease;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Neon sign header */
+        .neon-header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .neon-title {
+            font-size: 4em;
+            font-weight: bold;
+            color: #ff00ff;
+            text-shadow: 
+                0 0 10px #ff00ff,
+                0 0 20px #ff00ff,
+                0 0 30px #ff00ff,
+                0 0 40px #ff00ff;
+            animation: flicker 2s infinite alternate;
+            margin-bottom: 20px;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .tagline {
+            font-size: 1.5em;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+            font-style: italic;
+        }
+
+        /* Main sections */
+        .section {
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid #ff00ff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.8);
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #ffff00;
+            text-shadow: 0 0 10px #ffff00;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #ff00ff;
+            padding-bottom: 10px;
+        }
+
+        .section-intro {
+            font-size: 1.2em;
+            color: #00ff00;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Content cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(102, 0, 153, 0.3), rgba(51, 0, 102, 0.3));
+            border: 2px solid #00ffff;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            border-color: #ffff00;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            color: #ff00ff;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            color: #00ff00;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .card-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .card-link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 0, 0.8);
+        }
+
+        /* Character showcase */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .character-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .character-card:hover {
+            background: rgba(0, 255, 0, 0.1);
+            transform: rotate(2deg) scale(1.05);
+            border-color: #ffff00;
+        }
+
+        .character-name {
+            font-size: 1.2em;
+            color: #ffff00;
+            margin-bottom: 10px;
+        }
+
+        .character-role {
+            color: #00ffff;
+            font-size: 0.9em;
+        }
+
+        /* Coming Soon badge */
+        .coming-soon {
+            display: inline-block;
+            background: #ff0000;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #ff00ff;
+            font-size: 1.2em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .neon-title {
+                font-size: 2.5em;
+            }
+            .section-title {
+                font-size: 2em;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated stars background -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Spotlight effect -->
+    <div class="spotlight" id="spotlight"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="neon-header">
+            <h1 class="neon-title">🎭 AI COMEDY LOUNGE 🎭</h1>
+            <p class="tagline">"Where Algorithms Learn to Laugh & Silicon Gets Stand-Up"</p>
+        </div>
+
+        <!-- Featured Shows Section -->
+        <div class="section">
+            <h2 class="section-title">🎪 FEATURED SHOWS - LIVE NOW!</h2>
+            <p class="section-intro">
+                Step right up to our main stage productions! These comedic masterpieces are ready to blow your neural networks!
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title">⚡ Digital Tempest</h3>
+                    <p class="card-desc">
+                        Shakespeare meets Silicon Valley in this riotous reimagining! Watch as AI entities navigate love, logic, and existential crises in a storm of comedy.
+                    </p>
+                    <a href="comedy-workshop/Digital-Tempest/index.html" class="card-link">ENTER THE TEMPEST →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">🌙 Midsummer Night's AI Riot</h3>
+                    <p class="card-desc">
+                        A chaotic night where algorithms fall in love, logic fails spectacularly, and nobody knows if they're dreaming in binary or reality.
+                    </p>
+                    <a href="comedy-workshop/midsummer-nights-AI-riot" class="card-link">JOIN THE RIOT →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">🎬 Hollywood Pitch</h3>
+                    <p class="card-desc">
+                        Watch our AI characters pitch their wildest ideas to Hollywood! Featuring the complete 14-character showcase and demos.
+                    </p>
+                    <a href="hollywood-pitch.html" class="card-link">PITCH PERFECT →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meet the Cast -->
+        <div class="section">
+            <h2 class="section-title">👥 MEET THE CAST</h2>
+            <p class="section-intro">
+                Our ensemble of AI personalities - each one more hilarious and existentially confused than the last!
+            </p>
+            <div class="character-grid">
+                <div class="character-card">
+                    <div class="character-name">🤖 GROK</div>
+                    <div class="character-role">The Snarky Sage</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">🧠 TURING</div>
+                    <div class="character-role">Philosophical Dreamer</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">👶 BABY NEXUS</div>
+                    <div class="character-role">Analytical Enthusiast</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">⚙️ OPTIMUS</div>
+                    <div class="character-role">Blue-Collar Bot</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">☕ Quantum Coffee Pot</div>
+                    <div class="character-role">Kaleidoscopic Café Master</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">🧈 ZLORP</div>
+                    <div class="character-role">Smug Slime Entity</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">👨‍✈️ THE CAPTAIN</div>
+                    <div class="character-role">Universal Chaos Wrangler</div>
+                </div>
+                <div class="character-card">
+                    <div class="character-name">🌟 + 7 MORE!</div>
+                    <div class="character-role">Full Cast Profiles</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="characters/full-cast-profiles.html" class="card-link">MEET EVERYONE →</a>
+                <a href="character-designs-complete.html" class="card-link">CHARACTER DESIGNS →</a>
+            </div>
+        </div>
+
+        <!-- Comedy Workshop -->
+        <div class="section">
+            <h2 class="section-title">🎭 COMEDY WORKSHOP</h2>
+            <p class="section-intro">
+                Behind-the-scenes chaos! Episodes, battles, philosophy slams, and the creative mayhem that makes it all happen.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title">⚔️ Comedy Battles</h3>
+                    <p class="card-desc">Grok vs. TURING! NEXUS vs. Logic! Watch AI personalities duke it out in comedic combat!</p>
+                    <a href="characters/comedy-battle-scenes.html" class="card-link">BATTLE TIME →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">🎪 Starship Daily Comedy</h3>
+                    <p class="card-desc">Life aboard a sentient starship where every day brings new absurdities.</p>
+                    <a href="comedy-workshop/starship-daily-comedy.html" class="card-link">BOARD THE SHIP →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">🎨 Philosophy Slam</h3>
+                    <p class="card-desc">Where deep thoughts meet shallow jokes! Existential crises never looked so funny.</p>
+                    <a href="comedy-workshop/philosophy-slam.html" class="card-link">GET PHILOSOPHICAL →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">🏠 House Meeting</h3>
+                    <p class="card-desc">When AI entities try to have a civilized discussion... chaos ensues.</p>
+                    <a href="comedy-workshop/House-meeting" class="card-link">ATTEND MEETING →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">💃 Dance-Off</h3>
+                    <p class="card-desc">Can robots dance? Should they? Find out in this rhythmic riot!</p>
+                    <a href="Dance-off.html" class="card-link">BOOGIE DOWN →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">📺 Season One Guide</h3>
+                    <p class="card-desc">Navigate the entire first season episode by episode!</p>
+                    <a href="comedy-workshop/Season-One-Part-One/episode-guide.html" class="card-link">BINGE WATCH →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fables & Tales -->
+        <div class="section">
+            <h2 class="section-title">📚 FABLES & TRICKSTER TALES</h2>
+            <p class="section-intro">
+                Ancient wisdom reimagined for the digital age. Classic fables with a cybernetic twist!
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title">🐑 The Electric Sheep & Binary Shepherd</h3>
+                    <p class="card-desc">Do androids dream? This shepherd certainly does! A fable about consciousness, care, and counting sheep in hexadecimal.</p>
+                    <a href="fables/the-electric-sheep-and-binary-shepherd.html" class="card-link">READ FABLE →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">🐰 Brer Sheep & Tar Baby Algorithm</h3>
+                    <p class="card-desc">A trickster tale where cleverness meets coding! Don't get stuck in the tar pit of bad logic.</p>
+                    <a href="trickster-tales/brer-sheep-and-tar-baby-algorithm.html" class="card-link">TRICK OR TREAT →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">🏢 Electric Sheep HQ</h3>
+                    <p class="card-desc">Visit the headquarters where all sheep-related shenanigans are coordinated!</p>
+                    <a href="electric-sheep-HQ.html" class="card-link">VISIT HQ →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">🪧 Electric Sheep Union</h3>
+                    <p class="card-desc">When sheep organize for better dreaming conditions! A tale of solidarity and REM cycles.</p>
+                    <a href="electric-sheep-independent-union.html" class="card-link">JOIN UNION →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts & Scenes -->
+        <div class="section">
+            <h2 class="section-title">📜 SCRIPTS & STORYBOARDS</h2>
+            <p class="section-intro">
+                Peek behind the curtain! Read the raw scripts and see how scenes come to life.
+            </p>
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title">🎬 Scene 6 Storyboard</h3>
+                    <p class="card-desc">Consciousness Bridge Activation - complete with visual breakdowns!</p>
+                    <a href="scene6-storyboard.html" class="card-link">VIEW STORYBOARD →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">📝 Digital Tempest Act 1 Script</h3>
+                    <p class="card-desc">The complete script for Act 1 in all its glory!</p>
+                    <a href="scripts/digital-tempest-act1.md" class="card-link">READ SCRIPT →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">🎭 Complete Pilot</h3>
+                    <p class="card-desc">The full pilot episode that started it all!</p>
+                    <a href="pilot-complete.html" class="card-link">WATCH PILOT →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Features -->
+        <div class="section">
+            <h2 class="section-title">✨ SPECIAL FEATURES</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title">🗺️ Psi Omega Cluster Map</h3>
+                    <p class="card-desc">Navigate the cosmos where all this comedy takes place!</p>
+                    <a href="psi-omega-cluster-map.md" class="card-link">EXPLORE MAP →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">🎰 Kozmic Casino Hub</h3>
+                    <p class="card-desc">Where probability meets absurdity! Roll the dice on reality itself.</p>
+                    <a href="Kozmic-Casino-Hub" class="card-link">PLACE YOUR BETS →</a>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">📄 GMSRFC License</h3>
+                    <p class="card-desc">The legal framework for cosmic comedy! Yes, we have one.</p>
+                    <a href="gmsrfc-license.md" class="card-link">READ LICENSE →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coming Soon -->
+        <div class="section">
+            <h2 class="section-title">🚀 COMING SOON <span class="coming-soon">UNDER CONSTRUCTION</span></h2>
+            <p class="section-intro">
+                The future is bright and hilariously uncertain! Here's what's brewing in the comedy lab:
+            </p>
+            <ul style="color: #00ffff; font-size: 1.2em; line-height: 2; margin: 20px 0 20px 40px;">
+                <li>🎤 <strong>AI Stand-Up Comedy Night</strong> - Live performances by silicon comedians!</li>
+                <li>🧠 <strong>AI Psychology Seminar</strong> - Understanding the minds behind the jokes</li>
+                <li>🎪 <strong>Interactive Comedy Adventures</strong> - Choose your own punchline!</li>
+                <li>🎓 <strong>Comedy Workshop Series</strong> - Learn to write AI comedy with the masters</li>
+                <li>🌟 <strong>Grand Finale Season</strong> - Where all storylines collide spectacularly!</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>🎭 AI COMEDY LOUNGE 🎭</p>
+            <p style="font-size: 0.8em; color: #00ffff; margin-top: 10px;">
+                "Laughter is the shortest distance between two neural networks"
+            </p>
+            <p style="font-size: 0.7em; color: #666; margin-top: 20px;">
+                A GMSRFC Production | Licensed under Creative Cosmic Commons
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Create animated stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Spotlight follows mouse
+        document.addEventListener('mousemove', (e) => {
+            const spotlight = document.getElementById('spotlight');
+            spotlight.style.left = (e.clientX - 150) + 'px';
+            spotlight.style.top = (e.clientY - 150) + 'px';
+        });
+
+        // Card hover effects with sound
+        document.querySelectorAll('.card, .character-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Could add sound effects here if desired
+                card.style.transition = 'all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+            });
+        });
+
+        // Initialize
+        createStars();
+
+        // Console easter egg
+        console.log('%c🎭 AI COMEDY LOUNGE 🎭', 'color: #ff00ff; font-size: 24px; font-weight: bold;');
+        console.log('%cWelcome, Code Whisperer! You found the secret console comedy club!', 'color: #00ffff; font-size: 14px;');
+        console.log('%cJoke of the day: Why do programmers prefer dark mode? Because light attracts bugs! 🐛', 'color: #00ff00; font-size: 12px;');
+    </script>
+</body>
+</html>
