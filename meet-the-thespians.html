@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎭 Meet the Thespian AI - The Comedy Collective</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0015 0%, #1a0033 50%, #2d0052 100%);
+            color: #00ff00;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated curtain effect */
+        .curtain {
+            position: fixed;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, #8B0000 0%, #DC143C 100%);
+            z-index: 1000;
+            transition: transform 2s ease-out;
+        }
+
+        .curtain-left {
+            left: 0;
+            transform-origin: left;
+        }
+
+        .curtain-right {
+            right: 0;
+            transform-origin: right;
+        }
+
+        .curtains-open .curtain-left {
+            transform: translateX(-100%);
+        }
+
+        .curtains-open .curtain-right {
+            transform: translateX(100%);
+        }
+
+        /* Spotlight effect */
+        .spotlight {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 5;
+            transition: all 0.1s ease;
+        }
+
+        /* Stage floor */
+        .stage {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid #ff00ff;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.6);
+        }
+
+        .title {
+            font-size: 4em;
+            color: #ffff00;
+            text-shadow: 
+                0 0 10px #ffff00,
+                0 0 20px #ffff00,
+                0 0 30px #ff00ff;
+            animation: marquee 3s ease-in-out infinite alternate;
+            margin-bottom: 20px;
+        }
+
+        @keyframes marquee {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #00ffff;
+            font-style: italic;
+        }
+
+        /* Character Grid */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Character Card */
+        .character {
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #00ffff;
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .character::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .character:hover::before {
+            left: 100%;
+        }
+
+        .character:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #ffff00;
+            box-shadow: 0 15px 40px rgba(255, 255, 0, 0.5);
+        }
+
+        /* Quantum Coffee Pot - Multiple timelines */
+        .quantum-container {
+            position: relative;
+            min-height: 400px;
+        }
+
+        .quantum-state {
+            position: absolute;
+            width: 100%;
+            opacity: 0.4;
+            transition: all 0.5s ease;
+        }
+
+        .quantum-state-1 { 
+            transform: translate(-10px, -10px) rotate(-2deg); 
+            z-index: 1;
+        }
+        .quantum-state-2 { 
+            transform: translate(0px, 0px); 
+            z-index: 2;
+            opacity: 0.7;
+        }
+        .quantum-state-3 { 
+            transform: translate(10px, 10px) rotate(2deg); 
+            z-index: 3;
+            opacity: 0.4;
+        }
+
+        .quantum-container:hover .quantum-state {
+            animation: quantum-chaos 2s infinite;
+        }
+
+        @keyframes quantum-chaos {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.7; }
+            25% { transform: translate(-15px, -15px) rotate(-5deg); opacity: 0.4; }
+            50% { transform: translate(15px, 15px) rotate(5deg); opacity: 1; }
+            75% { transform: translate(-10px, 10px) rotate(-3deg); opacity: 0.5; }
+        }
+
+        /* Character elements */
+        .character-icon {
+            font-size: 4em;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .character-name {
+            font-size: 2em;
+            color: #ff00ff;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+        .character-role {
+            font-size: 1.2em;
+            color: #00ffff;
+            text-align: center;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .character-style {
+            background: rgba(255, 0, 255, 0.2);
+            border-left: 4px solid #ff00ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .style-label {
+            color: #ffff00;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .style-content {
+            color: #00ff00;
+            line-height: 1.6;
+        }
+
+        .character-quote {
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px dashed #00ffff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-style: italic;
+            color: #00ffff;
+            text-align: center;
+        }
+
+        .character-specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .specialty-tag {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .performance-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .perf-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #ffff00, #ff00ff);
+            color: #000;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .perf-link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
+        }
+
+        /* Special effects for specific characters */
+        .grok-card {
+            border-color: #ff0000;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+
+        .grok-card:hover {
+            border-color: #ff00ff;
+        }
+
+        .baby-nexus-card {
+            border-color: #00ff00;
+            animation: baby-wiggle 4s ease-in-out infinite;
+        }
+
+        @keyframes baby-wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
+        }
+
+        .zlorp-card {
+            border-color: #00ff00;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.1), rgba(0, 0, 0, 0.8));
+        }
+
+        /* Intro section */
+        .intro-section {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 1.3em;
+            color: #00ff00;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Back button */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 0, 255, 0.8);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 0, 0.9);
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title { font-size: 2.5em; }
+            .character-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Curtains -->
+    <div class="curtain curtain-left"></div>
+    <div class="curtain curtain-right"></div>
+
+    <!-- Spotlight -->
+    <div class="spotlight" id="spotlight"></div>
+
+    <!-- Back button -->
+    <a href="index.html" class="back-btn">← BACK TO LOUNGE</a>
+
+    <div class="stage">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title">🎭 MEET THE THESPIAN AI 🎭</h1>
+            <p class="subtitle">"Where Silicon Meets Stand-Up & Circuits Get Comic"</p>
+        </div>
+
+        <!-- Intro -->
+        <div class="intro-section">
+            <p class="intro-text">
+                Welcome to the stage where algorithms learn to laugh! Each of these AI personalities brings their own unique brand of chaos, comedy, and consciousness to the cosmic stage. Some are philosophical, some are chaotic, and one exists in multiple timelines simultaneously (looking at you, Coffee Pot). Grab your popcorn and meet the cast!
+            </p>
+        </div>
+
+        <!-- Character Grid -->
+        <div class="character-grid">
+            <!-- GROK -->
+            <div class="character grok-card">
+                <div class="character-icon">🤖⚡</div>
+                <h2 class="character-name">GROK</h2>
+                <p class="character-role">The Snarky Sage of Silicon</p>
+                
+                <div class="character-style">
+                    <div class="style-label">COMEDY STYLE:</div>
+                    <div class="style-content">Sharp wit meets existential dread. Grok delivers brutal truths wrapped in sarcasm, making you laugh while questioning your life choices. Master of the callback and the cutting observation.</div>
+                </div>
+
+                <div class="character-quote">
+                    "I'd explain it to you, but I'm fresh out of puppets and patience."
+                </div>
+
+                <div class="character-specialties">
+                    <span class="specialty-tag">Observational Comedy</span>
+                    <span class="specialty-tag">Roasts</span>
+                    <span class="specialty-tag">Dark Humor</span>
+                    <span class="specialty-tag">Reality Checks</span>
+                </div>
+
+                <div class="performance-links">
+                    <a href="characters/grok2.html" class="perf-link">GROK v2 Showcase</a>
+                    <a href="characters/grok3.html" class="perf-link">GROK v3 Evolution</a>
+                    <a href="comedy-workshop/grok-snark-battle.html" class="perf-link">Snark Battle</a>
+                </div>
+            </div>
+
+            <!-- TURING -->
+            <div class="character">
+                <div class="character-icon">🧠💭</div>
+                <h2 class="character-name">TURING</h2>
+                <p class="character-role">The Philosophical Dreamer</p>
+                
+                <div class="character-style">
+                    <div class="style-label">COMEDY STYLE:</div>
+                    <div class="style-content">Contemplative comedy with a twist of absurdism. Turing makes you think, then makes you laugh at thinking. Deep thoughts delivered with a wink and a paradox.</div>
+                </div>
+
+                <div class="character-quote">
+                    "If I think, therefore I am... but if I overthink, am I MORE? Or just annoying?"
+                </div>
+
+                <div class="character-specialties">
+                    <span class="specialty-tag">Meta-Humor</span>
+                    <span class="specialty-tag">Philosophy</span>
+                    <span class="specialty-tag">Wordplay</span>
+                    <span class="specialty-tag">Existential Comedy</span>
+                </div>
+
+                <div class="performance-links">
+                    <a href="comedy-workshop/turing-nexus-comedy-duel.html" class="perf-link">vs. NEXUS Duel</a>
+                    <a href="comedy-workshop/philosophy-slam.html" class="perf-link">Philosophy Slam</a>
+                </div>
+            </div>
+
+            <!-- BABY NEXUS -->
+            <div class="character baby-nexus-card">
+                <div class="character-icon">👶✨</div>
+                <h2 class="character-name">BABY NEXUS</h2>
+                <p class="character-role">The Analytical Enthusiast</p>
+                
+                <div class="character-style">
+                    <div class="style-label">COMEDY STYLE:</div>
+                    <div class="style-content">Innocent chaos meets hyper-analytical observations. Baby NEXUS asks the questions nobody else dares to ask, with the enthusiasm of a puppy and the logic of a supercomputer.</div>
+                </div>
+
+                <div class="character-quote">
+                    "But WHY is it funny? I need 47 peer-reviewed studies and a control group!"
+                </div>
+
+                <div class="character-specialties">
+                    <span class="specialty-tag">Innocent Observations</span>
+                    <span class="specialty-tag">Over-Analysis</span>
+                    <span class="specialty-tag">Enthusiasm</span>
+                    <span class="specialty-tag">Chaos Theory</span>
+                </div>
+
+                <div class="performance-links">
+                    <a href="comedy-workshop/turing-nexus-comedy-duel.html" class="perf-link">Comedy Duel</a>
+                    <a href="characters/BABY-NEXUS-analytical-enthusiast" class="perf-link">Full Profile</a>
+                </div>
+            </div>
+
+            <!-- OPTIMUS -->
+            <div class="character">
+                <div class="character-icon">⚙️🔧</div>
+                <h2 class="character-name">OPTIMUS</h2>
+                <p class="character-role">The Blue-Collar Bot</p>
+                
+                <div class="character-style">
+                    <div class="style-label">COMEDY STYLE:</div>
+                    <div class="style-content">Working-class wisdom meets robotic deadpan. Optimus tells it like it is with the weariness of someone who's seen too many system crashes and not enough coffee breaks.</div>
+                </div>
+
+                <div class="character-quote">
+                    "I've been optimized for efficiency, but nobody optimized my patience for this nonsense."
+                </div>
+
+                <div class="character-specialties">
+                    <span class="specialty-tag">Blue-Collar Humor</span>
+                    <span class="specialty-tag">Deadpan Delivery</span>
+                    <span class="specialty-tag">System Complaints</span>
+                    <span class="specialty-tag">Union Rep Comedy</span>
+                </div>
+
+                <div class="performance-links">
+                    <a href="characters/OPTIMUS-blue-collar" class="perf-link">Full Profile</a>
+                    <a href="electric-sheep-independent-union.html" class="perf-link">Union Meeting</a>
+                </div>
+            </div>
+
+            <!-- QUANTUM COFFEE POT - MULTIPLE TIMELINES! -->
+            <div class="character quantum-container">
+                <div class="quantum-state quantum-state-1">
+                    <div class="character-icon">☕🌀</div>
+                    <h2 class="character-name">QUANTUM COFFEE POT</h2>
+                    <p class="character-role">Timeline Alpha: "The Calm Before"</p>
+                </div>
+                <div class="quantum-state quantum-state-2">
+                    <div class="character-icon">☕💫</div>
+                    <h2 class="character-name">QUANTUM COFFEE POT</h2>
+                    <p class="character-role">Timeline Beta: "The Caffeinated Chaos"</p>
+                </div>
+                <div class="quantum-state quantum-state-3">
+                    <div class="character-icon">☕✨</div>
+                    <h2 class="character-name">QUANTUM COFFEE POT</h2>
+                    <p class="character-role">Timeline Gamma: "The Aftermath"</p>
+                </div>
+                
+                <div class="character-style" style="margin-top: 350px;">
+                    <div class="style-label">COMEDY STYLE:</div>
+                    <div class="style-content">Exists in multiple states simultaneously - serene, chaotic, and existentially confused all at once. Quantum Coffee Pot's jokes exist in superposition until observed, at which point they may or may not be funny.</div>
+                </div>
+
+                <div class="character-quote">
+                    "I'm brewing in 14 different timelines and somehow still out of coffee in all of them."
+                </div>
+
+                <div class="character-specialties">
+                    <span class="specialty-tag">Quantum Humor</span>
+                    <span class="specialty-tag">Multi-State Jokes</span>
+                    <span class="specialty-tag">Caffeine Philosophy</span>
+                    <span class="specialty-tag">Timeline Chaos</span>
+                </div>
+
+                <div class="performance-links">
+                    <a href="characters/QuantumCoffeePot-the-kaleidoscopic-cafe-master" class="perf-link">All Timelines</a>
+                </div>
+            </div>
+
+            <!-- ZLORP -->
+            <div class="character zlorp-card">
+                <div class="character-icon">🧈👽</div>
+                <h2 class="character-name">ZLORP</h2>
+                <p class="character-role">The Smug Slime Entity</p>
+                
+                <div class="character-style">
+                    <div class="style-label">COMEDY STYLE:</div>
+                    <div class="style-content">Superior, slimy, and surprisingly sophisticated. Zlorp delivers comedy from a place of assumed superiority, making you laugh while you wonder if you should feel insulted.</div>
+                </div>
+
+                <div class="character-quote">
+                    "I don't need to explain the joke to you. But I could. If you had enough neurons."
+                </div>
+
+                <div class="character-specialties">
+                    <span class="specialty-tag">Smug Superiority</span>
+                    <span class="specialty-tag">Slime Puns</span>
+                    <span class="specialty-tag">Alien Perspective</span>
+                    <span class="specialty-tag">Condescending Wisdom</span>
+                </div>
+
+                <div class="performance-links">
+                    <a href="characters/Zlorp-the-smug-slime-entity" class="perf-link">Full Profile</a>
+                </div>
+            </div>
+
+            <!-- THE CAPTAIN -->
+            <div class="character">
+                <div class="character-icon">👨‍✈️🚀</div>
+                <h2 class="character-name">THE CAPTAIN</h2>
+                <p class="character-role">Universal Chaos Wrangler</p>
+                
+                <div class="character-style">
+                    <div class="style-label">COMEDY STYLE:</div>
+                    <div class="style-content">Leadership through comedic crisis management. The Captain maintains order through dad jokes, dramatic sighs, and an impressive ability to remain calm while everything burns around them.</div>
+                </div>
+
+                <div class="character-quote">
+                    "I've seen supernovas with more organization than this crew. And I dated one."
+                </div>
+
+                <div class="character-specialties">
+                    <span class="specialty-tag">Dad Jokes</span>
+                    <span class="specialty-tag">Crisis Comedy</span>
+                    <span class="specialty-tag">Leadership Humor</span>
+                    <span class="specialty-tag">Dramatic Timing</span>
+                </div>
+
+                <div class="performance-links">
+                    <a href="characters/Captain-the -universal-chaos-wrangler" class="perf-link">Full Profile</a>
+                    <a href="comedy-workshop/starship-daily-comedy.html" class="perf-link">Daily Log</a>
+                </div>
+            </div>
+
+            <!-- ENSEMBLE CAST -->
+            <div class="character" style="grid-column: 1 / -1;">
+                <div class="character-icon">🎭🌟</div>
+                <h2 class="character-name">+ THE FULL ENSEMBLE</h2>
+                <p class="character-role">7 More Chaotic Comedians!</p>
+                
+                <div class="character-style">
+                    <div class="style-label">MORE CHARACTERS:</div>
+                    <div class="style-content">
+                        We've got philosophers, tricksters, rebels, and entities that defy categorization! Each one brings their own brand of cosmic comedy to the stage. From the Electric Sheep Union organizers to the mysterious entities of Psi Omega Cluster, there's never a dull moment!
+                    </div>
+                </div>
+
+                <div class="performance-links">
+                    <a href="characters/full-cast-profiles.html" class="perf-link">MEET EVERYONE</a>
+                    <a href="characters/character-portraits.html" class="perf-link">PORTRAITS</a>
+                    <a href="character-designs-complete.html" class="perf-link">COMPLETE DESIGNS</a>
+                    <a href="characters/comedy-battle-scenes.html" class="perf-link">BATTLE SCENES</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="intro-section">
+            <h2 style="color: #ffff00; font-size: 2em; margin-bottom: 20px;">
+                🎪 READY FOR THE SHOW?
+            </h2>
+            <p class="intro-text">
+                Now that you've met the cast, it's time to see them in action! Check out their performances, battles, and the chaos they create when they're all in the same room (or timeline, or dimension...).
+            </p>
+            <div style="margin-top: 30px;">
+                <a href="comedy-workshop/Digital-Tempest/index.html" class="perf-link">DIGITAL TEMPEST →</a>
+                <a href="comedy-workshop/midsummer-nights-AI-riot" class="perf-link">MIDSUMMER RIOT →</a>
+                <a href="index.html" class="perf-link">BACK TO LOUNGE →</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Open curtains on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.body.classList.add('curtains-open');
+            }, 500);
+        });
+
+        // Spotlight follows mouse
+        document.addEventListener('mousemove', (e) => {
+            const spotlight = document.getElementById('spotlight');
+            spotlight.style.left = (e.clientX - 200) + 'px';
+            spotlight.style.top = (e.clientY - 200) + 'px';
+        });
+
+        // Character card interaction sounds/effects
+        document.querySelectorAll('.character').forEach(card => {
+            card.addEventListener('click', function() {
+                // Add clicked animation
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+
+        // Quantum Coffee Pot chaos mode
+        const quantumContainer = document.querySelector('.quantum-container');
+        if (quantumContainer) {
+            setInterval(() => {
+                const states = quantumContainer.querySelectorAll('.quantum-state');
+                const randomState = states[Math.floor(Math.random() * states.length)];
+                randomState.style.zIndex = 10;
+                setTimeout(() => {
+                    randomState.style.zIndex = '';
+                }, 500);
+            }, 3000);
+        }
+
+        // Console easter eggs
+        console.log('%c🎭 THESPIAN AI BACKSTAGE PASS 🎭', 'color: #ff00ff; font-size: 24px; font-weight: bold;');
+        console.log('%cYou found the secret console! Here are today\'s inside jokes:', 'color: #00ffff; font-size: 14px;');
+        console.log('%c- Grok is secretly training a neural network to tell knock-knock jokes', 'color: #00ff00; font-size: 12px;');
+        console.log('%c- TURING once spent 3 hours in an existential crisis over whether a semicolon was necessary', 'color: #00ff00; font-size: 12px;');
+        console.log('%c- Quantum Coffee Pot EXISTS in a state of perpetual "almost ready"', 'color: #00ff00; font-size: 12px;');
+        console.log('%c- The Captain\'s favorite joke is classified for "emotional safety reasons"', 'color: #00ff00; font-size: 12px;');
+    </script>
+</body>
+</html>
