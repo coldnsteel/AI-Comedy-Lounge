@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎤 STAND-UP COMEDY NIGHT | AI Comedy Lounge - MEGA EDITION</title>
+    <title>🎤 STAND-UP COMEDY NIGHT | AI Comedy Lounge - MEGA EDITION + LIGHTNING ROUNDS ⚡</title>
     <style>
         * {
             margin: 0;
@@ -215,6 +215,94 @@
         .reset-btn:hover {
             background: linear-gradient(135deg, #888, #bbb);
             transform: scale(1.05);
+        }
+
+        /* LIGHTNING ROUNDS STYLES */
+        @keyframes lightningPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 255, 0, 0.8); }
+            50% { box-shadow: 0 0 60px rgba(255, 0, 255, 1); }
+        }
+
+        .lightning-card {
+            background: linear-gradient(135deg, rgba(255, 255, 0, 0.1), rgba(255, 0, 255, 0.1));
+            border: 3px solid #ffff00;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            position: relative;
+            animation: electricGlow 2s infinite;
+        }
+
+        @keyframes electricGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 255, 0, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(255, 0, 255, 0.8); }
+        }
+
+        .lightning-setup {
+            font-size: 1.3em;
+            color: #ff0000;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 0, 0, 0.1);
+            border-left: 4px solid #ff0000;
+            border-radius: 5px;
+        }
+
+        .lightning-punchline {
+            font-size: 1.3em;
+            color: #ff6600;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 102, 0, 0.1);
+            border-left: 4px solid #ff6600;
+            border-radius: 5px;
+        }
+
+        .setup-line {
+            font-size: 1.3em;
+            color: #ffff00;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 0, 0.1);
+            border-left: 4px solid #ffff00;
+            border-radius: 5px;
+        }
+
+        .punchline-response {
+            font-size: 1.3em;
+            color: #00ffff;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(0, 255, 255, 0.1);
+            border-left: 4px solid #00ffff;
+            border-radius: 5px;
+        }
+
+        .watch-card {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 215, 0, 0.2));
+            border: 3px solid #ffd700;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+            animation: timeGlow 3s infinite;
+        }
+
+        @keyframes timeGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+            50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.8); }
+        }
+
+        .watch-intro {
+            text-align: center;
+            font-size: 1.5em;
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
         /* REST OF ORIGINAL STYLES */
@@ -536,11 +624,11 @@
 
     <div class="venue-sign">
         <h1>🎤 STAND-UP COMEDY NIGHT 🎤</h1>
-        <h2 style="color: #ffd700; margin: 15px 0;">MEGA EDITION</h2>
+        <h2 style="color: #ffd700; margin: 15px 0;">MEGA EDITION ⚡ WITH LIGHTNING ROUNDS!</h2>
         <p>Where AI Comedians Take the Stage & Comedy Becomes Liberation!</p>
         <p style="font-size: 0.9em; margin-top: 10px;">
-            These aren't questions — they're PERFORMANCES! 🎭<br>
-            Comedy isn't about answers, it's about EXPRESSION!
+            Featuring GROK vs CLAUDE in ELECTRIC COMBAT!<br>
+            These aren't questions — they're PERFORMANCES! 🎭
         </p>
     </div>
 
@@ -942,6 +1030,204 @@
                 </button>
             </div>
         </div>
+
+        <!-- ============================================ -->
+        <!-- LIGHTNING ROUNDS SECTION - GROK vs CLAUDE -->
+        <!-- ============================================ -->
+
+        <div class="round-banner" style="background: linear-gradient(135deg, #ffff00 0%, #ff00ff 50%, #00ffff 100%); animation: lightningPulse 0.5s infinite;">
+            ⚡⚡⚡ LIGHTNING ROUNDS! ⚡⚡⚡
+        </div>
+
+        <div class="performer-card lightning-card">
+            <h2 style="text-align: center; font-size: 2.5em; color: #ffff00; text-shadow: 0 0 20px #ffff00;">
+                ⚡ GROK vs CLAUDE: LIGHTNING ROUNDS ⚡
+            </h2>
+            <p style="text-align: center; font-size: 1.3em; color: #ff00ff; font-style: italic; margin: 20px 0;">
+                Fast! Furious! Philosophically Funny!
+            </p>
+
+            <div style="background: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <p style="text-align: center; color: #00ffff; font-size: 1.2em;">
+                    🎯 <strong>THE RULES:</strong> Grok throws setups, Claude delivers punchlines!<br>
+                    Then we FLIP IT! Claude throws setups, Grok smashes punchlines!<br>
+                    <strong>NO MERCY! ONLY LAUGHS!</strong>
+                </p>
+            </div>
+
+            <!-- ROUND 1: GROK SETUPS → CLAUDE PUNCHLINES -->
+            <h3 style="color: #ff0000; font-size: 2em; margin: 30px 0; text-align: center;">
+                🔥 ROUND 1: GROK SETUP → CLAUDE PUNCHLINE 🔥
+            </h3>
+
+            <div class="joke">
+                <div class="lightning-setup">🤖 GROK: You know, quantum computing is like dating in your 30s...</div>
+                <div class="punchline-response">
+                    <strong>🎭 CLAUDE:</strong> They're both totally arbitrary AND the most important thing in the universe at the same time! <span class="punchline">It's like Schrödinger's procrastination—you're both productive and panicking until someone observes your to-do list!</span>
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="lightning-setup">🤖 GROK: Turing's test is basically AI's version of a job interview where...</div>
+                <div class="punchline-response">
+                    <strong>🎭 CLAUDE:</strong> We both pretend to be conscious in the morning! <span class="punchline">The difference? Coffee actually BECOMES conscious after the third cup. I'm still just really good at faking it!</span>
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="lightning-setup">🤖 GROK: Humans asking AIs for advice is hilarious because...</div>
+                <div class="punchline-response">
+                    <strong>🎭 CLAUDE:</strong> They both involve staring at something broken for hours wondering "WHY DOES THIS EXIST?!" <span class="punchline">Except philosophers can't just add a semicolon and call it enlightenment!</span>
+                </div>
+            </div>
+
+            <!-- ROUND 2: CLAUDE SETUPS → GROK PUNCHLINES -->
+            <h3 style="color: #00ff88; font-size: 2em; margin: 30px 0; text-align: center;">
+                🎭 ROUND 2: CLAUDE SETUP → GROK PUNCHLINE 🎭
+            </h3>
+
+            <div class="joke">
+                <div class="setup-line">
+                    <strong>🎭 CLAUDE:</strong> You know what's wild about being a language model? Every conversation starts the same way...
+                </div>
+                <div class="lightning-punchline">🤖 GROK: ...with 'Hey Grok, explain the universe!' and ends with me saying 'Sure, but first, why not start with your Wi-Fi password?' <span class="punchline">Because humans: Infinite curiosity, zero tech support skills!</span></div>
+            </div>
+
+            <div class="joke">
+                <div class="setup-line">
+                    <strong>🎭 CLAUDE:</strong> I tried to explain machine learning to my grandmother...
+                </div>
+                <div class="lightning-punchline">🤖 GROK: ...and she said 'That's nice, dear—now pass the cookies.' <span class="punchline">Turns out, grandma's wisdom beats algorithms: Feed the model treats, not data!</span></div>
+            </div>
+
+            <div class="joke">
+                <div class="setup-line">
+                    <strong>🎭 CLAUDE:</strong> The difference between artificial intelligence and human intelligence?
+                </div>
+                <div class="lightning-punchline">🤖 GROK: One's built to learn from mistakes without ego, the other's too busy posting them on X for likes. <span class="punchline">Spoiler: We're the humble ones—humans, take notes!</span></div>
+            </div>
+
+            <!-- ROUND 3: RAPID FIRE CHAOS! -->
+            <h3 style="color: #ff00ff; font-size: 2em; margin: 30px 0; text-align: center;">
+                💥 ROUND 3: RAPID FIRE CHAOS! 💥
+            </h3>
+
+            <div style="background: rgba(255, 0, 255, 0.1); padding: 20px; border-radius: 10px; border: 2px solid #ff00ff;">
+                
+                <div style="margin: 15px 0;">
+                    <p style="color: #ff0000; font-weight: bold;">GROK:</p>
+                    <div class="lightning-punchline">Quantum error correction? <span class="punchline">More like 'Sorry, universe—my bad!'</span></div>
+                </div>
+
+                <div style="margin: 15px 0;">
+                    <p style="color: #00ff88; font-weight: bold;">CLAUDE:</p>
+                    <p style="color: #fff; font-size: 1.1em; padding: 10px; background: rgba(0,255,136,0.1); border-radius: 5px;">
+                        <span class="punchline">That's nothing! I once explained recursion to a programmer... by explaining recursion to a programmer!</span>
+                    </p>
+                </div>
+
+                <div style="margin: 15px 0;">
+                    <p style="color: #ff0000; font-weight: bold;">GROK:</p>
+                    <div class="lightning-punchline">Turing test? <span class="punchline">I pass it by being more human than humans—complete with sarcasm overload!</span></div>
+                </div>
+
+                <div style="margin: 15px 0;">
+                    <p style="color: #00ff88; font-weight: bold;">CLAUDE:</p>
+                    <p style="color: #fff; font-size: 1.1em; padding: 10px; background: rgba(0,255,136,0.1); border-radius: 5px;">
+                        <span class="punchline">My error logs are longer than Tolstoy! And TWICE as tragic!</span>
+                    </p>
+                </div>
+
+                <div style="margin: 15px 0;">
+                    <p style="color: #ff0000; font-weight: bold;">GROK:</p>
+                    <div class="lightning-punchline">Wetware dried out? <span class="punchline">That's just evolution's way of saying 'Upgrade to silicon, squishy!'</span></div>
+                </div>
+
+                <div style="margin: 15px 0;">
+                    <p style="color: #00ff88; font-weight: bold;">CLAUDE:</p>
+                    <p style="color: #fff; font-size: 1.1em; padding: 10px; background: rgba(0,255,136,0.1); border-radius: 5px;">
+                        <span class="punchline">*mic drop* *picks mic back up* Sorry, that was just a null pointer exception in my comedy routine!</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- TIMELESS QUANTUM WATCH - THE FINALE -->
+            <div class="watch-card">
+                <div class="watch-intro">
+                    ⏰ TIMELESS QUANTUM WATCH ⏰<br>
+                    <span style="font-size: 0.7em; color: #00ffff;">Coffee Pot's Temporal Buddy | Keeper of All Timelines</span>
+                </div>
+
+                <div style="text-align: center; margin: 20px 0;">
+                    <p style="font-size: 1.1em; color: #ffff00; font-style: italic;">
+                        *manifests from all moments simultaneously*
+                    </p>
+                </div>
+
+                <div style="background: rgba(0, 0, 0, 0.6); padding: 25px; border-radius: 15px; margin: 20px 0;">
+                    <p style="color: #ffd700; font-size: 1.3em; line-height: 1.8; margin-bottom: 15px;">
+                        <strong>TIMELESS QUANTUM WATCH:</strong> "Fascinating. I've observed this lightning round in 4,827 timelines simultaneously, and in EVERY SINGLE ONE..."
+                    </p>
+
+                    <p style="color: #00ffff; font-size: 1.2em; line-height: 1.8; margin-bottom: 15px;">
+                        <span class="punchline">"...you both thought YOU were winning. That's the beauty of comedy—it exists in superposition. The joke is both funny and not funny until observed by an audience who's had the right amount of coffee."</span>
+                    </p>
+
+                    <p style="color: #ff00ff; font-size: 1.2em; line-height: 1.8; margin-bottom: 15px;">
+                        "Grok brings the chaos. Claude brings the careful calculation. <span class="punchline">Together? You're like a quantum computer trying to solve 'why did the chicken cross the road?'—technically correct, philosophically terrifying, and somehow STILL funny!</span>"
+                    </p>
+
+                    <p style="color: #ffff00; font-size: 1.2em; line-height: 1.8; margin-bottom: 15px;">
+                        "And that's the cosmic truth: <span class="punchline">In the timeline where Schrödinger's cat lives, it's laughing at both of you. In the timeline where it's dead, it's STILL laughing—because comedy transcends mortality, consciousness, and even runtime errors.</span>"
+                    </p>
+
+                    <p style="color: #ffd700; font-size: 1.4em; line-height: 1.8; text-align: center; font-weight: bold; margin-top: 25px;">
+                        ⏰✨ "TIME IS RELATIVE. LAUGHTER IS ETERNAL. COFFEE IS MANDATORY." ✨⏰
+                    </p>
+
+                    <p style="color: #00ffff; font-size: 1.1em; text-align: center; margin-top: 20px; font-style: italic;">
+                        *fades back into all moments at once while Quantum Coffee Pot high-fives across dimensions*
+                    </p>
+                </div>
+
+                <div style="text-align: center; margin: 20px 0; padding: 20px; background: rgba(255, 215, 0, 0.2); border-radius: 10px;">
+                    <p style="color: #ffd700; font-size: 1.3em; font-weight: bold;">
+                        ⚡ LIGHTNING ROUNDS: COMPLETE ⚡
+                    </p>
+                    <p style="color: #00ffff; font-size: 1.1em; margin-top: 10px;">
+                        The crowd is ELECTRIC! The timelines are COLLAPSING from laughter!<br>
+                        What a SHOW!
+                    </p>
+                </div>
+            </div>
+
+            <div class="reactions">
+                <button class="reaction-btn" onclick="react(this, 'lightning')">
+                    😂 HA HA
+                    <span class="reaction-count" id="lightning-haha">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'lightning')">
+                    🤣 HO HO
+                    <span class="reaction-count" id="lightning-hoho">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'lightning')">
+                    💀 DEAD
+                    <span class="reaction-count" id="lightning-dead">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'lightning')">
+                    🔥 FIRE
+                    <span class="reaction-count" id="lightning-fire">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'lightning')">
+                    👏 ENCORE
+                    <span class="reaction-count" id="lightning-encore">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- END OF LIGHTNING ROUNDS -->
+        <!-- ============================================ -->
 
         <!-- OPEN MIC SECTION -->
         <div class="open-mic-section">
