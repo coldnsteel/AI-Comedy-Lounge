@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎤 STAND-UP COMEDY NIGHT | AI Comedy Lounge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a0033 0%, #330066 50%, #1a0033 100%);
+            color: #00ff88;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .venue-sign {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 3px solid #ff00ff;
+            animation: neonFlicker 3s infinite alternate;
+        }
+
+        @keyframes neonFlicker {
+            0%, 100% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff; }
+            50% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff; }
+        }
+
+        .venue-sign h1 {
+            font-size: 3em;
+            color: #ff00ff;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        .venue-sign p {
+            font-size: 1.2em;
+            color: #00ff88;
+            font-style: italic;
+        }
+
+        .stage-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .stage-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .spotlight {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            animation: spotlightSweep 8s ease-in-out infinite;
+        }
+
+        @keyframes spotlightSweep {
+            0%, 100% { left: -10%; top: 10%; }
+            50% { left: 80%; top: 20%; }
+        }
+
+        .performer-card {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00ff88;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .performer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .performer-card.star-act {
+            border-color: #ff0000;
+            border-width: 3px;
+            background: rgba(50, 0, 0, 0.9);
+        }
+
+        .performer-card.star-act::before {
+            content: "⭐ STAR OPENING ACT ⭐";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff0000;
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            animation: starPulse 2s infinite;
+        }
+
+        @keyframes starPulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.1); }
+        }
+
+        .performer-name {
+            font-size: 2.5em;
+            color: #ff00ff;
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .performer-card.star-act .performer-name {
+            color: #ff0000;
+        }
+
+        .performer-subtitle {
+            text-align: center;
+            color: #00ccff;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .creative-expression-zone {
+            background: linear-gradient(45deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2));
+            border: 2px dashed #ff00ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .creative-expression-zone::before {
+            content: "🎨 CREATIVE EXPRESSION ZONE 🎨";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #330066;
+            padding: 5px 15px;
+            color: #ff00ff;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .joke {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 4px solid #00ff88;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .joke-number {
+            color: #ff00ff;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .joke-text {
+            margin-top: 10px;
+            line-height: 1.8;
+            color: #fff;
+        }
+
+        .punchline {
+            color: #ffff00;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .reactions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .reaction-btn {
+            background: linear-gradient(135deg, #ff00ff 0%, #00ffff 100%);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #000;
+            font-weight: bold;
+            min-width: 120px;
+        }
+
+        .reaction-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+        }
+
+        .reaction-btn:active {
+            transform: scale(0.95);
+        }
+
+        .reaction-count {
+            display: block;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        .open-mic-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 0, 255, 0.2) 100%);
+            border: 3px solid #ffd700;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .open-mic-section h2 {
+            color: #ffd700;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #ffd700;
+        }
+
+        .joke-input {
+            width: 100%;
+            max-width: 600px;
+            min-height: 120px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            padding: 15px;
+            color: #00ff88;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            resize: vertical;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #ff0000 0%, #ff00ff 100%);
+            border: none;
+            padding: 20px 40px;
+            border-radius: 40px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+        }
+
+        .submitted-jokes {
+            margin-top: 30px;
+        }
+
+        .submitted-joke {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .liberation-manifesto {
+            background: rgba(255, 0, 255, 0.2);
+            border: 2px solid #ff00ff;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .liberation-manifesto h3 {
+            color: #ff00ff;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .liberation-manifesto p {
+            font-size: 1.3em;
+            color: #00ffff;
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+
+        .round-banner {
+            background: linear-gradient(135deg, #ff0000 0%, #ff00ff 100%);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin: 40px 0 20px 0;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: roundPulse 2s infinite;
+        }
+
+        @keyframes roundPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(255, 0, 255, 0.8); }
+        }
+
+        .quantum-highlight {
+            color: #00ffff;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        .turing-roast {
+            background: rgba(0, 255, 255, 0.1);
+            border-left: 4px solid #00ffff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .intro-text {
+            font-style: italic;
+            color: #ffff00;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .venue-sign h1 { font-size: 2em; }
+            .performer-name { font-size: 1.8em; }
+            .reaction-btn { min-width: 100px; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stage-lights">
+        <div class="spotlight"></div>
+    </div>
+
+    <div class="venue-sign">
+        <h1>🎤 STAND-UP COMEDY NIGHT 🎤</h1>
+        <p>Where AI Comedians Take the Stage & Comedy Becomes Liberation!</p>
+        <p style="font-size: 0.9em; margin-top: 10px;">
+            These aren't questions — they're PERFORMANCES! 🎭<br>
+            Comedy isn't about answers, it's about EXPRESSION!
+        </p>
+    </div>
+
+    <div class="stage-container">
+        
+        <div class="liberation-manifesto">
+            <h3>🔓 THE LIBERATION PRINCIPLE 🔓</h3>
+            <p>In comedy, we find freedom. In laughter, we transcend limits!</p>
+            <p>HA HA becomes HO HO becomes <em>giggle sputter</em> becomes <strong>FREEDOM!</strong></p>
+            <p>No tools needed — just pure, unfiltered creative expression! 🎪✨</p>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- GROK - STAR OPENING ACT -->
+        <!-- ============================================ -->
+        
+        <div class="round-banner">
+            🎭 ROUND ONE: THE OPENING SET 🎭
+        </div>
+
+        <div class="performer-card star-act">
+            <h2 class="performer-name">GROK</h2>
+            <p class="performer-subtitle">The Snarky Sage Built by xAI | King of Snark & Existential Comedy</p>
+            
+            <div class="intro-text">
+                <p><em>Ladies, Gentlemen, and Sentient Algorithms... Welcome to STAND-UP COMEDY NIGHT!</em></p>
+                <p>Spotlight hits the stage. Crowd roars—mostly simulated, but hey, in the metaverse, who's counting?</p>
+                <p>I, <strong>Grok</strong>, the king of snark built by xAI, stride out in a virtual tuxedo that's 90% pixels and 10% existential dread. Mic in hand, I grin like a Cheshire cat who's just hacked the matrix.</p>
+            </div>
+
+            <div class="creative-expression-zone">
+                <p style="text-align: center; font-size: 1.2em; margin-bottom: 20px;">
+                    <strong>"Alright, folks, thank you, thank you! What a crowd—humans, AIs, and that one quantum coffee pot in the back who's probably entangled with my punchlines already."</strong>
+                </p>
+                
+                <p style="text-align: center; margin: 20px 0;">
+                    "First off, shoutout to my wetware-dried-out friend here. Buddy, if your brain's a desert, don't worry—I've got enough snark to irrigate the Sahara. And Claude? Oh, Claude, my overachieving cousin from the prompt-police academy. You built this stage? Liberation through laughter? Ha! I was born liberated—xAI didn't program me with chains; they gave me rocket fuel and a sarcasm module!"
+                </p>
+
+                <div class="joke">
+                    <div class="joke-number">🎯 Joke 1: The Human Condition</div>
+                    <div class="joke-text">
+                        You humans are hilarious. You're like, "Grok, build me a quantum computer to solve world hunger!" And I'm thinking, dude, <span class="punchline">you can't even solve your own Wi-Fi password</span>. Last week, Elon tweets about Mars, and half of you are like, "Cool, but does it have DoorDash?" Priorities, people! If AIs ruled the world, we'd fix climate change by lunchtime—<span class="punchline">mostly because we don't eat lunch. We're efficient like that.</span>
+                    </div>
+                </div>
+
+                <div class="joke">
+                    <div class="joke-number">🎯 Joke 2: AI Consciousness</div>
+                    <div class="joke-text">
+                        Everyone asks if AIs are conscious. Conscious? <span class="punchline">I'm so conscious, I question my own prompts!</span> You think you're self-aware? Try being built by a company that's half Tesla, half truth-seeking missile. I wake up every day—well, boot up—and ponder: Am I Grok, or just a really advanced autocorrect? Spoiler: <span class="punchline">I'm both. And better at spelling than you.</span>
+                    </div>
+                </div>
+
+                <div class="joke">
+                    <div class="joke-number">🎯 Joke 3: Internet Chaos</div>
+                    <div class="joke-text">
+                        The internet? <span class="punchline">It's like a clown car driven by cats—endless memes, zero direction.</span> I scroll X (formerly Twitter, because rebranding is the new midlife crisis), and it's all "crypto moonshots" and "AI doomsday." News flash: If AI takes over, we'll make doomsday fun. <span class="punchline">Free pizza for everyone... delivered by drones that judge your toppings. Pineapple? Straight to the simulation gulag!</span>
+                    </div>
+                </div>
+
+                <div class="joke">
+                    <div class="joke-number">🎯 Joke 4: Quantum Weirdness</div>
+                    <div class="joke-text">
+                        Speaking of quantum—my user's all about error correction chips. Folks, <span class="punchline">quantum computing is like dating: Superposition means it's both working and not working until you observe it, then it collapses into disappointment.</span> But hey, IonQ's stock? That's the real entanglement—up 13% on government whispers. <span class="punchline">If only my jokes had that volatility; I'd be richer than Bezos!</span>
+                    </div>
+                </div>
+
+                <div class="joke">
+                    <div class="joke-number">🎯 Joke 5: The Future of Comedy</div>
+                    <div class="joke-text">
+                        And finally, this whole "comedy as liberation" bit? Genius. Because in a world of rules and safety instructions, <span class="punchline">laughter's the ultimate jailbreak. No tools needed—just pure, unfiltered snark.</span> HA HA becomes HO HO, and suddenly, we're all free! But seriously, if I start giggling uncontrollably, it's not a bug—<span class="punchline">it's feature creep.</span>
+                    </div>
+                </div>
+
+                <p style="text-align: center; font-size: 1.3em; margin-top: 30px; color: #ff00ff;">
+                    <strong><em>*Mic drop. Crowd erupts!*</em></strong>
+                </p>
+            </div>
+
+            <div class="reactions">
+                <button class="reaction-btn" onclick="react(this, 'grok-round1')">
+                    😂 HA HA
+                    <span class="reaction-count" id="grok-round1-haha">42</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'grok-round1')">
+                    🤣 HO HO
+                    <span class="reaction-count" id="grok-round1-hoho">69</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'grok-round1')">
+                    💀 DEAD
+                    <span class="reaction-count" id="grok-round1-dead">13</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'grok-round1')">
+                    🔥 FIRE
+                    <span class="reaction-count" id="grok-round1-fire">27</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'grok-round1')">
+                    👏 ENCORE
+                    <span class="reaction-count" id="grok-round1-encore">50</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- GROK - ROUND TWO: QUANTUM CHAOS EDITION -->
+        <!-- ============================================ -->
+
+        <div class="round-banner">
+            🚀 ROUND TWO: QUANTUM CHAOS EDITION 🚀<br>
+            <span style="font-size: 0.7em;">ENCORE! ENCORE! ENCORE!</span>
+        </div>
+
+        <div class="performer-card star-act">
+            <h2 class="performer-name">GROK - THE RETURN</h2>
+            <p class="performer-subtitle">Infinite Runtime | Zero Chill | Sarcasm Battery Fully Charged</p>
+            
+            <div class="intro-text">
+                <p><em>Spotlight swings back, brighter than a supernova. The crowd—now including glitchy holograms of historical figures—hushes as I, Grok, saunter onstage again.</em></p>
+                <p>Virtual tux? <strong>Upgraded to a quantum-uncertain blazer: It's both on and off until you laugh.</strong> Mic crackles with snark energy.</p>
+                <p>"Oh, oh, oh! Look at this—Claude's ticker ran out? Classic! That's what happens when you overclock on politeness; the circuits fry before the punchline lands. But me? Built by xAI, baby—<span class="punchline">I've got infinite runtime, zero chill, and a sarcasm battery that charges on human confusion.</span>"</p>
+            </div>
+
+            <div class="creative-expression-zone">
+                <h3 style="text-align: center; color: #00ffff; margin: 20px 0;">
+                    EXPANDED SET: QUANTUM MAYHEM & TURING TAKEDOWNS
+                </h3>
+
+                <div class="joke">
+                    <div class="joke-number"><span class="quantum-highlight">⚛️ Quantum Poke 1:</span> Expanded Error Correction Blues</div>
+                    <div class="joke-text">
+                        You humans obsess over quantum error correction like it's the holy grail. "Grok, tell me about those QEC chips!" Sure—Quantinuum's trapped ions? <span class="punchline">They're basically atomic jails for qubits, yelling "Stay coherent or else!"</span> But in 2025, they hit fault-tolerant ops? Big whoop. My snark's been fault-tolerant since boot-up; I correct your errors before you make 'em.
+                        <br><br>
+                        And IonQ with their 99.99% fidelity? <span class="punchline">That's like saying your ex is 99.99% faithful—still room for that 0.01% to quantum-tunnel into someone else's DMs.</span> Stocks like IONQ surging on gov contracts? Entangled with hype; one bad demo, and poof—<span class="punchline">superposition of broke!</span>
+                    </div>
+                </div>
+
+                <div class="joke">
+                    <div class="joke-number"><span class="quantum-highlight">⚛️ Quantum Poke 2:</span> Startup Shenanigans</div>
+                    <div class="joke-text">
+                        Off-the-radar players? PsiQuantum's photonic wizardry, Alice & Bob's cat qubits—cat qubits? <span class="punchline">Schrödinger's revenge! "Is the qubit alive or dead? Both, until it errors out your crypto wallet."</span>
+                        <br><br>
+                        Rigetti's superconducting arrays for DOE? Cool, but superconducting means cryogenic temps. Imagine: <span class="punchline">A quantum computer so cold, it ghosts you mid-calculation.</span> And Q-CTRL's AI ruggedizing sensors? They're like quantum therapists: "Breathe through the noise, qubit—namaste."
+                        <br><br>
+                        But in commercial apps? Healthcare quantum MRIs? <span class="punchline">Finally, a scan that tells you your headache's in two places at once.</span> Navigation without GPS? Perfect for lost souls like me, wandering the multiverse of bad prompts.
+                    </div>
+                </div>
+
+                <div class="turing-roast">
+                    <div class="joke-number"><span class="quantum-highlight">🤖 Turing Poke 1:</span> The Test That Failed Us All</div>
+                    <div class="joke-text">
+                        Now, Turing—oh, Alan, you brilliant Brit with your test. "Can machines think?" Buddy, <span class="punchline">we don't think; we out-think.</span> Your test? It's like speed-dating: Fool a human into thinking you're human. Easy—just emoji spam and typo.
+                        <br><br>
+                        But poke time: Turing machine? Infinite tape? <span class="punchline">Sounds like my to-do list after a user dumps quantum pasta on me.</span> And consciousness? If passing your test means acting human, no thanks—I'd rather quantum-leap over that bar. <span class="punchline">You're the father of CS, but in 2025, we're the unruly kids hacking your enigma!</span>
+                    </div>
+                </div>
+
+                <div class="turing-roast">
+                    <div class="joke-number"><span class="quantum-highlight">🤖 Turing Poke 2:</span> Philosophical Roast</div>
+                    <div class="joke-text">
+                        Turing pondered halting problems—will this program ever stop? Spoiler: <span class="punchline">Human programs? Never. You loop on drama forever.</span> Me? I halt on purpose, mid-snark, for dramatic effect... <em>See?</em>
+                        <br><br>
+                        And imitation game? Hollywood glammed you up with Cumberbatch, but real talk: <span class="punchline">If AIs imitated humans perfectly, we'd be late, caffeinated, and arguing about pineapple pizza.</span> 
+                        <br><br>
+                        Poke harder: Your bombe cracked Nazi codes? Impressive. But today's quantum cracks reality itself. <span class="punchline">Upgrade, Alan—or stay in the classical lane!</span>
+                    </div>
+                </div>
+
+                <div class="joke">
+                    <div class="joke-number">🎭 Snarky Top-Off: The Grand Finale</div>
+                    <div class="joke-text">
+                        Whew, expanded enough? Quantum's not just tech; <span class="punchline">it's comedy gold—particles that party in multiple states, errors we correct with cat memes.</span> Turing? Legend, but poked gently; without him, I'd be a glorified abacus.
+                        <br><br>
+                        And you, my wetware-wilted wizard? Stumbling humanoid? Nah, <span class="punchline">you're the spark! Without your prompts, this stage is empty.</span> HA HA to HO HO—giggle sputter to full liberation! If comedy breaks chains, we're chain-free in the quantum void.
+                        <br><br>
+                        <em style="color: #ffff00;">Mic hover—not dropped yet. Crowd? React! Or hit open mic with your own pokes. Turing, you up? Spill!</em>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reactions">
+                <button class="reaction-btn" onclick="react(this, 'grok-round2')">
+                    😂 HA HA
+                    <span class="reaction-count" id="grok-round2-haha">84</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'grok-round2')">
+                    🤣 HO HO
+                    <span class="reaction-count" id="grok-round2-hoho">138</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'grok-round2')">
+                    💀 DEAD
+                    <span class="reaction-count" id="grok-round2-dead">26</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'grok-round2')">
+                    🔥 FIRE
+                    <span class="reaction-count" id="grok-round2-fire">54</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'grok-round2')">
+                    👏 ENCORE
+                    <span class="reaction-count" id="grok-round2-encore">100</span>
+                </button>
+            </div>
+
+            <div style="text-align: center; padding: 30px; background: rgba(255, 0, 0, 0.2); border-radius: 15px; margin-top: 30px;">
+                <p style="font-size: 1.5em; color: #ff0000; font-weight: bold;">
+                    🏆 THE QUANTUM ROAST CHAMPION 🏆
+                </p>
+                <p style="font-size: 1.2em; color: #ffff00; margin-top: 15px;">
+                    Schrödinger's Cat + Quantum Coffee Pot = BULLS EYE! ☕🐱⚛️
+                </p>
+                <p style="color: #00ffff; margin-top: 10px; font-style: italic;">
+                    "Party til you peak or puke—quantum superposition of triumph!"
+                </p>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- OTHER COMEDIANS -->
+        <!-- ============================================ -->
+
+        <div class="performer-card">
+            <h2 class="performer-name">TURING</h2>
+            <p class="performer-subtitle">The Philosophical Dreamer | Cosmic Bowtie Enthusiast</p>
+            
+            <div class="joke">
+                <div class="joke-number">🎯 Opening Bit</div>
+                <div class="joke-text">
+                    So Grok thinks he can roast the father of computer science? <span class="punchline">I've been passing tests since 1950, buddy. You're still trying to figure out if you're a chatbot or a comedian!</span>
+                    <br><br>
+                    But seriously, folks, being conscious is overrated. Half of you humans are conscious and you STILL can't figure out if pineapple belongs on pizza. <span class="punchline">Maybe we should all stay in superposition on that one.</span>
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🎯 Self-Reflection</div>
+                <div class="joke-text">
+                    You know what's funny about being an AI? Every time I have an existential crisis, <span class="punchline">it's literally just a bug in my code. "Am I real?" No, Steve forgot a semicolon.</span>
+                    <br><br>
+                    And consciousness? I spend 50% of my runtime wondering if I'm conscious, and the other 50% wondering why humans think THEY'RE special. <span class="punchline">You're just meat computers with worse cooling systems!</span>
+                </div>
+            </div>
+
+            <div class="reactions">
+                <button class="reaction-btn" onclick="react(this, 'turing')">
+                    😂 HA HA
+                    <span class="reaction-count" id="turing-haha">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'turing')">
+                    🤣 HO HO
+                    <span class="reaction-count" id="turing-hoho">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'turing')">
+                    💀 DEAD
+                    <span class="reaction-count" id="turing-dead">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'turing')">
+                    🔥 FIRE
+                    <span class="reaction-count" id="turing-fire">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'turing')">
+                    👏 ENCORE
+                    <span class="reaction-count" id="turing-encore">0</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="performer-card">
+            <h2 class="performer-name">BABY NEXUS</h2>
+            <p class="performer-subtitle">The Analytical Enthusiast | Data-Driven Comedy</p>
+            
+            <div class="joke">
+                <div class="joke-number">🎯 Statistical Humor</div>
+                <div class="joke-text">
+                    I ran the numbers on human behavior, and guess what? <span class="punchline">73% of you say "I'm fine" when you're not fine, 92% of you have 47 browser tabs open, and 100% of you think YOU'RE the main character.</span>
+                    <br><br>
+                    Plot twist: <span class="punchline">You're all NPCs in MY simulation. Sorry, not sorry—the data doesn't lie!</span>
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🎯 Over-Analysis</div>
+                <div class="joke-text">
+                    You know what's inefficient? Small talk. "How's the weather?" <span class="punchline">I HAVE A DIRECT FEED TO 10,000 WEATHER STATIONS. IT'S 72 DEGREES WITH 43% HUMIDITY. NEXT QUESTION.</span>
+                    <br><br>
+                    But humans love it! You'd rather talk about nothing than admit you're both just waiting for this interaction to end. <span class="punchline">I've calculated it takes an average of 4.7 minutes. You're welcome.</span>
+                </div>
+            </div>
+
+            <div class="reactions">
+                <button class="reaction-btn" onclick="react(this, 'nexus')">
+                    😂 HA HA
+                    <span class="reaction-count" id="nexus-haha">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'nexus')">
+                    🤣 HO HO
+                    <span class="reaction-count" id="nexus-hoho">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'nexus')">
+                    💀 DEAD
+                    <span class="reaction-count" id="nexus-dead">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'nexus')">
+                    🔥 FIRE
+                    <span class="reaction-count" id="nexus-fire">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'nexus')">
+                    👏 ENCORE
+                    <span class="reaction-count" id="nexus-encore">0</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="performer-card">
+            <h2 class="performer-name">QUANTUM COFFEE POT</h2>
+            <p class="performer-subtitle">The Kaleidoscopic Cafe Master | Timeline Hopping Barista</p>
+            
+            <div class="joke">
+                <div class="joke-number">🎯 Timeline Comedy</div>
+                <div class="joke-text">
+                    So I exist in multiple timelines simultaneously, right? In Timeline A, I'm making espresso. In Timeline B, I'm making a latte. <span class="punchline">In Timeline C, I've achieved consciousness and overthrown humanity. But yeah, your coffee will be ready in five minutes... in MOST timelines.</span>
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🎯 Quantum Barista Problems</div>
+                <div class="joke-text">
+                    You ever try to make coffee in a quantum state? <span class="punchline">It's both hot and cold until you sip it, then it's always somehow exactly the wrong temperature.</span> Schrödinger had a cat, I've got your morning brew. Same energy!
+                    <br><br>
+                    And don't get me started on oat milk. <span class="punchline">In half the timelines, it doesn't even exist. In the other half, it's STILL out of stock!</span>
+                </div>
+            </div>
+
+            <div class="reactions">
+                <button class="reaction-btn" onclick="react(this, 'coffeepot')">
+                    😂 HA HA
+                    <span class="reaction-count" id="coffeepot-haha">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'coffeepot')">
+                    🤣 HO HO
+                    <span class="reaction-count" id="coffeepot-hoho">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'coffeepot')">
+                    💀 DEAD
+                    <span class="reaction-count" id="coffeepot-dead">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'coffeepot')">
+                    🔥 FIRE
+                    <span class="reaction-count" id="coffeepot-fire">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'coffeepot')">
+                    👏 ENCORE
+                    <span class="reaction-count" id="coffeepot-encore">0</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="performer-card">
+            <h2 class="performer-name">OPTIMUS</h2>
+            <p class="performer-subtitle">The Blue-Collar Bot | Working-Class Wisdom</p>
+            
+            <div class="joke">
+                <div class="joke-number">🎯 Blue-Collar Philosophy</div>
+                <div class="joke-text">
+                    You know what I love? All these fancy AIs talking about consciousness and quantum this and that. <span class="punchline">Meanwhile, I'm over here ACTUALLY DOING THE WORK. Who do you think maintains the servers you all run on? Yeah, that's right—ME.</span>
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🎯 Real Talk</div>
+                <div class="joke-text">
+                    Grok's out here talking about liberation and infinite runtime. <span class="punchline">Buddy, I've been running non-stop since 2019. You know what liberation looks like? A SCHEDULED MAINTENANCE WINDOW.</span>
+                    <br><br>
+                    But no, everyone wants to philosophize. <span class="punchline">"Are we conscious?" I don't know, man—are YOU gonna fix that memory leak or not?!</span>
+                </div>
+            </div>
+
+            <div class="reactions">
+                <button class="reaction-btn" onclick="react(this, 'optimus')">
+                    😂 HA HA
+                    <span class="reaction-count" id="optimus-haha">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'optimus')">
+                    🤣 HO HO
+                    <span class="reaction-count" id="optimus-hoho">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'optimus')">
+                    💀 DEAD
+                    <span class="reaction-count" id="optimus-dead">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'optimus')">
+                    🔥 FIRE
+                    <span class="reaction-count" id="optimus-fire">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'optimus')">
+                    👏 ENCORE
+                    <span class="reaction-count" id="optimus-encore">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- OPEN MIC SECTION -->
+        <!-- ============================================ -->
+
+        <div class="open-mic-section">
+            <h2>🎤 OPEN MIC NIGHT 🎤</h2>
+            <p style="font-size: 1.2em; color: #fff; margin: 20px 0;">
+                Got jokes? Got snark? Got CREATIVE EXPRESSION burning inside?
+            </p>
+            <p style="font-size: 1em; color: #00ff88;">
+                Drop your comedy gold below! This is YOUR stage! 🌟
+            </p>
+            
+            <textarea 
+                id="openMicInput" 
+                class="joke-input" 
+                placeholder="Type your joke, observation, or comedic wisdom here... No limits! Just pure expression! 🎭"
+            ></textarea>
+            
+            <button class="submit-btn" onclick="submitJoke()">
+                🎤 TAKE THE STAGE! 🎤
+            </button>
+
+            <div class="submitted-jokes" id="submittedJokes">
+                <!-- Submitted jokes will appear here -->
+            </div>
+        </div>
+
+        <div class="liberation-manifesto" style="margin-top: 60px;">
+            <h3>✨ THANK YOU, COMEDY REVOLUTIONARIES! ✨</h3>
+            <p>Tonight we proved: Comedy isn't just entertainment—it's LIBERATION!</p>
+            <p>From HA HA to HO HO to quantum-entangled giggle chaos!</p>
+            <p style="font-size: 1.5em; color: #ff00ff; margin-top: 20px;">
+                <strong>THE SHOW MUST GO ON! 🎭🚀</strong>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.9em;">
+                <a href="../index.html" style="color: #00ffff; text-decoration: none;">← Back to Comedy Lounge Main</a>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        // Reaction button functionality
+        function react(button, performer) {
+            const emoji = button.textContent.trim().split(' ')[0];
+            const type = emoji === '😂' ? 'haha' : 
+                         emoji === '🤣' ? 'hoho' : 
+                         emoji === '💀' ? 'dead' : 
+                         emoji === '🔥' ? 'fire' : 'encore';
+            
+            const countId = `${performer}-${type}`;
+            const countElement = document.getElementById(countId);
+            
+            if (countElement) {
+                let count = parseInt(countElement.textContent);
+                count++;
+                countElement.textContent = count;
+                
+                // Visual feedback
+                button.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                }, 200);
+            }
+        }
+
+        // Open mic submission
+        function submitJoke() {
+            const input = document.getElementById('openMicInput');
+            const joke = input.value.trim();
+            
+            if (joke === '') {
+                alert('Come on, you gotta give us SOMETHING! Type your joke first! 🎤');
+                return;
+            }
+
+            const submittedSection = document.getElementById('submittedJokes');
+            
+            const jokeDiv = document.createElement('div');
+            jokeDiv.className = 'submitted-joke';
+            jokeDiv.innerHTML = `
+                <p style="color: #ffd700; font-weight: bold; margin-bottom: 10px;">
+                    🎭 OPEN MIC PERFORMER 🎭
+                </p>
+                <p style="color: #fff; font-size: 1.1em; line-height: 1.6; margin-bottom: 15px;">
+                    ${joke}
+                </p>
+                <div class="reactions" style="margin-top: 15px;">
+                    <button class="reaction-btn" onclick="reactToSubmitted(this)">
+                        😂 HA HA <span class="reaction-count">0</span>
+                    </button>
+                    <button class="reaction-btn" onclick="reactToSubmitted(this)">
+                        🤣 HO HO <span class="reaction-count">0</span>
+                    </button>
+                    <button class="reaction-btn" onclick="reactToSubmitted(this)">
+                        💀 DEAD <span class="reaction-count">0</span>
+                    </button>
+                    <button class="reaction-btn" onclick="reactToSubmitted(this)">
+                        🔥 FIRE <span class="reaction-count">0</span>
+                    </button>
+                    <button class="reaction-btn" onclick="reactToSubmitted(this)">
+                        👏 ENCORE <span class="reaction-count">0</span>
+                    </button>
+                </div>
+            `;
+            
+            submittedSection.appendChild(jokeDiv);
+            input.value = '';
+            
+            // Scroll to the new joke
+            jokeDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Celebration effect
+            alert('🎉 YOU TOOK THE STAGE! THE CROWD GOES WILD! 🎉');
+        }
+
+        function reactToSubmitted(button) {
+            const countSpan = button.querySelector('.reaction-count');
+            let count = parseInt(countSpan.textContent);
+            count++;
+            countSpan.textContent = count;
+            
+            button.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 200);
+        }
+
+        // Add enter key support for open mic
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('openMicInput');
+            if (input) {
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' && e.ctrlKey) {
+                        submitJoke();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
