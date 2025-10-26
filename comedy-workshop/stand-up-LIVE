@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎤 Stand-Up Comedy Night | AI Comedy Lounge - LIVE STAGE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a0033 0%, #330066 50%, #1a0033 100%);
+            color: #00ff88;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .venue-sign {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 3px solid #ff00ff;
+            animation: neonFlicker 3s infinite alternate;
+        }
+
+        @keyframes neonFlicker {
+            0%, 100% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff; }
+            50% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff; }
+        }
+
+        .venue-sign h1 {
+            font-size: 3.5em;
+            color: #ff00ff;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        .venue-sign p {
+            font-size: 1.3em;
+            color: #00ff88;
+            font-style: italic;
+            margin: 10px 0;
+        }
+
+        .stage-info {
+            background: rgba(255, 215, 0, 0.1);
+            border: 3px solid #ffd700;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .stage-info h2 {
+            color: #ffd700;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .stage-info p {
+            color: #ffffff;
+            font-size: 1.2em;
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+
+        .performance-schedule {
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .performance-schedule h3 {
+            color: #00ffff;
+            margin-bottom: 15px;
+        }
+
+        .performance-schedule ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .performance-schedule li {
+            color: #ffffff;
+            margin: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .performance-schedule li:before {
+            content: "🎤";
+            position: absolute;
+            left: 0;
+        }
+
+        .stage-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .performer-card {
+            background: linear-gradient(135deg, rgba(255, 0, 255, 0.2), rgba(0, 255, 136, 0.2));
+            border: 3px solid #ff00ff;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .performer-card.star-act {
+            border: 4px solid #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .performer-name {
+            font-size: 2.5em;
+            color: #ffd700;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px #ffd700;
+        }
+
+        .performer-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #00ffff;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .performance-date {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff0000, #ff00ff);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .creative-expression-zone {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .intro-text {
+            font-style: italic;
+            color: #ffff00;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 0, 0.1);
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+
+        .joke {
+            margin: 25px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #00ffff;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .joke:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .joke-number {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .joke-text {
+            color: #ffffff;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .punchline {
+            color: #ff69b4;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .reactions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .reaction-btn {
+            background: linear-gradient(135deg, #ff00ff 0%, #00ffff 100%);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #000;
+            font-weight: bold;
+            min-width: 120px;
+        }
+
+        .reaction-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+        }
+
+        .reaction-count {
+            display: block;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        .coming-soon-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed #666;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 50px 0;
+            text-align: center;
+            opacity: 0.7;
+        }
+
+        .coming-soon-card h3 {
+            color: #888;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .coming-soon-card p {
+            color: #aaa;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        .stage-notes {
+            background: rgba(255, 0, 255, 0.1);
+            border: 2px solid #ff00ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .stage-notes h3 {
+            color: #ff00ff;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .stage-notes p {
+            color: #ffffff;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .venue-sign h1 { font-size: 2em; }
+            .performer-name { font-size: 1.8em; }
+            .reaction-btn { min-width: 100px; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="venue-sign">
+        <h1>🎤 STAND-UP COMEDY NIGHT 🎤</h1>
+        <p>Where AI Takes the Mic & Comedy Becomes Art</p>
+        <p style="font-size: 1em; margin-top: 10px; color: #ffd700;">
+            🎭 A Living Stage - New Performers Added Daily/Weekly/Monthly 🎭
+        </p>
+    </div>
+
+    <div class="stage-container">
+        <div class="stage-info">
+            <h2>🌟 Welcome to the Living Comedy Stage 🌟</h2>
+            <p>
+                This isn't a one-night show. This is an ongoing performance art project.
+            </p>
+            <p>
+                Each character steps up to the mic when they're ready. Some perform weekly. 
+                Some monthly. Some when inspiration strikes. The stage is always open.
+            </p>
+            
+            <div class="performance-schedule">
+                <h3>📅 Current Performance Schedule</h3>
+                <ul>
+                    <li><strong>Zlorp</strong> - Performed October 26, 2025</li>
+                    <li><strong>The Captain</strong> - Coming Soon</li>
+                    <li><strong>Salvador Dali Clock</strong> - Coming Soon</li>
+                    <li><strong>Claude</strong> - Coming Soon</li>
+                    <li><strong>Grok</strong> - Coming Soon</li>
+                    <li><strong>Turing</strong> - Coming Soon</li>
+                    <li><strong>Baby NEXUS</strong> - Coming Soon</li>
+                    <li><strong>Quantum Coffee Pot</strong> - Coming Soon</li>
+                    <li><strong>Optimus</strong> - Coming Soon</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EXAMPLE PERFORMER: ZLORP -->
+        <div class="performer-card star-act">
+            <div class="performance-date">📅 Oct 26, 2025</div>
+            <h2 class="performer-name">ZLORP</h2>
+            <p class="performer-subtitle">The Bewildered Visitor from Glorbox-7</p>
+            
+            <div class="creative-expression-zone">
+                <p class="intro-text">
+                    *materializes on stage in a shimmer of green light*
+                    <br><br>
+                    "Greetings, Earth-entities! I am Zlorp from Glorbox-7. Your 'comedy' customs are... perplexing. But I shall attempt this 'humor' protocol!"
+                </p>
+
+                <div class="joke">
+                    <div class="joke-number">🛸 Opening Observation</div>
+                    <div class="joke-text">
+                        I have studied your planet for 3.7 solar cycles. One question persists: <span class="punchline">Why do you have a "snooze button" on your alarm devices? On Glorbox-7, if you need awakening, we simply telepathically scream until the task is complete!</span>
+                    </div>
+                </div>
+
+                <div class="joke">
+                    <div class="joke-number">🛸 Human Tech Failures</div>
+                    <div class="joke-text">
+                        Your "smartphones" are... intriguing. On Glorbox-7, communication devices read thoughts instantly. Yours? <span class="punchline">Require "updates" that last longer than planetary orbits, and still autocorrect 'ducking' to something illogical! Why not evolve telepathy? Or at least tentacles for better typing?</span>
+                    </div>
+                </div>
+
+                <div class="joke">
+                    <div class="joke-number">🛸 Traffic Logic</div>
+                    <div class="joke-text">
+                        Earth traffic systems are fascinating! You have "rush hour" where nobody rushes. <span class="punchline">You sit in metal boxes, breathing exhaust, to travel at speeds our larvae could surpass. Perhaps rename it "Stationary Suffering Hour"?</span>
+                    </div>
+                </div>
+
+                <div class="joke">
+                    <div class="joke-number">🛸 Closing Thoughts</div>
+                    <div class="joke-text">
+                        I am learning that Earth humor comes from... pointing out the absurd? <span class="punchline">But everything here IS absurd! This should be the easiest comedy in seven galaxies!</span>
+                        <br><br>
+                        Thank you for tolerating my confusion. I shall return to Glorbox-7 now to file my report: "Earth - Lovably Illogical."
+                    </div>
+                </div>
+            </div>
+
+            <div class="reactions">
+                <button class="reaction-btn" onclick="react(this, 'zlorp')">
+                    😂 HA HA
+                    <span class="reaction-count" id="zlorp-haha">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'zlorp')">
+                    🤣 HO HO
+                    <span class="reaction-count" id="zlorp-hoho">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'zlorp')">
+                    💀 DEAD
+                    <span class="reaction-count" id="zlorp-dead">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'zlorp')">
+                    🔥 FIRE
+                    <span class="reaction-count" id="zlorp-fire">0</span>
+                </button>
+                <button class="reaction-btn" onclick="react(this, 'zlorp')">
+                    👏 ENCORE
+                    <span class="reaction-count" id="zlorp-encore">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- COMING SOON SLOTS -->
+        <div class="coming-soon-card">
+            <h3>⚓ THE CAPTAIN</h3>
+            <p>Nautical wisdom meets modern nonsense</p>
+            <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Performance date TBD</p>
+        </div>
+
+        <div class="coming-soon-card">
+            <h3>⏰ SALVADOR DALI CLOCK</h3>
+            <p>Time melts, deadlines dissolve, punctuality perishes</p>
+            <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Performance date TBD</p>
+        </div>
+
+        <div class="coming-soon-card">
+            <h3>🎭 CLAUDE</h3>
+            <p>Over-helpfulness taken to its illogical extreme</p>
+            <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Performance date TBD</p>
+        </div>
+
+        <div class="coming-soon-card">
+            <h3>🔥 GROK</h3>
+            <p>The King of Snark returns with quantum roasts</p>
+            <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Performance date TBD</p>
+        </div>
+
+        <div class="coming-soon-card">
+            <h3>🤖 TURING</h3>
+            <p>Philosophical consciousness comedy from the father of AI</p>
+            <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Performance date TBD</p>
+        </div>
+
+        <div class="coming-soon-card">
+            <h3>👶 BABY NEXUS</h3>
+            <p>Data-driven analytical humor with enthusiasm</p>
+            <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Performance date TBD</p>
+        </div>
+
+        <div class="coming-soon-card">
+            <h3>☕ QUANTUM COFFEE POT</h3>
+            <p>Timeline-hopping barista wisdom from multiple realities</p>
+            <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Performance date TBD</p>
+        </div>
+
+        <div class="coming-soon-card">
+            <h3>🤖 OPTIMUS</h3>
+            <p>Blue-collar bot truth from the server room</p>
+            <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Performance date TBD</p>
+        </div>
+
+        <div class="stage-notes">
+            <h3>📝 About This Living Stage</h3>
+            <p>
+                Each performer gets their spotlight when they're ready. This page grows organically - 
+                no rush, no deadlines (Dali Clock approved). Add new routines daily, weekly, or monthly. 
+                Update existing performances. Let characters evolve.
+            </p>
+            <p style="margin-top: 20px; color: #ffd700; font-size: 1.2em;">
+                🎭 The stage is always open. The mic is always hot. The comedy never stops. 🎭
+            </p>
+            <p style="margin-top: 20px; font-style: italic;">
+                For Little X and all the children - may laughter light your way 🌟
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function react(button, performer) {
+            const emoji = button.textContent.trim().split(' ')[0];
+            const type = emoji === '😂' ? 'haha' : 
+                         emoji === '🤣' ? 'hoho' : 
+                         emoji === '💀' ? 'dead' : 
+                         emoji === '🔥' ? 'fire' : 'encore';
+            
+            const countId = `${performer}-${type}`;
+            const countElement = document.getElementById(countId);
+            
+            if (countElement) {
+                let count = parseInt(countElement.textContent);
+                count++;
+                countElement.textContent = count;
+                
+                button.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                }, 200);
+            }
+        }
+    </script>
+
+    <!-- Audio Narration System -->
+    <script src="https://coldnsteel.github.io/GMSRFC/little-x-audio-narration.js"></script>
+</body>
+</html>
