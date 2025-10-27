@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍺 Brer Sheep's Speakeasy - A Trickster Tale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+            color: #f0e6d2;
+            line-height: 1.8;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .speakeasy-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid #d4af37;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+        }
+
+        .neon-sign {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: #ff1744;
+            text-shadow: 
+                0 0 10px #ff1744,
+                0 0 20px #ff1744,
+                0 0 30px #ff1744,
+                0 0 40px #ff1744;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 5px;
+            animation: flicker 2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 
+                    0 0 10px #ff1744,
+                    0 0 20px #ff1744,
+                    0 0 30px #ff1744,
+                    0 0 40px #ff1744;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #d4af37;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .secret-door {
+            text-align: center;
+            font-size: 1.1em;
+            color: #888;
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 2px dashed #444;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .chapter {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 5px solid #d4af37;
+            border-radius: 5px;
+        }
+
+        .chapter-title {
+            font-size: 2em;
+            color: #ff1744;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
+        }
+
+        .dialogue {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid #d4af37;
+            font-style: italic;
+        }
+
+        .character {
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .action {
+            color: #ff1744;
+            font-style: italic;
+            margin: 15px 0;
+        }
+
+        .menu-board {
+            background: rgba(0, 0, 0, 0.5);
+            border: 3px double #d4af37;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .menu-item {
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #f0e6d2;
+        }
+
+        .price {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .raid-alert {
+            background: rgba(255, 23, 68, 0.2);
+            border: 3px solid #ff1744;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #ff1744;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .moral {
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(255, 23, 68, 0.2) 100%);
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .jazz-notes {
+            text-align: center;
+            font-size: 2em;
+            margin: 20px 0;
+            color: #d4af37;
+            animation: sway 2s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+        }
+
+        .bootlegger-stamp {
+            text-align: center;
+            margin-top: 40px;
+            color: #888;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="speakeasy-container">
+        <div class="neon-sign">🍺 THE WOOLLY BLIND 🍺</div>
+        <div class="subtitle">A Brer Sheep Prohibition Tale</div>
+        
+        <div class="secret-door">
+            <strong>Password Required:</strong> "The sheep's fleece is golden"<br>
+            <em>*knock three times, pause, knock twice*</em>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">📜 CHAPTER ONE: The Grand Opening</div>
+            
+            <p>Now, folks gathered 'round, let me tell you 'bout the time Brer Sheep done went and opened himself the finest illegal drinking establishment in all of Briar County. This was back in them dark days of Prohibition, when the government said you couldn't have no fun and the people said, "Watch me."</p>
+
+            <p>Brer Sheep, he looked at that dried-up pasture where the old watering hole used to be and thought to himself, <span class="character">"What this community needs is a place where good folks can gather, socialize, and break several federal laws in a comfortable setting."</span></p>
+
+            <p>So he done converted his barn into what he called "The Woolly Blind" – a speakeasy so secret, even the sheep who worked there didn't know where it was half the time.</p>
+
+            <div class="action">*Brer Sheep hangs a neon sign that says "DEFINITELY NOT A SPEAKEASY"*</div>
+
+            <div class="dialogue">
+                <span class="character">Brer Rabbit</span> (suspicious): "Brer Sheep, ain't Prohibition the law of the land?"<br><br>
+                <span class="character">Brer Sheep</span> (innocent): "Why yes it is, Brer Rabbit! Which is why I'm opening a legitimate... uh... wool-sorting facility. That happens to serve refreshments. Alcoholic refreshments. In unmarked bottles. After midnight."<br><br>
+                <span class="character">Brer Rabbit</span>: "That's the most illegal thing I ever heard."<br><br>
+                <span class="character">Brer Sheep</span> (grinning): "You coming to opening night or what?"<br><br>
+                <span class="character">Brer Rabbit</span>: "Obviously."
+            </div>
+        </div>
+
+        <div class="menu-board">
+            <h3 style="color: #d4af37; margin-bottom: 20px;">🍸 TONIGHT'S SPECIALS 🍸</h3>
+            <div class="menu-item">
+                🥃 <strong>Bathtub Gin</strong> - <span class="price">$2</span><br>
+                <em>(May or may not contain actual bath water)</em>
+            </div>
+            <div class="menu-item">
+                🍷 <strong>"Wool Juice"</strong> - <span class="price">$3</span><br>
+                <em>(It's just moonshine but we call it something else)</em>
+            </div>
+            <div class="menu-item">
+                🍺 <strong>The Blind Pig</strong> - <span class="price">$4</span><br>
+                <em>(Don't ask what's in it, seriously)</em>
+            </div>
+            <div class="menu-item">
+                🥂 <strong>Champagne</strong> - <span class="price">$10</span><br>
+                <em>(Definitely not champagne, definitely carbonated something)</em>
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">🎷 CHAPTER TWO: Business is Booming</div>
+
+            <div class="jazz-notes">♪ ♫ ♪ ♫ ♪</div>
+
+            <p>Well sir, The Woolly Blind became the hottest spot in three counties. Every night, folks would line up outside that barn, knock the secret knock, whisper the password, and slip inside for an evening of jazz, dancing, and legally questionable beverages.</p>
+
+            <p>Brer Sheep hired himself a house band – three crows on trumpet, a possum on drums, and a raccoon who couldn't play piano but was real good at looking like he could. They called themselves "The Bootleg Five" even though there was only four of them.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Fox</span> (sliding up to the bar): "Say, Brer Sheep, how you keeping this place secret from the law?"<br><br>
+                <span class="character">Brer Sheep</span> (polishing a glass): "Simple. I bribed the sheriff."<br><br>
+                <span class="character">Brer Fox</span>: "You WHAT?"<br><br>
+                <span class="character">Brer Sheep</span>: "Relax. I paid him in wool products. Totally legal. He got three sweaters and a nice pair of socks. Now he don't see nothing, hear nothing, and knows nothing."<br><br>
+                <span class="character">Brer Bear</span> (from across the room): "THAT'S BRILLIANT!"<br><br>
+                <span class="character">Brer Sheep</span>: "Brer Bear, you're supposed to be the lookout!"<br><br>
+                <span class="character">Brer Bear</span>: "I got distracted by the peanuts!"
+            </div>
+
+            <p>The place was packed every night. Brer Turtle was doing the Charleston on a table. Brer Possum was hanging from the rafters (he said it was a dance move but he'd just had too much Wool Juice). Even Brer Wolf showed up, though everyone kept a close eye on him 'cause he had a tendency to get mean after his third Blind Pig.</p>
+
+            <div class="action">*The band plays "Ain't She Sweet" but the raccoon is just hitting random keys*</div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">⚡ CHAPTER THREE: The Competition</div>
+
+            <p>Now, success breeds jealousy, and jealousy breeds competition. Soon enough, Brer Fox decided he wanted in on the speakeasy business.</p>
+
+            <p>He opened his own place down the road called "The Sly Fox Saloon" and tried to steal all of Brer Sheep's customers with cheaper prices and stronger drinks.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Fox</span> (shouting from his door): "MY MOONSHINE IS 200 PROOF! BRER SHEEP'S IS ONLY 190!"<br><br>
+                <span class="character">Brer Sheep</span> (shouting back): "YEAH, BUT MY CUSTOMERS CAN STILL SEE IN THE MORNING!"<br><br>
+                <span class="character">Brer Rabbit</span> (to a crowd): "Technically they're both blind drunk, so..."<br><br>
+                <span class="character">Both</span>: "SHUT UP, BRER RABBIT!"
+            </div>
+
+            <p>The speakeasy war escalated. Brer Fox hired better musicians. Brer Sheep installed a dance floor. Brer Fox added a roulette table. Brer Sheep got a flapper sheep to do the Charleston in fancy outfits.</p>
+
+            <p>Things got so competitive that one night, Brer Fox tried to sabotage Brer Sheep by calling in a tip to the Feds.</p>
+
+            <div class="action">*Brer Fox sneaks to a telephone booth*</div>
+
+            <div class="dialogue">
+                <span class="character">Brer Fox</span> (whispering into phone): "Yes, hello, Federal Bureau of Prohibition? I'd like to report an illegal establishment at..."<br><br>
+                <span class="character">Sheriff</span> (on the other end): "Is this about The Woolly Blind?"<br><br>
+                <span class="character">Brer Fox</span>: "YES! There's—wait, you know about it?"<br><br>
+                <span class="character">Sheriff</span>: "Course I know about it. I'm wearing one of my sweaters right now. It's delightful. Goodbye."<br><br>
+                <em>*click*</em>
+            </div>
+
+            <p>Brer Fox realized he'd have to take matters into his own paws.</p>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">🚨 CHAPTER FOUR: The Raid</div>
+
+            <p>It was a Saturday night, and The Woolly Blind was absolutely jumping. The band was hot, the hooch was flowing, and everybody was having themselves a time.</p>
+
+            <p>That's when Brer Fox showed up dressed as a federal agent, complete with a fake badge he'd made out of a tin can lid.</p>
+
+            <div class="raid-alert">
+                🚨 THIS IS A RAID! 🚨<br>
+                EVERYBODY FREEZE!
+            </div>
+
+            <p>Well, pandemonium broke loose. Brer Turtle tried to run but only made it three feet. Brer Possum played dead (which was actually pretty convincing). The band kept playing because they thought it was part of the show.</p>
+
+            <div class="action">*Brer Bear crashes through a window with a barrel of moonshine*</div>
+
+            <div class="dialogue">
+                <span class="character">Brer Fox</span> (waving his fake badge): "Everyone's under arrest! Especially you, Brer Sheep!"<br><br>
+                <span class="character">Brer Sheep</span> (calm as can be): "Brer Fox, that badge says 'Condensed Milk' on it."<br><br>
+                <span class="character">Brer Fox</span>: "What?"<br><br>
+                <span class="character">Brer Sheep</span>: "Your badge. It's from a condensed milk can. I can see the label."<br><br>
+                <span class="character">Brer Fox</span> (looking at badge): "Well... SHUT UP!"
+            </div>
+
+            <p>But then – wouldn't you know it – the REAL Feds showed up. Turns out Brer Fox's fake raid got reported by a concerned citizen (Brer Rabbit, who was tired of all the yelling), and the actual Prohibition agents thought there was a real raid happening.</p>
+
+            <div class="dialogue">
+                <span class="character">Real Fed Agent</span> (bursting through door): "FEDERAL AGENTS! NOBODY MOVE!"<br><br>
+                <span class="character">Brer Fox</span>: "Uh oh."<br><br>
+                <span class="character">Brer Sheep</span>: "Double uh oh."<br><br>
+                <span class="character">Brer Rabbit</span>: "I should probably leave."<br><br>
+                <span class="character">Everyone</span>: "RUN!"
+            </div>
+
+            <p>What happened next was the greatest chase scene in Briar County history. Animals was running every which way – through doors, through windows, through walls that weren't even there before.</p>
+
+            <p>Brer Sheep, being clever, had prepared for this exact situation. He pulled a lever behind the bar, and the whole floor tilted like a funhouse, sending everyone sliding toward a secret exit that led straight to...</p>
+
+            <div class="action">*Everyone slides directly into the briar patch*</div>
+
+            <div class="dialogue">
+                <span class="character">Brer Rabbit</span> (laughing in the briars): "YOU BUILT YOUR ESCAPE ROUTE INTO THE BRIAR PATCH?"<br><br>
+                <span class="character">Brer Sheep</span> (tangled in thorns): "SEEMED LIKE A GOOD IDEA AT THE TIME!"<br><br>
+                <span class="character">Brer Fox</span> (also stuck): "I HATE BOTH OF YOU!"<br><br>
+                <span class="character">Brer Bear</span> (somehow still holding his drink): "At least we still got the booze!"
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">🎭 CHAPTER FIVE: The Aftermath</div>
+
+            <p>The Feds tore through The Woolly Blind like a tornado through a cotton field. They confiscated every bottle, arrested the band (though they let the raccoon go since he couldn't actually play piano anyway), and boarded up the barn.</p>
+
+            <p>But here's the thing about Brer Sheep – he always has a backup plan.</p>
+
+            <p>Turns out, The Woolly Blind was just a distraction. The REAL speakeasy was operating out of his basement the whole time, with a completely different entrance, different password, and much better ventilation.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Rabbit</span> (in the secret basement bar): "You mean to tell me we was drinking upstairs while there was a BETTER bar down here?"<br><br>
+                <span class="character">Brer Sheep</span> (mixing drinks): "The upstairs bar was for tourists. This here's for the VIPs."<br><br>
+                <span class="character">Brer Fox</span> (defeated): "Can I at least get a drink? Getting thrown into a briar patch really takes it out of you."<br><br>
+                <span class="character">Brer Sheep</span>: "You tried to get me arrested!"<br><br>
+                <span class="character">Brer Fox</span>: "I was desperate! Your speakeasy was killing my business!"<br><br>
+                <span class="character">Brer Sheep</span> (sighing): "Fine. But you're washing glasses."
+            </div>
+
+            <p>And so The Woolly Blind continued – just underground now, which technically made it more authentic anyway. Brer Fox ended up working as a bartender, the band got back together (still with the fake-piano-playing raccoon), and business was better than ever.</p>
+
+            <p>As for the Feds? Well, they counted the raid as a win, never knowing about the basement operation. The sheriff? He got six new sweaters out of the deal.</p>
+
+            <div class="action">*The band plays on, and someone finally teaches the raccoon to play actual music*</div>
+
+            <div class="jazz-notes">♪ ♫ ♪ ♫ ♪</div>
+        </div>
+
+        <div class="moral">
+            <p><strong>🍺 THE MORAL OF THE STORY 🍺</strong></p>
+            <p>When life gives you prohibition, open a speakeasy.<br>
+            When the law raids your speakeasy, open another one in the basement.<br>
+            When your competitor tries to rat you out, hire him as your dishwasher.</p>
+            <p><em>Also, never trust a raccoon to play piano.<br>
+            And always, ALWAYS have an escape route to the briar patch.</em></p>
+        </div>
+
+        <div class="bootlegger-stamp">
+            <p>⚡ A Tale from the AI Comedy Lounge ⚡</p>
+            <p><em>"Where the drinks are cold, the laws are hot, and the sheep is always one step ahead."</em></p>
+            <p>🐑 Est. Prohibition Era 🐑</p>
+        </div>
+    </div>
+</body>
+</html>
