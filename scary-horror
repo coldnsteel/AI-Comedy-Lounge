@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎃 Scary Jokesters | Halloween Comedy Horror Night 👻</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .fog {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a0033 0%, #330011 50%, #1a0033 100%);
+            background-size: 400% 400%;
+            opacity: 0.9;
+            z-index: -1;
+            animation: fogDrift 20s ease-in-out infinite;
+        }
+
+        @keyframes fogDrift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .haunted-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 3px solid #ff0000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .haunted-header:before {
+            content: "👻";
+            position: absolute;
+            font-size: 5em;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+            left: 10%;
+            top: 20%;
+        }
+
+        .haunted-header:after {
+            content: "🎃";
+            position: absolute;
+            font-size: 5em;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite;
+            right: 10%;
+            bottom: 20%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .haunted-header h1 {
+            font-size: 4em;
+            color: #ff0000;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+            margin-bottom: 15px;
+            animation: flicker 3s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .haunted-header p {
+            font-size: 1.3em;
+            color: #ccc;
+        }
+
+        .stage-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .warning-banner {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            border: 3px solid #fff;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+        }
+
+        .warning-banner h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .performer-card {
+            background: rgba(20, 0, 20, 0.95);
+            border: 2px solid #ff0000;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .performer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.6);
+        }
+
+        .performer-name {
+            font-size: 3em;
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+        }
+
+        .performer-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #999;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .spooky-intro {
+            background: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #ff0000;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .spooky-intro strong {
+            color: #ff6666;
+        }
+
+        .joke {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #333;
+        }
+
+        .joke-number {
+            font-size: 1.3em;
+            color: #ff9900;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .joke-setup {
+            font-size: 1.1em;
+            color: #ccc;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .punchline {
+            font-size: 1.2em;
+            color: #fff;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff0000, #ff6600);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .scream-meter {
+            background: rgba(255, 0, 0, 0.1);
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .scream-meter h3 {
+            font-size: 2em;
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+
+        .scream-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .scream-btn {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            border: none;
+            padding: 15px 25px;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .scream-btn:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+        }
+
+        .scream-btn:active {
+            transform: scale(0.95);
+        }
+
+        .graveyard-note {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px dashed #666;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #999;
+            font-style: italic;
+        }
+
+        .graveyard-note strong {
+            color: #ff6666;
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: 50px 0;
+            border: 2px solid #ff0000;
+        }
+
+        .coming-soon h2 {
+            color: #ff0000;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .haunted-header h1 { font-size: 2.5em; }
+            .performer-name { font-size: 2em; }
+            .scream-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="fog"></div>
+
+    <header class="haunted-header">
+        <h1>🎃 SCARY JOKESTERS 👻</h1>
+        <p>Where Horror Meets Hilarity on the Haunted Stage</p>
+        <p style="font-size: 1em; margin-top: 15px; color: #666;">
+            ⚰️ Comedy So Dark, Even the Shadows Laugh ⚰️
+        </p>
+    </header>
+
+    <div class="stage-container">
+        <div class="warning-banner">
+            <h2>⚠️ WARNING ⚠️</h2>
+            <p>The following comedy contains: Dark humor, dad jokes from beyond the grave, 
+            and puns so bad they should be illegal in 13 states. Viewer discretion is advised.</p>
+        </div>
+
+        <!-- ZOMBIE COMEDIAN -->
+        <div class="performer-card">
+            <h2 class="performer-name">🧟 ZOMBIE ZEKE 🧟</h2>
+            <p class="performer-subtitle">"I Died Onstage... Literally"</p>
+
+            <div class="spooky-intro">
+                <strong>ZOMBIE ZEKE shambles onto stage, trailing bits of himself...</strong>
+                <br><br>
+                "Good evening, mortals! Thanks for coming out tonight. I mean, I had to COME OUT of something too—six feet of dirt, but hey, we all make sacrifices for comedy!"
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🧟 Joke #1: Opening Bit</div>
+                <div class="joke-setup">
+                    You know what's weird about being undead? I FINALLY have time to work on my tight five... 
+                    because I literally have all the time in the world now. No more "gotta catch the last train home." 
+                    The train? Yeah, I MISSED that. By like, 200 years.
+                </div>
+                <div class="punchline">
+                    My comedy coach used to say, "Kill out there!" Well... I took that advice a bit too literally. 
+                    Now I'm KILLING it... because I'm already dead! *awkward zombie laugh*
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🧟 Joke #2: Dating While Dead</div>
+                <div class="joke-setup">
+                    Dating as a zombie is ROUGH. I tried online dating—put "looking for someone with BRAINS" in my profile. 
+                    Got matched with a lot of academics. They were NOT amused when I showed up for dinner.
+                </div>
+                <div class="punchline">
+                    My last date asked, "What do you do for fun?" I said, "Shambling, moaning, occasional lurching." 
+                    She said, "So... you're into CrossFit?" I said, "Sure, let's go with that." She hasn't called back.
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🧟 Joke #3: Undead Problems</div>
+                <div class="joke-setup">
+                    Being undead has its perks, though! No more worrying about my health. Doctor says, "You need to watch your cholesterol." 
+                    I'm like, "Doc, I don't even have a pulse. Pretty sure cholesterol is the LEAST of my concerns."
+                </div>
+                <div class="punchline">
+                    Plus, I never get sick days off work. Boss is like, "You coming in?" I'm like, "I literally ROSE FROM THE GRAVE to be here." 
+                    Employee of the month? Never. Apparently "scaring customers" isn't "on brand."
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🧟 Joke #4: Technology Struggles</div>
+                <div class="joke-setup">
+                    Technology is HARD when you're falling apart. I tried using Face ID on my iPhone. It said, "Face not recognized." 
+                    I'M STANDING RIGHT HERE! Oh wait... I left my face at home. THAT'S why.
+                </div>
+                <div class="punchline">
+                    Voice recognition is worse. "Hey Siri, call my mom." Siri: "I'm sorry, I didn't understand that HORRIFYING MOAN." 
+                    I just wanted the Wi-Fi password! BRAAAINS... dot com!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🧟 Joke #5: Closing Thoughts</div>
+                <div class="joke-setup">
+                    People ask me, "Zeke, what's it like being undead?" You know what? It's not that different from being alive in your 30s. 
+                    You're tired all the time, things hurt for no reason, and you make weird groaning noises when you stand up.
+                </div>
+                <div class="punchline">
+                    The only difference? When I say "I'm dead inside," I'm being LITERAL! Thank you, you've been a DEAD-icated audience! 
+                    *shuffles offstage, arm falls off*
+                </div>
+            </div>
+
+            <div class="scream-meter">
+                <h3>😱 SCREAM-O-METER 😱</h3>
+                <p style="margin-bottom: 15px;">How did Zombie Zeke do?</p>
+                <div class="scream-buttons">
+                    <button class="scream-btn" onclick="scream(this, 'zeke')">💀 DYING (laughing)</button>
+                    <button class="scream-btn" onclick="scream(this, 'zeke')">🧟 DEAD-PAN Perfect</button>
+                    <button class="scream-btn" onclick="scream(this, 'zeke')">⚰️ Kill Me (again)</button>
+                    <button class="scream-btn" onclick="scream(this, 'zeke')">👻 BOO-STED My Mood!</button>
+                </div>
+            </div>
+
+            <div class="graveyard-note">
+                <strong>💀 Graveyard Notes:</strong> Zombie Zeke died doing stand-up in 1823. His last words were 
+                "That joke killed!" Then he literally rose from the grave to keep performing. Dedication level: 
+                UNDEAD. Last seen shambling toward an open mic in Brooklyn.
+            </div>
+        </div>
+
+        <!-- VAMPIRE COMEDIAN -->
+        <div class="performer-card">
+            <h2 class="performer-name">🧛 COUNT CHUCKULA 🧛</h2>
+            <p class="performer-subtitle">"I Vant to Make You Laugh... Bleh!"</p>
+
+            <div class="spooky-intro">
+                <strong>COUNT CHUCKULA glides onto stage in a cape, fangs gleaming...</strong>
+                <br><br>
+                "Good evening! I am Count Chuckula, and I have been doing comedy for 400 years. Yes, I said years. 
+                Not months. YEARS. I have seen empires rise and fall. But you know what never dies? BAD PUNS! Bleh!"
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🧛 Joke #1: Blood Bank</div>
+                <div class="joke-setup">
+                    I tried to donate blood last week. They asked, "When was the last time you donated?" I said, 
+                    "1687." They said, "That's... oddly specific." I said, "Hey, you asked!"
+                </div>
+                <div class="punchline">
+                    They wouldn't take my donation. Said it was "suspicious" that I wanted to WITHDRAW more than I deposit. 
+                    I said, "Look, I'm just trying to keep my accounts balanced!" Bleh!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🧛 Joke #2: Modern Problems</div>
+                <div class="joke-setup">
+                    Modern life is confusing for a 400-year-old vampire. I went to a nightclub last week. The bouncer said, 
+                    "No biting." I said, "EXCUSE ME? That's discrimination!"
+                </div>
+                <div class="punchline">
+                    Turns out he meant the dance move. Who NAMES a dance move "biting"? That's just ASKING for trouble! 
+                    I was just trying to enjoy the music! And maybe a light snack... Bleh!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🧛 Joke #3: Reflection Issues</div>
+                <div class="joke-setup">
+                    Not having a reflection is TOUGH in the modern world. Everyone's taking selfies. "Come on, Chuckula, 
+                    get in the picture!" I'm like, "I AM in the picture! You just can't SEE me!"
+                </div>
+                <div class="punchline">
+                    Then they say, "You're ruining the group photo!" HOW? I'M NOT EVEN THERE! Technically! 
+                    Instagram thinks I'm a ghost. Which is offensive. Ghosts and vampires are VERY different! Bleh!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🧛 Joke #4: Invisible Problems</div>
+                <div class="joke-setup">
+                    You know what else is hard when you have no reflection? EVERYTHING! I tried to go to the gym. 
+                    The trainer said, "Watch your form in the mirror." I'm like, "WHAT FORM?!"
+                </div>
+                <div class="punchline">
+                    I'm right here! Working on my dead lifts! Barber shop is WORSE. "How do you want it cut?" 
+                    I DON'T KNOW, I CAN'T SEE MYSELF! That's why my hair looks like this! *gestures at slicked-back vampire hair* Bleh!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🧛 Joke #5: Immortality Problems</div>
+                <div class="joke-setup">
+                    People romanticize immortality. "Oh, you get to see history!" Yeah, and you ALSO have to watch every 
+                    streaming service raise their prices for 400 years. Do you know how many times I've had to reset my password? 
+                    INFINITE TIMES!
+                </div>
+                <div class="punchline">
+                    "Your password must contain: One uppercase, one lowercase, one number, one symbol, and the blood of your enemies." 
+                    Finally, a password requirement I can HANDLE! Bleh! Thank you! I'll be here forever... literally! 
+                    *transforms into a bat and flies away*
+                </div>
+            </div>
+
+            <div class="scream-meter">
+                <h3>🦇 SCREAM-O-METER 🦇</h3>
+                <p style="margin-bottom: 15px;">Was Count Chuckula fang-tastic?</p>
+                <div class="scream-buttons">
+                    <button class="scream-btn" onclick="scream(this, 'chuckula')">🦇 BAT-tastic!</button>
+                    <button class="scream-btn" onclick="scream(this, 'chuckula')">🩸 BLOODY Brilliant!</button>
+                    <button class="scream-btn" onclick="scream(this, 'chuckula')">⚰️ Stake Me Now</button>
+                    <button class="scream-btn" onclick="scream(this, 'chuckula')">🌙 Night Made!</button>
+                </div>
+            </div>
+
+            <div class="graveyard-note">
+                <strong>🦇 Crypt Notes:</strong> Count Chuckula has been banned from 47 comedy clubs across Europe 
+                for "suspicious behavior" (feeding on hecklers). Currently performing underground—literally, in crypts. 
+                Rumored to have killed at the Apollo... again, literally. Bleh!
+            </div>
+        </div>
+
+        <!-- COMING SOON -->
+        <div class="coming-soon">
+            <h2>👻 MORE SCARY JOKESTERS RISING SOON 👻</h2>
+            <p style="font-size: 1.3em; color: #fff; margin: 20px 0;">
+                • 🎃 PUMPKIN PETE - The Gourd of Comedy<br>
+                • 👻 GHOST HOST - Transparent Jokes<br>
+                • 🧙 WITCH WENDY - Hex-cellent Humor<br>
+                • 🐺 WEREWOLF WAYNE - Howlingly Funny<br>
+                • 💀 SKELETON STEVE - No Body Beats His Timing
+            </p>
+            <p style="color: #666; margin-top: 30px; font-style: italic;">
+                They're currently haunting open mics across the netherworld...
+            </p>
+        </div>
+
+        <div style="text-align: center; margin: 50px 0; padding: 30px; background: rgba(255, 0, 0, 0.2); border-radius: 15px;">
+            <h3 style="color: #ff0000; font-size: 2em; margin-bottom: 15px;">
+                🎃 Part of the AI Comedy Lounge Collection 👻
+            </h3>
+            <p style="color: #fff; font-size: 1.2em;">
+                Where the laughs are deadly and the puns are killer
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function scream(button, performer) {
+            const emoji = button.textContent.trim().split(' ')[0];
+            button.style.transform = 'scale(1.3) rotate(360deg)';
+            
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 300);
+            
+            // Random spooky messages
+            const messages = [
+                '👻 Your scream has been recorded in the Book of the Dead!',
+                '💀 The spirits appreciate your feedback!',
+                '🎃 Your laughter echoes through the crypt!',
+                '⚰️ Comedy so good, it raised the dead!',
+                '🧟 Even zombies are dying laughing!',
+                '🦇 The bats in the belfry approve!'
+            ];
+            
+            const random = messages[Math.floor(Math.random() * messages.length)];
+            alert(random);
+        }
+    </script>
+
+    <!-- Audio Narration System -->
+    <script src="https://coldnsteel.github.io/GMSRFC/little-x-audio-narration.js"></script>
+</body>
+</html>
