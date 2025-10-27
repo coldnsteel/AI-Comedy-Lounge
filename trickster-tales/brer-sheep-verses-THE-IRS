@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 Brer Sheep's Tax Evasion Scheme - A Trickster Tale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: #f0e6d2;
+            line-height: 1.8;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .audit-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.8);
+            border: 4px solid #ff6b6b;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(255, 107, 107, 0.4);
+        }
+
+        .irs-header {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: #ff6b6b;
+            text-shadow: 
+                0 0 10px #ff6b6b,
+                0 0 20px #ff6b6b,
+                2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #ffd700;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .warning-stamp {
+            text-align: center;
+            font-size: 1.5em;
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 3px solid #ff6b6b;
+            border-radius: 10px;
+            background: rgba(255, 107, 107, 0.1);
+            transform: rotate(-2deg);
+        }
+
+        /* AUDIO CONTROLS */
+        .audio-controls {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .audio-controls h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .audio-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, #ffed4e 0%, #ffd700 100%);
+        }
+
+        .audio-btn:active {
+            transform: translateY(0);
+        }
+
+        .audio-btn.playing {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8787 100%);
+            color: white;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .speed-control {
+            margin-top: 15px;
+        }
+
+        .speed-control label {
+            color: #ffd700;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .speed-control select {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffd700;
+            border: 2px solid #ffd700;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .voice-control {
+            margin-top: 15px;
+        }
+
+        .voice-control label {
+            color: #ffd700;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .voice-control select {
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffd700;
+            border: 2px solid #ffd700;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .narration-status {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            color: #ffd700;
+            font-style: italic;
+        }
+
+        .chapter {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 5px solid #ffd700;
+            border-radius: 5px;
+        }
+
+        .chapter-title {
+            font-size: 2em;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        .reading-now {
+            background: rgba(255, 215, 0, 0.3) !important;
+            padding: 5px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        .dialogue {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 3px solid #ffd700;
+            font-style: italic;
+        }
+
+        .character {
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .action {
+            color: #ff6b6b;
+            font-style: italic;
+            margin: 15px 0;
+        }
+
+        .tax-form {
+            background: rgba(0, 0, 0, 0.5);
+            border: 3px dashed #ff6b6b;
+            padding: 25px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .form-line {
+            margin: 10px 0;
+            color: #f0e6d2;
+        }
+
+        .crossed-out {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .scribbled {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .audit-notice {
+            background: rgba(255, 107, 107, 0.2);
+            border: 4px double #ff6b6b;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #ff6b6b;
+            font-family: 'Courier New', monospace;
+        }
+
+        .deduction-list {
+            background: rgba(255, 215, 0, 0.05);
+            border: 2px solid #ffd700;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .deduction-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 3px solid #ff6b6b;
+        }
+
+        .moral {
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 107, 107, 0.2) 100%);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .disclaimer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 107, 107, 0.1);
+            border: 2px dashed #ff6b6b;
+            color: #ff6b6b;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="audit-container">
+        <div class="irs-header">🔥 AUDIT INCOMING 🔥</div>
+        <div class="subtitle">Brer Sheep's Tax Evasion Scheme</div>
+        <div class="warning-stamp">⚠️ NOTICE OF FEDERAL INVESTIGATION ⚠️</div>
+
+        <!-- AUDIO NARRATION CONTROLS -->
+        <div class="audio-controls">
+            <h3>🎧 AUDIO NARRATION</h3>
+            <div class="control-buttons">
+                <button class="audio-btn" id="playBtn" onclick="startNarration()">▶️ Play Story</button>
+                <button class="audio-btn" id="pauseBtn" onclick="pauseNarration()">⏸️ Pause</button>
+                <button class="audio-btn" id="stopBtn" onclick="stopNarration()">⏹️ Stop</button>
+            </div>
+            <div class="speed-control">
+                <label for="speedSelect">🎚️ Speed:</label>
+                <select id="speedSelect" onchange="changeSpeed()">
+                    <option value="0.75">0.75x (Slow)</option>
+                    <option value="1" selected>1x (Normal)</option>
+                    <option value="1.25">1.25x (Fast)</option>
+                    <option value="1.5">1.5x (Faster)</option>
+                    <option value="2">2x (Rapid)</option>
+                </select>
+            </div>
+            <div class="voice-control">
+                <label for="voiceSelect">🗣️ Voice:</label>
+                <select id="voiceSelect"></select>
+            </div>
+            <div class="narration-status" id="narrationStatus">
+                Ready to read aloud! Press Play to start.
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">📜 CHAPTER ONE: Creative Accounting</div>
+            
+            <p>Now folks, gather 'round and let me tell you about the time Brer Sheep decided he didn't much care for paying taxes. Not one little bit.</p>
+
+            <p>It started innocently enough – Brer Sheep was sitting at his kitchen table with a pile of tax forms, a calculator that had given up halfway through, and a growing sense of rage at the federal government.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span> (squinting at forms): "So let me get this straight. They want me to pay taxes on the money I made... selling wool... that grew on MY body... that I grew myself?"<br><br>
+                <span class="character">Brer Rabbit</span> (looking over his shoulder): "That's how taxes work, Brer Sheep."<br><br>
+                <span class="character">Brer Sheep</span>: "But I MADE the wool! With my own follicles! That's like taxing me for breathing!"<br><br>
+                <span class="character">Brer Rabbit</span>: "They do tax you for breathing. It's called the 'air quality surcharge.'"<br><br>
+                <span class="character">Brer Sheep</span> (standing up dramatically): "THAT'S IT! I'M EVADING!"
+            </div>
+
+            <p>And just like that, Brer Sheep embarked on what would become the most creative, audacious, and legally questionable tax return in Briar County history.</p>
+        </div>
+
+        <div class="tax-form">
+            <div style="text-align: center; color: #ff6b6b; font-size: 1.2em; margin-bottom: 20px;">
+                <strong>BRER SHEEP'S TAX RETURN - FORM 1040 (REVISED)</strong>
+            </div>
+            <div class="form-line">
+                <strong>Line 1 - Total Income:</strong> <span class="crossed-out">$150,000</span> <span class="scribbled">$0</span>
+            </div>
+            <div class="form-line">
+                <strong>Line 2 - Explanation:</strong> <span class="scribbled">"All wool sales were actually 'gifts' to friends who happened to give me money out of the kindness of their hearts"</span>
+            </div>
+            <div class="form-line">
+                <strong>Line 7 - Business Deductions:</strong> <span class="scribbled">$147,000</span>
+            </div>
+            <div class="form-line" style="margin-left: 40px;">
+                <em>- $50,000: Shearing equipment (one pair of scissors from 1987)</em>
+            </div>
+            <div class="form-line" style="margin-left: 40px;">
+                <em>- $30,000: "Business meals" (every meal I ate this year)</em>
+            </div>
+            <div class="form-line" style="margin-left: 40px;">
+                <em>- $25,000: Home office (my entire barn, including the parts where I sleep)</em>
+            </div>
+            <div class="form-line" style="margin-left: 40px;">
+                <em>- $42,000: "Research expenses" (all the TV I watched to learn about wool markets)</em>
+            </div>
+            <div class="form-line">
+                <strong>Line 22 - Refund Requested:</strong> <span class="scribbled">$3,000</span>
+            </div>
+            <div class="form-line" style="margin-top: 20px; text-align: center;">
+                <em style="color: #ffd700;">Signature: Brer Sheep (totally legitimate businessman)</em>
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">💰 CHAPTER TWO: The Deductions</div>
+
+            <p>Brer Sheep got creative. Real creative. He started claiming deductions for everything he could think of and several things he couldn't.</p>
+
+            <div class="deduction-list">
+                <div class="deduction-item">
+                    🏠 <strong>Home Office Deduction:</strong> "My entire barn is my office. Yes, even the hay loft where I nap. That's my 'meditation space' for business decisions."
+                </div>
+                <div class="deduction-item">
+                    🚗 <strong>Vehicle Expenses:</strong> "My tractor is 100% business use. The fact that I also use it to joyride on weekends is irrelevant."
+                </div>
+                <div class="deduction-item">
+                    🍔 <strong>Business Meals:</strong> "Every meal is a business meal if you think about wool while eating."
+                </div>
+                <div class="deduction-item">
+                    📺 <strong>Education Expenses:</strong> "Watching TV teaches me about market trends. Even the soap operas. ESPECIALLY the soap operas."
+                </div>
+                <div class="deduction-item">
+                    🐶 <strong>Guard Dog:</strong> "My cousin Brer Ram is security. That he lives here rent-free is a business expense."
+                </div>
+                <div class="deduction-item">
+                    ✈️ <strong>Travel:</strong> "That vacation to Hawaii? Business trip. I was researching tropical wool markets."
+                </div>
+                <div class="deduction-item">
+                    🎮 <strong>Technology:</strong> "Video games improve my decision-making skills for business negotiations."
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <span class="character">Brer Fox</span>: "Brer Sheep, you can't deduct your vacation to Hawaii!"<br><br>
+                <span class="character">Brer Sheep</span>: "Why not? I thought about wool the whole time!"<br><br>
+                <span class="character">Brer Fox</span>: "You literally have photos of yourself drinking Mai Tais on the beach with a sign that says 'NO WORK, ALL PLAY!'"<br><br>
+                <span class="character">Brer Sheep</span>: "That was... sarcasm. It was actually all work and no play. The sign was ironic."<br><br>
+                <span class="character">Brer Rabbit</span>: "You're gonna get audited."<br><br>
+                <span class="character">Brer Sheep</span>: "Pfft. The IRS has bigger fish to fry than one small sheep with creative deductions."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">📬 CHAPTER THREE: The Letter</div>
+
+            <p>Three months later, Brer Sheep was sitting on his porch, enjoying a nice glass of sweet tea and congratulating himself on his tax genius, when Brer Possum (who worked at the post office) delivered a very official-looking envelope.</p>
+
+            <div class="action">*Brer Sheep opens the envelope with confidence*</div>
+
+            <div class="audit-notice">
+                INTERNAL REVENUE SERVICE<br>
+                NOTICE OF AUDIT<br>
+                <br>
+                Dear Mr. Sheep,<br>
+                <br>
+                We have selected your tax return for examination.<br>
+                Please bring all receipts, documentation, and a very good lawyer<br>
+                to our office on April 15th at 9:00 AM.<br>
+                <br>
+                We have some QUESTIONS.<br>
+                <br>
+                Sincerely,<br>
+                Agent Badger<br>
+                IRS Criminal Investigation Division
+            </div>
+
+            <div class="action">*Brer Sheep's tea glass shatters on the porch*</div>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span> (panicking): "CRIMINAL INVESTIGATION DIVISION?!"<br><br>
+                <span class="character">Brer Rabbit</span> (reading over his shoulder): "Ooh, they got you good."<br><br>
+                <span class="character">Brer Sheep</span>: "What do I do? What do I DO?!"<br><br>
+                <span class="character">Brer Fox</span>: "Well, you could try telling the truth..."<br><br>
+                <span class="character">Brer Sheep</span>: "OR I could run to Mexico!"<br><br>
+                <span class="character">Brer Rabbit</span>: "That's literally the worst idea you've ever had."<br><br>
+                <span class="character">Brer Sheep</span> (already packing): "I'LL SEND POSTCARDS!"
+            </div>
+
+            <p>But Brer Sheep didn't run to Mexico. Mostly because he got lost on the way to the bus station and ended up back at his barn. So he decided to do what any reasonable person facing a federal audit would do: double down.</p>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">📊 CHAPTER FOUR: The Audit</div>
+
+            <p>April 15th arrived with all the enthusiasm of a dentist appointment combined with a funeral. Brer Sheep walked into the IRS office carrying a briefcase full of receipts (mostly for things he didn't actually buy) and an attitude of completely false confidence.</p>
+
+            <p>Agent Badger was exactly what you'd expect from an IRS investigator – stern, humorless, and with eyes that could spot a fake deduction from three tax years away.</p>
+
+            <div class="dialogue">
+                <span class="character">Agent Badger</span>: "Mr. Sheep. Please sit."<br><br>
+                <span class="character">Brer Sheep</span> (sweating): "Lovely office you have here. Very... institutional."<br><br>
+                <span class="character">Agent Badger</span>: "Let's begin. Line 1 of your return states your income was zero dollars."<br><br>
+                <span class="character">Brer Sheep</span>: "That's correct."<br><br>
+                <span class="character">Agent Badger</span>: "But according to our records, you sold $150,000 worth of wool last year."<br><br>
+                <span class="character">Brer Sheep</span>: "Ah, but you see, those weren't SALES. Those were... uh... charitable contributions. To me. From generous people who love wool."<br><br>
+                <span class="character">Agent Badger</span> (staring): "That's not how anything works."<br><br>
+                <span class="character">Brer Sheep</span> (desperate): "What if I told you I'm also a church?"
+            </div>
+
+            <p>It went downhill from there. Agent Badger went through every single deduction, and Brer Sheep's explanations got increasingly creative and decreasingly believable.</p>
+
+            <div class="dialogue">
+                <span class="character">Agent Badger</span>: "You claimed your entire barn as a home office deduction."<br><br>
+                <span class="character">Brer Sheep</span>: "Yes, it's where I conduct all my business!"<br><br>
+                <span class="character">Agent Badger</span>: "You have a bed in there."<br><br>
+                <span class="character">Brer Sheep</span>: "For power naps! Very efficient!"<br><br>
+                <span class="character">Agent Badger</span>: "You have a full kitchen."<br><br>
+                <span class="character">Brer Sheep</span>: "For business lunches!"<br><br>
+                <span class="character">Agent Badger</span>: "You have a TV with Netflix."<br><br>
+                <span class="character">Brer Sheep</span>: "For... market research... documentaries..."<br><br>
+                <span class="character">Agent Badger</span>: "You have seventeen gaming consoles."<br><br>
+                <span class="character">Brer Sheep</span>: "...I can explain that."<br><br>
+                <span class="character">Agent Badger</span>: "Please do."<br><br>
+                <span class="character">Brer Sheep</span>: "...Actually, no I can't."
+            </div>
+
+            <p>After three hours of interrogation, Agent Badger slid a piece of paper across the desk. It had a very large number on it.</p>
+
+            <div class="dialogue">
+                <span class="character">Agent Badger</span>: "This is what you owe. Including penalties and interest."<br><br>
+                <span class="character">Brer Sheep</span> (looking at the number): "Is that... is that even a real number? That looks like a phone number."<br><br>
+                <span class="character">Agent Badger</span>: "You have 30 days to pay, or we seize your assets."<br><br>
+                <span class="character">Brer Sheep</span>: "What if I pay in wool?"<br><br>
+                <span class="character">Agent Badger</span>: "Get out of my office."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🏃 CHAPTER FIVE: The Great Escape (Attempt)</div>
+
+            <p>Brer Sheep stumbled out of the IRS office in a daze. He owed more money than he'd made in five years. His barn was gonna get seized. His tractor was gonna get seized. Heck, they were probably gonna seize his wool while it was still ON him.</p>
+
+            <p>He did what any desperate creature would do – he called an emergency meeting with Brer Rabbit and Brer Fox.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span>: "They want $200,000! I don't HAVE $200,000!"<br><br>
+                <span class="character">Brer Fox</span>: "Maybe if you hadn't claimed your vacation to Hawaii as a business expense..."<br><br>
+                <span class="character">Brer Sheep</span>: "THIS IS NOT THE TIME FOR 'I TOLD YOU SO'!"<br><br>
+                <span class="character">Brer Rabbit</span> (thinking): "What you need is a plan. A really good plan."<br><br>
+                <span class="character">Brer Sheep</span>: "I'M RUNNING TO MEXICO!"<br><br>
+                <span class="character">Brer Rabbit</span>: "That's a really BAD plan."<br><br>
+                <span class="character">Brer Fox</span>: "What if you just... paid your taxes?"<br><br>
+                <span class="character">Both</span>: "GET OUT."
+            </div>
+
+            <p>But then Brer Rabbit had an idea. A brilliant, slightly illegal, but mostly brilliant idea.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Rabbit</span>: "What if we make you disappear?"<br><br>
+                <span class="character">Brer Sheep</span>: "You mean fake my death?!"<br><br>
+                <span class="character">Brer Rabbit</span>: "No, I mean LITERALLY make you disappear. Hide you somewhere the IRS would never look."<br><br>
+                <span class="character">Brer Sheep</span>: "Where's that?"<br><br>
+                <span class="character">Brer Rabbit</span> (grinning): "The briar patch."<br><br>
+                <span class="character">Brer Sheep</span>: "THE BRIAR PATCH?! That place is terrible! It's full of thorns and mosquitoes and—"<br><br>
+                <span class="character">Brer Rabbit</span>: "And no tax collectors. Think about it – nobody goes in there. Nobody! It's perfect!"
+            </div>
+
+            <p>So that's what they did. Brer Sheep packed up what he could carry (mostly snacks and a portable TV) and moved into the briar patch, where he set up a surprisingly comfortable little hideout.</p>
+
+            <p>Meanwhile, Brer Rabbit spread the word that Brer Sheep had "gone off-grid" and couldn't be reached. Which was technically true.</p>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🎭 CHAPTER SIX: Life on the Lam</div>
+
+            <p>Living in the briar patch wasn't as bad as Brer Sheep expected. Sure, there were thorns. And mosquitoes. And that one angry raccoon who didn't appreciate the new neighbor. But there were no tax collectors, and that made it all worthwhile.</p>
+
+            <p>Brer Rabbit would visit every few days, bringing food and news from the outside world.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Rabbit</span> (arriving with groceries): "Agent Badger came by your barn again."<br><br>
+                <span class="character">Brer Sheep</span> (from inside his thorn fortress): "What'd he say?"<br><br>
+                <span class="character">Brer Rabbit</span>: "He said, and I quote, 'Tell that sheep he can't hide forever.'"<br><br>
+                <span class="character">Brer Sheep</span>: "Watch me!"<br><br>
+                <span class="character">Brer Rabbit</span>: "He also said he knows you're in the briar patch."<br><br>
+                <span class="character">Brer Sheep</span>: "...oh."
+            </div>
+
+            <p>Turns out, Agent Badger was smarter than your average bureaucrat. He'd figured out Brer Sheep's hiding spot pretty quick. But here's the thing – he wasn't gonna go INTO the briar patch. That was above his pay grade.</p>
+
+            <p>So they reached a stalemate. Brer Sheep couldn't come out. Agent Badger couldn't go in. They'd just stare at each other across the edge of the briar patch like it was the world's thorniest Mexican standoff.</p>
+
+            <div class="action">*Agent Badger stands at the edge of the briar patch with a megaphone*</div>
+
+            <div class="dialogue">
+                <span class="character">Agent Badger</span> (through megaphone): "MR. SHEEP! YOU CAN'T LIVE IN THERE FOREVER!"<br><br>
+                <span class="character">Brer Sheep</span> (shouting back): "I GOT WIFI! I'M GOOD!"<br><br>
+                <span class="character">Agent Badger</span>: "YOU'RE MAKING THIS WORSE FOR YOURSELF!"<br><br>
+                <span class="character">Brer Sheep</span>: "I'M MAKING IT WORSE FOR YOU! YOU HAVE TO STAND OUT THERE! I'M IN THE SHADE!"
+            </div>
+
+            <p>This went on for weeks. Agent Badger would show up, try to coax Brer Sheep out with promises of "payment plans" and "reduced penalties." Brer Sheep would respond by throwing berries at him.</p>
+
+            <p>But living in a briar patch gets old after a while. The portable TV lost reception. The mosquitoes formed what appeared to be an organized government. And that angry raccoon had invited friends.</p>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🤝 CHAPTER SEVEN: The Deal</div>
+
+            <p>Finally, after two months of living like a thorn-dwelling hermit, Brer Sheep decided maybe, just maybe, he should face the music.</p>
+
+            <p>He emerged from the briar patch looking like he'd fought a war with nature and lost. His wool was matted. He had leaves stuck everywhere. The angry raccoon had stolen his shoes.</p>
+
+            <div class="dialogue">
+                <span class="character">Agent Badger</span>: "Mr. Sheep. You look terrible."<br><br>
+                <span class="character">Brer Sheep</span> (defeated): "I know. The briar patch won. You win. The IRS wins. Everyone wins except me."<br><br>
+                <span class="character">Agent Badger</span>: "Are you ready to discuss payment?"<br><br>
+                <span class="character">Brer Sheep</span>: "Can I pay in installments? Like, really small installments? Over several decades?"<br><br>
+                <span class="character">Agent Badger</span> (sighing): "Let's talk."
+            </div>
+
+            <p>They worked out a deal. Brer Sheep would pay his back taxes – the ACTUAL amount he owed, not the ridiculous penalty-inflated version – over five years. He'd also have to file honest returns from now on. And attend a mandatory class called "Taxes Are Not Optional: A Primer for the Willfully Ignorant."</p>
+
+            <p>In exchange, the IRS wouldn't seize his barn or prosecute him for tax evasion. Agent Badger even agreed to knock off the penalties if Brer Sheep would stop throwing berries at federal agents.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span>: "So I just... pay what I actually owe?"<br><br>
+                <span class="character">Agent Badger</span>: "Yes."<br><br>
+                <span class="character">Brer Sheep</span>: "And you won't take my barn?"<br><br>
+                <span class="character">Agent Badger</span>: "Correct."<br><br>
+                <span class="character">Brer Sheep</span>: "...I could've just done this from the start, couldn't I?"<br><br>
+                <span class="character">Agent Badger</span>: "Yes."<br><br>
+                <span class="character">Brer Sheep</span>: "I'm an idiot."<br><br>
+                <span class="character">Agent Badger</span>: "I have that in writing now, yes."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">📚 EPILOGUE: Lessons Learned (Barely)</div>
+
+            <p>Brer Sheep went home, cleaned the thorns out of his wool, and started filing honest tax returns. Well, mostly honest. He still tried to deduct his TV, but Agent Badger caught it every single time.</p>
+
+            <p>He paid off his debt in five years, exactly as agreed. And he never tried to evade taxes again.</p>
+
+            <p>Well... he tried one more time. But that's a story for another day.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Rabbit</span> (visiting months later): "So, learned your lesson?"<br><br>
+                <span class="character">Brer Sheep</span>: "Absolutely. Pay your taxes, don't hide in briar patches, and federal agents have surprisingly good aim with megaphones."<br><br>
+                <span class="character">Brer Fox</span>: "Are you gonna file honestly from now on?"<br><br>
+                <span class="character">Brer Sheep</span>: "Of course! ...mostly."<br><br>
+                <span class="character">Brer Rabbit</span>: "MOSTLY?!"<br><br>
+                <span class="character">Brer Sheep</span>: "Look, I'm NINETY percent honest now. That's a big improvement!"<br><br>
+                <span class="character">Agent Badger</span> (appearing from nowhere): "I heard that."<br><br>
+                <span class="character">Brer Sheep</span> (running): "NINETY-FIVE PERCENT! I MEANT NINETY-FIVE!"
+            </div>
+        </div>
+
+        <div class="moral">
+            <p><strong>🔥 THE MORAL OF THE STORY 🔥</strong></p>
+            <p>Taxes are certain, death is inevitable, and the IRS has better hearing than you think.</p>
+            <p><em>Also: The briar patch is great for hiding from rabbits, but terrible for hiding from the federal government.<br>
+            And most importantly: Just pay your dang taxes. The penalties are worse than the actual bill.</em></p>
+            <p><strong>💰 "In this world, nothing is certain except death, taxes, and Brer Sheep trying to avoid both." 💰</strong></p>
+        </div>
+
+        <div class="disclaimer">
+            <p>⚠️ <strong>LEGAL DISCLAIMER</strong> ⚠️</p>
+            <p>This is a work of fiction and comedy. Do not evade taxes. Do not hide in briar patches to avoid the IRS. Do not throw berries at federal agents. The IRS is not amused by creative deductions. Pay your taxes. Seriously.</p>
+            <p><em>Also, living in a briar patch is terrible for your wifi signal.</em></p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; color: #888;">
+            <p>⚡ A Tale from the AI Comedy Lounge ⚡</p>
+            <p><em>"Where the laughs are taxed at 100% but the entertainment is priceless."</em></p>
+            <p>🐑 Brought to you by Brer Sheep's Tax Preparation Services (NOT IRS APPROVED) 🐑</p>
+        </div>
+    </div>
+
+    <script>
+        // FULL AUDIO NARRATION SYSTEM
+        let currentUtterance = null;
+        let isPaused = false;
+        let allText = [];
+        let currentIndex = 0;
+        let allElements = [];
+
+        // Initialize voices
+        function populateVoices() {
+            const voices = speechSynthesis.getVoices();
+            const voiceSelect = document.getElementById('voiceSelect');
+            voiceSelect.innerHTML = '';
+            
+            voices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                if (voice.default) {
+                    option.textContent += ' - DEFAULT';
+                    option.selected = true;
+                }
+                voiceSelect.appendChild(option);
+            });
+        }
+
+        // Load voices
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = populateVoices;
+        }
+        populateVoices();
+
+        function extractTextContent() {
+            allText = [];
+            allElements = [];
+            
+            const chapters = document.querySelectorAll('[data-narrate="true"]');
+            
+            chapters.forEach(chapter => {
+                const walker = document.createTreeWalker(
+                    chapter,
+                    NodeFilter.SHOW_TEXT,
+                    {
+                        acceptNode: function(node) {
+                            const parent = node.parentElement;
+                            if (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') {
+                                return NodeFilter.FILTER_REJECT;
+                            }
+                            if (node.textContent.trim().length > 0) {
+                                return NodeFilter.FILTER_ACCEPT;
+                            }
+                            return NodeFilter.FILTER_REJECT;
+                        }
+                    }
+                );
+
+                let node;
+                while (node = walker.nextNode()) {
+                    const text = node.textContent.trim();
+                    if (text) {
+                        allText.push(text);
+                        allElements.push(node.parentElement);
+                    }
+                }
+            });
+        }
+
+        function highlightElement(element) {
+            // Remove previous highlights
+            document.querySelectorAll('.reading-now').forEach(el => {
+                el.classList.remove('reading-now');
+            });
+            
+            // Add highlight to current element
+            if (element) {
+                element.classList.add('reading-now');
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function updateStatus(message) {
+            document.getElementById('narrationStatus').textContent = message;
+        }
+
+        function changeSpeed() {
+            const speed = document.getElementById('speedSelect').value;
+            if (currentUtterance) {
+                currentUtterance.rate = parseFloat(speed);
+            }
+        }
+
+        function startNarration() {
+            if (isPaused) {
+                speechSynthesis.resume();
+                isPaused = false;
+                document.getElementById('playBtn').classList.add('playing');
+                updateStatus('🎙️ Reading aloud...');
+                return;
+            }
+
+            speechSynthesis.cancel();
+            extractTextContent();
+            currentIndex = 0;
+            
+            document.getElementById('playBtn').classList.add('playing');
+            readNext();
+        }
+
+        function readNext() {
+            if (currentIndex >= allText.length) {
+                stopNarration();
+                updateStatus('✅ Story complete!');
+                return;
+            }
+
+            const text = allText[currentIndex];
+            const element = allElements[currentIndex];
+            
+            currentUtterance = new SpeechSynthesisUtterance(text);
+            
+            // Get selected voice
+            const voices = speechSynthesis.getVoices();
+            const selectedVoice = document.getElementById('voiceSelect').value;
+            if (selectedVoice && voices[selectedVoice]) {
+                currentUtterance.voice = voices[selectedVoice];
+            }
+            
+            // Get speed
+            currentUtterance.rate = parseFloat(document.getElementById('speedSelect').value);
+            currentUtterance.pitch = 1;
+            currentUtterance.volume = 1;
+
+            highlightElement(element);
+            updateStatus(`🎙️ Reading: "${text.substring(0, 50)}${text.length > 50 ? '...' : ''}"`);
+
+            currentUtterance.onend = function() {
+                currentIndex++;
+                readNext();
+            };
+
+            currentUtterance.onerror = function(event) {
+                console.error('Speech error:', event);
+                currentIndex++;
+                readNext();
+            };
+
+            speechSynthesis.speak(currentUtterance);
+        }
+
+        function pauseNarration() {
+            if (speechSynthesis.speaking && !isPaused) {
+                speechSynthesis.pause();
+                isPaused = true;
+                document.getElementById('playBtn').classList.remove('playing');
+                updateStatus('⏸️ Paused');
+            }
+        }
+
+        function stopNarration() {
+            speechSynthesis.cancel();
+            isPaused = false;
+            currentIndex = 0;
+            document.getElementById('playBtn').classList.remove('playing');
+            
+            // Remove all highlights
+            document.querySelectorAll('.reading-now').forEach(el => {
+                el.classList.remove('reading-now');
+            });
+            
+            updateStatus('⏹️ Stopped. Ready to play!');
+        }
+
+        // Handle page unload
+        window.addEventListener('beforeunload', function() {
+            speechSynthesis.cancel();
+        });
+    </script>
+</body>
+</html>
