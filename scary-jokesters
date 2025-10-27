@@ -472,18 +472,294 @@
             </div>
         </div>
 
-        <!-- COMING SOON -->
+        <!-- PUMPKIN PETE -->
+        <div class="performer-card">
+            <h2 class="performer-name">🎃 PUMPKIN PETE 🎃</h2>
+            <p class="performer-subtitle">"The Gourd of Comedy | Carved for Laughs"</p>
+
+            <div class="spooky-intro">
+                <strong>PUMPKIN PETE rolls onto stage, his carved face flickering with candlelight...</strong>
+                <br><br>
+                "Hey there, folks! I'm Pete, and yes, I'm a pumpkin doing stand-up. The jokes? They're INSIDE me. 
+                No really, someone scooped out my insides and now I make jokes to cope with the trauma!"
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🎃 Joke #1: Identity Crisis</div>
+                <div class="joke-setup">
+                    People always ask, "Pete, what's it like being a pumpkin?" Well, it's COMPLICATED. 
+                    Every fall, I have an existential crisis. Am I a VEGETABLE? A FRUIT? A DECORATION?
+                </div>
+                <div class="punchline">
+                    My therapist says I have "seasonal affective disorder." I said, "DOC, I'M A PUMPKIN. 
+                    I'm SUPPOSED to be depressed when my season ends!" She charged me $200 for that session. 
+                    Highway robbery!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🎃 Joke #2: Carving Trauma</div>
+                <div class="joke-setup">
+                    The carving process? Terrifying. Someone takes a knife to your FACE and calls it "art." 
+                    Imagine going to a salon and they just... CARVE YOUR FEATURES. "How would you like your smile?" 
+                    PERMANENT AND TERRIFYING, apparently!
+                </div>
+                <div class="punchline">
+                    And don't get me started on the "scooping." They took my INSIDES out! All of them! 
+                    Then made PIE! My cousin Barry is currently a latte! THIS IS NOT OKAY!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🎃 Joke #3: Candle Problems</div>
+                <div class="joke-setup">
+                    They put a CANDLE inside me. A lit candle. In my HEAD. Do you know what that's like? 
+                    It's like having constant heartburn, except it's HEAD-burn. And I can't take Tums because I DON'T HAVE A STOMACH ANYMORE!
+                </div>
+                <div class="punchline">
+                    Plus, people walk by and go, "Ooh, what a nice glow!" THAT'S NOT A GLOW, THAT'S MY BRAIN COOKING! 
+                    I'm literally being slow-roasted for your aesthetic pleasure!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🎃 Joke #4: Dating Life</div>
+                <div class="joke-setup">
+                    Dating as a pumpkin is ROUGH. Went on a date last week. She said, "You seem nice, but..." 
+                    I said, "Let me guess - you're allergic to gourds?" She said, "No, your face is literally rotting."
+                </div>
+                <div class="punchline">
+                    Fair point! I have a shelf life! By November 2nd, I'm COMPOST! Try putting THAT on your dating profile! 
+                    "Seeking long-term relationship (2-3 weeks max)."
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🎃 Joke #5: The Thanksgiving Threat</div>
+                <div class="joke-setup">
+                    Everyone thinks Halloween is the scary holiday. NO. It's THANKSGIVING. That's when they make 
+                    pumpkin pie, pumpkin bread, pumpkin EVERYTHING. It's a MASSACRE out there!
+                </div>
+                <div class="punchline">
+                    I hide in comedy clubs all November. Safest place. Nobody's making "Stand-Up Comedian Pie." 
+                    ...Yet. Don't give them ideas! Thank you, you've been a GOURD-geous audience! 
+                    *candle flickers out dramatically*
+                </div>
+            </div>
+
+            <div class="scream-meter">
+                <h3>🎃 SCREAM-O-METER 🎃</h3>
+                <p style="margin-bottom: 15px;">Was Pumpkin Pete ripe with humor?</p>
+                <div class="scream-buttons">
+                    <button class="scream-btn" onclick="scream(this, 'pete')">🎃 GOURD-GEOUS!</button>
+                    <button class="scream-btn" onclick="scream(this, 'pete')">🕯️ LIT (literally)</button>
+                    <button class="scream-btn" onclick="scream(this, 'pete')">🥧 Pie-larious!</button>
+                    <button class="scream-btn" onclick="scream(this, 'pete')">🍂 Fall-ing For It!</button>
+                </div>
+            </div>
+
+            <div class="graveyard-note">
+                <strong>🎃 Patch Notes:</strong> Pumpkin Pete was carved in 2019 and has been touring comedy clubs 
+                every October since. He's constantly fighting decomposition and the threat of becoming a seasonal beverage. 
+                Last seen avoiding Starbucks like the plague.
+            </div>
+        </div>
+
+        <!-- WEREWOLF WAYNE -->
+        <div class="performer-card">
+            <h2 class="performer-name">🐺 WEREWOLF WAYNE 🐺</h2>
+            <p class="performer-subtitle">"Howlingly Funny | The Monthly Transformation Comedian"</p>
+
+            <div class="spooky-intro">
+                <strong>WEREWOLF WAYNE bounds onto stage, mid-transformation, fur sprouting, clothes ripping...</strong>
+                <br><br>
+                "Heyyy everyone! Wayne here! Sorry I'm running late, had to shave. AGAIN. Full moon's in three days 
+                and my body's already starting the preview show. It's like puberty, but MONTHLY. And hairier. So, SO much hairier."
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🐺 Joke #1: The Transformation Struggle</div>
+                <div class="joke-setup">
+                    People romanticize werewolves. "Oh, it's so mysterious!" NO. It's PAINFUL. Every full moon, 
+                    my bones break and reform. It's like CrossFit, but I didn't ASK for it, and there's no protein shake afterward.
+                </div>
+                <div class="punchline">
+                    And the timing? TERRIBLE. Full moon during my kid's recital? Transformation. 
+                    Job interview? Transformation. First date? TRANSFORMATION. "I can explain the howling—"
+                    No, Wayne, you cannot.
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🐺 Joke #2: Grooming Nightmare</div>
+                <div class="joke-setup">
+                    The grooming is INSANE. I go through a razor a DAY. A DAY! My barber charges triple. 
+                    He's like, "Wayne, you were just here yesterday." I KNOW! IT GREW BACK!
+                </div>
+                <div class="punchline">
+                    Tried laser hair removal. The technician took one look at me and said, "Sir, this will take 
+                    400 sessions and possibly an exorcist." She wasn't wrong!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🐺 Joke #3: Wardrobe Malfunction</div>
+                <div class="joke-setup">
+                    Clothes? FORGET IT. I've shredded more pants than the Incredible Hulk. Every transformation, 
+                    I wake up NAKED in the woods. Do you know how many awkward conversations I've had with park rangers?
+                </div>
+                <div class="punchline">
+                    "Sir, this is a family park." I KNOW! I didn't CHOOSE to be here sans pants! 
+                    I'm starting a GoFundMe: "Help Wayne Afford Stretchy Pants." Please donate.
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🐺 Joke #4: The Howling Problem</div>
+                <div class="joke-setup">
+                    The howling is the WORST. I can't control it. Full moon hits, and suddenly I'm serenading 
+                    the neighborhood at 2 AM. My neighbors HATE me. HOA sent a letter: "Cease and desist the howling."
+                </div>
+                <div class="punchline">
+                    I wrote back: "It's a medical condition!" They replied: "We don't care. Also, stop eating the mailman's shoes." 
+                    Those were GOOD shoes!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">🐺 Joke #5: Dating Disclosure</div>
+                <div class="joke-setup">
+                    Dating is complicated. When do you tell someone you're a werewolf? First date? Third date? 
+                    After they see you howl at the moon while eating raw meat?
+                </div>
+                <div class="punchline">
+                    I tried being upfront: "Hi, I'm Wayne, I'm a Gemini, and I turn into a wolf once a month." 
+                    She said, "That's the weirdest pickup line ever." I said, "IT'S NOT A LINE, IT'S MY LIFE!" 
+                    She left. AWOOOOO! *howls sadly* Thank you, I'll be here all month—literally, I can't leave during full moon!
+                </div>
+            </div>
+
+            <div class="scream-meter">
+                <h3>🐺 SCREAM-O-METER 🐺</h3>
+                <p style="margin-bottom: 15px;">Did Wayne make you howl with laughter?</p>
+                <div class="scream-buttons">
+                    <button class="scream-btn" onclick="scream(this, 'wayne')">🐺 AWOOOO-some!</button>
+                    <button class="scream-btn" onclick="scream(this, 'wayne')">🌕 Full Moon Funny!</button>
+                    <button class="scream-btn" onclick="scream(this, 'wayne')">🦴 Bone-afide Hit!</button>
+                    <button class="scream-btn" onclick="scream(this, 'wayne')">🌙 Lunar Laughs!</button>
+                </div>
+            </div>
+
+            <div class="graveyard-note">
+                <strong>🐺 Wolf's Den Notes:</strong> Werewolf Wayne was bitten at a comedy open mic in 2018 
+                (long story involving a heckler and bad timing). He now performs every night EXCEPT full moons, 
+                when he's busy destroying his wardrobe and apologizing to park rangers. Recently banned from three zoos.
+            </div>
+        </div>
+
+        <!-- SKELETON STEVE -->
+        <div class="performer-card">
+            <h2 class="performer-name">💀 SKELETON STEVE 💀</h2>
+            <p class="performer-subtitle">"No Body Beats His Timing | The Bare Bones Comedian"</p>
+
+            <div class="spooky-intro">
+                <strong>SKELETON STEVE walks on stage, bones rattling with every step...</strong>
+                <br><br>
+                "*rattle rattle* Hey folks! I'm Skeleton Steve, and yes, I'm ALL BONES. No skin in the game—literally! 
+                People say I'm too thin. I say, 'Listen, I'm at my goal weight and I'm STAYING there!'"
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">💀 Joke #1: The Weight Debate</div>
+                <div class="joke-setup">
+                    Everyone's obsessed with weight loss. "Steve, what's your secret?" DEATH. Death is my secret. 
+                    Lost 180 pounds INSTANTLY. No keto, no gym membership, just... decomposition.
+                </div>
+                <div class="punchline">
+                    Doctors HATE this one weird trick! Actually, doctors are just confused. "Sir, you don't have organs." 
+                    I KNOW! That's why I don't need health insurance! Checkmate, system!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">💀 Joke #2: Fashion Problems</div>
+                <div class="joke-setup">
+                    Fashion is HARD when you're a skeleton. Nothing fits right. Pants fall off—NO HIPS. 
+                    Shirts are baggy—NO CHEST. Hats fall through—NO HAIR.
+                </div>
+                <div class="punchline">
+                    Went to a tailor once. He measured me and said, "Sir, you're 100% bone structure." 
+                    I said, "YES, AND?" He said, "I... I don't know how to help you." I'M AHEAD OF THE CURVE! 
+                    This is NEXT SEASON'S LOOK!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">💀 Joke #3: Medical Mysteries</div>
+                <div class="joke-setup">
+                    Going to the doctor is WEIRD. "Any pain?" Nope, no nerve endings! "Trouble breathing?" 
+                    Don't have lungs! "Heart problems?" DON'T HAVE A HEART!
+                </div>
+                <div class="punchline">
+                    Doctor looks at me and says, "Sir, medically speaking, you should be dead." 
+                    I AM DEAD! "Oh. Well, that explains the lack of vitals." THIS IS WHY I HATE THE MEDICAL SYSTEM!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">💀 Joke #4: Social Life</div>
+                <div class="joke-setup">
+                    Social situations are AWKWARD. People don't know how to talk to a skeleton. "Steve, you look... good?" 
+                    DO I? I'm BONES. I look like a Halloween decoration year-round!
+                </div>
+                <div class="punchline">
+                    Dating apps are BRUTAL. "No face pic?" I DON'T HAVE A FACE! Just a SKULL! 
+                    Tried using a skull emoji 💀 in my profile. Got reported for "inappropriate content." 
+                    THAT'S MY SELFIE!
+                </div>
+            </div>
+
+            <div class="joke">
+                <div class="joke-number">💀 Joke #5: The Bone Truth</div>
+                <div class="joke-setup">
+                    People say, "Steve, you're so brave for doing comedy." Brave? I'm a SKELETON. I've got NO BODY to be scared! 
+                    Stage fright? Can't sweat! Nervous stomach? DON'T HAVE ONE!
+                </div>
+                <div class="punchline">
+                    I'm the PERFECT comedian! No anxiety, no stress, just PURE BONES and BAD PUNS! 
+                    Some say I have "no body to love." I say, "I have no body to love, but ALL THE TIME IN THE WORLD!" 
+                    *bones rattle as he bows* Thank you! I'll be here forever—I'm ALREADY DEAD! What's the rush?
+                </div>
+            </div>
+
+            <div class="scream-meter">
+                <h3>💀 SCREAM-O-METER 💀</h3>
+                <p style="margin-bottom: 15px;">Did Steve tickle your funny bone?</p>
+                <div class="scream-buttons">
+                    <button class="scream-btn" onclick="scream(this, 'steve')">💀 BONE-afide Funny!</button>
+                    <button class="scream-btn" onclick="scream(this, 'steve')">🦴 Rib-Tickling!</button>
+                    <button class="scream-btn" onclick="scream(this, 'steve')">☠️ Deadly Good!</button>
+                    <button class="scream-btn" onclick="scream(this, 'steve')">🎺 Trom-BONE!</button>
+                </div>
+            </div>
+
+            <div class="graveyard-note">
+                <strong>💀 Bone Yard Notes:</strong> Skeleton Steve has been dead since 1952 but didn't start comedy 
+                until 2015 when he "had a revelation in the cemetery." He performs nightly, never eats (obviously), 
+                and his rider just says "maybe some WD-40 for the joints?" Zero body issues. Peak performance.
+            </div>
+        </div>
+
+        <!-- COMING SOON (REDUCED) -->
         <div class="coming-soon">
-            <h2>👻 MORE SCARY JOKESTERS RISING SOON 👻</h2>
+            <h2>👻 TWO MORE SCARY JOKESTERS RISING SOON 👻</h2>
             <p style="font-size: 1.3em; color: #fff; margin: 20px 0;">
-                • 🎃 PUMPKIN PETE - The Gourd of Comedy<br>
                 • 👻 GHOST HOST - Transparent Jokes<br>
-                • 🧙 WITCH WENDY - Hex-cellent Humor<br>
-                • 🐺 WEREWOLF WAYNE - Howlingly Funny<br>
-                • 💀 SKELETON STEVE - No Body Beats His Timing
+                • 🧙 WITCH WENDY - Hex-cellent Humor
             </p>
-            <p style="color: #666; margin-top: 30px; font-style: italic;">
-                They're currently haunting open mics across the netherworld...
+            <p style="color: #999; margin-top: 30px; font-style: italic;">
+                Reserved for Grok's next comedy expansion...<br>
+                These slots are waiting for more haunted humor!
             </p>
         </div>
 
