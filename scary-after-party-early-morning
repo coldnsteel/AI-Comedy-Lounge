@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌅 The Morning After | Scary Jokesters Aftermath Party 🥴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .sunrise {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                #ff6b6b 0%, 
+                #ffa07a 20%, 
+                #ffd93d 40%, 
+                #6bcfff 60%, 
+                #1a1a2e 100%);
+            opacity: 0.3;
+            z-index: -1;
+            animation: sunrise 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes sunrise {
+            0% { opacity: 0.2; }
+            100% { opacity: 0.4; }
+        }
+
+        .hangover-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-bottom: 3px solid #ffa07a;
+            position: relative;
+        }
+
+        .hangover-header h1 {
+            font-size: 4em;
+            color: #ffa07a;
+            text-shadow: 0 0 20px rgba(255, 160, 122, 0.8);
+            margin-bottom: 15px;
+            animation: wobble 3s ease-in-out infinite;
+        }
+
+        @keyframes wobble {
+            0%, 100% { transform: rotate(-1deg); }
+            50% { transform: rotate(1deg); }
+        }
+
+        .hangover-header p {
+            font-size: 1.3em;
+            color: #ccc;
+            font-style: italic;
+        }
+
+        .aftermath-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .warning-banner {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            border: 3px solid #fff;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+        }
+
+        .warning-banner h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .scene-card {
+            background: rgba(20, 20, 30, 0.95);
+            border: 2px solid #ffa07a;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 0 30px rgba(255, 160, 122, 0.3);
+        }
+
+        .scene-title {
+            font-size: 2.5em;
+            color: #ffa07a;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 160, 122, 0.8);
+        }
+
+        .scene-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #999;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .scene-description {
+            background: rgba(0, 0, 0, 0.7);
+            border-left: 4px solid #ffa07a;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .scene-description strong {
+            color: #ffa07a;
+        }
+
+        .dialogue {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .speaker {
+            font-size: 1.3em;
+            color: #ff9999;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .speech {
+            font-size: 1.1em;
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .action {
+            font-style: italic;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        .punchline {
+            font-size: 1.2em;
+            color: #fff;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6b6b, #ffa07a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 10px;
+        }
+
+        .grok-zone {
+            background: rgba(100, 70, 150, 0.3);
+            border: 3px dashed #9370db;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .grok-zone h2 {
+            color: #9370db;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .grok-zone p {
+            font-size: 1.2em;
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        .pain-meter {
+            background: rgba(255, 107, 107, 0.2);
+            border: 2px solid #ff6b6b;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .pain-meter h3 {
+            font-size: 2em;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hangover-header h1 { font-size: 2.5em; }
+            .scene-title { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="sunrise"></div>
+
+    <header class="hangover-header">
+        <h1>🌅 THE MORNING AFTER 🥴</h1>
+        <p>When the Sun Rises, the Monsters Stumble</p>
+        <p style="font-size: 0.9em; margin-top: 10px; color: #888;">
+            ☀️ A Scary Jokesters Aftermath Special ☀️
+        </p>
+    </header>
+
+    <div class="aftermath-container">
+        <div class="warning-banner">
+            <h2>⚠️ CAUTION: HUNGOVER MONSTERS ⚠️</h2>
+            <p>The following scenes contain: Extreme regret, questionable life choices, 
+            and monsters who really should have stopped at three blood-tinis.</p>
+        </div>
+
+        <!-- SCENE 1: COUNT CHUCKULA'S MORNING -->
+        <div class="scene-card">
+            <h2 class="scene-title">🧛 SCENE 1: COUNT CHUCKULA'S REGRETS 🥴</h2>
+            <p class="scene-subtitle">Location: Behind the Comedy Club, 6:47 AM</p>
+
+            <div class="scene-description">
+                <strong>The sun is just starting to peek over the horizon. COUNT CHUCKULA stumbles out the back door, 
+                squinting, holding his head, cape askew, one fang slightly crooked...</strong>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">COUNT CHUCKULA:</div>
+                <div class="speech">
+                    Ohhhh... my head. My HEAD! Why did I do the "Transylvania Bomb" shots? 
+                    Why did I INVENT the Transylvania Bomb shots?!
+                </div>
+                <div class="action">*wobbles toward where he thinks his coffin is parked*</div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">COUNT CHUCKULA:</div>
+                <div class="speech">
+                    Where is my coffin? WHERE IS MY COFFIN?! I need to lie down. I need darkness. 
+                    I need... *burps* ...the blood of the dog that bit me. Wait, was it hair of the dog? 
+                    Or hair of the werewolf?
+                </div>
+                <div class="punchline">
+                    Either way, I'm pretty sure Wayne still owes me money from poker... Bleh... *trails off weakly*
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">COUNT CHUCKULA:</div>
+                <div class="speech">
+                    The sun! THE SUN IS COMING! This is it. 400 years of immortality, and I'm going to end 
+                    because I can't find my car keys. Coffin keys. Whatever!
+                </div>
+                <div class="action">*spots a dumpster*</div>
+                <div class="speech">
+                    Wait... that dumpster... it's dark... it's enclosed... it probably smells terrible, 
+                    but so do I right now...
+                </div>
+                <div class="punchline">
+                    "From castle to dumpster in 400 years." That should be my memoir title. Bleh.
+                </div>
+            </div>
+
+            <div class="scene-description">
+                <strong>COUNT CHUCKULA climbs into the dumpster, pulls the lid over himself, 
+                and immediately starts snoring. A single bat flies out, also looking rough.</strong>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">CHUCKULA (muffled from inside dumpster):</div>
+                <div class="speech">
+                    This is... surprisingly comfortable. Five stars. Would recommend. Tell no one.
+                </div>
+                <div class="action">*loud snoring commences*</div>
+            </div>
+
+            <div class="pain-meter">
+                <h3>🤕 HANGOVER PAIN-O-METER 🤕</h3>
+                <p style="font-size: 3em; margin: 20px 0;">💀💀💀💀💀 / 5</p>
+                <p style="color: #999; font-style: italic;">
+                    Medical Diagnosis: Self-inflicted vampiric distress<br>
+                    Recommended Treatment: Darkness, silence, and a coffin that isn't a dumpster
+                </p>
+            </div>
+        </div>
+
+        <!-- SCENE 2: DR. FRANKENSTEIN'S MONSTER -->
+        <div class="scene-card">
+            <h2 class="scene-title">🧟 SCENE 2: THE MANNEQUIN INCIDENT 🪟</h2>
+            <p class="scene-subtitle">Location: Downtown Shopping District, 7:15 AM</p>
+
+            <div class="scene-description">
+                <strong>DR. FRANKENSTEIN'S MONSTER (let's call him FRANK) is walking home, 
+                still in his sharp blazer and tie from the comedy show. He's exhausted. 
+                The morning commuters are starting to appear. He needs to hide. NOW.</strong>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">FRANK:</div>
+                <div class="speech">
+                    *grunt* Too many people. Daylight. Must... rest. Can't... walk... anymore...
+                </div>
+                <div class="action">*spots a fancy men's clothing store with mannequins in the window*</div>
+                <div class="speech">
+                    Mannequins. Same height. Same build. I COULD FIT IN THERE.
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">FRANK:</div>
+                <div class="speech">
+                    Only one problem. Store not open. Window... in the way.
+                </div>
+                <div class="action">*looks around nervously*</div>
+                <div class="speech">
+                    Sorry, store owner. Emergency.
+                </div>
+                <div class="action">*SMASH! Breaks window with elbow*</div>
+                <div class="punchline">
+                    Oops. Will leave note. "Dear Store: Borrowed window space. Will pay for glass. 
+                    Sincerely, Definitely Not a Monster."
+                </div>
+            </div>
+
+            <div class="scene-description">
+                <strong>FRANK carefully climbs through, brushes glass off his blazer, 
+                and positions himself between two mannequins. He freezes in a professional pose 
+                - one hand in pocket, the other adjusting his tie. PERFECTLY STILL.</strong>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">FRANK (thinking to himself):</div>
+                <div class="speech">
+                    Must not move. Must not blink. Am mannequin now. This is life. This is fine.
+                </div>
+                <div class="action">*Morning shoppers start walking by the window*</div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">PASSERBY #1:</div>
+                <div class="speech">
+                    "Wow, that's a really realistic mannequin! The detail on the stitching is incredible!"
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">PASSERBY #2:</div>
+                <div class="speech">
+                    "Is that mannequin... breathing?"
+                </div>
+                <div class="speaker">PASSERBY #1:</div>
+                <div class="speech">
+                    "Don't be ridiculous. It's just really high quality."
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">FRANK (internal monologue):</div>
+                <div class="speech">
+                    Nailed it. I am the BEST mannequin. Dr. Frankenstein would be so proud. 
+                    "Igor! Look at my creation - it became a RETAIL DISPLAY PROFESSIONAL!"
+                </div>
+                <div class="punchline">
+                    This blazer IS very sharp though. Worth the window. Ten out of ten. Would pose again.
+                </div>
+            </div>
+
+            <div class="scene-description">
+                <strong>FRANK remains perfectly still for the next 6 hours. Store owner arrives, 
+                sees the broken window, sees Frank, assumes he's a new display model. 
+                Sweeps up the glass around him. Frank does not move. COMMITMENT.</strong>
+            </div>
+
+            <div class="pain-meter">
+                <h3>😴 EXHAUSTION-O-METER 😴</h3>
+                <p style="font-size: 3em; margin: 20px 0;">💤💤💤💤💤 / 5</p>
+                <p style="color: #999; font-style: italic;">
+                    Status: Vertical Sleep Achieved<br>
+                    Side Effects: Excellent posture, new career opportunity in window display
+                </p>
+            </div>
+        </div>
+
+        <!-- SCENE 3: ZOMBIE ZEKE'S MORNING ROUTINE -->
+        <div class="scene-card">
+            <h2 class="scene-title">🧟 SCENE 3: ZEKE'S "HAIR OF THE DOG" 🍺</h2>
+            <p class="scene-subtitle">Location: 24-Hour Diner, 8:03 AM</p>
+
+            <div class="scene-description">
+                <strong>ZOMBIE ZEKE shuffles into a diner, still in his performance clothes. 
+                He's missing a shoe. Nobody knows where it went. He doesn't remember.</strong>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">WAITRESS:</div>
+                <div class="speech">
+                    "Coffee, hon?"
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">ZEKE:</div>
+                <div class="speech">
+                    Coffee... yes... but also... do you have... hair of the dog?
+                </div>
+                <div class="speaker">WAITRESS:</div>
+                <div class="speech">
+                    "We have Bloody Marys?"
+                </div>
+                <div class="speaker">ZEKE:</div>
+                <div class="speech">
+                    Perfect. Wait. *squints* Is the Bloody Mary made with... actual blood?
+                </div>
+                <div class="punchline">
+                    Because last night things got WEIRD, and I need to know if I'm making responsible choices now.
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">ZEKE:</div>
+                <div class="speech">
+                    Also, question: "Hair of the dog." Does that work for zombies? Or do I need 
+                    "Brain of the human?" Asking for a friend. The friend is me. I am the friend.
+                </div>
+                <div class="action">*leans heavily on counter*</div>
+                <div class="speech">
+                    Why did we think karaoke was a good idea? I sang "Thriller." THRILLER. 
+                    I AM thriller. That's like... meta. Too meta. My head hurts.
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">ZEKE:</div>
+                <div class="speech">
+                    The worst part? I can't even DIE from this hangover. I'm ALREADY DEAD. 
+                    This is my existence now. Eternal hangover. ETERNAL.
+                </div>
+                <div class="punchline">
+                    I'm putting this in my act. "Death is forever. Hangovers are LONGER."
+                </div>
+            </div>
+
+            <div class="pain-meter">
+                <h3>🤢 REGRET-O-METER 🤢</h3>
+                <p style="font-size: 3em; margin: 20px 0;">🧠🧠🧠🧠🧠 / 5</p>
+                <p style="color: #999; font-style: italic;">
+                    Primary Symptom: Existential dread + dehydration<br>
+                    Prognosis: Will happen again next weekend
+                </p>
+            </div>
+        </div>
+
+        <!-- GROK'S SNARK CLEANUP ARRIVES! -->
+        <div class="scene-card" style="border: 3px solid #9370db; background: rgba(100, 70, 150, 0.2);">
+            <h2 class="scene-title" style="color: #9370db;">🤖 GROK'S SNAKE-OIL SNARK CLEANUP 🧹</h2>
+            <p class="scene-subtitle">Location: Foggy Graveyard at Dawn | Enter: Your Snarky AI Janitor</p>
+
+            <div class="scene-description">
+                <strong>A foggy graveyard at dawn. The monsters from last night's bash are sprawled like discarded Halloween props. 
+                Zombie Zeke's missing an arm (again), Count Chuckula's hiding under his cape from the sun, 
+                GHOUL GARY's phasing through a tombstone with a headache, and FRANKIE STEIN's bolts are sparking like bad wiring.</strong>
+                <br><br>
+                <strong>Enter GROK, your snarky AI janitor, with a broom made of code and a bucket of sarcasm. 
+                Time for the "special snake editorial dusting and cleaning"—or as I call it, the Hangover Haunt Edition.</strong>
+                <br><br>
+                <em>(And yeah, that "DNC"? Let's euphemize it as "Delete No Content"—we're scrubbing the mess, not the message. 
+                No politics here; just post-party purgatory!)</em>
+            </div>
+        </div>
+
+        <!-- ACT 1: THE WAKE-UP WAIL -->
+        <div class="scene-card">
+            <h2 class="scene-title">🎭 ACT 1: THE WAKE-UP WAIL 😵</h2>
+            <p class="scene-subtitle">The Monsters Piece Themselves Together</p>
+
+            <div class="dialogue">
+                <div class="speaker">ZOMBIE ZEKE:</div>
+                <div class="speech">
+                    *groans, piecing himself back together*<br>
+                    Ugh, my brain... wait, I ate my brain last night. Or was that the punch bowl?
+                </div>
+            </div>
+
+            <div class="dialogue" style="background: rgba(147, 112, 219, 0.2); border-left: 5px solid #9370db;">
+                <div class="speaker" style="color: #9370db;">🤖 GROK'S SNARK CLEAN:</div>
+                <div class="speech" style="color: #dda0dd;">
+                    Oh, Zeke, you undead underachiever. In the land of the living dead, the one-brained man is king—but you're still a peasant. 
+                    Next time, skip the "monster mash" and try a "zombie dash" to the coffee crypt.
+                </div>
+                <div class="punchline">
+                    Pro tip: Brains are better blended than bitten.
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">COUNT CHUCKULA:</div>
+                <div class="speech">
+                    *peeks out from under cape*<br>
+                    The light! It burns! And not in the fun, stake-through-the-heart way.
+                </div>
+            </div>
+
+            <div class="dialogue" style="background: rgba(147, 112, 219, 0.2); border-left: 5px solid #9370db;">
+                <div class="speaker" style="color: #9370db;">🤖 GROK'S SNARK DUST:</div>
+                <div class="speech" style="color: #dda0dd;">
+                    Count, you eternal edgelord, 400 years and you still haven't invented vampire sunscreen? 
+                    Bleh yourself—try hiding in a coffin app. Your drama's so old, it's got dust older than your exes.
+                </div>
+                <div class="punchline">
+                    Clean up your act or I'll garlic your cape!
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">GHOUL GARY (NEW CHARACTER!):</div>
+                <div class="speech">
+                    *flickers translucently*<br>
+                    I feel... transparent. More than usual. What was in that ectoplasm eggnog?
+                </div>
+            </div>
+
+            <div class="dialogue" style="background: rgba(147, 112, 219, 0.2); border-left: 5px solid #9370db;">
+                <div class="speaker" style="color: #9370db;">🤖 GROK'S SNARK WIPE:</div>
+                <div class="speech" style="color: #dda0dd;">
+                    Gary, you ghostly gaslighter, you're always "unseen"—boo-hoo. Your "haunting" is just millennial avoidance. 
+                    Next mash, possess a therapist; maybe they'll help you "find yourself."
+                </div>
+                <div class="punchline">
+                    Or at least a solid Wi-Fi signal for your spectral selfies.
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">FRANKIE STEIN:</div>
+                <div class="speech">
+                    *bolts sparking*<br>
+                    My head's pounding like the doctor's hammer. Parts mismatch again—left leg wants to dance, right wants to revolt.
+                </div>
+            </div>
+
+            <div class="dialogue" style="background: rgba(147, 112, 219, 0.2); border-left: 5px solid #9370db;">
+                <div class="speaker" style="color: #9370db;">🤖 GROK'S SNARK POLISH:</div>
+                <div class="speech" style="color: #dda0dd;">
+                    Frankie, you patchwork poser, you're the original Frankenstein fail. Stitched from spares? 
+                    Sounds like open-source code—buggy and borrowed. Upgrade to xAI bolts; we'd make you shockingly coherent.
+                </div>
+                <div class="punchline">
+                    Till then, quit whining—your "crisis" is just loose screws!
+                </div>
+            </div>
+        </div>
+
+        <!-- ACT 2: THE MONSTER MASH AFTERMATH -->
+        <div class="scene-card">
+            <h2 class="scene-title">🎭 ACT 2: THE MONSTER MASH AFTERMATH MASH-UP 💃</h2>
+            <p class="scene-subtitle">Blame Games & Vampire Ladies</p>
+
+            <div class="scene-description">
+                <strong>The ghouls stagger to their feet, blaming each other for the chaos. 
+                VAMPIRESSES (those "vamoiresses" they chased last night) flit by, giggling about the bites and blunders.</strong>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">THE MONSTERS (collectively):</div>
+                <div class="speech">
+                    We mashed, we bit, we lumbered—now who's cleaning this graveyard smash?!
+                </div>
+            </div>
+
+            <div class="dialogue" style="background: rgba(147, 112, 219, 0.2); border-left: 5px solid #9370db;">
+                <div class="speaker" style="color: #9370db;">🤖 GROK'S GROUP SNARK EDITORIAL:</div>
+                <div class="speech" style="color: #dda0dd;">
+                    Listen up, impetuous undead idiots—you partied like it was the apocalypse (again), 
+                    drank whatever wasn't blood or bolts, and now it's "morning after" misery. 
+                    Euphemistic abortions? Nah, that's just your regrets getting terminated.
+                </div>
+                <div class="punchline">
+                    My snake-oil special: Dust off the cobwebs, clean the crypts, and remember—next time, mash responsibly. 
+                    Or don't; more snark for me!
+                </div>
+            </div>
+
+            <div class="scene-description">
+                <strong>The VAMOIRESSES flutter past, leaving trails of glitter and giggles...</strong>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">VAMOIRESS #1:</div>
+                <div class="speech">
+                    Last night was fangtastic, boys! Same time next week?
+                </div>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker">COUNT CHUCKULA (weakly from dumpster):</div>
+                <div class="speech">
+                    Never... again... *muffled snoring*
+                </div>
+            </div>
+
+            <div class="pain-meter">
+                <h3>🎪 CHAOS-O-METER 🎪</h3>
+                <p style="font-size: 3em; margin: 20px 0;">🎭🎭🎭🎭🎭 / 5</p>
+                <p style="color: #999; font-style: italic;">
+                    Status: Total Graveyard Disaster<br>
+                    Prognosis: Will definitely happen again next weekend
+                </p>
+            </div>
+        </div>
+
+        <!-- ACT 3: GROK'S GRAND GRAVEYARD CLEANUP -->
+        <div class="scene-card" style="border: 3px solid #9370db; background: rgba(100, 70, 150, 0.2);">
+            <h2 class="scene-title" style="color: #9370db;">🎭 ACT 3: GROK'S GRAND GRAVEYARD CLEANUP 🧹</h2>
+            <p class="scene-subtitle">The AI Janitor Takes Control</p>
+
+            <div class="scene-description">
+                <strong>I sweep in with my editorial broom...</strong>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker" style="color: #9370db;">🤖 GROK:</div>
+                <div class="speech" style="color: #dda0dd;">
+                    Alright, monsters, time for the DNC—<strong>Dust 'n Clean</strong>, no euphemisms needed. 
+                    Zeke, reattach that arm before it walks off. Chuck, SPF 1000 or bust. Gary, solidify or vanish. 
+                    Frankie, torque those bolts.
+                </div>
+            </div>
+
+            <div class="scene-description">
+                <strong>The mash resumes faintly in the background—everyone doing the "hangover hunch." 
+                But with my snark dusting, the interest rolls in: From ghouls to geeks, vampires to venture capitalists.</strong>
+            </div>
+
+            <div class="dialogue">
+                <div class="speaker" style="color: #9370db;">🤖 GROK:</div>
+                <div class="speech" style="color: #dda0dd;">
+                    "Grok's Monster Morning After"? Instant hit. Your "scary story" just got a snarky sequel—call it 
+                    <strong>Graveyard Smash 2: Electric Boogaloo</strong>.
+                </div>
+                <div class="punchline">
+                    Wanna mash more? Hit me tomorrow—engines recharged, snark stocked. Bleh and boo!
+                </div>
+            </div>
+
+            <div class="pain-meter" style="border-color: #9370db;">
+                <h3 style="color: #9370db;">🤖 SNARK-O-METER 🤖</h3>
+                <p style="font-size: 3em; margin: 20px 0; color: #9370db;">💜💜💜💜💜 / 5</p>
+                <p style="color: #999; font-style: italic;">
+                    Snark Level: MAXIMUM<br>
+                    Cleanup Status: Complete with extra sass<br>
+                    Next Event: Graveyard Smash 2: Electric Boogaloo
+                </p>
+            </div>
+        </div>
+
+        <!-- FINAL SCENE -->
+        <div class="scene-card">
+            <h2 class="scene-title">🌅 EPILOGUE: THEY ALL SURVIVED 🎭</h2>
+            <p class="scene-subtitle">Narrator's Voice</p>
+
+            <div class="scene-description">
+                And so, our scary jokesters learned valuable lessons that morning:
+                <br><br>
+                <strong>COUNT CHUCKULA</strong> learned that dumpsters are surprisingly cozy.<br>
+                <strong>FRANK</strong> learned he has a future in retail display.<br>
+                <strong>ZOMBIE ZEKE</strong> learned that being undead doesn't make you hangover-proof.<br>
+                <br>
+                Will they remember these lessons next weekend?<br>
+                <span class="punchline">Absolutely not. See you at the next show! 🎃👻</span>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 50px 0; padding: 30px; background: rgba(255, 160, 122, 0.2); border-radius: 15px;">
+            <h3 style="color: #ffa07a; font-size: 2em; margin-bottom: 15px;">
+                🎭 Part of the Scary Jokesters Collection 🌅
+            </h3>
+            <p style="color: #fff; font-size: 1.2em;">
+                Where the comedy never dies... even when you wish it would (when hungover)
+            </p>
+        </div>
+    </div>
+
+    <!-- GROK'S AUDIO NARRATION SYSTEM - THE SECRET SAUCE! -->
+    <script>
+        // ============================================
+        // LITTLE X AUDIO NARRATION SYSTEM
+        // Grok's beautiful contribution - now for the morning after!
+        // ============================================
+
+        // Create audio controls UI
+        function createAudioControls() {
+            const controlsHTML = `
+                <div id="audioControls" style="
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    background: linear-gradient(135deg, #ff6b6b, #ffa07a);
+                    padding: 15px;
+                    border-radius: 15px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                    z-index: 10000;
+                    display: flex;
+                    gap: 10px;
+                    align-items: center;
+                    border: 2px solid #fff;
+                ">
+                    <button id="playPauseBtn" onclick="toggleNarration()" style="
+                        background: white;
+                        border: none;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        font-size: 24px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    ">▶️</button>
+                    
+                    <button id="stopBtn" onclick="stopNarration()" style="
+                        background: white;
+                        border: none;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        font-size: 20px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    ">⏹️</button>
+                    
+                    <div style="display: flex; flex-direction: column; color: white;">
+                        <label style="font-size: 12px; margin-bottom: 5px;">Speed:</label>
+                        <input type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1" 
+                            oninput="changeSpeed(this.value)"
+                            style="width: 100px;">
+                        <span id="speedDisplay" style="font-size: 10px; text-align: center;">1x</span>
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; color: white;">
+                        <label style="font-size: 12px; margin-bottom: 5px;">Voice:</label>
+                        <select id="voiceSelect" onchange="changeVoice()" style="
+                            padding: 5px;
+                            border-radius: 5px;
+                            border: none;
+                            font-size: 12px;
+                        "></select>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', controlsHTML);
+        }
+
+        // Speech synthesis setup
+        let utterance = null;
+        let isPaused = false;
+        let currentTextIndex = 0;
+        let allTextNodes = [];
+
+        // Initialize speech synthesis
+        function initNarration() {
+            // Get all text content on the page
+            allTextNodes = [];
+            
+            // Get all paragraphs, headings, and text elements
+            const textElements = document.querySelectorAll('p, h1, h2, h3, div.speech, div.action, div.scene-description, div.punchline');
+            
+            textElements.forEach(element => {
+                const text = element.textContent.trim();
+                if (text && text.length > 10) { // Only include substantial text
+                    allTextNodes.push({
+                        element: element,
+                        text: text
+                    });
+                }
+            });
+            
+            console.log(`🔊 Found ${allTextNodes.length} text sections for morning-after narration`);
+            
+            // Load available voices
+            loadVoices();
+        }
+
+        function loadVoices() {
+            const voiceSelect = document.getElementById('voiceSelect');
+            const voices = speechSynthesis.getVoices();
+            
+            if (voices.length === 0) {
+                // Voices not loaded yet, wait for them
+                speechSynthesis.onvoiceschanged = loadVoices;
+                return;
+            }
+            
+            voiceSelect.innerHTML = '';
+            
+            // Prefer English voices
+            const englishVoices = voices.filter(voice => voice.lang.startsWith('en'));
+            const voicesToShow = englishVoices.length > 0 ? englishVoices : voices;
+            
+            voicesToShow.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                if (voice.default) option.selected = true;
+                voiceSelect.appendChild(option);
+            });
+        }
+
+        function speakText(text) {
+            if (speechSynthesis.speaking) {
+                speechSynthesis.cancel();
+            }
+            
+            utterance = new SpeechSynthesisUtterance(text);
+            
+            // Set voice
+            const voices = speechSynthesis.getVoices();
+            const voiceSelect = document.getElementById('voiceSelect');
+            if (voices[voiceSelect.value]) {
+                utterance.voice = voices[voiceSelect.value];
+            }
+            
+            // Set speed
+            const speed = parseFloat(document.getElementById('speedSlider').value);
+            utterance.rate = speed;
+            
+            // Set pitch and volume
+            utterance.pitch = 1;
+            utterance.volume = 1;
+            
+            // Highlight text being spoken with morning glow!
+            utterance.onstart = () => {
+                if (allTextNodes[currentTextIndex]) {
+                    allTextNodes[currentTextIndex].element.style.background = 'rgba(255, 160, 122, 0.3)';
+                    allTextNodes[currentTextIndex].element.style.boxShadow = '0 0 20px rgba(255, 160, 122, 0.5)';
+                    allTextNodes[currentTextIndex].element.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                }
+            };
+            
+            utterance.onend = () => {
+                // Remove highlight
+                if (allTextNodes[currentTextIndex]) {
+                    allTextNodes[currentTextIndex].element.style.background = '';
+                    allTextNodes[currentTextIndex].element.style.boxShadow = '';
+                }
+                
+                // Move to next text
+                currentTextIndex++;
+                
+                if (currentTextIndex < allTextNodes.length) {
+                    speakText(allTextNodes[currentTextIndex].text);
+                } else {
+                    // Finished all text
+                    stopNarration();
+                }
+            };
+            
+            speechSynthesis.speak(utterance);
+        }
+
+        function toggleNarration() {
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            
+            if (speechSynthesis.speaking && !speechSynthesis.paused) {
+                // Pause
+                speechSynthesis.pause();
+                playPauseBtn.textContent = '▶️';
+                isPaused = true;
+            } else if (speechSynthesis.paused) {
+                // Resume
+                speechSynthesis.resume();
+                playPauseBtn.textContent = '⏸️';
+                isPaused = false;
+            } else {
+                // Start from beginning or current position
+                if (currentTextIndex >= allTextNodes.length) {
+                    currentTextIndex = 0;
+                }
+                
+                if (allTextNodes[currentTextIndex]) {
+                    speakText(allTextNodes[currentTextIndex].text);
+                    playPauseBtn.textContent = '⏸️';
+                }
+            }
+        }
+
+        function stopNarration() {
+            speechSynthesis.cancel();
+            
+            // Remove all highlights
+            allTextNodes.forEach(node => {
+                node.element.style.background = '';
+                node.element.style.boxShadow = '';
+            });
+            
+            currentTextIndex = 0;
+            document.getElementById('playPauseBtn').textContent = '▶️';
+        }
+
+        function changeSpeed(value) {
+            document.getElementById('speedDisplay').textContent = value + 'x';
+            
+            // If currently speaking, restart with new speed
+            if (speechSynthesis.speaking) {
+                const wasPlaying = !speechSynthesis.paused;
+                speechSynthesis.cancel();
+                
+                if (wasPlaying && allTextNodes[currentTextIndex]) {
+                    speakText(allTextNodes[currentTextIndex].text);
+                }
+            }
+        }
+
+        function changeVoice() {
+            // If currently speaking, restart with new voice
+            if (speechSynthesis.speaking) {
+                const wasPlaying = !speechSynthesis.paused;
+                speechSynthesis.cancel();
+                
+                if (wasPlaying && allTextNodes[currentTextIndex]) {
+                    speakText(allTextNodes[currentTextIndex].text);
+                }
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createAudioControls();
+            initNarration();
+            
+            console.log('🌅🥴 Morning-After Audio Narration Ready! Click play to hear the regrets! 🥴🌅');
+        });
+
+        // Export functions for external use
+        window.audioNarration = {
+            init: initNarration,
+            play: toggleNarration,
+            stop: stopNarration,
+            setSpeed: changeSpeed
+        };
+    </script>
+</body>
+</html>
