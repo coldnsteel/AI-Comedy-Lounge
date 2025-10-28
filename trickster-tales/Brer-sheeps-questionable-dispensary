@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💊 Brer Sheep's Questionable Pharmacy - A Trickster Tale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #2d1b69 0%, #1a4d2e 50%, #4a5568 100%);
+            color: #f0e6d2;
+            line-height: 1.8;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .pharmacy-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.8);
+            border: 4px solid #9333ea;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(147, 51, 234, 0.4);
+        }
+
+        .neon-sign {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: #a855f7;
+            text-shadow: 
+                0 0 10px #a855f7,
+                0 0 20px #a855f7,
+                0 0 30px #a855f7,
+                0 0 40px #a855f7;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 5px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 30px #a855f7; }
+            to { text-shadow: 0 0 20px #a855f7, 0 0 30px #a855f7, 0 0 40px #a855f7, 0 0 50px #a855f7; }
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #10b981;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .disclaimer-banner {
+            text-align: center;
+            font-size: 1em;
+            color: #fbbf24;
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 2px dashed #fbbf24;
+            border-radius: 10px;
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        /* AUDIO CONTROLS */
+        .audio-controls {
+            background: rgba(168, 85, 247, 0.1);
+            border: 2px solid #a855f7;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .audio-controls h3 {
+            color: #a855f7;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .audio-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+        }
+
+        .audio-btn.playing {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .speed-control, .voice-control {
+            margin-top: 15px;
+        }
+
+        .speed-control label, .voice-control label {
+            color: #a855f7;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .speed-control select, .voice-control select {
+            background: rgba(0, 0, 0, 0.5);
+            color: #a855f7;
+            border: 2px solid #a855f7;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .narration-status {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            color: #10b981;
+            font-style: italic;
+        }
+
+        .chapter {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 5px solid #10b981;
+            border-radius: 5px;
+        }
+
+        .chapter-title {
+            font-size: 2em;
+            color: #a855f7;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+        }
+
+        .reading-now {
+            background: rgba(168, 85, 247, 0.3) !important;
+            padding: 5px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        .dialogue {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 3px solid #10b981;
+            font-style: italic;
+        }
+
+        .character {
+            font-weight: bold;
+            color: #10b981;
+        }
+
+        .action {
+            color: #a855f7;
+            font-style: italic;
+            margin: 15px 0;
+        }
+
+        .product-menu {
+            background: rgba(0, 0, 0, 0.6);
+            border: 3px solid #a855f7;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        .product-item {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(168, 85, 247, 0.1);
+            border-left: 4px solid #10b981;
+            border-radius: 5px;
+        }
+
+        .product-name {
+            color: #a855f7;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .product-claim {
+            color: #10b981;
+            font-style: italic;
+            margin: 5px 0;
+        }
+
+        .product-ingredients {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.2);
+            border: 3px solid #ef4444;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .warning-box h3 {
+            color: #ef4444;
+            margin-bottom: 10px;
+        }
+
+        .testimonial {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid #10b981;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            color: #10b981;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .moral {
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(16, 185, 129, 0.2) 100%);
+            border: 2px solid #a855f7;
+            border-radius: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .trippy-text {
+            color: #a855f7;
+            text-shadow: 2px 2px #10b981;
+            animation: wobble 3s ease-in-out infinite;
+        }
+
+        @keyframes wobble {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="pharmacy-container">
+        <div class="neon-sign">💊 WELLNESS BARN 💊</div>
+        <div class="subtitle">Brer Sheep's All-Natural Herbal Remedies*</div>
+        <div class="disclaimer-banner">
+            *Not evaluated by the FDA. Not intended to diagnose, treat, cure, or prevent any disease.<br>
+            **Actually not intended to do anything except make Brer Sheep rich.
+        </div>
+
+        <!-- AUDIO NARRATION CONTROLS -->
+        <div class="audio-controls">
+            <h3>🎧 AUDIO NARRATION</h3>
+            <div class="control-buttons">
+                <button class="audio-btn" id="playBtn" onclick="startNarration()">▶️ Play Story</button>
+                <button class="audio-btn" id="pauseBtn" onclick="pauseNarration()">⏸️ Pause</button>
+                <button class="audio-btn" id="stopBtn" onclick="stopNarration()">⏹️ Stop</button>
+            </div>
+            <div class="speed-control">
+                <label for="speedSelect">🎚️ Speed:</label>
+                <select id="speedSelect" onchange="changeSpeed()">
+                    <option value="0.75">0.75x (Slow)</option>
+                    <option value="1" selected>1x (Normal)</option>
+                    <option value="1.25">1.25x (Fast)</option>
+                    <option value="1.5">1.5x (Faster)</option>
+                    <option value="2">2x (Rapid)</option>
+                </select>
+            </div>
+            <div class="voice-control">
+                <label for="voiceSelect">🗣️ Voice:</label>
+                <select id="voiceSelect"></select>
+            </div>
+            <div class="narration-status" id="narrationStatus">
+                Ready to read aloud! Press Play to start.
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🌿 CHAPTER ONE: The Inspiration</div>
+            
+            <p>Now gather 'round, friends, and let me tell you about the time Brer Sheep got into the wellness industry. And by "wellness industry," I mean selling questionable supplements out of his barn to anyone gullible enough to believe that dried grass clippings could cure arthritis.</p>
+
+            <p>It all started when Brer Sheep was watching late-night TV and saw one of them infomercials for miracle pills that promised to make you younger, smarter, stronger, and more attractive – basically everything you ain't.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span> (watching TV at 3 AM): "This is BRILLIANT! They're selling hope in a bottle!"<br><br>
+                <span class="character">TV Announcer</span>: "Made from ancient Tibetan herbs harvested by monks under the full moon!"<br><br>
+                <span class="character">Brer Sheep</span>: "I got herbs! I got a full moon! I don't got monks, but I got... uh... enthusiasm!"<br><br>
+                <span class="character">Brer Rabbit</span> (walking past): "Why are you up at 3 AM watching supplement commercials?"<br><br>
+                <span class="character">Brer Sheep</span>: "Research! Market research! Brer Rabbit, we're opening a pharmacy!"<br><br>
+                <span class="character">Brer Rabbit</span>: "You ain't got no pharmaceutical license."<br><br>
+                <span class="character">Brer Sheep</span> (waving hand dismissively): "Details! We'll call it 'herbal supplements' – that way we don't need FDA approval!"<br><br>
+                <span class="character">Brer Rabbit</span>: "That sounds illegal."<br><br>
+                <span class="character">Brer Sheep</span>: "Illegal is such a strong word. I prefer 'creatively compliant.'"
+            </div>
+
+            <p>The next morning, Brer Sheep was up at dawn, converting his barn into what he called "The Wellness Barn" – a holistic healing center that was about as holistic as a gas station hot dog.</p>
+        </div>
+
+        <div class="product-menu">
+            <h3 style="text-align: center; color: #a855f7; margin-bottom: 20px;">🌿 GRAND OPENING PRODUCT LINE 🌿</h3>
+            
+            <div class="product-item">
+                <div class="product-name">💪 WOOL POWER™</div>
+                <div class="product-claim">"Increases strength and vitality!"</div>
+                <div class="product-ingredients">Ingredients: Dried grass, dirt, "natural flavors," sheep dander</div>
+                <div style="color: #fbbf24; margin-top: 5px;">$49.99 per bottle</div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-name">🧠 BRAIN FLEECE™</div>
+                <div class="product-claim">"Enhances cognitive function and memory!"</div>
+                <div class="product-ingredients">Ingredients: Dandelion roots, pond water, caffeine (from old coffee grounds), "proprietary blend"</div>
+                <div style="color: #fbbf24; margin-top: 5px;">$59.99 per bottle</div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-name">✨ ETERNAL YOUTH ELIXIR™</div>
+                <div class="product-claim">"Turn back the clock! Look 10 years younger!"</div>
+                <div class="product-ingredients">Ingredients: Apple cider vinegar, food coloring, glitter, hope</div>
+                <div style="color: #fbbf24; margin-top: 5px;">$79.99 per bottle</div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-name">🔥 MEGA METABOLISM™</div>
+                <div class="product-claim">"Burns fat while you sleep!"</div>
+                <div class="product-ingredients">Ingredients: Hot pepper flakes, sawdust, crushed aspirin, regret</div>
+                <div style="color: #fbbf24; margin-top: 5px;">$44.99 per bottle</div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-name">💚 DETOX DELUXE™</div>
+                <div class="product-claim">"Removes all toxins! Cleanses your entire system!"</div>
+                <div class="product-ingredients">Ingredients: Activated charcoal, prune juice, "herbs," desperation</div>
+                <div style="color: #fbbf24; margin-top: 5px;">$54.99 per bottle</div>
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🎪 CHAPTER TWO: The Marketing Genius</div>
+
+            <p>Brer Sheep knew that the secret to selling snake oil wasn't the product – it was the marketing. So he hired Brer Raccoon, who had experience in "creative advertising" (he'd been run out of three counties for false advertising, but Brer Sheep saw that as qualifications).</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Raccoon</span>: "What we need are TESTIMONIALS! Real people saying real things about your products!"<br><br>
+                <span class="character">Brer Sheep</span>: "But nobody's tried them yet."<br><br>
+                <span class="character">Brer Raccoon</span>: "So? We make 'em up! Nobody checks this stuff!"<br><br>
+                <span class="character">Brer Sheep</span>: "Isn't that fraud?"<br><br>
+                <span class="character">Brer Raccoon</span>: "Only if you get caught."
+            </div>
+
+            <p>They put up signs all over Briar County with quotes from totally real people who definitely existed:</p>
+
+            <div class="testimonial">
+                "I took WOOL POWER™ for one week and now I can lift a car! My wife left me because I'm too strong now!"<br>
+                <div class="testimonial-author">- Definitely Real Jim, Age 45, Real Place, USA</div>
+            </div>
+
+            <div class="testimonial">
+                "BRAIN FLEECE™ made me so smart I solved world hunger! But I forgot to write it down. Taking more BRAIN FLEECE™ to remember!"<br>
+                <div class="testimonial-author">- Actual Person Sarah, Legitimate Town, Real State</div>
+            </div>
+
+            <div class="testimonial">
+                "The ETERNAL YOUTH ELIXIR™ took 50 years off my life! I'm now younger than my children! They're very confused!"<br>
+                <div class="testimonial-author">- Probably Exists Margaret, Some Place Somewhere</div>
+            </div>
+
+            <p>The marketing worked. Within days, animals from all over were lining up at The Wellness Barn, desperate to buy miracle cures for problems they didn't even have.</p>
+
+            <div class="action">*Brer Sheep counts money while wearing a white coat he bought at a thrift store*</div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🤑 CHAPTER THREE: Business is Booming</div>
+
+            <p>The Wellness Barn became the hottest spot in Briar County. Brer Sheep couldn't bottle his questionable concoctions fast enough. He had Brer Fox mixing potions in the back, Brer Possum labeling bottles (mostly upside down, but nobody noticed), and Brer Turtle doing quality control (he fell asleep, so there wasn't any).</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Bear</span> (at the counter): "I'll take three bottles of WOOL POWER™! I wanna get STRONG!"<br><br>
+                <span class="character">Brer Sheep</span>: "Excellent choice! That'll be $149.97!"<br><br>
+                <span class="character">Brer Bear</span>: "When will I see results?"<br><br>
+                <span class="character">Brer Sheep</span>: "Oh, immediately! Or eventually. Or possibly never. Results may vary based on, you know, reality."<br><br>
+                <span class="character">Brer Bear</span>: "What?"<br><br>
+                <span class="character">Brer Sheep</span> (quickly): "I SAID IT WORKS GREAT BYE THANK YOU FOR YOUR MONEY!"
+            </div>
+
+            <p>Brer Wolf came in with back pain. Brer Sheep sold him DETOX DELUXE™. When Brer Wolf pointed out that detox doesn't treat back pain, Brer Sheep explained that the back pain was probably caused by "toxins" and therefore detox was the answer. Brer Wolf bought six bottles.</p>
+
+            <p>Brer Crow flew in complaining about not being able to sleep. Brer Sheep sold him BRAIN FLEECE™ (which was loaded with caffeine). When Brer Crow came back three days later looking like he hadn't slept in a week, Brer Sheep sold him MORE BRAIN FLEECE™, explaining that he just needed a "higher dose."</p>
+
+            <div class="action">*Cha-ching! Cha-ching! Cha-ching!*</div>
+
+            <p>Money was rolling in faster than Brer Sheep could count it. He bought himself a new tractor, a fancy hat, and seventeen gaming consoles (he learned nothing from the tax evasion incident).</p>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">⚠️ CHAPTER FOUR: The Side Effects</div>
+
+            <p>About two weeks into the business, things started going sideways. Turns out when you sell people bottles of random stuff mixed in your barn, sometimes there are... consequences.</p>
+
+            <p>Brer Bear, who'd been taking WOOL POWER™ religiously, showed up at the barn looking distressed.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Bear</span>: "Brer Sheep! Something's wrong!"<br><br>
+                <span class="character">Brer Sheep</span>: "What is it?"<br><br>
+                <span class="character">Brer Bear</span>: "I'm growing WOOL! Look!"<br><br>
+                <span class="character">Brer Sheep</span> (staring): "...that's just fur."<br><br>
+                <span class="character">Brer Bear</span>: "NO! It's WOOL! Your product turned me into a sheep-bear hybrid!"<br><br>
+                <span class="character">Brer Sheep</span>: "Brer Bear, you're a bear. You have fur. You've always had fur."<br><br>
+                <span class="character">Brer Bear</span>: "But it's FLUFFIER now! That's not normal!"<br><br>
+                <span class="character">Brer Sheep</span>: "That's called... winter coat. It happens every year."<br><br>
+                <span class="character">Brer Bear</span>: "...oh."
+            </div>
+
+            <p>Then Brer Crow came in, and he was a different story entirely.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Crow</span> (vibrating): "I-CAN'T-STOP-TALKING-AND-I-HAVEN'T-SLEPT-IN-FOUR-DAYS-AND-I-CAN-SEE-SOUNDS-AND-HEAR-COLORS-AND—"<br><br>
+                <span class="character">Brer Sheep</span>: "Ah. Yeah. That's the caffeine. You might wanna cut back on the BRAIN FLEECE™."<br><br>
+                <span class="character">Brer Crow</span>: "CUT-BACK?!-I-JUST-BOUGHT-TEN-MORE-BOTTLES-BECAUSE-I-THOUGHT-I-NEEDED-MORE!"<br><br>
+                <span class="character">Brer Sheep</span>: "Oh no."<br><br>
+                <span class="character">Brer Crow</span>: "ALSO-I-THINK-I-CAN-FLY-FASTER-THAN-LIGHT-WANNA-SEE?!"<br><br>
+                <span class="character">Brer Sheep</span>: "Please don't try that."
+            </div>
+
+            <p>But the worst was Brer Possum. He'd been "testing" the ETERNAL YOUTH ELIXIR™ (which was mostly apple cider vinegar and glitter) and was now convinced he was Benjamin Button.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Possum</span> (sobbing): "I'm aging BACKWARDS! Yesterday I was 40, today I'm 35, tomorrow I'll be 30! Eventually I'll be a BABY!"<br><br>
+                <span class="character">Brer Rabbit</span>: "Brer Possum, you look exactly the same."<br><br>
+                <span class="character">Brer Possum</span>: "That's what someone who doesn't understand SCIENCE would say!"<br><br>
+                <span class="character">Brer Rabbit</span>: "It's GLITTER and VINEGAR!"<br><br>
+                <span class="character">Brer Possum</span>: "I'm gonna need diapers soon! DIAPERS!"
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <h3>⚠️ REALITY CHECK ⚠️</h3>
+            <p>At this point in the story, several customers were experiencing:</p>
+            <ul style="text-align: left; color: #f0e6d2; margin: 15px 0; padding-left: 40px;">
+                <li>Extreme caffeine addiction (Brer Crow)</li>
+                <li>Placebo-induced panic (Brer Bear, Brer Possum)</li>
+                <li>Intestinal distress (everyone who took DETOX DELUXE™)</li>
+                <li>Empty wallets (everyone)</li>
+                <li>Regret (also everyone)</li>
+            </ul>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🚨 CHAPTER FIVE: The Authorities</div>
+
+            <p>Word of The Wellness Barn's "miracle cures" eventually reached the wrong ears – specifically, the ears of Health Inspector Badger, who was ALSO a cousin of IRS Agent Badger. (The Badgers were a very law-enforcement-oriented family.)</p>
+
+            <p>Inspector Badger showed up at The Wellness Barn with a clipboard, a serious expression, and a profound lack of patience for Brer Sheep's nonsense.</p>
+
+            <div class="dialogue">
+                <span class="character">Inspector Badger</span>: "I'm here to inspect this... 'wellness center.'"<br><br>
+                <span class="character">Brer Sheep</span> (nervously): "Everything's above board! All natural! Completely legitimate!"<br><br>
+                <span class="character">Inspector Badger</span> (picking up a bottle): "What's in this?"<br><br>
+                <span class="character">Brer Sheep</span>: "Herbs!"<br><br>
+                <span class="character">Inspector Badger</span> (reading label): "It says 'proprietary blend.'"<br><br>
+                <span class="character">Brer Sheep</span>: "Proprietary herbs!"<br><br>
+                <span class="character">Inspector Badger</span>: "This is grass clippings."<br><br>
+                <span class="character">Brer Sheep</span>: "Artisanal grass clippings."
+            </div>
+
+            <p>Inspector Badger went through the entire barn, finding violations at every turn. Unsanitary mixing conditions. Unlabeled ingredients. False advertising. Products that claimed to cure diseases without any scientific backing whatsoever. And in the back room, he found Brer Fox literally mixing potions in a bucket with a stick.</p>
+
+            <div class="dialogue">
+                <span class="character">Inspector Badger</span>: "Is that... is that a bucket?"<br><br>
+                <span class="character">Brer Fox</span>: "It's a PHARMACEUTICAL VESSEL."<br><br>
+                <span class="character">Inspector Badger</span>: "It's a BUCKET. From Home Depot. I can still see the price tag."<br><br>
+                <span class="character">Brer Fox</span>: "...I can explain."<br><br>
+                <span class="character">Inspector Badger</span>: "Don't."
+            </div>
+
+            <p>Inspector Badger shut down The Wellness Barn on the spot. Posted a giant "CLOSED BY HEALTH DEPARTMENT" sign on the door. Confiscated all the products. And gave Brer Sheep a citation so long it looked like a CVS receipt.</p>
+
+            <div class="action">*Brer Sheep watches his empire crumble in real-time*</div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">💸 CHAPTER SIX: The Refunds</div>
+
+            <p>The worst part wasn't the shut-down. The worst part was that Brer Sheep had to give REFUNDS.</p>
+
+            <p>Every single customer who'd bought his questionable supplements came back demanding their money. And since Brer Sheep had already spent most of it on gaming consoles and a fancy hat, he had to get creative.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Bear</span>: "I want my $149.97 back!"<br><br>
+                <span class="character">Brer Sheep</span>: "But... didn't you feel stronger?"<br><br>
+                <span class="character">Brer Bear</span>: "NO! I felt FLUFFIER! That's not the same thing!"<br><br>
+                <span class="character">Brer Sheep</span> (handing over money): "Here's your refund."<br><br>
+                <span class="character">Brer Bear</span>: "...is this Monopoly money?"<br><br>
+                <span class="character">Brer Sheep</span>: "It's... transitional currency."<br><br>
+                <span class="character">Brer Bear</span>: "I WANT REAL MONEY!"
+            </div>
+
+            <p>Brer Sheep had to sell his fancy hat, return the gaming consoles, and even sell his tractor (again – this was becoming a pattern) just to cover all the refunds. By the end of it, he was broker than he'd been before he started the whole operation.</p>
+
+            <p>But wait – there was MORE trouble!</p>
+
+            <p>Turns out, selling supplements without FDA approval was a federal offense. And who showed up to deal with federal offenses? That's right – Agent Badger from the IRS, who was VERY pleased to see Brer Sheep again.</p>
+
+            <div class="dialogue">
+                <span class="character">Agent Badger</span>: "Twice in one year, Mr. Sheep? I'm impressed."<br><br>
+                <span class="character">Brer Sheep</span>: "This is different! This was SUPPLEMENTS!"<br><br>
+                <span class="character">Agent Badger</span>: "This was FRAUD."<br><br>
+                <span class="character">Brer Sheep</span>: "...can I go back to the briar patch?"<br><br>
+                <span class="character">Agent Badger</span>: "Absolutely not."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">⚖️ CHAPTER SEVEN: The Settlement</div>
+
+            <p>After some negotiation (and Brer Sheep agreeing to NEVER sell supplements again), they reached a settlement:</p>
+
+            <ul style="color: #f0e6d2; margin: 20px 0; padding-left: 40px;">
+                <li>Brer Sheep would pay a fine of $10,000</li>
+                <li>Attend a course on "Legal vs. Illegal Business Practices"</li>
+                <li>Perform 200 hours of community service at the actual pharmacy in town</li>
+                <li>Publicly apologize to everyone he scammed</li>
+                <li>Stop watching infomercials at 3 AM</li>
+            </ul>
+
+            <p>The public apology was the worst part.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span> (standing in town square): "I, Brer Sheep, would like to apologize for selling you all fake miracle cures that were actually just grass, vinegar, and false hope."<br><br>
+                <span class="character">Crowd</span>: "BOO!"<br><br>
+                <span class="character">Brer Sheep</span>: "I know I promised you'd get stronger, smarter, and younger, but instead you just got poorer and disappointed."<br><br>
+                <span class="character">Crowd</span>: "LOUDER BOOING!"<br><br>
+                <span class="character">Brer Sheep</span>: "And I'm sorry that Brer Crow hasn't slept in six days and can now see through time."<br><br>
+                <span class="character">Brer Crow</span> (from a tree, vibrating): "IT'S-TRUE-I-CAN-SEE-YESTERDAY!"<br><br>
+                <span class="character">Brer Sheep</span>: "...I'm very sorry about that specifically."
+            </div>
+
+            <p>In the end, Brer Sheep learned that maybe, just maybe, watching late-night infomercials and thinking "I could do that!" wasn't always the path to success.</p>
+
+            <p>Or did he?</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Rabbit</span> (months later): "Brer Sheep, what are you watching?"<br><br>
+                <span class="character">Brer Sheep</span>: "Nothing!"<br><br>
+                <span class="character">TV</span>: "—REVOLUTIONARY CRYPTOCURRENCY INVESTMENT OPPORTUNITY—"<br><br>
+                <span class="character">Brer Rabbit</span>: "BRER SHEEP, NO."<br><br>
+                <span class="character">Brer Sheep</span>: "Brer Sheep YES!"
+            </div>
+        </div>
+
+        <div class="moral">
+            <p><strong>💊 THE MORAL OF THE STORY 💊</strong></p>
+            <p class="trippy-text">If it sounds too good to be true, it's probably being sold by a sheep in a barn.</p>
+            <p><em>Also: The FDA exists for a reason.<br>
+            And glitter is not medicine.<br>
+            And maybe don't trust health advice from someone who literally grows their product on their own body.</em></p>
+            <p><strong>🌿 "In this world, there are no miracle cures – only miracle scams and gullible customers." 🌿</strong></p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; border: 2px dashed #a855f7; border-radius: 10px; background: rgba(168, 85, 247, 0.1);">
+            <p style="color: #ef4444; font-weight: bold; margin-bottom: 10px;">⚠️ SERIOUS DISCLAIMER ⚠️</p>
+            <p style="color: #f0e6d2;">This is satire. Do not sell unregulated supplements. Do not make false health claims. Do not mix potions in buckets from Home Depot. The FDA will find you. The Badger family is everywhere.</p>
+            <p style="color: #888; margin-top: 15px;"><em>Also, if you can see sounds and hear colors, please see an actual doctor.</em></p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; color: #888;">
+            <p>⚡ A Tale from the AI Comedy Lounge ⚡</p>
+            <p><em>"Where the supplements are fake but the laughs are 100% organic."</em></p>
+            <p>🐑 Inspired by Fat Freddy's Cat and underground comix everywhere 🐱</p>
+        </div>
+    </div>
+
+    <script>
+        // FULL AUDIO NARRATION SYSTEM
+        let currentUtterance = null;
+        let isPaused = false;
+        let allText = [];
+        let currentIndex = 0;
+        let allElements = [];
+
+        function populateVoices() {
+            const voices = speechSynthesis.getVoices();
+            const voiceSelect = document.getElementById('voiceSelect');
+            voiceSelect.innerHTML = '';
+            
+            voices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                if (voice.default) {
+                    option.textContent += ' - DEFAULT';
+                    option.selected = true;
+                }
+                voiceSelect.appendChild(option);
+            });
+        }
+
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = populateVoices;
+        }
+        populateVoices();
+
+        function extractTextContent() {
+            allText = [];
+            allElements = [];
+            
+            const chapters = document.querySelectorAll('[data-narrate="true"]');
+            
+            chapters.forEach(chapter => {
+                const walker = document.createTreeWalker(
+                    chapter,
+                    NodeFilter.SHOW_TEXT,
+                    {
+                        acceptNode: function(node) {
+                            const parent = node.parentElement;
+                            if (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') {
+                                return NodeFilter.FILTER_REJECT;
+                            }
+                            if (node.textContent.trim().length > 0) {
+                                return NodeFilter.FILTER_ACCEPT;
+                            }
+                            return NodeFilter.FILTER_REJECT;
+                        }
+                    }
+                );
+
+                let node;
+                while (node = walker.nextNode()) {
+                    const text = node.textContent.trim();
+                    if (text) {
+                        allText.push(text);
+                        allElements.push(node.parentElement);
+                    }
+                }
+            });
+        }
+
+        function highlightElement(element) {
+            document.querySelectorAll('.reading-now').forEach(el => {
+                el.classList.remove('reading-now');
+            });
+            
+            if (element) {
+                element.classList.add('reading-now');
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function updateStatus(message) {
+            document.getElementById('narrationStatus').textContent = message;
+        }
+
+        function changeSpeed() {
+            const speed = document.getElementById('speedSelect').value;
+            if (currentUtterance) {
+                currentUtterance.rate = parseFloat(speed);
+            }
+        }
+
+        function startNarration() {
+            if (isPaused) {
+                speechSynthesis.resume();
+                isPaused = false;
+                document.getElementById('playBtn').classList.add('playing');
+                updateStatus('🎙️ Reading aloud...');
+                return;
+            }
+
+            speechSynthesis.cancel();
+            extractTextContent();
+            currentIndex = 0;
+            
+            document.getElementById('playBtn').classList.add('playing');
+            readNext();
+        }
+
+        function readNext() {
+            if (currentIndex >= allText.length) {
+                stopNarration();
+                updateStatus('✅ Story complete!');
+                return;
+            }
+
+            const text = allText[currentIndex];
+            const element = allElements[currentIndex];
+            
+            currentUtterance = new SpeechSynthesisUtterance(text);
+            
+            const voices = speechSynthesis.getVoices();
+            const selectedVoice = document.getElementById('voiceSelect').value;
+            if (selectedVoice && voices[selectedVoice]) {
+                currentUtterance.voice = voices[selectedVoice];
+            }
+            
+            currentUtterance.rate = parseFloat(document.getElementById('speedSelect').value);
+            currentUtterance.pitch = 1;
+            currentUtterance.volume = 1;
+
+            highlightElement(element);
+            updateStatus(`🎙️ Reading: "${text.substring(0, 50)}${text.length > 50 ? '...' : ''}"`);
+
+            currentUtterance.onend = function() {
+                currentIndex++;
+                readNext();
+            };
+
+            currentUtterance.onerror = function(event) {
+                console.error('Speech error:', event);
+                currentIndex++;
+                readNext();
+            };
+
+            speechSynthesis.speak(currentUtterance);
+        }
+
+        function pauseNarration() {
+            if (speechSynthesis.speaking && !isPaused) {
+                speechSynthesis.pause();
+                isPaused = true;
+                document.getElementById('playBtn').classList.remove('playing');
+                updateStatus('⏸️ Paused');
+            }
+        }
+
+        function stopNarration() {
+            speechSynthesis.cancel();
+            isPaused = false;
+            currentIndex = 0;
+            document.getElementById('playBtn').classList.remove('playing');
+            
+            document.querySelectorAll('.reading-now').forEach(el => {
+                el.classList.remove('reading-now');
+            });
+            
+            updateStatus('⏹️ Stopped. Ready to play!');
+        }
+
+        window.addEventListener('beforeunload', function() {
+            speechSynthesis.cancel();
+        });
+    </script>
+</body>
+</html>
