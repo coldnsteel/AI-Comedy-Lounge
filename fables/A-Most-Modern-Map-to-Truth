@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🗓️ The Programmer Lost on the Way to Pascha</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Georgia, serif; background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #a78bfa 100%); color: #ede9fe; line-height: 1.8; padding: 20px; min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; background: rgba(0,0,0,0.85); border: 4px solid #8b5cf6; border-radius: 15px; padding: 40px; }
+        .title { text-align: center; font-size: 2.8em; color: #c4b5fd; margin-bottom: 10px; line-height: 1.3; }
+        .subtitle { text-align: center; font-size: 1.3em; color: #ddd6fe; font-style: italic; margin-bottom: 30px; }
+        .chapter { margin: 40px 0; padding: 30px; background: rgba(255,255,255,0.03); border-left: 5px solid #8b5cf6; border-radius: 5px; }
+        .chapter-title { font-size: 2em; color: #ddd6fe; margin-bottom: 20px; }
+        .dialogue { margin: 20px 0; padding: 15px; background: rgba(139,92,246,0.1); border-left: 3px solid #8b5cf6; font-style: italic; }
+        .character { font-weight: bold; color: #c4b5fd; }
+        .code-box { background: #1e1b4b; border: 2px solid #8b5cf6; padding: 20px; margin: 20px 0; font-family: 'Courier New', monospace; color: #c4b5fd; }
+        .error-box { background: #450a0a; border: 2px solid #dc2626; padding: 15px; color: #fca5a5; font-family: monospace; }
+        .calendar-box { background: #1e3a1e; border: 2px solid #22c55e; padding: 15px; margin: 10px 0; color: #86efac; }
+        .confusion-box { background: #422006; border: 2px solid #f59e0b; padding: 15px; color: #fde047; }
+        .moral { margin-top: 50px; padding: 30px; background: rgba(139,92,246,0.2); border: 2px solid #8b5cf6; border-radius: 10px; font-size: 1.2em; text-align: center; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">🗓️ THE PROGRAMMER LOST ON THE WAY TO PASCHA 📅</div>
+        <div class="subtitle">Or: How "Common Era" Made Everything Confusing</div>
+        <div style="text-align: center; margin-bottom: 30px; padding: 10px; border: 2px dashed #8b5cf6; border-radius: 5px;">
+            📜 An Original Tech Fable 📜<br>
+            <em>About losing your reference point in the name of neutrality</em><br>
+            <strong>Properly dated in the Year of Our Lord, 2025 AD</strong>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">📆 PART ONE: The "Improvement"</div>
+            <p>Once upon a time (specifically, 2025 AD), there was a programmer named Dale who worked at a company called DateTimeIO. They made calendar and scheduling software used by millions.</p>
+            <p>Dale was proud of his progressive values. One day, he decided to make the codebase more "inclusive" by removing all references to AD/BC.</p>
+            <div class="dialogue">
+                <span class="character">Dale</span>: "These religious terms are OFFENSIVE! We need to modernize!"<br><br>
+                <span class="character">Senior Dev</span>: "Dale, AD/BC aren't religious. They're just... the calendar everyone uses."<br><br>
+                <span class="character">Dale</span>: "They stand for Anno Domini! 'In the year of our Lord!' That's CLEARLY religious!"<br><br>
+                <span class="character">Senior Dev</span>: "Sure, but it's also the universal reference point for dating—"<br><br>
+                <span class="character">Dale</span>: "I'm replacing everything with BCE and CE. Before Common Era and Common Era. Much more neutral!"<br><br>
+                <span class="character">Senior Dev</span>: "But... what's 'common' about it?"<br><br>
+                <span class="character">Dale</span>: "That everyone uses it!"<br><br>
+                <span class="character">Senior Dev</span>: "...because it's the AD system."<br><br>
+                <span class="character">Dale</span>: "STOP SAYING AD!"
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">🔧 PART TWO: The Great Refactoring</div>
+            <p>Dale spent three weeks refactoring the entire codebase:</p>
+            <div class="code-box">
+                <p>// Before: Clear and understandable</p>
+                <p>const birthOfChrist = new Date(1, 0, 1); // 1 AD</p>
+                <p>const fallOfRome = new Date(476, 8, 4); // 476 AD</p>
+                <p><br>// After: "Neutral" and confusing</p>
+                <p>const startOfCommonEra = new Date(1, 0, 1); // 1 CE</p>
+                <p>const fallOfRome = new Date(476, 8, 4); // 476 CE</p>
+                <p><br>// Dale's comment:</p>
+                <p>// "Now no one will be offended! We removed the religious reference!"</p>
+            </div>
+            <div class="dialogue">
+                <span class="character">Junior Dev</span>: "Dale, what makes this era 'common'?"<br><br>
+                <span class="character">Dale</span>: "It's the era that's, uh, commonly used."<br><br>
+                <span class="character">Junior Dev</span>: "Why is it commonly used?"<br><br>
+                <span class="character">Dale</span>: "Because... it's the standard calendar?"<br><br>
+                <span class="character">Junior Dev</span>: "Which started counting from what event?"<br><br>
+                <span class="character">Dale</span>: "I... well... the, um... the COMMON event."<br><br>
+                <span class="character">Junior Dev</span>: "Which was?"<br><br>
+                <span class="character">Dale</span>: "STOP ASKING QUESTIONS!"
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">📅 PART THREE: The Pascha Problem</div>
+            <p>Everything seemed fine until Easter (Pascha) season arrived. A Christian client called with a feature request:</p>
+            <div class="dialogue">
+                <span class="character">Client</span>: "We need your software to calculate the date of Pascha for the next 50 years."<br><br>
+                <span class="character">Dale</span>: "No problem! I'll just use the standard algorithm."<br><br>
+                <span class="character">Client</span>: "Great! By the way, we use the traditional calculation based on the spring equinox and the full moon, as established at the Council of Nicaea in 325 AD."<br><br>
+                <span class="character">Dale</span>: "You mean 325... CE."<br><br>
+                <span class="character">Client</span>: "No, AD. Anno Domini. The council happened 325 years after Christ's birth."<br><br>
+                <span class="character">Dale</span>: "We don't use that terminology. We say CE."<br><br>
+                <span class="character">Client</span>: "But Pascha is ABOUT Christ's resurrection. The entire holiday is calculated FROM His death and resurrection! How can you calculate Easter without referencing what it's commemorating?"
+            </div>
+            <p>Dale froze. He'd never thought about this.</p>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">🤯 PART FOUR: The Paradox</div>
+            <p>Dale tried to write the algorithm:</p>
+            <div class="code-box">
+                <p>function calculatePascha(year) {</p>
+                <p>  // Calculate Easter based on the spring equinox and lunar calendar</p>
+                <p>  // As established at the Council of Nicaea in 325 CE</p>
+                <p>  // Wait... CE stands for "Common Era"</p>
+                <p>  // But what's common about it?</p>
+                <p>  // Common because everyone uses it</p>
+                <p>  // Everyone uses it because...</p>
+                <p>  // Because it counts from Christ's birth</p>
+                <p>  // But I can't say that because...</p>
+                <p>  // ERROR: CIRCULAR LOGIC DETECTED</p>
+                <p>  throw new Error("Cannot calculate Pascha without acknowledging why we're counting years");</p>
+                <p>}</p>
+            </div>
+            <div class="dialogue">
+                <span class="character">Dale</span> (to himself): "Wait... the 'Common Era' starts at year 1... because that's when Christ was supposedly born. So I'm still using the SAME reference point. I just... changed the label?"<br><br>
+                <span class="character">His Brain</span>: "Correct."<br><br>
+                <span class="character">Dale</span>: "So CE and AD are literally the SAME THING, just with different names?"<br><br>
+                <span class="character">His Brain</span>: "Correct."<br><br>
+                <span class="character">Dale</span>: "Then what's the point of changing it?!"<br><br>
+                <span class="character">His Brain</span>: "You tell me. You're the one who spent three weeks refactoring."
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">📊 PART FIVE: The Confusion Spreads</div>
+            <p>Meanwhile, other problems emerged:</p>
+            <div class="confusion-box">
+                <p><strong>User Support Tickets:</strong></p>
+                <p>• "What does CE stand for?"</p>
+                <p>• "Why does the Common Era start at year 1 instead of year 0?"</p>
+                <p>• "What was common about year 1?"</p>
+                <p>• "If it's the Common Era, why do Jews use a different calendar?"</p>
+                <p>• "Why do Muslims use a different calendar?"</p>
+                <p>• "What makes this era more 'common' than other eras?"</p>
+                <p>• "Why does BC count backwards but CE counts forward?"</p>
+                <p>• "WHO DECIDED THIS WAS COMMON?!"</p>
+            </div>
+            <div class="dialogue">
+                <span class="character">Customer Service</span>: "Dale, we're getting hundreds of tickets about the CE/BCE change. People are confused."<br><br>
+                <span class="character">Dale</span>: "But it's more inclusive!"<br><br>
+                <span class="character">Customer Service</span>: "They're asking what makes this era 'common' when most of the world uses different calendars!"<br><br>
+                <span class="character">Dale</span>: "Well... it's the Western calendar..."<br><br>
+                <span class="character">Customer Service</span>: "The CHRISTIAN Western calendar that counts from the birth of Christ?"<br><br>
+                <span class="character">Dale</span>: "...yes."<br><br>
+                <span class="character">Customer Service</span>: "So we removed 'Anno Domini' and replaced it with 'the era that's common because Western Christianity spread it globally'?"<br><br>
+                <span class="character">Dale</span>: "When you put it that way..."<br><br>
+                <span class="character">Customer Service</span>: "That's somehow LESS neutral!"
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">🧭 PART SIX: Finding the Way</div>
+            <p>An elderly Orthodox programmer named Constantine came to visit Dale.</p>
+            <div class="dialogue">
+                <span class="character">Constantine</span>: "I hear you got lost on the way to Pascha."<br><br>
+                <span class="character">Dale</span>: "I didn't get LOST. I just... I can't calculate Easter without referencing Christ, but I removed all references to Christ from the calendar."<br><br>
+                <span class="character">Constantine</span>: "You tried to remove the anchor while keeping the ship."<br><br>
+                <span class="character">Dale</span>: "What?"<br><br>
+                <span class="character">Constantine</span>: "AD isn't a religious term. It's a REFERENCE POINT. Like Greenwich Mean Time for longitude. You need a zero point to measure from."<br><br>
+                <span class="character">Dale</span>: "But 'Anno Domini' means 'Year of Our Lord'—"<br><br>
+                <span class="character">Constantine</span>: "And Greenwich is named after a town in England. Does that make longitude British imperialism? Or is it just... where we agreed to put zero?"
+            </div>
+            <p>Dale blinked. He'd never thought of it that way.</p>
+            <div class="dialogue">
+                <span class="character">Constantine</span>: "You need an anchor. A fixed point. For Western civilization, that point was Christ's birth. Not because everyone believes in Christ, but because that's where we PUT the zero. Changing 'AD' to 'CE' doesn't change the zero point. It just makes it unclear WHY that's the zero point."<br><br>
+                <span class="character">Dale</span>: "So... CE is actually MORE confusing?"<br><br>
+                <span class="character">Constantine</span>: "You tell me: What's 'common' about the Common Era?"<br><br>
+                <span class="character">Dale</span> (defeated): "...that we all use the Christian calendar but pretend we're not."<br><br>
+                <span class="character">Constantine</span>: "Exactly. You can't navigate without knowing where the center is. Remove the anchor, and everyone drifts."
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">🔄 PART SEVEN: The Reversion</div>
+            <p>Dale reverted all his changes. Three weeks of refactoring, undone.</p>
+            <div class="code-box">
+                <p>// Restored: Clear and honest</p>
+                <p>const birthOfChrist = new Date(1, 0, 1); // 1 AD</p>
+                <p>const councilOfNicaea = new Date(325, 0, 1); // 325 AD</p>
+                <p>const calculationOfPascha = establishedAtNicaea(325); // Works perfectly</p>
+                <p><br>// Dale's new comment:</p>
+                <p>// "AD is our reference point. Not because everyone is Christian,</p>
+                <p>// but because that's where Western civilization put year zero.</p>
+                <p>// You can't hide the anchor and expect the ship to stay in place."</p>
+            </div>
+            <div class="dialogue">
+                <span class="character">Client</span>: "Thank you! The Pascha calculator works perfectly now!"<br><br>
+                <span class="character">Dale</span>: "I apologize for the confusion. I was trying to be neutral by removing 'Anno Domini', but I realize now that was... pointless?"<br><br>
+                <span class="character">Client</span>: "Not pointless. Just confused. You can acknowledge history without endorsing it. Muslims use the Islamic calendar, Jews use the Hebrew calendar, and we all use the Gregorian calendar for business. Not because we all worship the same God, but because we need a SHARED reference point."<br><br>
+                <span class="character">Dale</span>: "A shared reference point..."<br><br>
+                <span class="character">Client</span>: "Yes. That's what AD gives us. Common Era just obscures what the reference point IS."
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">📚 PART EIGHT: The Lesson</div>
+            <p>Dale wrote a blog post titled "I Got Lost on the Way to Pascha":</p>
+            <div style="margin: 20px; padding: 20px; background: rgba(255,255,255,0.05); border-left: 3px solid #8b5cf6; font-style: italic;">
+                <p>"I tried to make our calendar system more 'neutral' by replacing AD with CE. What I learned:</p>
+                <p>1. <strong>CE and AD are the same years</strong>. We didn't change the zero point, just the label.</p>
+                <p>2. <strong>'Common Era' is MORE confusing</strong>, not less. What's common about it? That we all use the Christian calendar? That's not neutral – that's just hiding the origin.</p>
+                <p>3. <strong>You need a reference point to navigate</strong>. Greenwich for longitude. ISO standards for computing. Anno Domini for years. Removing the name doesn't remove the reference – it just makes it unclear.</p>
+                <p>4. <strong>Acknowledging history isn't endorsing it</strong>. I can use AD without being Christian, just like I can use Arabic numerals without being Muslim or use a Roman calendar without worshiping Jupiter.</p>
+                <p>5. <strong>Sometimes 'neutrality' is just historical amnesia</strong>. We wanted to be inclusive by erasing the origin of our dating system. But that didn't make it neutral – it made it nonsensical.</p>
+                <p>I couldn't calculate Pascha (Easter) without acknowledging WHY we count years the way we do. The algorithm requires knowing what event established the counting. Hiding that didn't make the math work better – it made it impossible.</p>
+                <p>So I'm reverting to AD/BC. Not because I'm Christian (I'm not), but because it's HONEST about what we're counting from. You can't navigate when you pretend the anchor doesn't exist."</p>
+            </div>
+        </div>
+
+        <div class="moral">
+            <p><strong>🗓️ THE MORAL 📅</strong></p>
+            <p>You can't navigate without a reference point. Hiding the anchor doesn't make you neutral – it makes you lost.</p>
+            <p><em>AD (Anno Domini) isn't a religious requirement – it's a shared reference point.<br>
+            "Common Era" doesn't make the calendar neutral – it makes it confusing.<br>
+            You can acknowledge historical origins without endorsing them.<br>
+            Trying to calculate Pascha while denying why we count years is like trying to use GPS while denying the existence of satellites.<br>
+            And most importantly: Don't get so focused on being "inclusive" that you make everything incomprehensible.</em></p>
+            <p><strong>📍 "Every measurement needs a zero. Ours is Anno Domini. Deal with it." 📍</strong></p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: rgba(139,92,246,0.1); border-radius: 10px;">
+            <p style="font-size: 1.2em;"><strong>✝️ A Note from the Fabulist ✝️</strong></p>
+            <p>This fable isn't anti-secular. It's pro-clarity. We can respect all traditions while acknowledging that our shared Western calendar has a specific origin point: the (approximate) birth of Christ. Calling it "Common Era" doesn't change that – it just obscures it. And you can't calculate Easter without knowing what Easter commemorates.</p>
+            <p><em>From the AI Comedy Lounge, Anno Domini 2025</em></p>
+        </div>
+    </div>
+</body>
+</html>
