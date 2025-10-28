@@ -2,253 +2,140 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🦁 The Lion and the Mouse: Debugger Edition</title>
+    <title>🦊 The Fox and the Crow: Phishing Attack</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Georgia, serif; background: linear-gradient(135deg, #431407 0%, #7c2d12 50%, #92400e 100%); color: #fef3c7; line-height: 1.8; padding: 20px; min-height: 100vh; }
-        .container { max-width: 900px; margin: 0 auto; background: rgba(0,0,0,0.85); border: 4px solid #f59e0b; border-radius: 15px; padding: 40px; box-shadow: 0 0 50px rgba(245,158,11,0.4); }
-        .title { text-align: center; font-size: 3em; font-weight: bold; color: #f59e0b; text-shadow: 0 0 20px #f59e0b; margin-bottom: 10px; }
-        .subtitle { text-align: center; font-size: 1.3em; color: #fbbf24; font-style: italic; margin-bottom: 30px; }
-        .ancient-badge { text-align: center; font-size: 0.9em; color: #92400e; margin-bottom: 30px; padding: 10px; border: 2px dashed #92400e; border-radius: 5px; }
-        .audio-controls { background: rgba(245,158,11,0.1); border: 2px solid #f59e0b; border-radius: 10px; padding: 20px; margin-bottom: 30px; text-align: center; }
-        .audio-controls h3 { color: #f59e0b; margin-bottom: 15px; }
-        .control-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px; }
-        .audio-btn { background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); color: #000; border: none; padding: 12px 24px; border-radius: 25px; font-size: 1em; font-weight: bold; cursor: pointer; }
-        .audio-btn.playing { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-        .speed-control, .voice-control { margin-top: 15px; }
-        .speed-control label, .voice-control label { color: #f59e0b; margin-right: 10px; font-weight: bold; }
-        .speed-control select, .voice-control select { background: rgba(0,0,0,0.5); color: #f59e0b; border: 2px solid #f59e0b; padding: 8px 15px; border-radius: 5px; }
-        .narration-status { margin-top: 15px; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 5px; color: #f59e0b; font-style: italic; }
-        .chapter { margin: 40px 0; padding: 30px; background: rgba(255,255,255,0.03); border-left: 5px solid #f59e0b; border-radius: 5px; }
-        .chapter-title { font-size: 2em; color: #fbbf24; margin-bottom: 20px; }
-        .reading-now { background: rgba(245,158,11,0.3) !important; padding: 5px; border-radius: 3px; }
-        .dialogue { margin: 20px 0; padding: 15px; background: rgba(245,158,11,0.1); border-left: 3px solid #f59e0b; font-style: italic; }
-        .character { font-weight: bold; color: #f59e0b; }
-        .action { color: #fbbf24; font-style: italic; margin: 15px 0; }
-        .code-block { background: #1e1b4b; border: 2px solid #f59e0b; border-radius: 5px; padding: 20px; margin: 20px 0; font-family: 'Courier New', monospace; color: #10b981; overflow-x: auto; }
-        .error-msg { color: #ef4444; font-weight: bold; }
-        .success-msg { color: #10b981; font-weight: bold; }
-        .moral { margin-top: 50px; padding: 30px; background: linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(251,191,36,0.2) 100%); border: 2px solid #f59e0b; border-radius: 10px; font-size: 1.2em; text-align: center; font-style: italic; }
+        body { font-family: Georgia, serif; background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%); color: #f0f9ff; line-height: 1.8; padding: 20px; min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; background: rgba(0,0,0,0.85); border: 4px solid #3b82f6; border-radius: 15px; padding: 40px; }
+        .title { text-align: center; font-size: 3em; color: #3b82f6; margin-bottom: 10px; }
+        .subtitle { text-align: center; font-size: 1.3em; color: #93c5fd; font-style: italic; margin-bottom: 30px; }
+        .chapter { margin: 40px 0; padding: 30px; background: rgba(255,255,255,0.03); border-left: 5px solid #3b82f6; border-radius: 5px; }
+        .chapter-title { font-size: 2em; color: #93c5fd; margin-bottom: 20px; }
+        .dialogue { margin: 20px 0; padding: 15px; background: rgba(59,130,246,0.1); border-left: 3px solid #3b82f6; font-style: italic; }
+        .character { font-weight: bold; color: #3b82f6; }
+        .email-box { background: #1e1b4b; border: 2px solid #ef4444; padding: 20px; margin: 20px 0; font-family: 'Courier New', monospace; }
+        .from-field { color: #ef4444; }
+        .suspicious { color: #fbbf24; text-decoration: underline; cursor: pointer; }
+        .moral { margin-top: 50px; padding: 30px; background: rgba(59,130,246,0.2); border: 2px solid #3b82f6; border-radius: 10px; font-size: 1.2em; text-align: center; font-style: italic; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="title">🦁 THE LION & THE MOUSE 🐭</div>
-        <div class="subtitle">A Debugging Fable</div>
-        <div class="ancient-badge">📜 Adapted from Aesop's Fables (6th century BCE) 📜<br>
-        <em>Now with 100% more stack traces</em></div>
-
-        <div class="audio-controls">
-            <h3>🎧 NARRATION</h3>
-            <div class="control-buttons">
-                <button class="audio-btn" id="playBtn" onclick="startNarration()">▶️ Play</button>
-                <button class="audio-btn" id="pauseBtn" onclick="pauseNarration()">⏸️ Pause</button>
-                <button class="audio-btn" id="stopBtn" onclick="stopNarration()">⏹️ Stop</button>
-            </div>
-            <div class="speed-control">
-                <label for="speedSelect">Speed:</label>
-                <select id="speedSelect" onchange="changeSpeed()">
-                    <option value="1" selected>1x</option>
-                    <option value="1.5">1.5x</option>
-                </select>
-            </div>
-            <div class="voice-control">
-                <label for="voiceSelect">Voice:</label>
-                <select id="voiceSelect"></select>
-            </div>
-            <div class="narration-status" id="narrationStatus">Ready!</div>
+        <div class="title">🦊 THE FOX & THE CROW 🐦</div>
+        <div class="subtitle">A Phishing Fable</div>
+        <div style="text-align: center; margin-bottom: 30px; padding: 10px; border: 2px dashed #3b82f6; border-radius: 5px;">
+            📜 Adapted from Aesop's Fables (6th century BCE) 📜<br>
+            <em>Now with 100% more suspicious links</em>
         </div>
 
-        <div class="chapter" data-narrate="true">
-            <div class="chapter-title">💻 PART ONE: The Senior Developer</div>
-            <p>In a gleaming tech company called PrideTech, there worked a Senior Principal Architect named Leo. Leo was brilliant – his code was legendary, his architecture decisions had saved the company millions, and his GitHub contributions had 10,000 stars.</p>
-            <p>Leo was also insufferable.</p>
-            <div class="dialogue">
-                <span class="character">Leo the Lion</span> (in code review): "This pull request is PATHETIC. Who wrote this garbage?"<br><br>
-                <span class="character">Junior Dev</span>: "...I did, sir."<br><br>
-                <span class="character">Leo</span>: "Of COURSE you did. Look at this – you're using a for loop. A FOR LOOP! We have map functions for a reason!"<br><br>
-                <span class="character">Junior Dev</span>: "But sir, the for loop is more readable here—"<br><br>
-                <span class="character">Leo</span>: "READABILITY? I don't write code for HUMANS! I write it for MACHINES! Rejected. Try again when you understand functional programming."
+        <div class="chapter">
+            <div class="chapter-title">📧 PART ONE: The Email</div>
+            <p>Crowley was a successful security engineer at FinTech Corp. She'd spent years building her reputation, implementing multi-factor authentication, conducting security audits, and earning her CISSP certification.</p>
+            <p>One morning, she received an email that made her heart soar:</p>
+            <div class="email-box">
+                <p><span class="from-field">From:</span> security-awards@definitely-not-fake-awards.org</p>
+                <p><strong>Subject:</strong> 🏆 CONGRATULATIONS! You've Won Security Professional of the Year!</p>
+                <p style="margin-top: 15px;">Dear Crowley,</p>
+                <p>We are THRILLED to inform you that you have been selected as this year's Security Professional of the Year! Your outstanding work in cybersecurity has not gone unnoticed!</p>
+                <p>To claim your award and $50,000 prize, please click here: <span class="suspicious">http://definitely-real-awards.tk/claim-prize</span></p>
+                <p>You must click within 24 hours or the award goes to the runner-up!</p>
+                <p>Congratulations again on this prestigious honor!</p>
             </div>
-            <p>Leo ruled the codebase with an iron fist. Nobody dared question his decisions. Nobody dared suggest alternatives. And nobody, NOBODY, touched his code without explicit permission.</p>
+            <div class="dialogue">
+                <span class="character">Crowley</span> (excitedly): "I WON! I actually WON! Security Professional of the Year!"<br><br>
+                <span class="character">Her Inner Voice</span>: "...wait, didn't you teach a whole class on identifying phishing emails?"<br><br>
+                <span class="character">Crowley</span>: "Yes, but this is DIFFERENT! This is a REAL award! Look how professional the email is!"
+            </div>
         </div>
 
-        <div class="chapter" data-narrate="true">
-            <div class="chapter-title">🐭 PART TWO: The Junior Developer</div>
-            <p>Meanwhile, there was Minnie – a junior developer fresh out of bootcamp. She was nervous, eager to please, and terrified of making mistakes. Especially around Leo.</p>
-            <p>One day, Minnie was assigned to fix a "simple" bug in the user authentication system. She dove into the codebase and found herself in Leo's domain – the core authentication module that Leo had written five years ago.</p>
-            <div class="code-block">
-                <span class="error-msg">ERROR: NullPointerException at line 847</span><br>
-                Stack trace:<br>
-                &nbsp;&nbsp;at AuthService.validateToken(AuthService.java:847)<br>
-                &nbsp;&nbsp;at UserController.login(UserController.java:156)<br>
-                &nbsp;&nbsp;at ... [23 more]
-            </div>
+        <div class="chapter">
+            <div class="chapter-title">🦊 PART TWO: The Fox</div>
+            <p>What Crowley didn't know was that the email came from Felix the Fox, a social engineering expert who specialized in targeting security professionals. He'd researched Crowley for weeks, learning about her achievements, her pride in her work, and her one weakness: vanity.</p>
             <div class="dialogue">
-                <span class="character">Minnie the Mouse</span> (panicking): "Oh no. Oh no no no. This is LEO'S code. I can't touch Leo's code. He'll destroy me."<br><br>
-                <span class="character">Her Manager</span>: "The bug needs to be fixed by end of day."<br><br>
-                <span class="character">Minnie</span>: "Can't someone else do it?"<br><br>
-                <span class="character">Manager</span>: "Leo's on vacation. You're up."<br><br>
-                <span class="character">Minnie</span>: "...I'm going to die."
+                <span class="character">Felix</span> (watching from his laptop): "She's hovering over the link. Come on, Crowley. You've been waiting for recognition your whole career. Just click it..."<br><br>
+                <span class="character">His Partner</span>: "You really think a SECURITY ENGINEER will fall for this?"<br><br>
+                <span class="character">Felix</span>: "Everyone has a weakness. Hers is pride. Watch."
             </div>
-            <p>Minnie spent hours reading Leo's code. It was brilliant but complex – nested ternary operators, clever bit manipulation, function names like 'processStuffV2Final_ACTUALLY_FINAL_this_time'. Every line seemed designed to prove Leo's superiority.</p>
-            <p>But Minnie found the bug. A tiny logic error in line 847. The null check was AFTER the dereference instead of before. A one-line fix.</p>
         </div>
 
-        <div class="chapter" data-narrate="true">
-            <div class="chapter-title">😰 PART THREE: The Decision</div>
-            <p>Minnie stared at her fix. One line. So simple. But this was Leo's code. Sacred code. Untouchable code.</p>
+        <div class="chapter">
+            <div class="chapter-title">💭 PART THREE: The Temptation</div>
+            <p>Crowley's finger hovered over the link. Part of her brain – the trained security part – was screaming warnings:</p>
+            <ul style="margin: 20px 40px; color: #ef4444;">
+                <li>Suspicious domain (.tk is a free domain)</li>
+                <li>Urgency tactics ("24 hours")</li>
+                <li>Unsolicited prize notification</li>
+                <li>Generic greeting (no personalization)</li>
+                <li>Too good to be true</li>
+            </ul>
+            <p>But the other part of her brain – the part that craved recognition – was stronger:</p>
             <div class="dialogue">
-                <span class="character">Minnie</span> (to herself): "If I fix it and he finds out, he'll tear me apart in the next all-hands meeting."<br><br>
-                <span class="character">Production Alert System</span>: "CRITICAL ERROR: 1,000 users cannot log in"<br><br>
-                <span class="character">Minnie</span>: "But if I DON'T fix it, users suffer."
+                <span class="character">Crowley's Ego</span>: "You DESERVE this! You've worked so hard! Everyone will finally see how good you are!"<br><br>
+                <span class="character">Crowley's Training</span>: "This is OBVIOUSLY a phishing attack!"<br><br>
+                <span class="character">Crowley's Ego</span>: "But what if it's REAL and you miss it?! What if they give YOUR award to someone else?!"<br><br>
+                <span class="character">Crowley</span> (to herself): "I'll just... look at the site. Just to see. I won't enter any credentials."
             </div>
-            <p>She took a deep breath, made the fix, wrote comprehensive tests, and submitted the pull request.</p>
-            <div class="code-block">
-                <span class="success-msg">Pull Request #4782: Fix NPE in AuthService</span><br>
-                Author: Minnie M.<br>
-                Changes: 1 file, +1 line, -1 line<br>
-                Description: Moved null check before dereference in validateToken()<br>
-                Tests: ✅ All passing
-            </div>
-            <p>The PR was merged. Production was fixed. Users could log in again. Crisis averted.</p>
-            <p>And then Leo came back from vacation.</p>
+            <p>She clicked the link.</p>
         </div>
 
-        <div class="chapter" data-narrate="true">
-            <div class="chapter-title">😤 PART FOUR: The Roar</div>
-            <p>Leo saw the commit history. Someone had touched HIS code. Someone had CHANGED his precious authentication module.</p>
-            <div class="action">*Leo storms across the office*</div>
+        <div class="chapter">
+            <div class="chapter-title">💀 PART FOUR: The Payload</div>
+            <p>The moment she clicked, several things happened:</p>
+            <ol style="margin: 20px 40px;">
+                <li>A professional-looking awards website loaded</li>
+                <li>A login page requested her "work email to verify identity"</li>
+                <li>In the background, malware silently downloaded</li>
+                <li>Her browser session tokens were captured</li>
+                <li>Her company VPN credentials were compromised</li>
+            </ol>
+            <p>By the time she realized something was wrong, it was too late.</p>
             <div class="dialogue">
-                <span class="character">Leo</span> (furious): "WHO CHANGED MY CODE?!"<br><br>
-                <span class="character">The Office</span>: *dead silence*<br><br>
-                <span class="character">Leo</span>: "I said WHO. CHANGED. MY. CODE?!"<br><br>
-                <span class="character">Minnie</span> (small voice): "...me, sir."<br><br>
-                <span class="character">Leo</span> (turning slowly): "You? A JUNIOR? You touched my authentication module?"<br><br>
-                <span class="character">Minnie</span>: "There was a null pointer exception. Users couldn't log in. I... I fixed it."<br><br>
-                <span class="character">Leo</span>: "You don't FIX my code! My code doesn't HAVE bugs!"
+                <span class="character">Crowley</span> (suddenly panicking): "Wait... this site doesn't have HTTPS... and that certificate warning... oh no. OH NO."
             </div>
-            <p>Leo pulled up the commit. He looked at the change. One line. Moving a null check.</p>
-            <p>It was... correct.</p>
-            <p>He looked at the tests. Comprehensive. Well-written. Better than he would have written.</p>
-            <p>He looked at the production metrics. Zero errors since the fix. Login success rate: 100%.</p>
-            <div class="dialogue">
-                <span class="character">Leo</span> (quieter): "...this is a good fix."<br><br>
-                <span class="character">Minnie</span>: "Thank you, sir."<br><br>
-                <span class="character">Leo</span> (even quieter): "I... I made a mistake. Five years ago. And you found it."<br><br>
-                <span class="character">Minnie</span>: "Everyone makes mistakes, sir. Even senior developers."<br><br>
-                <span class="character">Leo</span>: "...apparently so."
-            </div>
-            <p>Leo walked back to his desk. The office waited for the inevitable explosion. But it never came. Instead, Leo approved the PR retroactively and added a comment: "Good catch. Thanks for the fix."</p>
-            <p>The office collectively exhaled.</p>
+            <p>She immediately disconnected her laptop, but the damage was done. Felix had what he needed.</p>
         </div>
 
-        <div class="chapter" data-narrate="true">
-            <div class="chapter-title">🕸️ PART FIVE: The Production Outage</div>
-            <p>Six months later, disaster struck. The company's main API went down. HARD. Every service was failing. Customers were screaming. The CEO was screaming. The status page was very politely screaming in corporate-speak.</p>
-            <p>The entire engineering team was in the war room, frantically debugging.</p>
-            <div class="code-block">
-                <span class="error-msg">CRITICAL: Database connection pool exhausted</span><br>
-                <span class="error-msg">CRITICAL: Memory leak detected</span><br>
-                <span class="error-msg">CRITICAL: Thread deadlock in core service</span><br>
-                <span class="error-msg">Everything is on fire. Please send help.</span>
-            </div>
+        <div class="chapter">
+            <div class="chapter-title">😱 PART FIVE: The Aftermath</div>
+            <p>Crowley had to report the incident to her own security team. The irony was not lost on anyone.</p>
             <div class="dialogue">
-                <span class="character">CTO</span>: "Leo! What's happening?!"<br><br>
-                <span class="character">Leo</span> (staring at logs): "I don't know! The database is locked. I can't query anything. All my admin tools are timing out!"<br><br>
-                <span class="character">CTO</span>: "Well FIX IT!"<br><br>
-                <span class="character">Leo</span>: "I'm TRYING! But I can't access the database to see what's wrong!"
+                <span class="character">Security Director</span>: "Let me get this straight. You, our SENIOR security engineer, clicked a phishing link?"<br><br>
+                <span class="character">Crowley</span> (mortified): "I... yes."<br><br>
+                <span class="character">Security Director</span>: "You. The person who TEACHES our anti-phishing training. Clicked. A phishing link."<br><br>
+                <span class="character">Crowley</span>: "It looked so legitimate!"<br><br>
+                <span class="character">Security Director</span>: "It was from a .tk domain!"<br><br>
+                <span class="character">Crowley</span>: "I know! I KNOW! I just... I wanted it to be real so badly..."
             </div>
-            <p>Hours passed. The outage continued. Leo was stuck – his fancy architecture, his elegant solutions, his powerful tools – none of them could help if he couldn't access the database.</p>
-            <p>That's when Minnie spoke up.</p>
+            <p>The company had to reset all credentials, rebuild several systems, and notify clients of a potential breach. The cost: $250,000 and Crowley's reputation.</p>
         </div>
 
-        <div class="chapter" data-narrate="true">
-            <div class="chapter-title">💡 PART SIX: The Small Solution</div>
+        <div class="chapter">
+            <div class="chapter-title">📚 PART SIX: The Lesson</div>
+            <p>A month later, Crowley gave a presentation at a security conference. Not about her successes, but about her failure.</p>
             <div class="dialogue">
-                <span class="character">Minnie</span> (hesitant): "Um... Leo?"<br><br>
-                <span class="character">Leo</span> (stressed): "Not now, Minnie!"<br><br>
-                <span class="character">Minnie</span>: "But I think I can help?"<br><br>
-                <span class="character">Leo</span>: "How could YOU possibly help with a PRODUCTION DATABASE CRISIS?!"<br><br>
-                <span class="character">Minnie</span>: "...I have a read-only SQL script. It's tiny. Only queries the lock table. I use it to check for deadlocks during local development."<br><br>
-                <span class="character">Leo</span>: "A read-only script?"<br><br>
-                <span class="character">Minnie</span>: "Yeah. It doesn't need write permissions. Just reads the pg_locks table. I could run it on the production read replica?"
+                <span class="character">Crowley</span> (on stage): "I clicked a phishing link. Me. A security professional with ten years of experience. And you know why? Because I wanted to believe I was special. That I'd won an award. That I was being recognized."<br><br>
+                <span class="character">Audience</span>: *uncomfortable silence*<br><br>
+                <span class="character">Crowley</span>: "Social engineering works because it exploits human emotions. Pride. Fear. Greed. Urgency. And NOBODY is immune. Not even security experts who should know better."
             </div>
-            <p>Leo stared at her. His elaborate monitoring dashboards were down. His powerful admin tools were locked out. But Minnie's tiny, simple SQL script...</p>
-            <div class="dialogue">
-                <span class="character">Leo</span>: "...do it."
-            </div>
-            <p>Minnie ran her script.</p>
-            <div class="code-block">
-                <span class="success-msg">Query Results:</span><br>
-                Lock Type: EXCLUSIVE<br>
-                Process ID: 47382<br>
-                Wait Duration: 02:47:33<br>
-                Query: ALTER TABLE users ADD COLUMN legacy_data TEXT;<br>
-                Status: STUCK
-            </div>
-            <div class="dialogue">
-                <span class="character">Minnie</span>: "Found it. There's a stuck ALTER TABLE command from process 47382. It's been holding an exclusive lock for almost three hours."<br><br>
-                <span class="character">Leo</span>: "Can you kill it?"<br><br>
-                <span class="character">Minnie</span>: "...I don't have kill permissions."<br><br>
-                <span class="character">Leo</span>: "But I do. Give me the process ID."
-            </div>
-            <p>Leo killed the stuck process. Instantly, the database unlocked. Queries flowed. Services recovered. The outage was over.</p>
-            <p>The war room erupted in cheers.</p>
-        </div>
-
-        <div class="chapter" data-narrate="true">
-            <div class="chapter-title">🤝 PART SEVEN: The Lesson</div>
-            <p>After the crisis, Leo found Minnie in the break room.</p>
-            <div class="dialogue">
-                <span class="character">Leo</span>: "Minnie. I... I need to say something."<br><br>
-                <span class="character">Minnie</span>: "Sir?"<br><br>
-                <span class="character">Leo</span>: "Six months ago, you fixed my bug. A tiny bug I'd missed for five years. Today, you solved a crisis with a simple script. Both times, I couldn't have done it without you."<br><br>
-                <span class="character">Minnie</span>: "Oh, I'm sure you would have figured it out—"<br><br>
-                <span class="character">Leo</span>: "No. I wouldn't have. My tools were too complex. My solutions were too elaborate. But your simple script saved us because it was SIMPLE."<br><br>
-                <span class="character">Minnie</span>: "I just... I just used what I had."<br><br>
-                <span class="character">Leo</span>: "And that's the lesson. I've spent my career building complex systems and looking down on simple solutions. But you taught me that small tools, simple code, and junior developers... you're just as important as senior architects. Maybe MORE important."
-            </div>
-            <p>Leo extended his hand.</p>
-            <div class="dialogue">
-                <span class="character">Leo</span>: "Thank you, Minnie. For the bug fix. For today. And for reminding me that we all need each other."<br><br>
-                <span class="character">Minnie</span> (shaking his hand): "Thank you for listening, sir."<br><br>
-                <span class="character">Leo</span>: "And please, call me Leo. No more 'sir.'"
-            </div>
-            <p>From that day forward, Leo was different. He still wrote brilliant code, but he reviewed PRs with kindness. He mentored juniors instead of belittling them. And he kept Minnie's simple debugging script in his toolbox, right next to his fancy monitoring dashboards.</p>
-            <p>Because he learned that in software engineering, as in life, even the smallest contribution can save the day.</p>
+            <p>She continued: "The fox in Aesop's fable convinced the crow to sing by flattering her. The crow opened her mouth, dropped the cheese, and the fox ran off with it. That's EXACTLY what happened to me. I opened my 'mouth' by clicking that link, and the attacker got what he wanted."</p>
+            <p>"But here's what I learned: Admitting you're vulnerable is the first step to actually being secure. No one is too smart, too experienced, or too careful to fall for social engineering. We're all human. And humans make mistakes."</p>
+            <p>"The real security isn't in being perfect. It's in having systems that catch you when you fail. Multi-factor authentication. Network segmentation. Zero-trust architecture. Because we WILL fail. The question is: will our systems fail with us?"</p>
         </div>
 
         <div class="moral">
-            <p><strong>🦁 THE MORAL 🐭</strong></p>
-            <p>No act of kindness, no matter how small, is ever wasted. And no bug fix, no matter how simple, should be dismissed.</p>
-            <p><em>Also: Senior developers aren't always right.<br>
-            Junior developers aren't always wrong.<br>
-            Simple solutions beat complex ones.<br>
-            And everyone, from the Lion to the Mouse, has something valuable to contribute.</em></p>
-            <p><strong>💻 "The best debugging tool is humility, and the best codebase is one where everyone can help." 💻</strong></p>
+            <p><strong>🦊 THE MORAL 🐦</strong></p>
+            <p>Flattery is bait. Pride is the hook. And even security professionals can be phished.</p>
+            <p><em>Also: Check domains before clicking.<br>
+            Enable MFA everywhere.<br>
+            Be suspicious of unsolicited praise.<br>
+            And remember: if it sounds too good to be true, it's probably a .tk domain.</em></p>
+            <p><strong>🔒 "The best defense is assuming everyone is trying to scam you. Including the people congratulating you." 🔒</strong></p>
         </div>
 
-        <div style="text-align: center; margin-top: 40px; color: #92400e;">
+        <div style="text-align: center; margin-top: 40px; color: #666;">
             <p>📜 A Tech Fable from the AI Comedy Lounge 📜</p>
-            <p><em>"Ancient wisdom, modern bugs"</em></p>
+            <p><em>"Ancient wisdom, modern phishing"</em></p>
         </div>
     </div>
-
-    <script>
-        let currentUtterance=null,isPaused=!1,allText=[],currentIndex=0,allElements=[];
-        function populateVoices(){const e=speechSynthesis.getVoices(),t=document.getElementById("voiceSelect");t.innerHTML="",e.forEach((e,n)=>{const a=document.createElement("option");a.value=n,a.textContent=`${e.name} (${e.lang})`,e.default&&(a.selected=!0),t.appendChild(a)})}
-        function extractTextContent(){allText=[],allElements=[];document.querySelectorAll("[data-narrate=true]").forEach(e=>{const t=document.createTreeWalker(e,NodeFilter.SHOW_TEXT,{acceptNode:function(e){const t=e.parentElement;return"SCRIPT"===t.tagName||"STYLE"===t.tagName?NodeFilter.FILTER_REJECT:e.textContent.trim().length>0?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});let n;for(;n=t.nextNode();){const e=n.textContent.trim();e&&(allText.push(e),allElements.push(n.parentElement))}})}
-        function highlightElement(e){document.querySelectorAll(".reading-now").forEach(e=>e.classList.remove("reading-now")),e&&(e.classList.add("reading-now"),e.scrollIntoView({behavior:"smooth",block:"center"}))}
-        function updateStatus(e){document.getElementById("narrationStatus").textContent=e}
-        function changeSpeed(){const e=document.getElementById("speedSelect").value;currentUtterance&&(currentUtterance.rate=parseFloat(e))}
-        function startNarration(){if(isPaused)return speechSynthesis.resume(),isPaused=!1,document.getElementById("playBtn").classList.add("playing"),void updateStatus("🎙️ Reading...");speechSynthesis.cancel(),extractTextContent(),currentIndex=0,document.getElementById("playBtn").classList.add("playing"),readNext()}
-        function readNext(){if(currentIndex>=allText.length)return stopNarration(),void updateStatus("✅ Complete!");const e=allText[currentIndex],t=allElements[currentIndex];currentUtterance=new SpeechSynthesisUtterance(e);const n=speechSynthesis.getVoices(),a=document.getElementById("voiceSelect").value;a&&n[a]&&(currentUtterance.voice=n[a]),currentUtterance.rate=parseFloat(document.getElementById("speedSelect").value),currentUtterance.pitch=1,currentUtterance.volume=1,highlightElement(t),updateStatus(`🎙️ Reading: "${e.substring(0,50)}..."`),currentUtterance.onend=function(){currentIndex++,readNext()},currentUtterance.onerror=function(){currentIndex++,readNext()},speechSynthesis.speak(currentUtterance)}
-        function pauseNarration(){speechSynthesis.speaking&&!isPaused&&(speechSynthesis.pause(),isPaused=!0,document.getElementById("playBtn").classList.remove("playing"),updateStatus("⏸️ Paused"))}
-        function stopNarration(){speechSynthesis.cancel(),isPaused=!1,currentIndex=0,document.getElementById("playBtn").classList.remove("playing"),document.querySelectorAll(".reading-now").forEach(e=>e.classList.remove("reading-now")),updateStatus("⏹️ Stopped")}
-        speechSynthesis.onvoiceschanged=populateVoices,populateVoices(),window.addEventListener("beforeunload",function(){speechSynthesis.cancel()});
-    </script>
 </body>
 </html>
