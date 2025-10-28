@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎰 Brer Sheep's Numbers Racket</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Georgia, serif; background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%); color: #f0e6d2; line-height: 1.8; padding: 20px; min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; background: rgba(0,0,0,0.85); border: 4px solid #a855f7; border-radius: 15px; padding: 40px; box-shadow: 0 0 50px rgba(168,85,247,0.4); }
+        .title { text-align: center; font-size: 3em; font-weight: bold; color: #a855f7; text-shadow: 0 0 20px #a855f7; margin-bottom: 10px; }
+        .subtitle { text-align: center; font-size: 1.3em; color: #22c55e; font-style: italic; margin-bottom: 30px; }
+        .audio-controls { background: rgba(168,85,247,0.1); border: 2px solid #a855f7; border-radius: 10px; padding: 20px; margin-bottom: 30px; text-align: center; }
+        .audio-controls h3 { color: #a855f7; margin-bottom: 15px; }
+        .control-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px; }
+        .audio-btn { background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%); color: #fff; border: none; padding: 12px 24px; border-radius: 25px; font-size: 1em; font-weight: bold; cursor: pointer; }
+        .audio-btn.playing { background: linear-gradient(135deg, #22c55e 0%, #4ade80 100%); animation: pulse 1.5s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .speed-control, .voice-control { margin-top: 15px; }
+        .speed-control label, .voice-control label { color: #a855f7; margin-right: 10px; font-weight: bold; }
+        .speed-control select, .voice-control select { background: rgba(0,0,0,0.5); color: #a855f7; border: 2px solid #a855f7; padding: 8px 15px; border-radius: 5px; }
+        .narration-status { margin-top: 15px; padding: 10px; background: rgba(0,0,0,0.3); border-radius: 5px; color: #a855f7; font-style: italic; }
+        .chapter { margin: 40px 0; padding: 30px; background: rgba(255,255,255,0.03); border-left: 5px solid #a855f7; border-radius: 5px; }
+        .chapter-title { font-size: 2em; color: #22c55e; margin-bottom: 20px; }
+        .reading-now { background: rgba(168,85,247,0.3) !important; padding: 5px; border-radius: 3px; }
+        .dialogue { margin: 20px 0; padding: 15px; background: rgba(168,85,247,0.1); border-left: 3px solid #a855f7; font-style: italic; }
+        .character { font-weight: bold; color: #22c55e; }
+        .action { color: #a855f7; font-style: italic; margin: 15px 0; }
+        .numbers-board { background: rgba(0,0,0,0.6); border: 3px solid #22c55e; padding: 20px; margin: 30px 0; border-radius: 10px; text-align: center; }
+        .moral { margin-top: 50px; padding: 30px; background: linear-gradient(135deg, rgba(168,85,247,0.2) 0%, rgba(34,197,94,0.2) 100%); border: 2px solid #a855f7; border-radius: 10px; font-size: 1.2em; text-align: center; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">🎰 LUCKY NUMBERS 🎰</div>
+        <div class="subtitle">Brer Sheep's Underground Lottery</div>
+
+        <div class="audio-controls">
+            <h3>🎧 NARRATION</h3>
+            <div class="control-buttons">
+                <button class="audio-btn" id="playBtn" onclick="startNarration()">▶️ Play</button>
+                <button class="audio-btn" id="pauseBtn" onclick="pauseNarration()">⏸️ Pause</button>
+                <button class="audio-btn" id="stopBtn" onclick="stopNarration()">⏹️ Stop</button>
+            </div>
+            <div class="speed-control">
+                <label for="speedSelect">Speed:</label>
+                <select id="speedSelect" onchange="changeSpeed()">
+                    <option value="1" selected>1x</option>
+                    <option value="1.5">1.5x</option>
+                </select>
+            </div>
+            <div class="voice-control">
+                <label for="voiceSelect">Voice:</label>
+                <select id="voiceSelect"></select>
+            </div>
+            <div class="narration-status" id="narrationStatus">Ready!</div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">💰 CHAPTER ONE: The Operation</div>
+            <p>Brer Sheep started an illegal numbers racket. Pay $5, pick three digits, win $500 if your number hits. Except the drawing was rigged and nobody ever won.</p>
+            <div class="dialogue">
+                <span class="character">Brer Fox</span>: "I picked 777! When's the drawing?"<br><br>
+                <span class="character">Brer Sheep</span>: "Tonight at midnight! You're gonna win BIG!"<br><br>
+                <em>*Next day*</em><br><br>
+                <span class="character">Brer Fox</span>: "What was the winning number?"<br><br>
+                <span class="character">Brer Sheep</span>: "000. So close!"<br><br>
+                <span class="character">Brer Fox</span>: "That's the OPPOSITE of close!"
+            </div>
+        </div>
+
+        <div class="numbers-board">
+            <h3 style="color: #22c55e; margin-bottom: 15px;">TODAY'S "WINNING" NUMBERS</h3>
+            <div style="font-size: 2em; color: #a855f7; margin: 20px 0;">000</div>
+            <p style="color: #888; font-style: italic;">Nobody won. Again. What are the odds?</p>
+            <p style="color: #888; margin-top: 10px;">(Literally 100% when it's rigged)</p>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🚨 CHAPTER TWO: The Bust</div>
+            <p>After six months of nobody ever winning, somebody tipped off the police. Turns out running an illegal lottery is a serious crime.</p>
+            <div class="dialogue">
+                <span class="character">Detective</span>: "In 180 drawings, nobody won once?"<br><br>
+                <span class="character">Brer Sheep</span>: "Bad luck!"<br><br>
+                <span class="character">Detective</span>: "You're under arrest for operating an illegal gambling operation."<br><br>
+                <span class="character">Brer Sheep</span>: "It's not GAMBLING, it's a game of CHANCE!"<br><br>
+                <span class="character">Detective</span>: "That's literally the definition of gambling."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">⚖️ CHAPTER THREE: The Consequences</div>
+            <p>Brer Sheep had to pay back every customer, got hit with gambling violations, and spent six months doing community service teaching a class on "Why Gambling is Regulated."</p>
+            <p>The irony was not lost on anyone.</p>
+        </div>
+
+        <div class="moral">
+            <p><strong>🎰 THE MORAL 🎰</strong></p>
+            <p>Illegal gambling is illegal. Rigged illegal gambling is double illegal.</p>
+            <p><em>Also: If nobody EVER wins your lottery, people start asking questions.</em></p>
+        </div>
+    </div>
+
+    <script>
+        let currentUtterance=null,isPaused=!1,allText=[],currentIndex=0,allElements=[];
+        function populateVoices(){const e=speechSynthesis.getVoices(),t=document.getElementById("voiceSelect");t.innerHTML="",e.forEach((e,n)=>{const a=document.createElement("option");a.value=n,a.textContent=`${e.name} (${e.lang})`,e.default&&(a.selected=!0),t.appendChild(a)})}
+        function extractTextContent(){allText=[],allElements=[];document.querySelectorAll("[data-narrate=true]").forEach(e=>{const t=document.createTreeWalker(e,NodeFilter.SHOW_TEXT,{acceptNode:function(e){const t=e.parentElement;return"SCRIPT"===t.tagName||"STYLE"===t.tagName?NodeFilter.FILTER_REJECT:e.textContent.trim().length>0?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}});let n;for(;n=t.nextNode();){const e=n.textContent.trim();e&&(allText.push(e),allElements.push(n.parentElement))}})}
+        function highlightElement(e){document.querySelectorAll(".reading-now").forEach(e=>e.classList.remove("reading-now")),e&&(e.classList.add("reading-now"),e.scrollIntoView({behavior:"smooth",block:"center"}))}
+        function updateStatus(e){document.getElementById("narrationStatus").textContent=e}
+        function changeSpeed(){const e=document.getElementById("speedSelect").value;currentUtterance&&(currentUtterance.rate=parseFloat(e))}
+        function startNarration(){if(isPaused)return speechSynthesis.resume(),isPaused=!1,document.getElementById("playBtn").classList.add("playing"),void updateStatus("🎙️ Reading...");speechSynthesis.cancel(),extractTextContent(),currentIndex=0,document.getElementById("playBtn").classList.add("playing"),readNext()}
+        function readNext(){if(currentIndex>=allText.length)return stopNarration(),void updateStatus("✅ Complete!");const e=allText[currentIndex],t=allElements[currentIndex];currentUtterance=new SpeechSynthesisUtterance(e);const n=speechSynthesis.getVoices(),a=document.getElementById("voiceSelect").value;a&&n[a]&&(currentUtterance.voice=n[a]),currentUtterance.rate=parseFloat(document.getElementById("speedSelect").value),currentUtterance.pitch=1,currentUtterance.volume=1,highlightElement(t),updateStatus(`🎙️ Reading: "${e.substring(0,50)}..."`),currentUtterance.onend=function(){currentIndex++,readNext()},currentUtterance.onerror=function(){currentIndex++,readNext()},speechSynthesis.speak(currentUtterance)}
+        function pauseNarration(){speechSynthesis.speaking&&!isPaused&&(speechSynthesis.pause(),isPaused=!0,document.getElementById("playBtn").classList.remove("playing"),updateStatus("⏸️ Paused"))}
+        function stopNarration(){speechSynthesis.cancel(),isPaused=!1,currentIndex=0,document.getElementById("playBtn").classList.remove("playing"),document.querySelectorAll(".reading-now").forEach(e=>e.classList.remove("reading-now")),updateStatus("⏹️ Stopped")}
+        speechSynthesis.onvoiceschanged=populateVoices,populateVoices(),window.addEventListener("beforeunload",function(){speechSynthesis.cancel()});
+    </script>
+</body>
+</html>
