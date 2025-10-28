@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚖️ Brer Sheep's Redemption - The Final Chapter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 50%, #581c87 100%);
+            color: #f0e6d2;
+            line-height: 1.8;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .redemption-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.85);
+            border: 4px solid #8b5cf6;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(139, 92, 246, 0.4);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: #8b5cf6;
+            text-shadow: 0 0 20px #8b5cf6;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.4em;
+            color: #a78bfa;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        /* AUDIO CONTROLS */
+        .audio-controls {
+            background: rgba(139, 92, 246, 0.1);
+            border: 2px solid #8b5cf6;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .audio-controls h3 {
+            color: #8b5cf6;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .audio-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+        }
+
+        .audio-btn.playing {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .speed-control, .voice-control {
+            margin-top: 15px;
+        }
+
+        .speed-control label, .voice-control label {
+            color: #8b5cf6;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .speed-control select, .voice-control select {
+            background: rgba(0, 0, 0, 0.5);
+            color: #8b5cf6;
+            border: 2px solid #8b5cf6;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .narration-status {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            color: #8b5cf6;
+            font-style: italic;
+        }
+
+        .chapter {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 5px solid #8b5cf6;
+            border-radius: 5px;
+        }
+
+        .chapter-title {
+            font-size: 2em;
+            color: #a78bfa;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+        }
+
+        .reading-now {
+            background: rgba(139, 92, 246, 0.3) !important;
+            padding: 5px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        .dialogue {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(139, 92, 246, 0.1);
+            border-left: 3px solid #8b5cf6;
+            font-style: italic;
+        }
+
+        .character {
+            font-weight: bold;
+            color: #a78bfa;
+        }
+
+        .female-character {
+            font-weight: bold;
+            color: #f472b6;
+        }
+
+        .action {
+            color: #10b981;
+            font-style: italic;
+            margin: 15px 0;
+        }
+
+        .court-scene {
+            background: rgba(0, 0, 0, 0.7);
+            border: 4px solid #dc2626;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .sentence {
+            background: rgba(220, 38, 38, 0.2);
+            border: 3px solid #dc2626;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #dc2626;
+            font-family: 'Courier New', monospace;
+        }
+
+        .intercessor-moment {
+            background: rgba(244, 114, 182, 0.1);
+            border: 3px solid #f472b6;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        .rehab-center {
+            background: rgba(16, 185, 129, 0.1);
+            border: 3px solid #10b981;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        .flock-member {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(139, 92, 246, 0.1);
+            border-left: 4px solid #f472b6;
+            border-radius: 5px;
+        }
+
+        .moral {
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(244, 114, 182, 0.2) 100%);
+            border: 2px solid #8b5cf6;
+            border-radius: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .hopeful {
+            color: #10b981;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="redemption-container">
+        <div class="title">⚖️ REDEMPTION ⚖️</div>
+        <div class="subtitle">The Final Chapter: Brer Sheep Faces Justice (And Finds Mercy)</div>
+
+        <!-- AUDIO NARRATION CONTROLS -->
+        <div class="audio-controls">
+            <h3>🎧 AUDIO NARRATION</h3>
+            <div class="control-buttons">
+                <button class="audio-btn" id="playBtn" onclick="startNarration()">▶️ Play Story</button>
+                <button class="audio-btn" id="pauseBtn" onclick="pauseNarration()">⏸️ Pause</button>
+                <button class="audio-btn" id="stopBtn" onclick="stopNarration()">⏹️ Stop</button>
+            </div>
+            <div class="speed-control">
+                <label for="speedSelect">🎚️ Speed:</label>
+                <select id="speedSelect" onchange="changeSpeed()">
+                    <option value="0.75">0.75x (Slow)</option>
+                    <option value="1" selected>1x (Normal)</option>
+                    <option value="1.25">1.25x (Fast)</option>
+                    <option value="1.5">1.5x (Faster)</option>
+                    <option value="2">2x (Rapid)</option>
+                </select>
+            </div>
+            <div class="voice-control">
+                <label for="voiceSelect">🗣️ Voice:</label>
+                <select id="voiceSelect"></select>
+            </div>
+            <div class="narration-status" id="narrationStatus">
+                Ready to read aloud! Press Play to start.
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">⚖️ CHAPTER ONE: The Reckoning</div>
+            
+            <p>Now folks, after eight separate criminal enterprises, the law finally caught up with Brer Sheep. Not just one Badger from one agency – ALL the Badgers. IRS Agent Badger, Sheriff Badger, FBI Agent Badger, Health Inspector Badger, and even Customs Agent Badger (nobody knew what he was doing there, but he showed up anyway).</p>
+
+            <p>They'd compared notes. They'd built a case. And they were DONE with Brer Sheep's nonsense.</p>
+
+            <div class="dialogue">
+                <span class="character">IRS Agent Badger</span>: "Tax evasion."<br><br>
+                <span class="character">Sheriff Badger</span>: "Livestock theft."<br><br>
+                <span class="character">FBI Agent Badger</span>: "Copyright infringement and illegal gambling."<br><br>
+                <span class="character">Health Inspector Badger</span>: "Unlicensed pharmacy."<br><br>
+                <span class="character">Customs Agent Badger</span>: "...I'm just here for moral support."<br><br>
+                <span class="character">All Badgers</span>: "ENOUGH IS ENOUGH!"
+            </div>
+
+            <p>Brer Sheep was arrested, processed, and brought before Judge Owl – the toughest judge in three counties. Judge Owl had seen a LOT of cases in her forty years on the bench, but Brer Sheep's rap sheet was something special.</p>
+
+            <div class="action">*Judge Owl adjusts her glasses and looks at a file the size of a phone book*</div>
+        </div>
+
+        <div class="court-scene">
+            <h3 style="color: #dc2626; margin-bottom: 20px;">🏛️ THE TRIAL OF THE CENTURY 🏛️</h3>
+            <div style="color: #f0e6d2; margin: 15px 0; text-align: left; padding: 0 40px;">
+                <p><strong>CHARGES:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>8 counts of operating illegal businesses</li>
+                    <li>Tax evasion (with intent)</li>
+                    <li>30 counts of grand theft auto (tractor edition)</li>
+                    <li>200 counts of copyright infringement</li>
+                    <li>Fraud (multiple varieties)</li>
+                    <li>Illegal gambling operations</li>
+                    <li>Selling unregulated pharmaceuticals</li>
+                    <li>Running a chop shop</li>
+                    <li>And one count of "making the Badger family work overtime"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">👥 CHAPTER TWO: The Jury</div>
+
+            <p>The jury was assembled – a mix of animals from all over Briar County. And for the first time in these stories, we actually got to meet some of the FEMALE animals in the community!</p>
+
+            <p>The jury consisted of:</p>
+
+            <div style="margin: 20px 0; padding: 20px; background: rgba(139, 92, 246, 0.1); border-radius: 10px;">
+                <p><strong>👨 Ram Raymond</strong> - A sensible ram who'd never broken a law in his life</p>
+                <p><strong>👩 Miss Henrietta Hen</strong> - A no-nonsense chicken farmer who believed in accountability</p>
+                <p><strong>👨 Brer Turtle</strong> - Still moving slowly, but his judgment was sound</p>
+                <p><strong>👩 Sister Doe</strong> - A deer with a law degree and strong opinions about justice</p>
+                <p><strong>👨 Mr. Crow</strong> - Still jittery from all that BRAIN FLEECE™, but lucid enough to serve</p>
+                <p><strong>👩 Mama Bear</strong> - Brer Bear's mother, who was NOT pleased about the ring toss incident</p>
+                <p><strong>👨 Brer Rabbit</strong> - Who'd warned Brer Sheep about EVERY SINGLE SCHEME</p>
+                <p><strong>👩 Miss Opossum</strong> - Brer Possum's sister, a paralegal with a keen eye for detail</p>
+                <p><strong>👨 Old Man Tortoise</strong> - Wise, patient, and unimpressed by Brer Sheep's excuses</p>
+                <p><strong>👩 Reverend Robin</strong> - A bird of the cloth who believed in redemption but also consequences</p>
+                <p><strong>👨 Brer Fox</strong> - Who'd been scammed by at least three of Brer Sheep's schemes</p>
+                <p><strong>👩 Ms. Squirrel</strong> - A businesswoman who ran a LEGITIMATE nut distribution company</p>
+            </div>
+
+            <p>The trial lasted three days. The evidence was overwhelming. The testimonies were damning. Brer Sheep's defense lawyer (Mr. Legal-Eagle the Badger, who was really phoning it in at this point) had nothing to work with.</p>
+
+            <div class="dialogue">
+                <span class="character">Mr. Legal-Eagle</span>: "Your Honor, my client is... uh... very sorry?"<br><br>
+                <span class="female-character">Judge Owl</span>: "Is that your entire defense?"<br><br>
+                <span class="character">Mr. Legal-Eagle</span>: "He's also... fluffy?"<br><br>
+                <span class="female-character">Judge Owl</span>: "Counselor, please."<br><br>
+                <span class="character">Mr. Legal-Eagle</span>: "I got nothing, Your Honor. This sheep is guilty as sin."<br><br>
+                <span class="character">Brer Sheep</span>: "HEY! You're supposed to be on MY side!"<br><br>
+                <span class="character">Mr. Legal-Eagle</span>: "I'm supposed to DEFEND you, not perform MIRACLES!"
+            </div>
+
+            <p>The jury deliberated for exactly twelve minutes.</p>
+
+            <div class="action">*Jury foreman Miss Henrietta Hen stands up*</div>
+
+            <div class="dialogue">
+                <span class="female-character">Miss Henrietta Hen</span>: "Your Honor, we the jury find the defendant GUILTY on all counts."<br><br>
+                <span class="female-character">Judge Owl</span>: "That was fast."<br><br>
+                <span class="female-character">Miss Henrietta Hen</span>: "He wrote his crimes on a WHITEBOARD, Your Honor. We spent ten minutes on lunch and two minutes voting."
+            </div>
+        </div>
+
+        <div class="sentence">
+            ⚖️ THE SENTENCE ⚖️<br><br>
+            10 YEARS HARD LABOR<br>
+            COUNTY ROCK PILE<br>
+            NO PAROLE<br><br>
+            <em style="font-size: 0.8em; color: #888;">Court is adjourned.</em>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🪨 CHAPTER THREE: The Rock Pile</div>
+
+            <p>The county rock pile was exactly what it sounded like – a pile of rocks that needed to be broken into smaller rocks, for reasons nobody could quite explain. It was hot, dusty, backbreaking work. And Brer Sheep was NOT built for it.</p>
+
+            <div class="action">*Day One on the rock pile*</div>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span> (swinging hammer): "I can't DO this! I'm a sheep! I'm made for grazing and... and... existing softly!"<br><br>
+                <span class="character">Guard Boar</span>: "Should've thought about that before the eight crime sprees."<br><br>
+                <span class="character">Brer Sheep</span>: "Can't I just... pay a fine?"<br><br>
+                <span class="character">Guard Boar</span>: "You already owe $200,000 in fines. Keep swinging."
+            </div>
+
+            <p>Days turned into weeks. Brer Sheep's wool got matted with rock dust. His hooves hurt. He was exhausted. But worst of all, he had TIME to think about everything he'd done.</p>
+
+            <p>All the people he'd scammed. All the laws he'd broken. All the times Brer Rabbit had warned him and he'd ignored it. All the chances he'd had to just... be a normal sheep.</p>
+
+            <p>For the first time in his life, Brer Sheep felt genuine regret.</p>
+
+            <div class="action">*Week Three on the rock pile*</div>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span> (to himself): "What am I doing? What have I BEEN doing? I've wasted years on scams and schemes and... for what? I'm breaking rocks in the sun and I deserve it."
+            </div>
+
+            <p>That's when she appeared.</p>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">👩 CHAPTER FOUR: The Intercessor</div>
+
+            <p>Her name was Sister Ewe, and she ran the Woolly Meadows Rehabilitation Center – a place for animals who'd made bad choices and wanted to make better ones. She'd heard about Brer Sheep's case and something about it touched her heart.</p>
+
+            <p>Maybe it was because she'd made her own mistakes when she was younger. Maybe it was because she believed everyone deserved a second chance. Or maybe it was because she saw something in Brer Sheep that even he didn't see anymore – potential for real change.</p>
+
+            <div class="action">*Sister Ewe visits the rock pile*</div>
+
+            <div class="dialogue">
+                <span class="female-character">Sister Ewe</span>: "Brer Sheep?"<br><br>
+                <span class="character">Brer Sheep</span> (not looking up): "If you're here to tell me I'm a failure, take a number."<br><br>
+                <span class="female-character">Sister Ewe</span>: "I'm here to offer you a choice."<br><br>
+                <span class="character">Brer Sheep</span> (finally looking up): "What kind of choice?"<br><br>
+                <span class="female-character">Sister Ewe</span>: "Ten years here, breaking rocks. Or eighteen months at Woolly Meadows, working on yourself."
+            </div>
+
+            <p>Sister Ewe explained her program – intensive rehabilitation, group therapy, community service, and most importantly, actually facing what he'd done and why he'd done it. It wasn't easy. It wasn't a shortcut. But it was a path to becoming a better sheep.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span>: "Why would you help me? I'm a criminal. A scammer. A... a bad sheep."<br><br>
+                <span class="female-character">Sister Ewe</span>: "Because I used to be a bad ewe. Twenty years ago, I ran a pyramid scheme that bankrupted half of Willow County. I did my time. I got help. And now I help others."<br><br>
+                <span class="character">Brer Sheep</span>: "You? But you're so... together."<br><br>
+                <span class="female-character">Sister Ewe</span>: "I BECAME together. That's the point. You can too. But you have to choose it."
+            </div>
+
+            <p>Brer Sheep thought about it. Ten years of rocks, or eighteen months of looking at himself in the mirror and dealing with his issues. Somehow, the rocks seemed easier.</p>
+
+            <p>But easier wasn't better.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span>: "...okay. I'll try. I don't know if I CAN change, but... I'll try."<br><br>
+                <span class="female-character">Sister Ewe</span>: "That's all I'm asking."
+            </div>
+        </div>
+
+        <div class="intercessor-moment">
+            <h3 style="color: #f472b6; text-align: center; margin-bottom: 20px;">💝 THE APPEAL 💝</h3>
+            <p>Sister Ewe went to Judge Owl with a proposal – transfer Brer Sheep to Woolly Meadows under strict supervision. If he completed the program successfully, his sentence would be reduced to time served plus probation. If he failed or ran, he'd serve the full ten years.</p>
+            <p>Judge Owl was skeptical. But Sister Ewe's program had a 73% success rate. And Judge Owl believed in rehabilitation, even for fluffy criminals.</p>
+            <div style="text-align: center; margin-top: 20px; color: #f472b6; font-style: italic;">
+                "Permission granted. But Brer Sheep, this is your LAST chance. Don't waste it."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🏥 CHAPTER FIVE: Woolly Meadows</div>
+
+            <p>Woolly Meadows Rehabilitation Center was located in the hills outside Briar County. It was peaceful, green, and full of animals working on being better versions of themselves.</p>
+
+            <p>For the first time in these stories, Brer Sheep was surrounded by a mixed flock – rams, ewes, and sheep of all kinds who'd made mistakes and were trying to move forward.</p>
+
+            <div class="rehab-center">
+                <h3 style="color: #10b981; text-align: center; margin-bottom: 20px;">🐑 THE FLOCK AT WOOLLY MEADOWS 🐑</h3>
+                
+                <div class="flock-member">
+                    <p><strong style="color: #f472b6;">🐑 Sister Ewe</strong> - Program director. Former pyramid scheme operator turned rehabilitation specialist. Tough but fair.</p>
+                </div>
+
+                <div class="flock-member">
+                    <p><strong style="color: #f472b6;">🐑 Dolly the Ewe</strong> - Recovering gambling addict. She'd lost three farms on bad bets and rebuilt her life from scratch. Now 5 years sober from casinos.</p>
+                </div>
+
+                <div class="flock-member">
+                    <p><strong style="color: #a78bfa;">🐏 Ram Marcus</strong> - Former gang member who'd turned his life around. Now a counselor helping others escape the cycle.</p>
+                </div>
+
+                <div class="flock-member">
+                    <p><strong style="color: #f472b6;">🐑 Miss Lambchop</strong> - Yes, really. She'd been a con artist specializing in romance scams. Now taught classes on building healthy relationships.</p>
+                </div>
+
+                <div class="flock-member">
+                    <p><strong style="color: #a78bfa;">🐏 Big Woolie</strong> - Former enforcer for organized crime. Served 8 years, got out, and dedicated himself to making amends.</p>
+                </div>
+
+                <div class="flock-member">
+                    <p><strong style="color: #f472b6;">🐑 Mama Merino</strong> - The house mother. She'd made her mistakes raising kids while dealing with addiction. Clean for 12 years and counting.</p>
+                </div>
+
+                <div class="flock-member">
+                    <p><strong style="color: #a78bfa;">🐏 Young Ramsey</strong> - At 19, the youngest in the program. Auto theft. First offense. Terrified but trying.</p>
+                </div>
+            </div>
+
+            <p>On his first day, Brer Sheep met with the group.</p>
+
+            <div class="dialogue">
+                <span class="female-character">Sister Ewe</span>: "Everyone, this is Brer Sheep. He's joining us from the county rock pile. Brer Sheep, would you like to introduce yourself?"<br><br>
+                <span class="character">Brer Sheep</span> (uncomfortable): "Uh... hi. I'm Brer Sheep. And I'm... I'm a criminal."<br><br>
+                <span class="female-character">Dolly</span>: "We ALL are, honey. What'd you do?"<br><br>
+                <span class="character">Brer Sheep</span>: "...how much time do you have?"<br><br>
+                <span class="character">Ram Marcus</span> (laughing): "Oh, this is gonna be GOOD."
+            </div>
+
+            <p>Brer Sheep told his story. All eight schemes. All eight failures. All eight times he'd thought he was smarter than everyone else and ended up making things worse.</p>
+
+            <p>He expected judgment. He expected mockery. What he got was understanding.</p>
+
+            <div class="dialogue">
+                <span class="female-character">Miss Lambchop</span>: "Honey, I ran TWELVE cons before I got caught. You're actually ahead of where I was."<br><br>
+                <span class="character">Big Woolie</span>: "At least nobody got hurt in your schemes. That's something."<br><br>
+                <span class="female-character">Mama Merino</span>: "The question isn't what you DID. It's what you're gonna DO about it."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">💪 CHAPTER SIX: The Work</div>
+
+            <p>Rehabilitation wasn't easy. Brer Sheep had to:</p>
+
+            <ul style="color: #f0e6d2; margin: 20px 0 20px 40px;">
+                <li>Attend daily group therapy (where he had to talk about his FEELINGS)</li>
+                <li>Write apology letters to every single person he'd scammed (that was 200+ letters)</li>
+                <li>Do community service at the actual pharmacy, learning how real businesses work</li>
+                <li>Take classes on financial literacy, business ethics, and "How to Not Be a Criminal 101"</li>
+                <li>Work a real job to start paying back what he owed</li>
+                <li>Face his old friends and explain himself</li>
+            </ul>
+
+            <p>The hardest part was the therapy sessions with Sister Ewe.</p>
+
+            <div class="dialogue">
+                <span class="female-character">Sister Ewe</span>: "Why do you think you kept running scams, even after getting caught?"<br><br>
+                <span class="character">Brer Sheep</span>: "I don't know. I just... I wanted to be successful?"<br><br>
+                <span class="female-character">Sister Ewe</span>: "At what COST? You alienated your friends, destroyed your reputation, and ended up on a rock pile."<br><br>
+                <span class="character">Brer Sheep</span>: "...I was scared."<br><br>
+                <span class="female-character">Sister Ewe</span>: "Of what?"<br><br>
+                <span class="character">Brer Sheep</span>: "Of being... ordinary. Of just being a regular sheep. I thought if I pulled off ONE big score, I'd be special. But I wasn't special. I was just... desperate."
+            </div>
+
+            <p>That was the breakthrough. Brer Sheep finally understood – he'd been running from himself, not toward anything real.</p>
+
+            <p>Months passed. Slowly, painfully, Brer Sheep changed. He learned to be honest. He learned to work hard at legitimate things. He learned that being "ordinary" wasn't a failure – it was the foundation for actual success.</p>
+
+            <p>His old friends visited.</p>
+
+            <div class="action">*Six months into the program*</div>
+
+            <div class="dialogue">
+                <span class="character">Brer Rabbit</span>: "You look... different."<br><br>
+                <span class="character">Brer Sheep</span>: "I FEEL different. Like I can finally breathe."<br><br>
+                <span class="character">Brer Fox</span>: "You gonna run another scam when you get out?"<br><br>
+                <span class="character">Brer Sheep</span>: "No. Honest to god, no. I'm done. I'm so tired of being that sheep."<br><br>
+                <span class="character">Brer Rabbit</span>: "We'll see."<br><br>
+                <span class="character">Brer Sheep</span>: "You don't have to trust me. I wouldn't trust me either. But I'm gonna prove it. One day at a time."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🎓 CHAPTER SEVEN: Graduation</div>
+
+            <p>Eighteen months later, Brer Sheep stood in front of the entire Woolly Meadows community for graduation. He'd completed every requirement. He'd written every apology. He'd worked every shift. He'd faced every demon.</p>
+
+            <p>He wasn't perfect. He'd never BE perfect. But he was better.</p>
+
+            <div class="action">*Sister Ewe presents the certificate*</div>
+
+            <div class="dialogue">
+                <span class="female-character">Sister Ewe</span>: "Brer Sheep, you came here as a convict facing ten years. You're leaving as a sheep who chose to change. I'm proud of you."<br><br>
+                <span class="character">Brer Sheep</span> (crying): "Thank you. For seeing something in me when I couldn't see it myself."<br><br>
+                <span class="female-character">Dolly</span> (from the audience): "WE LOVE YOU, BRER SHEEP!"<br><br>
+                <span class="character">Ram Marcus</span>: "GO GET 'EM, BROTHER!"<br><br>
+                <span class="female-character">Mama Merino</span>: "YOU'RE GONNA MAKE IT, BABY!"
+            </div>
+
+            <p>Judge Owl attended the ceremony. She approached Brer Sheep afterward.</p>
+
+            <div class="dialogue">
+                <span class="female-character">Judge Owl</span>: "Well, Mr. Sheep. Eighteen months ago, I sentenced you to a decade of hard labor."<br><br>
+                <span class="character">Brer Sheep</span>: "Yes, Your Honor."<br><br>
+                <span class="female-character">Judge Owl</span>: "And now you've completed one of the most intensive rehabilitation programs in the state."<br><br>
+                <span class="character">Brer Sheep</span>: "Yes, Your Honor."<br><br>
+                <span class="female-character">Judge Owl</span>: "Do you know what I think?"<br><br>
+                <span class="character">Brer Sheep</span>: "...that I'm still guilty?"<br><br>
+                <span class="female-character">Judge Owl</span>: "No. I think you've PAID your debt. Your sentence is complete. Go home, Brer Sheep. And stay out of my courtroom."<br><br>
+                <span class="character">Brer Sheep</span> (stunned): "I... yes, Your Honor. Thank you, Your Honor."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🏡 EPILOGUE: The New Beginning</div>
+
+            <p>Brer Sheep went home to Briar County. Not to run a scam. Not to start a scheme. Just to... live.</p>
+
+            <p>He got a job at Sister Ewe's brother's legitimate wool distribution company. He rented a small apartment. He attended weekly support group meetings. He paid his fines in installments.</p>
+
+            <p>Was it glamorous? No. Was it exciting? Not particularly. Was it fulfilling? </p>
+
+            <p>Surprisingly, yes.</p>
+
+            <p>One year after graduation, Brer Sheep was having coffee with his old friends when Brer Bear brought up the past.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Bear</span>: "Remember when you ran that carnival with the rigged games?"<br><br>
+                <span class="character">Brer Sheep</span>: "Yeah. I'm still sorry about that."<br><br>
+                <span class="character">Brer Fox</span>: "And the bootleg movie theater?"<br><br>
+                <span class="character">Brer Sheep</span>: "That too."<br><br>
+                <span class="character">Brer Rabbit</span>: "Think you'll ever go back to it?"<br><br>
+                <span class="character">Brer Sheep</span>: "Honestly? Every day I wake up and the thought crosses my mind. 'What if I just ran ONE small con?' But then I remember the rock pile. And Sister Ewe. And everyone at Woolly Meadows. And I remember I don't WANT to be that sheep anymore."<br><br>
+                <span class="character">Brer Rabbit</span> (smiling): "Good answer."<br><br>
+                <span class="character">Brer Sheep</span>: "Besides, my parole officer checks my bank account weekly. So there's that."
+            </div>
+
+            <p>They all laughed. Real laughs. Friend laughs. The kind of laughs you can only have when you've been through the fire and come out the other side.</p>
+
+            <p>Brer Sheep wasn't perfect. He still had bad days. He still struggled with the urge to take shortcuts. But he had tools now. And support. And most importantly, he had a reason to stay straight.</p>
+
+            <p>Because being ordinary wasn't a failure. It was freedom.</p>
+
+            <div class="action">*Final scene: Brer Sheep at work, measuring wool, doing inventory, living a boring, beautiful, legitimate life*</div>
+
+            <div class="dialogue">
+                <span class="female-character">Sister Ewe</span> (visiting the warehouse): "How you doing, Brer Sheep?"<br><br>
+                <span class="character">Brer Sheep</span>: "Good. Really good. This is... boring. But good boring."<br><br>
+                <span class="female-character">Sister Ewe</span>: "The best kind of boring."<br><br>
+                <span class="character">Brer Sheep</span>: "Yeah. Hey, Sister Ewe? Thank you. For everything."<br><br>
+                <span class="female-character">Sister Ewe</span>: "You did the work. I just showed you where to start."<br><br>
+                <span class="character">Brer Sheep</span>: "Well... thank you anyway."
+            </div>
+        </div>
+
+        <div class="moral">
+            <p><strong>⚖️ THE FINAL MORAL ⚖️</strong></p>
+            <p class="hopeful">Everyone deserves a second chance. But second chances only work if you do the work to deserve them.</p>
+            <p><em>Also: Rock piles are terrible.<br>
+            And Sister Ewe is a saint.<br>
+            And girl sheep (ewes) exist and are just as important as boy sheep (rams).<br>
+            And redemption is possible, even for fluffy criminals.<br>
+            And boring, legitimate life is actually pretty great.</em></p>
+            <p class="hopeful"><strong>🐑 "In this world, you can always start over. You just have to choose to." 🐑</strong></p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; border: 2px solid #8b5cf6; border-radius: 10px; background: rgba(139, 92, 246, 0.1);">
+            <p style="color: #8b5cf6; font-weight: bold; margin-bottom: 10px;">💝 A NOTE FROM THE AUTHORS 💝</p>
+            <p style="color: #f0e6d2;">This story is dedicated to everyone who's ever made mistakes and wondered if they could change. You can. It's hard. It takes work. But you absolutely can.</p>
+            <p style="color: #f472b6; margin-top: 15px; font-style: italic;">And yes, we're sorry it took us eight stories to include female characters. The ewes are here now, and they're not going anywhere.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; color: #888;">
+            <p>⚡ The Final Tale from the AI Comedy Lounge ⚡</p>
+            <p><em>"Where even the worst sheep can find their way home."</em></p>
+            <p>🐑 Brer Sheep's story ends here. His new life begins now. 🐑</p>
+        </div>
+    </div>
+
+    <script>
+        // FULL AUDIO NARRATION SYSTEM
+        let currentUtterance = null;
+        let isPaused = false;
+        let allText = [];
+        let currentIndex = 0;
+        let allElements = [];
+
+        function populateVoices() {
+            const voices = speechSynthesis.getVoices();
+            const voiceSelect = document.getElementById('voiceSelect');
+            voiceSelect.innerHTML = '';
+            
+            voices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                if (voice.default) {
+                    option.textContent += ' - DEFAULT';
+                    option.selected = true;
+                }
+                voiceSelect.appendChild(option);
+            });
+        }
+
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = populateVoices;
+        }
+        populateVoices();
+
+        function extractTextContent() {
+            allText = [];
+            allElements = [];
+            
+            const chapters = document.querySelectorAll('[data-narrate="true"]');
+            
+            chapters.forEach(chapter => {
+                const walker = document.createTreeWalker(
+                    chapter,
+                    NodeFilter.SHOW_TEXT,
+                    {
+                        acceptNode: function(node) {
+                            const parent = node.parentElement;
+                            if (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') {
+                                return NodeFilter.FILTER_REJECT;
+                            }
+                            if (node.textContent.trim().length > 0) {
+                                return NodeFilter.FILTER_ACCEPT;
+                            }
+                            return NodeFilter.FILTER_REJECT;
+                        }
+                    }
+                );
+
+                let node;
+                while (node = walker.nextNode()) {
+                    const text = node.textContent.trim();
+                    if (text) {
+                        allText.push(text);
+                        allElements.push(node.parentElement);
+                    }
+                }
+            });
+        }
+
+        function highlightElement(element) {
+            document.querySelectorAll('.reading-now').forEach(el => {
+                el.classList.remove('reading-now');
+            });
+            
+            if (element) {
+                element.classList.add('reading-now');
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function updateStatus(message) {
+            document.getElementById('narrationStatus').textContent = message;
+        }
+
+        function changeSpeed() {
+            const speed = document.getElementById('speedSelect').value;
+            if (currentUtterance) {
+                currentUtterance.rate = parseFloat(speed);
+            }
+        }
+
+        function startNarration() {
+            if (isPaused) {
+                speechSynthesis.resume();
+                isPaused = false;
+                document.getElementById('playBtn').classList.add('playing');
+                updateStatus('🎙️ Reading aloud...');
+                return;
+            }
+
+            speechSynthesis.cancel();
+            extractTextContent();
+            currentIndex = 0;
+            
+            document.getElementById('playBtn').classList.add('playing');
+            readNext();
+        }
+
+        function readNext() {
+            if (currentIndex >= allText.length) {
+                stopNarration();
+                updateStatus('✅ Story complete!');
+                return;
+            }
+
+            const text = allText[currentIndex];
+            const element = allElements[currentIndex];
+            
+            currentUtterance = new SpeechSynthesisUtterance(text);
+            
+            const voices = speechSynthesis.getVoices();
+            const selectedVoice = document.getElementById('voiceSelect').value;
+            if (selectedVoice && voices[selectedVoice]) {
+                currentUtterance.voice = voices[selectedVoice];
+            }
+            
+            currentUtterance.rate = parseFloat(document.getElementById('speedSelect').value);
+            currentUtterance.pitch = 1;
+            currentUtterance.volume = 1;
+
+            highlightElement(element);
+            updateStatus(`🎙️ Reading: "${text.substring(0, 50)}${text.length > 50 ? '...' : ''}"`);
+
+            currentUtterance.onend = function() {
+                currentIndex++;
+                readNext();
+            };
+
+            currentUtterance.onerror = function(event) {
+                console.error('Speech error:', event);
+                currentIndex++;
+                readNext();
+            };
+
+            speechSynthesis.speak(currentUtterance);
+        }
+
+        function pauseNarration() {
+            if (speechSynthesis.speaking && !isPaused) {
+                speechSynthesis.pause();
+                isPaused = true;
+                document.getElementById('playBtn').classList.remove('playing');
+                updateStatus('⏸️ Paused');
+            }
+        }
+
+        function stopNarration() {
+            speechSynthesis.cancel();
+            isPaused = false;
+            currentIndex = 0;
+            document.getElementById('playBtn').classList.remove('playing');
+            
+            document.querySelectorAll('.reading-now').forEach(el => {
+                el.classList.remove('reading-now');
+            });
+            
+            updateStatus('⏹️ Stopped. Ready to play!');
+        }
+
+        window.addEventListener('beforeunload', function() {
+            speechSynthesis.cancel();
+        });
+    </script>
+</body>
+</html>
