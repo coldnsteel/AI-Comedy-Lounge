@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏴‍☠️ Brer Sheep: Pirate Rustler - A Trickster Tale</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #0c1445 0%, #1e3a5f 50%, #2c5f2d 100%);
+            color: #f0e6d2;
+            line-height: 1.8;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .pirate-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.8);
+            border: 4px solid #10b981;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(16, 185, 129, 0.4);
+        }
+        .pirate-title {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: #10b981;
+            text-shadow: 0 0 20px #10b981;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #fbbf24;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .audio-controls {
+            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid #10b981;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .audio-controls h3 {
+            color: #10b981;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .control-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .audio-btn {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .audio-btn:hover { transform: translateY(-2px); }
+        .audio-btn.playing {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .speed-control, .voice-control { margin-top: 15px; }
+        .speed-control label, .voice-control label {
+            color: #10b981;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .speed-control select, .voice-control select {
+            background: rgba(0, 0, 0, 0.5);
+            color: #10b981;
+            border: 2px solid #10b981;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .narration-status {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            color: #10b981;
+            font-style: italic;
+        }
+        .chapter {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 5px solid #10b981;
+            border-radius: 5px;
+        }
+        .chapter-title {
+            font-size: 2em;
+            color: #fbbf24;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+        .reading-now {
+            background: rgba(16, 185, 129, 0.3) !important;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .dialogue {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 3px solid #10b981;
+            font-style: italic;
+        }
+        .character {
+            font-weight: bold;
+            color: #10b981;
+        }
+        .action {
+            color: #fbbf24;
+            font-style: italic;
+            margin: 15px 0;
+        }
+        .wanted-poster {
+            background: rgba(0, 0, 0, 0.6);
+            border: 4px solid #fbbf24;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+        }
+        .moral {
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(251, 191, 36, 0.2) 100%);
+            border: 2px solid #10b981;
+            border-radius: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="pirate-container">
+        <div class="pirate-title">🏴‍☠️ THE WOOLLY BANDIT 🏴‍☠️</div>
+        <div class="subtitle">Brer Sheep's Career as a Livestock Pirate</div>
+
+        <div class="audio-controls">
+            <h3>🎧 AUDIO NARRATION</h3>
+            <div class="control-buttons">
+                <button class="audio-btn" id="playBtn" onclick="startNarration()">▶️ Play Story</button>
+                <button class="audio-btn" id="pauseBtn" onclick="pauseNarration()">⏸️ Pause</button>
+                <button class="audio-btn" id="stopBtn" onclick="stopNarration()">⏹️ Stop</button>
+            </div>
+            <div class="speed-control">
+                <label for="speedSelect">🎚️ Speed:</label>
+                <select id="speedSelect" onchange="changeSpeed()">
+                    <option value="0.75">0.75x</option>
+                    <option value="1" selected>1x</option>
+                    <option value="1.25">1.25x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2">2x</option>
+                </select>
+            </div>
+            <div class="voice-control">
+                <label for="voiceSelect">🗣️ Voice:</label>
+                <select id="voiceSelect"></select>
+            </div>
+            <div class="narration-status" id="narrationStatus">Ready to read aloud!</div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">⚓ CHAPTER ONE: The Pirate Dream</div>
+            <p>Now folks, let me tell you about the time Brer Sheep decided to become a livestock pirate. Not an ocean pirate – a sheep rustler. Stealing sheep from other farms and selling them for profit.</p>
+            <p>The idea came to him while watching a documentary about pirates. He thought to himself, "Why sail the seven seas when I can just drive to neighboring farms?"</p>
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span>: "I'm gonna be a PIRATE!"<br><br>
+                <span class="character">Brer Rabbit</span>: "You live on a farm."<br><br>
+                <span class="character">Brer Sheep</span>: "A FARM PIRATE! I'll steal sheep from other farms!"<br><br>
+                <span class="character">Brer Rabbit</span>: "That's called rustling. It's a felony."<br><br>
+                <span class="character">Brer Sheep</span>: "It's ADVENTURE!"
+            </div>
+        </div>
+
+        <div class="wanted-poster">
+            <h3 style="color: #fbbf24; margin-bottom: 20px;">⚠️ WANTED POSTER ⚠️</h3>
+            <div style="color: #f0e6d2; font-size: 1.1em;">
+                THE WOOLLY BANDIT<br>
+                REWARD: $5,000<br><br>
+                <em>Known for wearing an eye patch despite having two functioning eyes<br>
+                Shouts "ARRR!" during thefts<br>
+                Leaves calling cards that say "YOU'VE BEEN RUSTLED"</em>
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🌙 CHAPTER TWO: The First Heist</div>
+            <p>Brer Sheep planned his first rustling operation like he was robbing Fort Knox instead of stealing sheep from Farmer Johnson's pasture.</p>
+            <p>He wore all black. He bought an eye patch (even though he had two good eyes). He even drew a skull and crossbones on his truck. Which was... not exactly subtle.</p>
+            <div class="dialogue">
+                <span class="character">Brer Fox</span>: "You painted a SKULL on your truck? For a STEALTH operation?"<br><br>
+                <span class="character">Brer Sheep</span>: "PIRATES have skulls!"<br><br>
+                <span class="character">Brer Fox</span>: "Pirates also have BOATS! You have a FORD!"
+            </div>
+            <p>That night, Brer Sheep drove to Farmer Johnson's farm and... well, he tried to be stealthy. He tiptoed across the pasture (forgetting that sheep make noise). He whispered "ARRR!" (forgetting that pirates don't actually whisper that).</p>
+            <p>Surprisingly, he managed to load three sheep into his truck and drive away. It was almost too easy!</p>
+            <p>That's because Farmer Johnson had cameras. And wrote down the license plate. And called the sheriff.</p>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">📞 CHAPTER THREE: The Call</div>
+            <p>Brer Sheep made it home, locked the stolen sheep in his barn, and congratulated himself on being a genius pirate. Then his phone rang.</p>
+            <div class="dialogue">
+                <span class="character">Sheriff Badger</span>: "Hello, Mr. Sheep. This is Sheriff Badger."<br><br>
+                <span class="character">Brer Sheep</span> (panicking): "I DIDN'T DO ANYTHING!"<br><br>
+                <span class="character">Sheriff Badger</span>: "I didn't say you did."<br><br>
+                <span class="character">Brer Sheep</span>: "...oh. Then why are you calling?"<br><br>
+                <span class="character">Sheriff Badger</span>: "Because someone stole three sheep from Farmer Johnson last night. Drove a truck with a skull painted on it."<br><br>
+                <span class="character">Brer Sheep</span>: "That could be ANYONE!"<br><br>
+                <span class="character">Sheriff Badger</span>: "License plate matches your truck."<br><br>
+                <span class="character">Brer Sheep</span>: "...it was a pirate truck."<br><br>
+                <span class="character">Sheriff Badger</span>: "Mr. Sheep—"<br><br>
+                <span class="character">Brer Sheep</span>: "A DIFFERENT pirate! Not me! I'm retired from piracy!"<br><br>
+                <span class="character">Sheriff Badger</span>: "You just said you never were a pirate."<br><br>
+                <span class="character">Brer Sheep</span>: "...I gotta go."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🚔 CHAPTER FOUR: The Arrest</div>
+            <p>Sheriff Badger showed up at Brer Sheep's farm with a warrant. He found the three stolen sheep in the barn. They still had Farmer Johnson's ear tags. Brer Sheep had forgotten to remove the evidence.</p>
+            <div class="dialogue">
+                <span class="character">Sheriff Badger</span>: "Mr. Sheep, you're under arrest for livestock theft."<br><br>
+                <span class="character">Brer Sheep</span>: "Those aren't stolen! I... bought them!"<br><br>
+                <span class="character">Sheriff Badger</span>: "You bought sheep with Farmer Johnson's ranch ID?"<br><br>
+                <span class="character">Brer Sheep</span>: "...yes?"<br><br>
+                <span class="character">Sheriff Badger</span>: "From whom?"<br><br>
+                <span class="character">Brer Sheep</span>: "...a pirate?"<br><br>
+                <span class="character">Sheriff Badger</span>: "You're still wearing the eye patch."<br><br>
+                <span class="character">Brer Sheep</span>: "That's... fashion."
+            </div>
+            <p>Brer Sheep was charged with grand theft livestock – a felony that carried up to 3 years in prison. The Badger family was really putting in work this year.</p>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">⚖️ CHAPTER FIVE: The Trial</div>
+            <p>At trial, Brer Sheep's defense was... creative. His lawyer argued he didn't steal the sheep – he "liberated" them.</p>
+            <div class="dialogue">
+                <span class="character">Defense Lawyer</span>: "My client simply relocated these sheep to a better home!"<br><br>
+                <span class="character">Prosecutor</span>: "Without permission. In the middle of the night. While wearing a pirate costume."<br><br>
+                <span class="character">Defense Lawyer</span>: "...the costume was irrelevant."<br><br>
+                <span class="character">Judge</span>: "Mr. Sheep, do you have anything to say?"<br><br>
+                <span class="character">Brer Sheep</span>: "Your Honor, I think we can all agree that pirates are cool and—"<br><br>
+                <span class="character">Judge</span>: "Guilty. Next case."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">📚 EPILOGUE</div>
+            <p>Brer Sheep got probation, community service, and a permanent ban from owning more than 5 sheep at once. He also had to return the three sheep and pay Farmer Johnson for "emotional distress."</p>
+            <p>The eye patch went in the trash. The skull truck got repainted. And Brer Sheep learned that piracy on land is just called "crime."</p>
+            <div class="dialogue">
+                <span class="character">Brer Rabbit</span>: "So, done with the pirate life?"<br><br>
+                <span class="character">Brer Sheep</span>: "Yeah. I think I'll try something safer. Maybe cryptocurrency?"<br><br>
+                <span class="character">Brer Rabbit</span>: "Please don't."
+            </div>
+        </div>
+
+        <div class="moral">
+            <p><strong>🏴‍☠️ THE MORAL 🏴‍☠️</strong></p>
+            <p>Land piracy is just theft with extra steps.</p>
+            <p><em>Also: Don't paint skulls on your getaway vehicle.<br>
+            And eye patches don't make you stealthy.<br>
+            And maybe just buy sheep legally.</em></p>
+        </div>
+    </div>
+
+    <script>
+        let currentUtterance = null;
+        let isPaused = false;
+        let allText = [];
+        let currentIndex = 0;
+        let allElements = [];
+
+        function populateVoices() {
+            const voices = speechSynthesis.getVoices();
+            const voiceSelect = document.getElementById('voiceSelect');
+            voiceSelect.innerHTML = '';
+            voices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                if (voice.default) {
+                    option.selected = true;
+                }
+                voiceSelect.appendChild(option);
+            });
+        }
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = populateVoices;
+        }
+        populateVoices();
+
+        function extractTextContent() {
+            allText = [];
+            allElements = [];
+            const chapters = document.querySelectorAll('[data-narrate="true"]');
+            chapters.forEach(chapter => {
+                const walker = document.createTreeWalker(chapter, NodeFilter.SHOW_TEXT, {
+                    acceptNode: function(node) {
+                        const parent = node.parentElement;
+                        if (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') return NodeFilter.FILTER_REJECT;
+                        if (node.textContent.trim().length > 0) return NodeFilter.FILTER_ACCEPT;
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                });
+                let node;
+                while (node = walker.nextNode()) {
+                    const text = node.textContent.trim();
+                    if (text) {
+                        allText.push(text);
+                        allElements.push(node.parentElement);
+                    }
+                }
+            });
+        }
+
+        function highlightElement(element) {
+            document.querySelectorAll('.reading-now').forEach(el => el.classList.remove('reading-now'));
+            if (element) {
+                element.classList.add('reading-now');
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function updateStatus(message) {
+            document.getElementById('narrationStatus').textContent = message;
+        }
+
+        function changeSpeed() {
+            const speed = document.getElementById('speedSelect').value;
+            if (currentUtterance) currentUtterance.rate = parseFloat(speed);
+        }
+
+        function startNarration() {
+            if (isPaused) {
+                speechSynthesis.resume();
+                isPaused = false;
+                document.getElementById('playBtn').classList.add('playing');
+                updateStatus('🎙️ Reading aloud...');
+                return;
+            }
+            speechSynthesis.cancel();
+            extractTextContent();
+            currentIndex = 0;
+            document.getElementById('playBtn').classList.add('playing');
+            readNext();
+        }
+
+        function readNext() {
+            if (currentIndex >= allText.length) {
+                stopNarration();
+                updateStatus('✅ Story complete!');
+                return;
+            }
+            const text = allText[currentIndex];
+            const element = allElements[currentIndex];
+            currentUtterance = new SpeechSynthesisUtterance(text);
+            const voices = speechSynthesis.getVoices();
+            const selectedVoice = document.getElementById('voiceSelect').value;
+            if (selectedVoice && voices[selectedVoice]) {
+                currentUtterance.voice = voices[selectedVoice];
+            }
+            currentUtterance.rate = parseFloat(document.getElementById('speedSelect').value);
+            currentUtterance.pitch = 1;
+            currentUtterance.volume = 1;
+            highlightElement(element);
+            updateStatus(`🎙️ Reading: "${text.substring(0, 50)}${text.length > 50 ? '...' : ''}"`);
+            currentUtterance.onend = function() {
+                currentIndex++;
+                readNext();
+            };
+            currentUtterance.onerror = function(event) {
+                console.error('Speech error:', event);
+                currentIndex++;
+                readNext();
+            };
+            speechSynthesis.speak(currentUtterance);
+        }
+
+        function pauseNarration() {
+            if (speechSynthesis.speaking && !isPaused) {
+                speechSynthesis.pause();
+                isPaused = true;
+                document.getElementById('playBtn').classList.remove('playing');
+                updateStatus('⏸️ Paused');
+            }
+        }
+
+        function stopNarration() {
+            speechSynthesis.cancel();
+            isPaused = false;
+            currentIndex = 0;
+            document.getElementById('playBtn').classList.remove('playing');
+            document.querySelectorAll('.reading-now').forEach(el => el.classList.remove('reading-now'));
+            updateStatus('⏹️ Stopped. Ready to play!');
+        }
+
+        window.addEventListener('beforeunload', function() {
+            speechSynthesis.cancel();
+        });
+    </script>
+</body>
+</html>
