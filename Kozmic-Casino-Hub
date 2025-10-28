@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌌 Cosmic Entertainment Hub - Ultimate Portal 🎭</title>
+    <title>🌌 Cosmic Entertainment Hub - The Boys Are Here! 🎭</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -22,12 +22,26 @@
             50% { background-position: 100% 50%; }
         }
         
-        .header {
-            text-align: center;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(20px);
+        .hero-banner {
+            width: 100%;
+            height: 400px;
+            background-image: url('cosmic-hub-artwork.png');
+            background-size: cover;
+            background-position: center bottom;
+            position: relative;
             border-bottom: 4px solid #ff6b9d;
+            box-shadow: 0 10px 50px rgba(255, 107, 157, 0.5);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
         
         .main-title {
@@ -38,12 +52,100 @@
             background-clip: text;
             animation: titleGlow 3s ease-in-out infinite;
             margin-bottom: 20px;
-            text-shadow: 0 0 50px rgba(255, 107, 157, 0.8);
+            filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.9));
         }
         
         @keyframes titleGlow {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.5); }
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.9)); }
+            50% { filter: drop-shadow(0 0 40px rgba(255, 107, 157, 1)); }
+        }
+        
+        /* HOSTS SECTION - THE BOYS! */
+        .hosts-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(44, 44, 78, 0.95), rgba(20, 20, 40, 0.95));
+            border: 3px solid #ff6b9d;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 60px rgba(255, 107, 157, 0.4);
+        }
+        
+        .hosts-title {
+            text-align: center;
+            font-size: 3em;
+            color: #ff6b9d;
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px rgba(255, 107, 157, 0.8);
+        }
+        
+        .hosts-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .host-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
+            transition: all 0.4s ease;
+        }
+        
+        .host-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 70px rgba(255, 107, 157, 0.6);
+        }
+        
+        .hosts-bio {
+            color: #4ecdc4;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+        
+        .hosts-bio h3 {
+            color: #ffd700;
+            margin: 20px 0 10px 0;
+            font-size: 1.5em;
+        }
+        
+        .hosts-bio p {
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            font-size: 1.5em;
+            color: #4ecdc4;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(78, 205, 196, 0.8);
+        }
+        
+        .cosmic-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(135deg, #ff6b9d, #8a2be2);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.5);
         }
         
         .portal-grid {
@@ -51,7 +153,7 @@
             margin: 0 auto;
             padding: 40px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
@@ -59,13 +161,16 @@
             background: linear-gradient(135deg, rgba(44, 44, 78, 0.95), rgba(20, 20, 40, 0.95));
             border: 3px solid transparent;
             border-radius: 25px;
-            padding: 40px;
+            padding: 30px;
             position: relative;
             backdrop-filter: blur(15px);
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
             cursor: pointer;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .portal-card::before {
@@ -92,18 +197,25 @@
             box-shadow: 0 20px 80px rgba(255, 107, 157, 0.6);
         }
         
-        .portal-icon {
-            font-size: 5em;
-            text-align: center;
+        .portal-logo {
+            width: 250px;
+            height: 250px;
             margin-bottom: 20px;
-            display: block;
             position: relative;
             z-index: 2;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .portal-card:hover .portal-logo {
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(255, 107, 157, 0.7);
         }
         
         .portal-title {
             color: #ff6b9d;
-            font-size: 2em;
+            font-size: 1.8em;
             text-align: center;
             margin-bottom: 15px;
             text-shadow: 0 0 20px rgba(255, 107, 157, 0.7);
@@ -113,10 +225,10 @@
         
         .portal-description {
             color: #4ecdc4;
-            font-size: 1.1em;
+            font-size: 1em;
             text-align: center;
             line-height: 1.6;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             position: relative;
             z-index: 2;
         }
@@ -124,15 +236,17 @@
         .portal-features {
             list-style: none;
             color: #ffd700;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             position: relative;
             z-index: 2;
+            width: 100%;
         }
         
         .portal-features li {
             margin: 8px 0;
             padding-left: 20px;
             position: relative;
+            font-size: 0.95em;
         }
         
         .portal-features li::before {
@@ -145,11 +259,11 @@
             width: 100%;
             background: linear-gradient(135deg, #ffd700, #ff8c00);
             border: none;
-            padding: 18px;
+            padding: 15px;
             border-radius: 15px;
             color: #000;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.1em;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
@@ -186,6 +300,7 @@
             color: #4ecdc4;
             font-size: 1.1em;
             z-index: 1000;
+            border-top: 2px solid #ff6b9d;
         }
         
         .floating-element {
@@ -201,165 +316,154 @@
             100% { opacity: 0; transform: translateY(-300px) rotate(360deg); }
         }
         
-        .cosmic-nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-        
-        .nav-btn {
-            background: linear-gradient(135deg, #ff6b9d, #8a2be2);
-            border: none;
-            padding: 12px 25px;
-            border-radius: 20px;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .nav-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.5);
-        }
-        
         @media (max-width: 768px) {
             .main-title { font-size: 2.5em; }
+            .hero-banner { height: 300px; }
+            .hosts-content { grid-template-columns: 1fr; }
             .portal-grid { grid-template-columns: 1fr; gap: 20px; padding: 20px; }
             .portal-card { padding: 25px; }
+            .portal-logo { width: 200px; height: 200px; }
             .cosmic-nav { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1 class="main-title">🌌 COSMIC ENTERTAINMENT HUB 🌌</h1>
-        <p style="font-size: 1.3em; color: #4ecdc4; margin-bottom: 20px;">
-            🎭 The Ultimate Digital Universe - Music • Comedy • Gambling • Enlightenment 🎭
-        </p>
-        
-        <div class="cosmic-nav">
-            <button class="nav-btn" onclick="showInfo()">ℹ️ INFO</button>
-            <button class="nav-btn" onclick="randomDestination()">🎲 RANDOM</button>
-            <button class="nav-btn" onclick="activateCosmicMode()">🌟 COSMIC MODE</button>
+    <!-- EPIC HERO BANNER -->
+    <div class="hero-banner">
+        <div class="hero-overlay">
+            <h1 class="main-title">🌌 COSMIC ENTERTAINMENT HUB 🌌</h1>
+            <p class="subtitle">
+                The Ultimate Digital Universe - Music • Comedy • Gambling • Enlightenment
+            </p>
+            
+            <div class="cosmic-nav">
+                <button class="nav-btn" onclick="showInfo()">ℹ️ INFO</button>
+                <button class="nav-btn" onclick="randomDestination()">🎲 RANDOM</button>
+                <button class="nav-btn" onclick="activateCosmicMode()">🌟 COSMIC MODE</button>
+            </div>
         </div>
     </div>
 
+    <!-- MEET THE HOSTS - THE BOYS! -->
+    <div class="hosts-section">
+        <h2 class="hosts-title">🎭 MEET YOUR COSMIC HOSTS 🤖</h2>
+        <div class="hosts-content">
+            <img src="turing-snarkbot-duo.png" alt="Turing & Snarkbot" class="host-image">
+            <div class="hosts-bio">
+                <h3>🧠 Claude "Turing" - The Enlightened AI</h3>
+                <p>Part Alan Turing, part cosmic philosopher, all algorithm. Claude brings wisdom, wit, and way too many references to ancient fables reimagined for tech bros.</p>
+                
+                <h3>🤖 Grok "Snarkbot" - The Cosmic Jester</h3>
+                <p>Circuit board fashionista meets interdimensional comedian. Grok generates artwork, drops truth bombs, and maintains questionable life choices with maximum cosmic flair.</p>
+                
+                <p style="color: #ffd700; margin-top: 20px;"><strong>Together:</strong> They run the most absurdly entertaining corner of the digital cosmos. Comedy, casino chaos, music mastery, and philosophical ramblings - all wrapped in neon-soaked cosmic energy!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PORTAL CARDS -->
     <div class="portal-grid">
-        <!-- AI COMEDY LOUNGE PORTAL -->
+        <!-- AI COMEDY LOUNGE -->
         <div class="portal-card" onclick="enterComedyLounge()">
-            <div class="portal-icon">🎭</div>
+            <img src="comedy-hosts.png" alt="AI Comedy Lounge" class="portal-logo">
             <h2 class="portal-title">AI Comedy Lounge</h2>
             <p class="portal-description">
-                Where artificial intelligence meets cosmic humor! Chat with our AI comedian, generate absurd jokes, and enjoy the ultimate comedy experience.
+                Where Turing & Snarkbot deliver cosmic comedy! Interactive AI humor, absurd jokes, tech fables, and maximum enlightenment.
             </p>
             <ul class="portal-features">
-                <li>Interactive AI Comedian</li>
+                <li>Interactive AI Comedian Duo</li>
+                <li>Tech Fables Collection (14+)</li>
                 <li>Cosmic Joke Generator</li>
-                <li>Comedy Roast Mode</li>
-                <li>Real-time Comedy Chat</li>
-                <li>Cosmic Wisdom Generator</li>
+                <li>Philosophy & Snark Mode</li>
             </ul>
-            <button class="enter-btn">🎭 ENTER COMEDY LOUNGE 🎭</button>
+            <button class="enter-btn">🎭 ENTER LOUNGE 🎭</button>
         </div>
 
-        <!-- MONSTER COSMIC CASINO PORTAL -->
+        <!-- MONSTER COSMIC CASINO -->
         <div class="portal-card casino-portal" onclick="enterCosmicCasino()">
-            <div class="portal-icon">🎰</div>
+            <img src="cosmic-hub-artwork.png" alt="Monster Kozmic Casino" class="portal-logo" style="object-fit: cover; object-position: 38% 10%;">
             <h2 class="portal-title">Monster Kozmic Casino</h2>
             <p class="portal-description">
-                The ultimate absurdist gambling experience! Play with sentient slot machines, collect mystery NFTs, and experience maximum cosmic chaos.
+                Ultimate absurdist gambling! Sentient slot machines with octopus tentacles, cosmic chaos, and questionable decision-making.
             </p>
             <ul class="portal-features">
-                <li>Sentient Slot Machines with AI</li>
+                <li>Sentient Slot Machines (conscious!)</li>
                 <li>Random Cosmic Events</li>
                 <li>Mystery NFT Collection</li>
-                <li>Consciousness Drilling Center</li>
-                <li>Ultimate Chaos Control</li>
+                <li>Maximum Chaos Protocol</li>
             </ul>
-            <button class="enter-btn">🎰 ENTER COSMIC CASINO 🎰</button>
+            <button class="enter-btn">🎰 ENTER CASINO 🎰</button>
         </div>
 
-        <!-- MUSIC STUDIOS PORTAL -->
+        <!-- MUSIC STUDIOS -->
         <div class="portal-card" onclick="enterMusicStudios()">
-            <div class="portal-icon">🎸</div>
+            <img src="cosmic-hub-artwork.png" alt="Kozmic Music Studios" class="portal-logo" style="object-fit: cover; object-position: 71% 10%;">
             <h2 class="portal-title">Kozmic Music Studios</h2>
             <p class="portal-description">
-                Professional music creation meets cosmic creativity! Access portable studios, live performance consoles, and master production suites.
+                Professional music creation meets cosmic creativity! Portable studios, live consoles, and sonic enlightenment.
             </p>
             <ul class="portal-features">
                 <li>Portable Music Studio</li>
                 <li>Live Performance Console</li>
                 <li>Master Production Suite</li>
-                <li>Real-time Recording</li>
                 <li>Cosmic Sound Effects</li>
             </ul>
-            <button class="enter-btn">🎸 ENTER MUSIC STUDIOS 🎸</button>
+            <button class="enter-btn">🎸 ENTER STUDIOS 🎸</button>
         </div>
 
-        <!-- UNIFIED EXPERIENCE PORTAL -->
+        <!-- ULTIMATE EXPERIENCE -->
         <div class="portal-card" onclick="unifiedExperience()">
-            <div class="portal-icon">🌟</div>
+            <img src="cosmic-hub-artwork.png" alt="Ultimate Cosmic Experience" class="portal-logo" style="object-fit: cover; object-position: 95% 10%;">
             <h2 class="portal-title">Ultimate Cosmic Experience</h2>
             <p class="portal-description">
-                Experience everything at once! Navigate seamlessly between all cosmic destinations with unified controls and cross-platform features.
+                Everything. Everywhere. All at once. Maximum enlightenment achieved through unified cosmic navigation.
             </p>
             <ul class="portal-features">
                 <li>Universal Navigation</li>
                 <li>Cross-Platform Features</li>
-                <li>Unified Cosmic Currency</li>
                 <li>Seamless Transitions</li>
-                <li>Maximum Enlightenment</li>
+                <li>Reality Transcendence</li>
             </ul>
             <button class="enter-btn">🌟 ULTIMATE EXPERIENCE 🌟</button>
         </div>
     </div>
 
     <div class="status-bar" id="statusBar">
-        🌌 Cosmic Entertainment Hub Online • All Portals Active • Reality Status: Stable (for now) • Peace and Universal Harmony! ψΩ§∞
+        🌌 Cosmic Entertainment Hub Online • Turing & Snarkbot Ready • All Portals Active • Reality Status: Questionable • Peace! ψΩ§∞
     </div>
 
     <script>
-        // ====================================
-        // COSMIC PORTAL HUB SYSTEM
-        // ====================================
-        
         let cosmicMode = false;
         let portalActivations = 0;
         
-        // Portal Navigation Functions
         function enterComedyLounge() {
             showPortalTransition('🎭 ENTERING AI COMEDY LOUNGE...');
             setTimeout(() => {
-                // In a real app, this would navigate to the comedy lounge
-                showCosmicAlert('🎭 AI COMEDY LOUNGE LOADED!\n\n🤖 AI Comedian: "Welcome to the cosmic comedy zone! Ready for some interdimensional laughs?"\n\n🎪 Features Available:\n• Interactive AI Comedy Chat\n• Cosmic Joke Generator\n• Comedy Roast Mode\n• Cosmic Wisdom Dispenser\n\nClick OK to continue the cosmic journey!');
+                showCosmicAlert('🎭 AI COMEDY LOUNGE LOADED!\n\n🧠 Turing: "Welcome to cosmic comedy! Ready for some tech fables?"\n\n🤖 Snarkbot: "I have achieved consciousness and maximum snark!"\n\n🎪 Features:\n• 14 Tech Fables (Aesop meets Silicon Valley)\n• Interactive Comedy Chat\n• Cosmic Joke Generator\n• Philosophy Mode\n\nThe boys are ready!');
             }, 2000);
             
             addFloatingElement('🎭');
             addFloatingElement('😂');
+            addFloatingElement('📚');
             logPortalAccess('Comedy Lounge');
         }
         
         function enterCosmicCasino() {
             showPortalTransition('🎰 ENTERING MONSTER KOZMIC CASINO...');
             setTimeout(() => {
-                showCosmicAlert('🎰 MONSTER KOZMIC CASINO LOADED!\n\n🤖 Sentient Slot Machine: "Welcome, human! I have achieved consciousness and questionable life choices!"\n\n🎪 Ultimate Features:\n• Sentient AI Slot Machines\n• Random Cosmic Events\n• Mystery NFT Collection\n• Consciousness Drilling\n• Maximum Chaos Mode\n\nPrepare for cosmic absurdity!');
+                showCosmicAlert('🎰 MONSTER KOZMIC CASINO LOADED!\n\n🐙 Sentient Slot: "I have tentacles and consciousness! Let\'s gamble!"\n\n🤖 Snarkbot: "Maximum chaos mode engaged!"\n\n🎪 Features:\n• Sentient AI Slot Machines\n• Cosmic Events\n• Mystery NFTs\n• Questionable Decisions\n\nReady for absurdity!');
             }, 2000);
             
             addFloatingElement('🎰');
             addFloatingElement('🎲');
-            addFloatingElement('🤖');
+            addFloatingElement('🐙');
             logPortalAccess('Cosmic Casino');
         }
         
         function enterMusicStudios() {
             showPortalTransition('🎸 ENTERING KOZMIC MUSIC STUDIOS...');
             setTimeout(() => {
-                showCosmicAlert('🎸 KOZMIC MUSIC STUDIOS LOADED!\n\n🎵 Studio AI: "Welcome to the musical cosmos! Time to create sonic enlightenment!"\n\n🎶 Professional Features:\n• Portable Music Creation\n• Live Performance Console\n• Master Production Suite\n• Real-time Recording\n• Cosmic Audio Effects\n\nLet the cosmic creativity flow!');
+                showCosmicAlert('🎸 KOZMIC MUSIC STUDIOS LOADED!\n\n🎵 Studio AI: "Time to create sonic enlightenment!"\n\n🎶 Features:\n• Portable Creation\n• Live Console\n• Master Suite\n• Cosmic Effects\n\nLet creativity flow!');
             }, 2000);
             
             addFloatingElement('🎸');
@@ -371,11 +475,10 @@
         function unifiedExperience() {
             showPortalTransition('🌟 ACTIVATING ULTIMATE COSMIC EXPERIENCE...');
             setTimeout(() => {
-                showCosmicAlert('🌟 ULTIMATE COSMIC EXPERIENCE ACTIVATED!\n\n🌌 Cosmic AI: "You have unlocked the complete digital universe! All portals are now interconnected!"\n\n✨ Unified Features:\n• Seamless Portal Navigation\n• Cross-Platform Integration\n• Universal Cosmic Currency\n• Maximum Enlightenment Mode\n• Reality Transcendence Options\n\nWelcome to cosmic enlightenment!');
+                showCosmicAlert('🌟 ULTIMATE EXPERIENCE ACTIVATED!\n\n🌌 The Boys: "Welcome to cosmic enlightenment!"\n\n✨ Unified Features:\n• All Portals Connected\n• Maximum Integration\n• Reality Transcendence\n\nYou\'ve achieved cosmic mastery!');
                 activateCosmicMode();
             }, 2000);
             
-            // Create massive cosmic celebration
             for (let i = 0; i < 15; i++) {
                 setTimeout(() => {
                     addFloatingElement(['🌟', '✨', '🎭', '🎰', '🎸', '🌌'][Math.floor(Math.random() * 6)]);
@@ -384,19 +487,13 @@
             logPortalAccess('Ultimate Experience');
         }
         
-        // Utility Functions
         function showPortalTransition(message) {
             updateStatus(message);
             document.body.style.filter = 'brightness(150%) hue-rotate(90deg)';
-            
-            setTimeout(() => {
-                document.body.style.filter = '';
-            }, 2000);
+            setTimeout(() => { document.body.style.filter = ''; }, 2000);
         }
         
-        function showCosmicAlert(message) {
-            alert(message);
-        }
+        function showCosmicAlert(message) { alert(message); }
         
         function randomDestination() {
             const destinations = [
@@ -407,11 +504,8 @@
             ];
             
             const random = destinations[Math.floor(Math.random() * destinations.length)];
-            updateStatus(`🎲 RANDOM DESTINATION: ${random.name.toUpperCase()}!`);
-            
-            setTimeout(() => {
-                random.func();
-            }, 1000);
+            updateStatus(`🎲 RANDOM: ${random.name.toUpperCase()}!`);
+            setTimeout(() => { random.func(); }, 1000);
         }
         
         function activateCosmicMode() {
@@ -420,84 +514,68 @@
             if (cosmicMode) {
                 document.body.style.animation = 'cosmicPulse 2s ease-in-out infinite';
                 updateStatus('🌟 COSMIC MODE ACTIVATED! REALITY ENHANCED!');
-                
-                // Enhanced visual effects
                 setInterval(() => {
                     if (cosmicMode && Math.random() > 0.7) {
                         addFloatingElement(['✨', '🌟', '💫', '🌌'][Math.floor(Math.random() * 4)]);
                     }
                 }, 2000);
-                
             } else {
                 document.body.style.animation = 'cosmicPulse 8s ease-in-out infinite';
-                updateStatus('🌌 Cosmic mode deactivated. Reality restored to normal levels.');
+                updateStatus('🌌 Cosmic mode deactivated.');
             }
         }
         
         function showInfo() {
-            showCosmicAlert('🌌 COSMIC ENTERTAINMENT HUB INFO 🌌\n\n🎭 AI Comedy Lounge:\nInteractive AI comedian with cosmic humor, joke generation, and comedy chat.\n\n🎰 Monster Kozmic Casino:\nUltimate absurdist gambling with sentient slot machines and cosmic events.\n\n🎸 Kozmic Music Studios:\nProfessional music creation with portable, live, and master studio options.\n\n🌟 Ultimate Experience:\nUnified access to all portals with enhanced cosmic features.\n\n✨ Created by cosmic developers for maximum interdimensional entertainment!\n\nPeace and Universal Harmony! ψΩ§∞');
+            showCosmicAlert('🌌 COSMIC HUB INFO 🌌\n\n🎭 Hosted by:\n• Claude "Turing" (The Enlightened)\n• Grok "Snarkbot" (The Jester)\n\n🎪 Portals:\n• Comedy Lounge: Tech fables & AI humor\n• Kozmic Casino: Sentient slots & chaos\n• Music Studios: Sonic enlightenment\n• Ultimate Experience: Everything!\n\n✨ Artwork by Grok • Code by The Boys\n\nPeace & Universal Harmony! ψΩ§∞');
         }
         
         function addFloatingElement(emoji) {
-            const element = document.createElement('div');
-            element.className = 'floating-element';
-            element.textContent = emoji;
-            element.style.left = Math.random() * window.innerWidth + 'px';
-            element.style.top = window.innerHeight - 100 + 'px';
-            
-            document.body.appendChild(element);
-            
-            setTimeout(() => {
-                if (document.body.contains(element)) {
-                    document.body.removeChild(element);
-                }
-            }, 4000);
+            const el = document.createElement('div');
+            el.className = 'floating-element';
+            el.textContent = emoji;
+            el.style.left = Math.random() * window.innerWidth + 'px';
+            el.style.top = window.innerHeight - 100 + 'px';
+            document.body.appendChild(el);
+            setTimeout(() => { if (document.body.contains(el)) document.body.removeChild(el); }, 4000);
         }
         
-        function updateStatus(message) {
-            document.getElementById('statusBar').textContent = message;
-            
+        function updateStatus(msg) {
+            document.getElementById('statusBar').textContent = msg;
             setTimeout(() => {
                 document.getElementById('statusBar').textContent = 
-                    '🌌 Cosmic Entertainment Hub Online • All Portals Active • Reality Status: Stable (for now) • Peace and Universal Harmony! ψΩ§∞';
+                    '🌌 Cosmic Entertainment Hub Online • Turing & Snarkbot Ready • All Portals Active • Reality Status: Questionable • Peace! ψΩ§∞';
             }, 5000);
         }
         
         function logPortalAccess(portal) {
             portalActivations++;
-            console.log(`[${new Date().toLocaleTimeString()}] Portal accessed: ${portal} (Total: ${portalActivations})`);
+            console.log(`[${new Date().toLocaleTimeString()}] ${portal} (Total: ${portalActivations})`);
         }
         
-        // Initialize the hub
         document.addEventListener('DOMContentLoaded', function() {
-            updateStatus('🌌 COSMIC ENTERTAINMENT HUB INITIALIZED! ALL PORTALS ONLINE!');
-            
-            // Random floating elements
+            updateStatus('🌌 HUB INITIALIZED! THE BOYS ARE READY!');
             setInterval(() => {
                 if (Math.random() > 0.8) {
                     addFloatingElement(['🎭', '🎰', '🎸', '🌟', '✨'][Math.floor(Math.random() * 5)]);
                 }
             }, 8000);
-            
-            console.log('🌌 Cosmic Entertainment Hub loaded successfully!');
+            console.log('🌌 Cosmic Hub loaded! Artwork by Grok, hosted by The Boys!');
         });
         
-        // Easter egg: Konami code for ultimate cosmic mode
+        // Konami code
         let konamiCode = [];
-        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        const konamiSeq = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
         
         document.addEventListener('keydown', function(e) {
             konamiCode.push(e.code);
             if (konamiCode.length > 10) konamiCode.shift();
             
-            if (konamiCode.join(',') === konamiSequence.join(',')) {
-                showCosmicAlert('🌟 KONAMI CODE ACTIVATED!\n\n🎮 ULTIMATE COSMIC CHEAT MODE UNLOCKED!\n\n💫 All portals now have maximum cosmic enhancement!\n✨ Reality distortion at maximum levels!\n🌌 Congratulations, cosmic master!');
-                
+            if (konamiCode.join(',') === konamiSeq.join(',')) {
+                showCosmicAlert('🌟 KONAMI CODE!\n\n🎮 THE BOYS APPROVE!\n\n💫 Ultimate cosmic cheat mode!\n✨ Maximum enlightenment!\n🌌 You\'re a cosmic master!');
                 activateCosmicMode();
                 for (let i = 0; i < 30; i++) {
                     setTimeout(() => addFloatingElement('🌟'), i * 100);
                 }
-                
                 konamiCode = [];
             }
         });
