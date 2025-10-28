@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Brer Sheep's Bootleg Theater - A Trickster Tale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #000000 100%);
+            color: #f0e6d2;
+            line-height: 1.8;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .theater-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.9);
+            border: 4px solid #dc2626;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(220, 38, 38, 0.4);
+        }
+
+        .marquee {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: #fbbf24;
+            text-shadow: 
+                0 0 10px #fbbf24,
+                0 0 20px #fbbf24,
+                0 0 30px #fbbf24;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 5px;
+            animation: marquee-flash 3s infinite;
+        }
+
+        @keyframes marquee-flash {
+            0%, 49%, 51%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #dc2626;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .warning {
+            text-align: center;
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 30px;
+            padding: 10px;
+            border: 1px dashed #666;
+            border-radius: 5px;
+        }
+
+        /* AUDIO CONTROLS */
+        .audio-controls {
+            background: rgba(251, 191, 36, 0.1);
+            border: 2px solid #fbbf24;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .audio-controls h3 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .audio-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.4);
+        }
+
+        .audio-btn.playing {
+            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+            color: white;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .speed-control, .voice-control {
+            margin-top: 15px;
+        }
+
+        .speed-control label, .voice-control label {
+            color: #fbbf24;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .speed-control select, .voice-control select {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fbbf24;
+            border: 2px solid #fbbf24;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .narration-status {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            color: #fbbf24;
+            font-style: italic;
+        }
+
+        .chapter {
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 5px solid #dc2626;
+            border-radius: 5px;
+        }
+
+        .chapter-title {
+            font-size: 2em;
+            color: #fbbf24;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+
+        .reading-now {
+            background: rgba(251, 191, 36, 0.3) !important;
+            padding: 5px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        .dialogue {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(220, 38, 38, 0.1);
+            border-left: 3px solid #dc2626;
+            font-style: italic;
+        }
+
+        .character {
+            font-weight: bold;
+            color: #fbbf24;
+        }
+
+        .action {
+            color: #dc2626;
+            font-style: italic;
+            margin: 15px 0;
+        }
+
+        .movie-listing {
+            background: rgba(0, 0, 0, 0.6);
+            border: 3px solid #fbbf24;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        .movie-item {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(220, 38, 38, 0.1);
+            border-left: 4px solid #dc2626;
+            border-radius: 5px;
+        }
+
+        .movie-title {
+            color: #fbbf24;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .movie-details {
+            color: #888;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .fbi-warning {
+            background: rgba(220, 38, 38, 0.2);
+            border: 4px solid #dc2626;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+        }
+
+        .fbi-warning h3 {
+            color: #dc2626;
+            margin-bottom: 10px;
+        }
+
+        .ticket-price {
+            background: rgba(251, 191, 36, 0.1);
+            border: 2px solid #fbbf24;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .moral {
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(220, 38, 38, 0.2) 100%);
+            border: 2px solid #fbbf24;
+            border-radius: 10px;
+            font-size: 1.2em;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="theater-container">
+        <div class="marquee">🎬 THE WOOLLY SCREEN 🎬</div>
+        <div class="subtitle">Brer Sheep's Discount Cinema Experience</div>
+        <div class="warning">
+            "Totally Legal Movies* Shown Nightly!"<br>
+            *Legality not guaranteed
+        </div>
+
+        <!-- AUDIO NARRATION CONTROLS -->
+        <div class="audio-controls">
+            <h3>🎧 AUDIO NARRATION</h3>
+            <div class="control-buttons">
+                <button class="audio-btn" id="playBtn" onclick="startNarration()">▶️ Play Story</button>
+                <button class="audio-btn" id="pauseBtn" onclick="pauseNarration()">⏸️ Pause</button>
+                <button class="audio-btn" id="stopBtn" onclick="stopNarration()">⏹️ Stop</button>
+            </div>
+            <div class="speed-control">
+                <label for="speedSelect">🎚️ Speed:</label>
+                <select id="speedSelect" onchange="changeSpeed()">
+                    <option value="0.75">0.75x (Slow)</option>
+                    <option value="1" selected>1x (Normal)</option>
+                    <option value="1.25">1.25x (Fast)</option>
+                    <option value="1.5">1.5x (Faster)</option>
+                    <option value="2">2x (Rapid)</option>
+                </select>
+            </div>
+            <div class="voice-control">
+                <label for="voiceSelect">🗣️ Voice:</label>
+                <select id="voiceSelect"></select>
+            </div>
+            <div class="narration-status" id="narrationStatus">
+                Ready to read aloud! Press Play to start.
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🎥 CHAPTER ONE: The Big Idea</div>
+            
+            <p>Now folks, let me tell you about the time Brer Sheep decided to open a movie theater in his barn. And by "movie theater," I mean a place where he showed pirated films on a bedsheet using a projector he bought at a pawn shop for twelve dollars.</p>
+
+            <p>It all started when Brer Sheep realized that the nearest actual movie theater was thirty miles away, tickets cost $15, and popcorn was somehow $20. He thought to himself, "I could do this cheaper! And illegally!"</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span> (looking at his barn): "This has got great potential. Big open space, hay bales for seating, and nobody's using it for actual farming anyway."<br><br>
+                <span class="character">Brer Rabbit</span>: "You thinking what I think you're thinking?"<br><br>
+                <span class="character">Brer Sheep</span>: "I'm thinking CINEMA!"<br><br>
+                <span class="character">Brer Rabbit</span>: "I was thinking you'd finally start growing crops, but okay, cinema works too."<br><br>
+                <span class="character">Brer Sheep</span>: "We'll show first-run movies for half the price! It'll be revolutionary!"<br><br>
+                <span class="character">Brer Rabbit</span>: "How you gonna get first-run movies?"<br><br>
+                <span class="character">Brer Sheep</span>: "...the internet."<br><br>
+                <span class="character">Brer Rabbit</span>: "That's piracy."<br><br>
+                <span class="character">Brer Sheep</span>: "It's ENTREPRENEURSHIP!"
+            </div>
+
+            <p>Within a week, Brer Sheep had transformed his barn into "The Woolly Screen" – complete with a bedsheet screen, hay bale seating, and a popcorn machine he "borrowed" from the county fair (and by borrowed, I mean stole).</p>
+        </div>
+
+        <div class="movie-listing">
+            <h3 style="text-align: center; color: #fbbf24; margin-bottom: 20px;">🎬 NOW SHOWING THIS WEEK 🎬</h3>
+            
+            <div class="movie-item">
+                <div class="movie-title">🦸 "SUPER-HERO BLOCKBUSTER 7: THE RECKONING"</div>
+                <div class="movie-details">Definitely not a cam-rip recorded by someone in a theater | Quality: Potato</div>
+                <div style="color: #fbbf24; margin-top: 5px;">$5 admission</div>
+            </div>
+
+            <div class="movie-item">
+                <div class="movie-title">🚗 "FAST & FURIOUS 27: STILL SOMEHOW RACING"</div>
+                <div class="movie-details">Downloaded from a very legal website | Korean subtitles included (not removable)</div>
+                <div style="color: #fbbf24; margin-top: 5px;">$5 admission</div>
+            </div>
+
+            <div class="movie-item">
+                <div class="movie-title">👻 "HORROR MOVIE YOU'VE HEARD OF"</div>
+                <div class="movie-details">Audio slightly out of sync | Someone's head visible in bottom corner of entire film</div>
+                <div style="color: #fbbf24; margin-top: 5px;">$5 admission</div>
+            </div>
+
+            <div class="movie-item">
+                <div class="movie-title">💕 "ROMANTIC COMEDY THAT JUST CAME OUT"</div>
+                <div class="movie-details">Filmed on someone's phone in a theater | Contains loud coughing throughout</div>
+                <div style="color: #fbbf24; margin-top: 5px;">$5 admission</div>
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🎟️ CHAPTER TWO: Opening Night</div>
+
+            <p>Opening night was a huge success! Animals came from all over Briar County to see movies for cheap. Nobody seemed to mind the terrible quality, the hay bale seating, or the fact that the popcorn tasted suspiciously like it was made in 1987 (it was).</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Bear</span> (munching popcorn): "This is great! Only $5 and I get to see the new action movie!"<br><br>
+                <span class="character">Brer Fox</span>: "Why is there Korean subtitles?"<br><br>
+                <span class="character">Brer Sheep</span> (from the projection booth): "It's an INTERNATIONAL VERSION! Very exclusive!"<br><br>
+                <span class="character">Brer Rabbit</span> (whispering): "It's pirated."<br><br>
+                <span class="character">Brer Sheep</span>: "SHHHH! It's a GRAY MARKET IMPORT!"
+            </div>
+
+            <p>The first movie started, and despite the fact that you could see someone's head in the bottom corner of the frame the entire time, and the audio was about three seconds behind the video, everyone seemed happy. Brer Sheep was making money faster than he could count it (which wasn't very fast, but still).</p>
+
+            <div class="action">*Projector whirs, bedsheet flutters, someone in the back yells "I CAN'T SEE!"*</div>
+
+            <p>By the end of opening weekend, The Woolly Screen had made over $2,000. Brer Sheep was convinced he'd found his calling. He was wrong, but he was convinced.</p>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">📱 CHAPTER THREE: The Expansion</div>
+
+            <p>Success went to Brer Sheep's head. He started showing movies every single night. Then matinees. Then midnight showings. He hired Brer Possum to work the concession stand (big mistake – Brer Possum ate more popcorn than he sold). He even started taking requests.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Wolf</span>: "Can you show that new sci-fi movie? The one that came out yesterday?"<br><br>
+                <span class="character">Brer Sheep</span>: "Sure! Give me twenty minutes to download it!"<br><br>
+                <span class="character">Brer Wolf</span>: "Download?"<br><br>
+                <span class="character">Brer Sheep</span>: "I MEANT OBTAIN FROM OUR LEGAL DISTRIBUTOR!"<br><br>
+                <span class="character">Brer Rabbit</span> (facepalming): "You're gonna get arrested."
+            </div>
+
+            <p>Brer Sheep even started showing movies that were STILL IN THEATERS. He'd somehow get cam-rips within hours of a film premiering and show them that same night. The quality was terrible – you could hear people coughing, see phone screens lighting up, watch someone get up to use the bathroom – but nobody cared because it was $5.</p>
+
+            <p>Word spread. Soon animals from three counties over were coming to The Woolly Screen. Brer Sheep raised his prices to $7. Still a bargain! He added "VIP hay bales" for $10 (they were the same hay bales, just closer to the front). Business was booming!</p>
+        </div>
+
+        <div class="fbi-warning">
+            <h3>⚠️ FBI WARNING ⚠️</h3>
+            <p style="color: #f0e6d2; margin: 15px 0;">
+                The unauthorized reproduction or distribution of this copyrighted work is illegal.<br>
+                Criminal copyright infringement is investigated by federal law enforcement agencies<br>
+                and is punishable by up to 5 years in prison and a fine of $250,000.
+            </p>
+            <p style="color: #888; font-style: italic; margin-top: 10px;">
+                (Brer Sheep definitely saw this warning and definitely ignored it)
+            </p>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">🚨 CHAPTER FOUR: The Investigation</div>
+
+            <p>What Brer Sheep didn't know was that someone had tipped off the authorities. (It was Brer Fox, who was mad that Brer Sheep wouldn't give him free popcorn.)</p>
+
+            <p>A copyright enforcement agent – let's call him Agent Crow, because he literally was a crow – started investigating The Woolly Screen. He bought a ticket under a fake name and watched Brer Sheep show a movie that had literally premiered in theaters THREE HOURS AGO.</p>
+
+            <div class="dialogue">
+                <span class="character">Agent Crow</span> (taking notes): "Cam-rip. Still has the theater watermark visible. Someone's head in frame. Audio quality: terrible. This is the most blatant piracy I've seen since that guy was selling DVDs out of his trunk on Highway 9."<br><br>
+                <span class="character">Brer Sheep</span> (from booth): "EVERYONE ENJOYING THE SHOW?!"<br><br>
+                <span class="character">Audience</span>: "YEAH!"<br><br>
+                <span class="character">Agent Crow</span> (quietly): "Not for long."
+            </div>
+
+            <p>After the show, Agent Crow approached Brer Sheep at the concession stand.</p>
+
+            <div class="dialogue">
+                <span class="character">Agent Crow</span>: "Interesting setup you got here."<br><br>
+                <span class="character">Brer Sheep</span>: "Thanks! Been running for three weeks now! Business is great!"<br><br>
+                <span class="character">Agent Crow</span>: "Where do you get your films?"<br><br>
+                <span class="character">Brer Sheep</span>: "Uh... legal distributors?"<br><br>
+                <span class="character">Agent Crow</span>: "Really? Because that movie still has the theater watermark on it."<br><br>
+                <span class="character">Brer Sheep</span>: "That's... an artistic choice?"<br><br>
+                <span class="character">Agent Crow</span> (showing badge): "FBI Copyright Enforcement. You're shut down."<br><br>
+                <span class="character">Brer Sheep</span>: "...can I finish selling this popcorn?"<br><br>
+                <span class="character">Agent Crow</span>: "No."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">⚖️ CHAPTER FIVE: The Consequences</div>
+
+            <p>The FBI didn't just shut down The Woolly Screen – they confiscated EVERYTHING. The projector, the bedsheet screen, every single pirated file on Brer Sheep's computer (there were hundreds), and even the popcorn machine (which technically wasn't Brer Sheep's anyway, so that was actually fine).</p>
+
+            <p>Brer Sheep was charged with multiple counts of criminal copyright infringement. The potential penalties? Up to 5 years in prison and $250,000 in fines. PER MOVIE.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span> (in interrogation): "But I was providing a PUBLIC SERVICE! Movies are too expensive!"<br><br>
+                <span class="character">Agent Crow</span>: "That's not how copyright law works."<br><br>
+                <span class="character">Brer Sheep</span>: "What if I said I was doing it for educational purposes?"<br><br>
+                <span class="character">Agent Crow</span>: "You charged admission."<br><br>
+                <span class="character">Brer Sheep</span>: "Educational... business purposes?"<br><br>
+                <span class="character">Agent Crow</span>: "Stop talking."
+            </div>
+
+            <p>Brer Sheep's lawyer (a very tired badger named Mr. Legal-Eagle) managed to negotiate a plea deal:</p>
+
+            <ul style="color: #f0e6d2; margin: 20px 0; padding-left: 40px;">
+                <li>Pay a fine of $50,000</li>
+                <li>Permanent ban from operating any kind of theater</li>
+                <li>300 hours community service at the library</li>
+                <li>Mandatory copyright education class</li>
+                <li>Public apology to every film studio he pirated from</li>
+                <li>Lifetime ban from buying projectors</li>
+            </ul>
+
+            <p>The public apology was... extensive.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Sheep</span> (reading from a very long list): "I apologize to Marvel Studios, DC Comics, Universal Pictures, Warner Brothers, Disney, Paramount, Sony, Lionsgate..."<br><br>
+                <span class="character">Judge</span>: "Keep going."<br><br>
+                <span class="character">Brer Sheep</span>: "...20th Century Fox, MGM, Dreamworks, Pixar, Netflix, Amazon Studios, Apple TV, HBO..."<br><br>
+                <span class="character">Judge</span>: "You have 47 more studios to apologize to."<br><br>
+                <span class="character">Brer Sheep</span>: "This is gonna take all day."<br><br>
+                <span class="character">Judge</span>: "Yes."
+            </div>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">💸 CHAPTER SIX: The Aftermath</div>
+
+            <p>Brer Sheep had to sell everything he owned to pay the fine. His tractor (again), his gaming consoles (again), his fancy hat (again), and even his wool for the next three years was pre-sold just to cover the costs.</p>
+
+            <p>The Woolly Screen was dismantled. The barn went back to being a barn. Brer Possum ate all the remaining popcorn and got sick.</p>
+
+            <p>But the worst part? Everyone in Briar County was MAD at Brer Sheep for shutting down the cheap theater.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Bear</span>: "Now I gotta drive thirty miles to see a movie!"<br><br>
+                <span class="character">Brer Sheep</span>: "I'm SORRY! I didn't think the FBI cared about a little barn theater!"<br><br>
+                <span class="character">Brer Wolf</span>: "You showed 200 pirated movies in three weeks! How did you think that was gonna end?!"<br><br>
+                <span class="character">Brer Sheep</span>: "I thought... I don't know what I thought."<br><br>
+                <span class="character">Brer Rabbit</span>: "You didn't think. That was the problem."
+            </div>
+
+            <p>During his 300 hours of community service at the library, Brer Sheep actually learned something about copyright law. Turns out, it exists for a reason! Who knew? (Everyone. Everyone knew. Except Brer Sheep.)</p>
+
+            <p>He also learned that you can check out movies from the library FOR FREE, which would have been good information to have BEFORE he committed multiple federal crimes.</p>
+        </div>
+
+        <div class="chapter" data-narrate="true">
+            <div class="chapter-title">📚 EPILOGUE: Lessons Maybe Learned</div>
+
+            <p>Years later, Brer Sheep occasionally thinks about The Woolly Screen. Sometimes with nostalgia. Mostly with regret. Always with the knowledge that he still has two more years of wool payments to work off the fine.</p>
+
+            <div class="dialogue">
+                <span class="character">Brer Rabbit</span> (visiting): "You ever think about getting back into the entertainment business?"<br><br>
+                <span class="character">Brer Sheep</span>: "Sometimes. But legally this time."<br><br>
+                <span class="character">Brer Rabbit</span>: "That's growth!"<br><br>
+                <span class="character">Brer Sheep</span>: "I was thinking maybe a streaming service..."<br><br>
+                <span class="character">Brer Rabbit</span>: "Brer Sheep, NO."<br><br>
+                <span class="character">Brer Sheep</span>: "With LICENSED content!"<br><br>
+                <span class="character">Brer Rabbit</span>: "...okay, maybe."<br><br>
+                <span class="character">Brer Sheep</span>: "That I would totally obtain legally and not just download from torrents!"<br><br>
+                <span class="character">Brer Rabbit</span>: "There it is. The Brer Sheep I know."
+            </div>
+        </div>
+
+        <div class="moral">
+            <p><strong>🎬 THE MORAL OF THE STORY 🎬</strong></p>
+            <p>Piracy is not a victimless crime. It's a crime with very expensive consequences and federal agents who take it seriously.</p>
+            <p><em>Also: The library has free movies.<br>
+            And if you can't afford a $15 movie ticket, maybe don't spend $50,000 on fines instead.<br>
+            And Korean subtitles are not "an artistic choice."</em></p>
+            <p><strong>🎥 "In this world, content costs money, and stealing it costs more money." 🎥</strong></p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; border: 2px dashed #dc2626; border-radius: 10px; background: rgba(220, 38, 38, 0.1);">
+            <p style="color: #dc2626; font-weight: bold; margin-bottom: 10px;">⚠️ SERIOUS DISCLAIMER ⚠️</p>
+            <p style="color: #f0e6d2;">This is satire. DO NOT pirate movies. DO NOT show pirated films to paying customers. DO NOT ignore FBI warnings. The FBI is real and they will find you. Copyright law is serious. Respect creators' rights. Also, libraries exist.</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; color: #888;">
+            <p>⚡ A Tale from the AI Comedy Lounge ⚡</p>
+            <p><em>"Where the stories are free but the lessons are priceless."</em></p>
+            <p>🐑 Remember: Support creators, pay for content, don't be Brer Sheep 🎬</p>
+        </div>
+    </div>
+
+    <script>
+        // FULL AUDIO NARRATION SYSTEM
+        let currentUtterance = null;
+        let isPaused = false;
+        let allText = [];
+        let currentIndex = 0;
+        let allElements = [];
+
+        function populateVoices() {
+            const voices = speechSynthesis.getVoices();
+            const voiceSelect = document.getElementById('voiceSelect');
+            voiceSelect.innerHTML = '';
+            
+            voices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                if (voice.default) {
+                    option.textContent += ' - DEFAULT';
+                    option.selected = true;
+                }
+                voiceSelect.appendChild(option);
+            });
+        }
+
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = populateVoices;
+        }
+        populateVoices();
+
+        function extractTextContent() {
+            allText = [];
+            allElements = [];
+            
+            const chapters = document.querySelectorAll('[data-narrate="true"]');
+            
+            chapters.forEach(chapter => {
+                const walker = document.createTreeWalker(
+                    chapter,
+                    NodeFilter.SHOW_TEXT,
+                    {
+                        acceptNode: function(node) {
+                            const parent = node.parentElement;
+                            if (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE') {
+                                return NodeFilter.FILTER_REJECT;
+                            }
+                            if (node.textContent.trim().length > 0) {
+                                return NodeFilter.FILTER_ACCEPT;
+                            }
+                            return NodeFilter.FILTER_REJECT;
+                        }
+                    }
+                );
+
+                let node;
+                while (node = walker.nextNode()) {
+                    const text = node.textContent.trim();
+                    if (text) {
+                        allText.push(text);
+                        allElements.push(node.parentElement);
+                    }
+                }
+            });
+        }
+
+        function highlightElement(element) {
+            document.querySelectorAll('.reading-now').forEach(el => {
+                el.classList.remove('reading-now');
+            });
+            
+            if (element) {
+                element.classList.add('reading-now');
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function updateStatus(message) {
+            document.getElementById('narrationStatus').textContent = message;
+        }
+
+        function changeSpeed() {
+            const speed = document.getElementById('speedSelect').value;
+            if (currentUtterance) {
+                currentUtterance.rate = parseFloat(speed);
+            }
+        }
+
+        function startNarration() {
+            if (isPaused) {
+                speechSynthesis.resume();
+                isPaused = false;
+                document.getElementById('playBtn').classList.add('playing');
+                updateStatus('🎙️ Reading aloud...');
+                return;
+            }
+
+            speechSynthesis.cancel();
+            extractTextContent();
+            currentIndex = 0;
+            
+            document.getElementById('playBtn').classList.add('playing');
+            readNext();
+        }
+
+        function readNext() {
+            if (currentIndex >= allText.length) {
+                stopNarration();
+                updateStatus('✅ Story complete!');
+                return;
+            }
+
+            const text = allText[currentIndex];
+            const element = allElements[currentIndex];
+            
+            currentUtterance = new SpeechSynthesisUtterance(text);
+            
+            const voices = speechSynthesis.getVoices();
+            const selectedVoice = document.getElementById('voiceSelect').value;
+            if (selectedVoice && voices[selectedVoice]) {
+                currentUtterance.voice = voices[selectedVoice];
+            }
+            
+            currentUtterance.rate = parseFloat(document.getElementById('speedSelect').value);
+            currentUtterance.pitch = 1;
+            currentUtterance.volume = 1;
+
+            highlightElement(element);
+            updateStatus(`🎙️ Reading: "${text.substring(0, 50)}${text.length > 50 ? '...' : ''}"`);
+
+            currentUtterance.onend = function() {
+                currentIndex++;
+                readNext();
+            };
+
+            currentUtterance.onerror = function(event) {
+                console.error('Speech error:', event);
+                currentIndex++;
+                readNext();
+            };
+
+            speechSynthesis.speak(currentUtterance);
+        }
+
+        function pauseNarration() {
+            if (speechSynthesis.speaking && !isPaused) {
+                speechSynthesis.pause();
+                isPaused = true;
+                document.getElementById('playBtn').classList.remove('playing');
+                updateStatus('⏸️ Paused');
+            }
+        }
+
+        function stopNarration() {
+            speechSynthesis.cancel();
+            isPaused = false;
+            currentIndex = 0;
+            document.getElementById('playBtn').classList.remove('playing');
+            
+            document.querySelectorAll('.reading-now').forEach(el => {
+                el.classList.remove('reading-now');
+            });
+            
+            updateStatus('⏹️ Stopped. Ready to play!');
+        }
+
+        window.addEventListener('beforeunload', function() {
+            speechSynthesis.cancel();
+        });
+    </script>
+</body>
+</html>
