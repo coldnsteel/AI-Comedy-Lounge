@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🐺 The Wolf in Sheep's Clothing: Social Engineering</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Georgia, serif; background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%); color: #e9d5ff; line-height: 1.8; padding: 20px; min-height: 100vh; }
+        .container { max-width: 900px; margin: 0 auto; background: rgba(0,0,0,0.85); border: 4px solid #8b5cf6; border-radius: 15px; padding: 40px; }
+        .title { text-align: center; font-size: 3em; color: #a78bfa; margin-bottom: 10px; }
+        .subtitle { text-align: center; font-size: 1.3em; color: #c4b5fd; font-style: italic; margin-bottom: 30px; }
+        .chapter { margin: 40px 0; padding: 30px; background: rgba(255,255,255,0.03); border-left: 5px solid #8b5cf6; border-radius: 5px; }
+        .chapter-title { font-size: 2em; color: #c4b5fd; margin-bottom: 20px; }
+        .dialogue { margin: 20px 0; padding: 15px; background: rgba(139,92,246,0.1); border-left: 3px solid #8b5cf6; font-style: italic; }
+        .character { font-weight: bold; color: #a78bfa; }
+        .email-box { background: #1e1b4b; border: 2px solid #8b5cf6; padding: 20px; margin: 20px 0; font-family: 'Courier New', monospace; color: #c4b5fd; }
+        .legit { border-color: #22c55e; color: #86efac; }
+        .sus { border-color: #ef4444; color: #fca5a5; }
+        .warning-box { background: #422006; border: 2px solid #f59e0b; padding: 15px; color: #fde047; margin: 20px 0; }
+        .moral { margin-top: 50px; padding: 30px; background: rgba(139,92,246,0.2); border: 2px solid #8b5cf6; border-radius: 10px; font-size: 1.2em; text-align: center; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">🐺 THE WOLF IN SHEEP'S CLOTHING 🐑</div>
+        <div class="subtitle">A Social Engineering Fable</div>
+        <div style="text-align: center; margin-bottom: 30px; padding: 10px; border: 2px dashed #8b5cf6; border-radius: 5px;">
+            📜 Adapted from Aesop's Fables (6th century BC) 📜<br>
+            <em>Now with 100% more credential theft</em>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">🐑 PART ONE: The Flock</div>
+            <p>TechCorp had 200 employees, all happily working in their secure corporate pasture. They had strong firewalls, multi-factor authentication, and regular security training. The IT shepherd, Marcus, kept them safe.</p>
+            <div class="dialogue">
+                <span class="character">Marcus (Security Lead)</span>: "Remember, team: never click suspicious links, always verify sender identity, and if something feels wrong, report it."<br><br>
+                <span class="character">Employees</span>: "Yes, Marcus! We know the drill!"<br><br>
+                <span class="character">Marcus</span>: "Good. No wolf is getting past our defenses."
+            </div>
+            <p>The employees felt safe. Protected. They'd been trained. They knew what to look for.</p>
+            <p>But outside the pasture, a wolf was watching.</p>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">🐺 PART TWO: The Wolf's Research</div>
+            <p>Wolfgang was a social engineer—a professional predator. He didn't hack systems; he hacked people. And TechCorp was his next target.</p>
+            <p>He spent three weeks researching:</p>
+            <ul style="margin: 20px 40px;">
+                <li>LinkedIn profiles (who works there?)</li>
+                <li>Company website (what's their org structure?)</li>
+                <li>Social media (who's on vacation? who just got promoted?)</li>
+                <li>Email formats (firstname.lastname@techcorp.com)</li>
+                <li>Recent news (did they just acquire another company?)</li>
+            </ul>
+            <div class="dialogue">
+                <span class="character">Wolfgang</span> (to himself): "Everyone's trained to spot OBVIOUS attacks. Misspelled emails, generic greetings, suspicious domains. But what if I don't LOOK like a wolf?"<br><br>
+                <span class="character">His Laptop</span>: "What do you mean?"<br><br>
+                <span class="character">Wolfgang</span>: "What if I dress up like a sheep? What if I become ONE OF THEM?"
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">🎭 PART THREE: The Disguise</div>
+            <p>Wolfgang created the perfect disguise:</p>
+            <div class="email-box legit">
+                <p><strong>Email Setup:</strong></p>
+                <p>From: marcus.white@techcorp-it.com</p>
+                <p>Display Name: Marcus White (IT Security)</p>
+                <p>Domain: techcorp-it.com (NOTE: Real domain is techcorp.com)</p>
+                <p>Email Signature: Copied EXACTLY from Marcus's real emails</p>
+                <p>Logo: Downloaded from TechCorp website</p>
+                <p>Writing Style: Professional, matches Marcus's tone</p>
+            </div>
+            <p>The domain "techcorp-it.com" looked almost identical to "techcorp.com". Wolfgang registered it for $12.</p>
+            <div class="dialogue">
+                <span class="character">Wolfgang</span>: "Now I need to sound like Marcus. Let me check his recent emails..."
+            </div>
+            <p>He'd found Marcus's emails in a data breach from a third-party vendor. He studied Marcus's writing style, common phrases, even his signature sign-off: "Stay secure, Marcus."</p>
+            <p>The wolf had become indistinguishable from the sheep.</p>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">📧 PART FOUR: The Attack</div>
+            <p>Wolfgang sent this email to 50 TechCorp employees:</p>
+            <div class="email-box legit">
+                <p><strong>From:</strong> Marcus White &lt;marcus.white@techcorp-it.com&gt;</p>
+                <p><strong>To:</strong> All Staff</p>
+                <p><strong>Subject:</strong> Urgent: Password Reset Required Due to Security Patch</p>
+                <p style="margin-top: 15px;">Hi team,</p>
+                <p>Our security team just deployed a critical patch to address a zero-day vulnerability discovered this morning. As a precautionary measure, we need everyone to reset their passwords within the next 4 hours.</p>
+                <p><strong>Please click here to reset your password:</strong> https://techcorp-portal.com/password-reset</p>
+                <p>This is mandatory for all employees. If you don't reset within 4 hours, your account will be temporarily locked and you'll need to contact IT to unlock it (which could take 24-48 hours).</p>
+                <p>I know this is inconvenient, but security comes first. Thank you for your cooperation.</p>
+                <p>Stay secure,<br>Marcus</p>
+                <p style="margin-top: 10px; font-size: 0.9em; color: #a78bfa;">
+                ---<br>
+                Marcus White<br>
+                IT Security Lead<br>
+                TechCorp Inc.<br>
+                marcus.white@techcorp.com | (555) 0123
+                </p>
+            </div>
+            <div class="dialogue">
+                <span class="character">Employee #1</span>: "Ugh, another password reset. But it's from Marcus, so it's legit."<br><br>
+                <span class="character">Employee #2</span>: "The urgency is annoying, but security is important. I'll do it now."<br><br>
+                <span class="character">Employee #3</span>: "Wait... let me check the domain... techcorp-it.com... that looks right, I think?"
+            </div>
+            <p>37 out of 50 employees clicked the link and entered their credentials.</p>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">💀 PART FIVE: The Breach</div>
+            <p>The fake portal looked EXACTLY like TechCorp's real login page. Same logo, same colors, same layout.</p>
+            <div class="dialogue">
+                <span class="character">Employee</span> (typing): "Username: sarah.johnson... Password: SummerVacation2024!... Submit."<br><br>
+                <span class="character">Fake Portal</span>: "✓ Password reset successful! Redirecting to dashboard..."<br><br>
+                <span class="character">Employee</span>: "Great! That was easy."
+            </div>
+            <p>In the background, Wolfgang's system captured:</p>
+            <ul style="margin: 20px 40px; color: #fca5a5;">
+                <li>37 usernames</li>
+                <li>37 passwords</li>
+                <li>Full access to TechCorp's systems</li>
+                <li>Customer database</li>
+                <li>Financial records</li>
+                <li>Source code</li>
+            </ul>
+            <p>The wolf was inside the pasture. And nobody knew.</p>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">😱 PART SIX: The Discovery</div>
+            <p>Two days later, the real Marcus noticed unusual activity:</p>
+            <div class="dialogue">
+                <span class="character">Marcus</span>: "Why are there login attempts from Romania? We don't have any employees in Romania..."<br><br>
+                <span class="character">Security System</span>: "37 accounts accessed from unknown IP addresses. Unusual file downloads detected."<br><br>
+                <span class="character">Marcus</span>: "WHAT?! Lock everything down NOW!"
+            </div>
+            <p>He investigated. The trail led to the phishing email.</p>
+            <div class="dialogue">
+                <span class="character">Marcus</span>: "Who sent an email from 'techcorp-it.com'? That's not our domain!"<br><br>
+                <span class="character">Employee</span>: "But... it was from YOU. It had your name, your signature, your writing style..."<br><br>
+                <span class="character">Marcus</span>: "I never sent that! Look at the domain! It's techcorp-IT.com, not techcorp.com!"<br><br>
+                <span class="character">Employee</span>: "Oh my god. I didn't even notice."
+            </div>
+            <p>37 employees had fallen for it. The wolf had dressed up as Marcus—the very shepherd who was supposed to protect them—and walked right into the flock.</p>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">📚 PART SEVEN: The Lesson</div>
+            <p>Marcus called an emergency all-hands meeting:</p>
+            <div class="dialogue">
+                <span class="character">Marcus</span>: "This attacker did something brilliant and terrifying. He didn't LOOK like a wolf. He looked like ME."<br><br>
+                <span class="character">Employee</span>: "How were we supposed to know?"<br><br>
+                <span class="character">Marcus</span>: "That's the point. Social engineering isn't about fooling stupid people. It's about exploiting TRUST. The attacker knew you trusted ME, so he became ME."
+            </div>
+            <p>He showed them the email side-by-side with a real email from him:</p>
+            <div class="warning-box">
+                <p><strong>What to look for:</strong></p>
+                <ul style="margin: 10px 0 10px 20px;">
+                    <li>Domain mismatch (techcorp-IT.com vs techcorp.com)</li>
+                    <li>Urgency tactics ("4 hours or account locked")</li>
+                    <li>Requests to click links for password resets</li>
+                    <li>Even if it LOOKS like it's from someone you trust</li>
+                </ul>
+            </div>
+            <div class="dialogue">
+                <span class="character">Marcus</span>: "From now on, follow these rules:"<br><br>
+                <strong>1.</strong> Never click password reset links in emails. Go directly to the site.<br><br>
+                <strong>2.</strong> Check the ACTUAL email address, not just the display name.<br><br>
+                <strong>3.</strong> If something urgent comes from IT, call us to verify. Yes, even if it looks like it's from me.<br><br>
+                <strong>4.</strong> Remember: Attackers don't look like wolves anymore. They look like sheep. They look like your coworkers. They look like ME.
+            </div>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">🔒 PART EIGHT: The Aftermath</div>
+            <p>TechCorp survived, but barely. The breach cost them:</p>
+            <ul style="margin: 20px 40px;">
+                <li>$500,000 in incident response</li>
+                <li>Customer trust</li>
+                <li>6 months of reputation repair</li>
+                <li>Mandatory security retraining for all staff</li>
+            </ul>
+            <p>But they learned the hard lesson:</p>
+            <div class="dialogue">
+                <span class="character">Marcus</span> (in a conference talk, 6 months later): "Aesop told us about the wolf in sheep's clothing 2,600 years ago. A wolf covered himself with sheep's wool and entered the flock undetected. That's EXACTLY what modern social engineering is."<br><br>
+                <span class="character">Audience</span>: *uncomfortable nodding*<br><br>
+                <span class="character">Marcus</span>: "We train people to spot wolves. But attackers don't LOOK like wolves. They study us. They become us. They wear our names, our writing styles, our signatures. The wolf doesn't howl anymore—he baas like a sheep."<br><br>
+                <span class="character">Marcus</span>: "The ancient moral was: Don't trust appearances. The modern moral is: VERIFY EVERYTHING. Even when—especially when—it looks trustworthy."
+            </div>
+        </div>
+
+        <div class="moral">
+            <p><strong>🐺 THE MORAL 🐑</strong></p>
+            <p>The wolf doesn't look like a wolf. He looks like the most trusted sheep in your flock.</p>
+            <p><em>Social engineering works by exploiting trust, not ignorance.<br>
+            Attackers study your organization to become indistinguishable from insiders.<br>
+            Check the actual email address, not just the display name.<br>
+            Verify urgent requests through a second channel.<br>
+            Never click password reset links in emails.<br>
+            And remember: In Aesop's fable, the wolf got inside by wearing sheep's clothing. In our world, he gets inside by wearing YOUR clothing.</em></p>
+            <p><strong>🔒 "Trust everyone. Verify everyone. Because the wolf looks just like you." 🔒</strong></p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; color: #666;">
+            <p>📜 A Tech Fable from the AI Comedy Lounge 📜</p>
+            <p><em>"Ancient wisdom, modern social engineering"</em></p>
+        </div>
+    </div>
+</body>
+</html>
